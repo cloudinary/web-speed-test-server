@@ -1,0 +1,1602 @@
+[
+  {
+    "analyze": {
+      "data": {
+        "bytes": 394755,
+        "format": "png",
+        "color_space": "CMYK",
+        "metadata_bytes": 41528
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Elit aliqua et id non ullamco sint amet cupidatat aliqua incididunt magna.",
+          "value": "B"
+        },
+        "color_space": {
+          "explanation": "Ipsum ea duis commodo esse irure in et officia aliquip cupidatat do dolor ea aliqua.",
+          "value": "F"
+        },
+        "format": {
+          "explanation": "Quis exercitation cillum culpa commodo culpa cupidatat ullamco cupidatat nostrud laboris.",
+          "value": "B"
+        },
+        "fit": {
+          "explanation": "Lorem fugiat est dolore cillum deserunt aliqua voluptate adipisicing ullamco labore dolor laboris id sint.",
+          "value": "E"
+        },
+        "metadata": {
+          "explanation": "Id cillum nostrud enim quis Lorem et irure ex occaecat minim dolore minim.",
+          "value": "F"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 149127,
+        "format": "png",
+        "color_space": "CMYK",
+        "metadata_bytes": 42889
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Amet ad eu irure non eu do laboris ullamco dolor sit laboris.",
+          "value": "C"
+        },
+        "color_space": {
+          "explanation": "Veniam et anim ex laborum in proident commodo dolore.",
+          "value": "B"
+        },
+        "format": {
+          "explanation": "Exercitation tempor cillum anim tempor non dolor deserunt aliqua.",
+          "value": "C"
+        },
+        "fit": {
+          "explanation": "Ut cupidatat anim irure pariatur fugiat enim nostrud mollit ex.",
+          "value": "B"
+        },
+        "metadata": {
+          "explanation": "Ad Lorem laborum in mollit officia in mollit veniam in quis laboris quis.",
+          "value": "A"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 354269,
+        "format": "jpg",
+        "color_space": "RGB",
+        "metadata_bytes": 32831
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Labore ipsum minim excepteur do esse cillum deserunt aute ipsum esse.",
+          "value": "D"
+        },
+        "color_space": {
+          "explanation": "Ut deserunt nostrud dolor ipsum aliqua amet esse enim consectetur do officia sit.",
+          "value": "A"
+        },
+        "format": {
+          "explanation": "Proident culpa aliquip aute cupidatat ullamco tempor Lorem aliqua aute.",
+          "value": "A"
+        },
+        "fit": {
+          "explanation": "Quis ad consectetur labore laborum deserunt ullamco sunt occaecat id ut aliqua et enim do.",
+          "value": "B"
+        },
+        "metadata": {
+          "explanation": "Amet elit nulla consequat deserunt reprehenderit ex nisi aute occaecat aute ut.",
+          "value": "D"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 87753,
+        "format": "jpg",
+        "color_space": "RGB",
+        "metadata_bytes": 39899
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "In irure fugiat veniam adipisicing occaecat reprehenderit in non culpa incididunt excepteur aute.",
+          "value": "E"
+        },
+        "color_space": {
+          "explanation": "Esse in aliqua nulla est pariatur dolor exercitation aliqua culpa.",
+          "value": "B"
+        },
+        "format": {
+          "explanation": "Sunt officia excepteur occaecat aliquip veniam occaecat dolor.",
+          "value": "C"
+        },
+        "fit": {
+          "explanation": "Occaecat id exercitation in dolor.",
+          "value": "E"
+        },
+        "metadata": {
+          "explanation": "Eu consequat sunt mollit consectetur.",
+          "value": "D"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 123498,
+        "format": "jpg",
+        "color_space": "CMYK",
+        "metadata_bytes": 24922
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Esse non ad ex sunt ex quis id aliquip minim fugiat velit officia.",
+          "value": "E"
+        },
+        "color_space": {
+          "explanation": "Pariatur aliqua pariatur Lorem aliquip qui do enim deserunt voluptate nostrud.",
+          "value": "F"
+        },
+        "format": {
+          "explanation": "Dolore enim pariatur ullamco excepteur.",
+          "value": "A"
+        },
+        "fit": {
+          "explanation": "Cillum aliqua tempor nisi duis quis quis exercitation deserunt cillum pariatur tempor irure.",
+          "value": "E"
+        },
+        "metadata": {
+          "explanation": "Laboris cupidatat amet consectetur dolore ullamco irure do.",
+          "value": "B"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 104032,
+        "format": "png",
+        "color_space": "CMYK",
+        "metadata_bytes": 36537
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Aliqua velit anim laborum minim minim officia id nisi consectetur amet officia qui.",
+          "value": "F"
+        },
+        "color_space": {
+          "explanation": "Commodo deserunt ea eu aliqua deserunt excepteur mollit.",
+          "value": "D"
+        },
+        "format": {
+          "explanation": "Anim cupidatat occaecat enim cillum veniam magna anim velit Lorem.",
+          "value": "F"
+        },
+        "fit": {
+          "explanation": "Reprehenderit cillum do reprehenderit sint esse magna id laboris nisi adipisicing in.",
+          "value": "B"
+        },
+        "metadata": {
+          "explanation": "Minim ullamco voluptate qui et adipisicing consectetur laboris ea proident non.",
+          "value": "C"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 182250,
+        "format": "png",
+        "color_space": "RGB",
+        "metadata_bytes": 24890
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Sit id exercitation labore minim ad.",
+          "value": "A"
+        },
+        "color_space": {
+          "explanation": "Ut duis velit cupidatat ea ea do consectetur nostrud sunt aliqua amet Lorem sit.",
+          "value": "F"
+        },
+        "format": {
+          "explanation": "Ex veniam ut cillum do Lorem occaecat officia.",
+          "value": "B"
+        },
+        "fit": {
+          "explanation": "Consectetur aliquip deserunt aute cupidatat cupidatat minim voluptate adipisicing enim sunt.",
+          "value": "E"
+        },
+        "metadata": {
+          "explanation": "Elit eu nisi consectetur commodo duis fugiat dolore minim.",
+          "value": "D"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 468182,
+        "format": "jpg",
+        "color_space": "RGB",
+        "metadata_bytes": 24243
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Qui occaecat aliqua ad ipsum duis est.",
+          "value": "C"
+        },
+        "color_space": {
+          "explanation": "Ut nisi velit sunt exercitation id sunt nulla dolor qui veniam.",
+          "value": "C"
+        },
+        "format": {
+          "explanation": "Et nisi do laborum mollit elit nostrud aute amet.",
+          "value": "A"
+        },
+        "fit": {
+          "explanation": "Consectetur ipsum esse ea culpa.",
+          "value": "A"
+        },
+        "metadata": {
+          "explanation": "Non enim do ad cillum ipsum Lorem id duis ad.",
+          "value": "D"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 381009,
+        "format": "jpg",
+        "color_space": "RGB",
+        "metadata_bytes": 30704
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Sunt cupidatat veniam ut adipisicing excepteur consectetur esse enim nisi irure consequat incididunt sit in.",
+          "value": "B"
+        },
+        "color_space": {
+          "explanation": "Est ad adipisicing ea commodo anim id est magna in qui.",
+          "value": "C"
+        },
+        "format": {
+          "explanation": "Sunt ad pariatur ex enim id ea nulla sit.",
+          "value": "B"
+        },
+        "fit": {
+          "explanation": "Enim sit est anim pariatur velit eiusmod excepteur aliqua cupidatat ad magna.",
+          "value": "E"
+        },
+        "metadata": {
+          "explanation": "In magna duis ea minim elit eu consequat est deserunt.",
+          "value": "D"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 494349,
+        "format": "jpg",
+        "color_space": "CMYK",
+        "metadata_bytes": 23129
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Exercitation officia elit ad dolor sunt laborum esse nisi magna non exercitation occaecat proident.",
+          "value": "F"
+        },
+        "color_space": {
+          "explanation": "Ut et consequat commodo consequat.",
+          "value": "A"
+        },
+        "format": {
+          "explanation": "Anim consectetur sunt tempor consequat velit reprehenderit officia anim magna laboris qui commodo.",
+          "value": "F"
+        },
+        "fit": {
+          "explanation": "Sint irure dolor ut id cupidatat laboris sit adipisicing minim magna consequat aute.",
+          "value": "C"
+        },
+        "metadata": {
+          "explanation": "Ex eu occaecat mollit sit nisi amet incididunt aute adipisicing aute id ad.",
+          "value": "E"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 223237,
+        "format": "jpg",
+        "color_space": "RGB",
+        "metadata_bytes": 40506
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Voluptate sit do reprehenderit et adipisicing nostrud esse amet elit do tempor nisi.",
+          "value": "B"
+        },
+        "color_space": {
+          "explanation": "Esse sunt dolore cupidatat enim laboris.",
+          "value": "E"
+        },
+        "format": {
+          "explanation": "Minim enim adipisicing nisi ut excepteur veniam tempor cupidatat irure cupidatat.",
+          "value": "E"
+        },
+        "fit": {
+          "explanation": "Anim in duis dolore magna nostrud eiusmod.",
+          "value": "A"
+        },
+        "metadata": {
+          "explanation": "Labore nisi nulla non dolor cupidatat ut id nostrud proident enim ipsum ut.",
+          "value": "B"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 130312,
+        "format": "png",
+        "color_space": "CMYK",
+        "metadata_bytes": 24209
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Ea commodo in ut exercitation laboris enim sint.",
+          "value": "C"
+        },
+        "color_space": {
+          "explanation": "Excepteur cillum amet dolore elit minim consectetur consectetur.",
+          "value": "F"
+        },
+        "format": {
+          "explanation": "Duis non minim enim ea cillum ad amet irure.",
+          "value": "D"
+        },
+        "fit": {
+          "explanation": "Amet ad tempor reprehenderit Lorem labore culpa excepteur laborum minim officia.",
+          "value": "D"
+        },
+        "metadata": {
+          "explanation": "Do quis laborum deserunt sint duis fugiat pariatur anim cillum incididunt qui eu eu ullamco.",
+          "value": "F"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 421208,
+        "format": "png",
+        "color_space": "RGB",
+        "metadata_bytes": 46380
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Duis tempor laboris ex eu dolore eu cillum dolor laborum in amet incididunt nulla dolor.",
+          "value": "B"
+        },
+        "color_space": {
+          "explanation": "Eiusmod et quis aliquip in duis dolor deserunt ullamco esse pariatur Lorem eiusmod elit.",
+          "value": "B"
+        },
+        "format": {
+          "explanation": "Ullamco nulla sint dolor nisi aute incididunt enim irure culpa aliqua dolore amet.",
+          "value": "B"
+        },
+        "fit": {
+          "explanation": "Non Lorem Lorem est et quis fugiat commodo laboris.",
+          "value": "E"
+        },
+        "metadata": {
+          "explanation": "Do sunt aliquip adipisicing voluptate aute.",
+          "value": "A"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 328095,
+        "format": "jpg",
+        "color_space": "RGB",
+        "metadata_bytes": 48821
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Non in duis officia magna eu fugiat culpa.",
+          "value": "E"
+        },
+        "color_space": {
+          "explanation": "Nulla Lorem aliquip do reprehenderit enim deserunt sint ullamco excepteur irure excepteur pariatur.",
+          "value": "F"
+        },
+        "format": {
+          "explanation": "Consequat enim est voluptate labore nisi consectetur in nulla magna ipsum ut laboris.",
+          "value": "E"
+        },
+        "fit": {
+          "explanation": "Elit minim in deserunt magna do sunt consequat ex in adipisicing tempor incididunt duis.",
+          "value": "B"
+        },
+        "metadata": {
+          "explanation": "Velit in esse voluptate culpa Lorem labore commodo reprehenderit commodo eu tempor amet sit excepteur.",
+          "value": "A"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 175905,
+        "format": "png",
+        "color_space": "RGB",
+        "metadata_bytes": 43537
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Laborum adipisicing sunt ut laborum magna nisi elit aliquip veniam anim mollit qui proident.",
+          "value": "B"
+        },
+        "color_space": {
+          "explanation": "Sunt sunt ex ipsum culpa esse nulla proident mollit aliquip cillum ea elit.",
+          "value": "B"
+        },
+        "format": {
+          "explanation": "Fugiat occaecat ullamco nulla laborum anim.",
+          "value": "D"
+        },
+        "fit": {
+          "explanation": "Mollit minim dolor pariatur mollit ex exercitation.",
+          "value": "A"
+        },
+        "metadata": {
+          "explanation": "Et ad exercitation elit sit et mollit ea ad esse dolor esse.",
+          "value": "E"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 459677,
+        "format": "png",
+        "color_space": "CMYK",
+        "metadata_bytes": 37022
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Do magna voluptate ad ex proident eiusmod exercitation ipsum.",
+          "value": "A"
+        },
+        "color_space": {
+          "explanation": "Ut ad anim aliquip commodo sunt deserunt exercitation ut cupidatat adipisicing.",
+          "value": "D"
+        },
+        "format": {
+          "explanation": "Non quis proident consectetur do aute fugiat labore.",
+          "value": "C"
+        },
+        "fit": {
+          "explanation": "Aliquip do voluptate elit cillum anim ea consequat tempor voluptate id laborum.",
+          "value": "C"
+        },
+        "metadata": {
+          "explanation": "Cupidatat mollit culpa voluptate exercitation nostrud non quis magna aute reprehenderit.",
+          "value": "C"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 265974,
+        "format": "png",
+        "color_space": "CMYK",
+        "metadata_bytes": 41424
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Aute sunt quis amet sint duis do voluptate nulla irure.",
+          "value": "E"
+        },
+        "color_space": {
+          "explanation": "Reprehenderit consequat reprehenderit enim occaecat pariatur esse quis nostrud irure laborum.",
+          "value": "B"
+        },
+        "format": {
+          "explanation": "Occaecat dolore reprehenderit veniam ut ipsum amet excepteur cillum sint reprehenderit deserunt ad non.",
+          "value": "C"
+        },
+        "fit": {
+          "explanation": "Magna et officia nostrud sit anim sunt incididunt minim mollit duis velit enim laboris veniam.",
+          "value": "A"
+        },
+        "metadata": {
+          "explanation": "Occaecat duis incididunt voluptate irure est exercitation ullamco.",
+          "value": "D"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 153082,
+        "format": "jpg",
+        "color_space": "RGB",
+        "metadata_bytes": 38438
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Magna proident voluptate mollit ea ex do incididunt.",
+          "value": "F"
+        },
+        "color_space": {
+          "explanation": "Laboris Lorem ex incididunt duis eiusmod.",
+          "value": "E"
+        },
+        "format": {
+          "explanation": "Cupidatat do elit consequat sit ullamco.",
+          "value": "F"
+        },
+        "fit": {
+          "explanation": "Dolor fugiat exercitation sit est Lorem ut commodo deserunt ut minim.",
+          "value": "D"
+        },
+        "metadata": {
+          "explanation": "Eiusmod pariatur nostrud aliqua dolor.",
+          "value": "B"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 474967,
+        "format": "png",
+        "color_space": "CMYK",
+        "metadata_bytes": 41306
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Incididunt minim sit eiusmod elit est.",
+          "value": "A"
+        },
+        "color_space": {
+          "explanation": "Dolor duis aliquip fugiat ullamco do non quis.",
+          "value": "E"
+        },
+        "format": {
+          "explanation": "Deserunt et magna dolore excepteur culpa nulla sunt anim aute est dolore.",
+          "value": "A"
+        },
+        "fit": {
+          "explanation": "Mollit ea ut irure deserunt sunt sit et duis duis exercitation.",
+          "value": "A"
+        },
+        "metadata": {
+          "explanation": "Proident ullamco aliqua cillum ipsum amet.",
+          "value": "C"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 237843,
+        "format": "png",
+        "color_space": "CMYK",
+        "metadata_bytes": 36344
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Magna consectetur mollit sunt esse officia nisi duis tempor commodo magna.",
+          "value": "A"
+        },
+        "color_space": {
+          "explanation": "Fugiat eiusmod sunt ad reprehenderit non sint exercitation ut eu enim.",
+          "value": "B"
+        },
+        "format": {
+          "explanation": "Labore aliquip ad nostrud irure ut voluptate veniam laborum est amet.",
+          "value": "E"
+        },
+        "fit": {
+          "explanation": "Ad id voluptate id voluptate aliqua pariatur.",
+          "value": "D"
+        },
+        "metadata": {
+          "explanation": "Voluptate quis qui minim consequat veniam consequat.",
+          "value": "F"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 92750,
+        "format": "jpg",
+        "color_space": "RGB",
+        "metadata_bytes": 40016
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Sint sit ipsum occaecat exercitation adipisicing tempor consectetur anim magna incididunt pariatur enim velit magna.",
+          "value": "C"
+        },
+        "color_space": {
+          "explanation": "Elit sit labore esse ex consectetur commodo magna aliqua proident.",
+          "value": "F"
+        },
+        "format": {
+          "explanation": "Do veniam exercitation sunt eu quis eu magna dolore aliqua consectetur aute aliqua ipsum.",
+          "value": "B"
+        },
+        "fit": {
+          "explanation": "Pariatur non pariatur magna magna sit ad mollit irure irure reprehenderit.",
+          "value": "E"
+        },
+        "metadata": {
+          "explanation": "Ullamco sint ullamco cupidatat excepteur Lorem.",
+          "value": "C"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 440714,
+        "format": "png",
+        "color_space": "CMYK",
+        "metadata_bytes": 41820
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Fugiat et adipisicing non consequat nostrud veniam.",
+          "value": "A"
+        },
+        "color_space": {
+          "explanation": "Occaecat ut amet aliqua non esse sint in excepteur sunt quis Lorem.",
+          "value": "B"
+        },
+        "format": {
+          "explanation": "Cillum labore labore esse nisi cupidatat.",
+          "value": "D"
+        },
+        "fit": {
+          "explanation": "Eiusmod dolor velit irure cillum cupidatat elit irure duis fugiat mollit mollit officia reprehenderit.",
+          "value": "C"
+        },
+        "metadata": {
+          "explanation": "Commodo cupidatat laborum culpa laboris commodo et ad eiusmod nulla nostrud cillum.",
+          "value": "D"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 149027,
+        "format": "jpg",
+        "color_space": "RGB",
+        "metadata_bytes": 32375
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Laborum ex consectetur nulla esse nisi.",
+          "value": "C"
+        },
+        "color_space": {
+          "explanation": "Tempor laboris esse eu laborum mollit irure ullamco in.",
+          "value": "B"
+        },
+        "format": {
+          "explanation": "Mollit laborum tempor ut proident nisi elit cillum.",
+          "value": "A"
+        },
+        "fit": {
+          "explanation": "Fugiat velit aliqua exercitation sint cillum exercitation adipisicing voluptate culpa.",
+          "value": "A"
+        },
+        "metadata": {
+          "explanation": "Ipsum tempor laboris mollit id fugiat tempor.",
+          "value": "F"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 160007,
+        "format": "png",
+        "color_space": "CMYK",
+        "metadata_bytes": 43059
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Incididunt do ad sit consectetur Lorem.",
+          "value": "A"
+        },
+        "color_space": {
+          "explanation": "Adipisicing excepteur incididunt ea aute duis incididunt.",
+          "value": "D"
+        },
+        "format": {
+          "explanation": "Occaecat id sunt duis consequat.",
+          "value": "F"
+        },
+        "fit": {
+          "explanation": "Aliqua nulla non reprehenderit ea.",
+          "value": "D"
+        },
+        "metadata": {
+          "explanation": "Proident non dolor labore ad eu esse labore incididunt deserunt officia.",
+          "value": "E"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 414374,
+        "format": "png",
+        "color_space": "RGB",
+        "metadata_bytes": 39885
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Esse commodo fugiat proident minim quis deserunt est occaecat amet eiusmod in labore.",
+          "value": "A"
+        },
+        "color_space": {
+          "explanation": "Cupidatat minim veniam amet minim enim cillum dolore nulla minim aliquip in veniam laborum.",
+          "value": "E"
+        },
+        "format": {
+          "explanation": "Mollit exercitation ex ut est irure mollit enim cupidatat veniam.",
+          "value": "D"
+        },
+        "fit": {
+          "explanation": "Culpa eu qui qui voluptate cupidatat non esse.",
+          "value": "D"
+        },
+        "metadata": {
+          "explanation": "Velit proident aliqua elit incididunt mollit.",
+          "value": "A"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 442169,
+        "format": "png",
+        "color_space": "CMYK",
+        "metadata_bytes": 28959
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Aliquip exercitation consectetur velit et ex nulla ex amet laborum non pariatur.",
+          "value": "F"
+        },
+        "color_space": {
+          "explanation": "Id non ut aliquip elit anim Lorem culpa nisi amet aute veniam nisi dolor.",
+          "value": "D"
+        },
+        "format": {
+          "explanation": "Nostrud tempor ullamco est magna nostrud.",
+          "value": "A"
+        },
+        "fit": {
+          "explanation": "Aute est enim elit officia exercitation quis aliquip commodo aliqua aliquip velit ipsum.",
+          "value": "B"
+        },
+        "metadata": {
+          "explanation": "Officia dolor duis pariatur dolor nisi quis cillum anim.",
+          "value": "F"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 84932,
+        "format": "jpg",
+        "color_space": "RGB",
+        "metadata_bytes": 37430
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Consequat velit irure ad eu.",
+          "value": "B"
+        },
+        "color_space": {
+          "explanation": "Excepteur qui reprehenderit Lorem velit in irure do pariatur sint ipsum sit exercitation.",
+          "value": "B"
+        },
+        "format": {
+          "explanation": "Occaecat id eu id enim.",
+          "value": "A"
+        },
+        "fit": {
+          "explanation": "Do eiusmod cupidatat labore laborum ad voluptate aliqua commodo ut ad nisi consequat do dolor.",
+          "value": "E"
+        },
+        "metadata": {
+          "explanation": "Id culpa exercitation eiusmod ea irure veniam ad non duis ut commodo ex.",
+          "value": "A"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 360524,
+        "format": "png",
+        "color_space": "CMYK",
+        "metadata_bytes": 36466
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Eu excepteur aliqua pariatur ipsum exercitation proident id eiusmod est aliquip irure.",
+          "value": "B"
+        },
+        "color_space": {
+          "explanation": "Qui ipsum ullamco cillum aliqua Lorem laborum elit sit.",
+          "value": "D"
+        },
+        "format": {
+          "explanation": "Consectetur veniam nostrud et ad proident sint ipsum sunt ullamco ad.",
+          "value": "D"
+        },
+        "fit": {
+          "explanation": "Nisi exercitation labore velit duis eu deserunt consequat consequat consectetur ipsum proident id quis.",
+          "value": "E"
+        },
+        "metadata": {
+          "explanation": "In incididunt dolore non enim laboris velit.",
+          "value": "C"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 193118,
+        "format": "png",
+        "color_space": "CMYK",
+        "metadata_bytes": 31898
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Labore excepteur veniam irure ea elit enim.",
+          "value": "B"
+        },
+        "color_space": {
+          "explanation": "Ea tempor dolor in dolore incididunt ullamco elit officia consectetur.",
+          "value": "B"
+        },
+        "format": {
+          "explanation": "Sint do anim nulla proident.",
+          "value": "A"
+        },
+        "fit": {
+          "explanation": "Duis consequat in officia ad esse incididunt pariatur proident in nisi.",
+          "value": "F"
+        },
+        "metadata": {
+          "explanation": "Aliquip ut aute tempor pariatur qui fugiat Lorem ea ad aute cillum ex proident do.",
+          "value": "E"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 316965,
+        "format": "jpg",
+        "color_space": "CMYK",
+        "metadata_bytes": 24870
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Ex qui voluptate aliquip ipsum ipsum ullamco veniam in exercitation.",
+          "value": "D"
+        },
+        "color_space": {
+          "explanation": "Eu ullamco exercitation ex culpa eiusmod.",
+          "value": "D"
+        },
+        "format": {
+          "explanation": "Quis incididunt aute elit consectetur excepteur enim occaecat.",
+          "value": "E"
+        },
+        "fit": {
+          "explanation": "Fugiat consectetur adipisicing veniam ea magna.",
+          "value": "D"
+        },
+        "metadata": {
+          "explanation": "Id fugiat occaecat velit officia tempor magna nisi.",
+          "value": "C"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 480113,
+        "format": "png",
+        "color_space": "CMYK",
+        "metadata_bytes": 41203
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Eiusmod ea ea in ad esse eiusmod deserunt commodo et.",
+          "value": "C"
+        },
+        "color_space": {
+          "explanation": "Consequat pariatur eu cupidatat mollit cillum eiusmod aliqua laborum reprehenderit duis.",
+          "value": "F"
+        },
+        "format": {
+          "explanation": "Officia tempor qui ullamco eiusmod aute laboris anim.",
+          "value": "E"
+        },
+        "fit": {
+          "explanation": "Eiusmod exercitation minim est qui incididunt cillum.",
+          "value": "C"
+        },
+        "metadata": {
+          "explanation": "Laboris sunt et nostrud deserunt quis tempor aliquip minim amet proident laboris irure.",
+          "value": "D"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 231437,
+        "format": "jpg",
+        "color_space": "RGB",
+        "metadata_bytes": 23657
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Qui quis ea proident enim duis ex.",
+          "value": "E"
+        },
+        "color_space": {
+          "explanation": "Consequat voluptate eiusmod do id minim ipsum commodo et adipisicing eu culpa aute fugiat.",
+          "value": "F"
+        },
+        "format": {
+          "explanation": "Sunt eiusmod pariatur et qui tempor excepteur labore amet.",
+          "value": "E"
+        },
+        "fit": {
+          "explanation": "Cillum laboris exercitation cillum laborum sit fugiat anim pariatur amet nulla culpa ipsum.",
+          "value": "A"
+        },
+        "metadata": {
+          "explanation": "Irure duis pariatur dolor ea anim Lorem quis dolore exercitation.",
+          "value": "F"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 466201,
+        "format": "jpg",
+        "color_space": "CMYK",
+        "metadata_bytes": 21776
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Non laborum in quis ad qui dolore quis velit nisi consectetur elit amet occaecat consectetur.",
+          "value": "B"
+        },
+        "color_space": {
+          "explanation": "Consectetur fugiat dolor in anim dolor ullamco.",
+          "value": "E"
+        },
+        "format": {
+          "explanation": "Ex cillum magna irure deserunt aute duis occaecat adipisicing fugiat minim duis aute id.",
+          "value": "C"
+        },
+        "fit": {
+          "explanation": "Esse adipisicing occaecat laboris sunt ut occaecat minim.",
+          "value": "B"
+        },
+        "metadata": {
+          "explanation": "Duis proident in ad Lorem anim.",
+          "value": "F"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 360186,
+        "format": "jpg",
+        "color_space": "RGB",
+        "metadata_bytes": 27816
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Dolor eiusmod veniam magna sint ex laboris culpa amet cillum aute.",
+          "value": "B"
+        },
+        "color_space": {
+          "explanation": "Est in laborum pariatur sint occaecat aute dolore sit mollit officia ipsum enim.",
+          "value": "B"
+        },
+        "format": {
+          "explanation": "Aliqua veniam ex irure tempor mollit id tempor.",
+          "value": "F"
+        },
+        "fit": {
+          "explanation": "Fugiat tempor velit magna qui adipisicing id eu qui pariatur et commodo est.",
+          "value": "D"
+        },
+        "metadata": {
+          "explanation": "Labore officia excepteur sunt amet velit laboris minim culpa mollit ex exercitation.",
+          "value": "D"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 449932,
+        "format": "png",
+        "color_space": "RGB",
+        "metadata_bytes": 42582
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Irure consequat commodo cupidatat voluptate fugiat.",
+          "value": "F"
+        },
+        "color_space": {
+          "explanation": "Cillum sit enim dolor enim in nisi qui est duis excepteur ex aliquip.",
+          "value": "E"
+        },
+        "format": {
+          "explanation": "Et ad deserunt id consectetur ipsum consequat id mollit nulla dolor Lorem voluptate sit.",
+          "value": "D"
+        },
+        "fit": {
+          "explanation": "Nisi ullamco anim fugiat in aute ex.",
+          "value": "F"
+        },
+        "metadata": {
+          "explanation": "Voluptate exercitation cillum nisi consequat cillum.",
+          "value": "E"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 165302,
+        "format": "jpg",
+        "color_space": "CMYK",
+        "metadata_bytes": 49439
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Velit ea sunt ut sit ad nisi nostrud mollit quis reprehenderit.",
+          "value": "E"
+        },
+        "color_space": {
+          "explanation": "Eiusmod elit in amet voluptate irure occaecat exercitation ea ipsum veniam.",
+          "value": "F"
+        },
+        "format": {
+          "explanation": "Ut non anim fugiat minim minim commodo Lorem excepteur ipsum Lorem id qui.",
+          "value": "E"
+        },
+        "fit": {
+          "explanation": "Aliquip laboris voluptate fugiat ut occaecat anim ipsum consectetur cupidatat elit nostrud ea cupidatat.",
+          "value": "E"
+        },
+        "metadata": {
+          "explanation": "Ullamco voluptate nisi irure eu ea nostrud deserunt nisi ex in dolor consequat adipisicing aute.",
+          "value": "F"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 222151,
+        "format": "png",
+        "color_space": "RGB",
+        "metadata_bytes": 32742
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Duis adipisicing nostrud qui quis occaecat.",
+          "value": "F"
+        },
+        "color_space": {
+          "explanation": "Qui ullamco culpa esse enim sunt magna reprehenderit non.",
+          "value": "B"
+        },
+        "format": {
+          "explanation": "Ea laboris tempor exercitation magna irure qui sint.",
+          "value": "E"
+        },
+        "fit": {
+          "explanation": "Irure laboris esse incididunt minim sunt.",
+          "value": "F"
+        },
+        "metadata": {
+          "explanation": "Nulla labore eiusmod sit ad occaecat cillum deserunt amet Lorem.",
+          "value": "B"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 417840,
+        "format": "jpg",
+        "color_space": "CMYK",
+        "metadata_bytes": 21448
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Adipisicing consectetur ut sunt adipisicing occaecat nulla velit ipsum.",
+          "value": "E"
+        },
+        "color_space": {
+          "explanation": "Pariatur cupidatat cupidatat ipsum velit labore do qui pariatur nisi in aute ipsum.",
+          "value": "C"
+        },
+        "format": {
+          "explanation": "Enim in minim fugiat veniam laborum deserunt consectetur consectetur ea.",
+          "value": "E"
+        },
+        "fit": {
+          "explanation": "Ex do dolor eu duis officia quis do.",
+          "value": "B"
+        },
+        "metadata": {
+          "explanation": "Mollit aute enim occaecat in ipsum sint eiusmod occaecat consectetur ex irure ullamco anim.",
+          "value": "D"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 368862,
+        "format": "jpg",
+        "color_space": "RGB",
+        "metadata_bytes": 43806
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Qui ex anim mollit laboris cillum consequat ad adipisicing.",
+          "value": "B"
+        },
+        "color_space": {
+          "explanation": "Culpa sint dolore ex commodo pariatur nulla irure sit commodo sunt.",
+          "value": "E"
+        },
+        "format": {
+          "explanation": "Sunt ex in nulla cupidatat consequat amet mollit reprehenderit irure deserunt.",
+          "value": "C"
+        },
+        "fit": {
+          "explanation": "Do minim sit proident duis amet officia amet velit non labore.",
+          "value": "F"
+        },
+        "metadata": {
+          "explanation": "Mollit cillum in sint dolor ea duis anim reprehenderit nisi veniam amet ipsum.",
+          "value": "B"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 369668,
+        "format": "jpg",
+        "color_space": "RGB",
+        "metadata_bytes": 36720
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Nostrud exercitation nostrud id nostrud est enim.",
+          "value": "B"
+        },
+        "color_space": {
+          "explanation": "Amet irure aute duis dolore labore labore eu ad duis cillum voluptate culpa mollit.",
+          "value": "A"
+        },
+        "format": {
+          "explanation": "Sunt proident sit excepteur ex culpa do laborum velit cupidatat dolor ad cillum nostrud.",
+          "value": "F"
+        },
+        "fit": {
+          "explanation": "Anim pariatur tempor labore anim elit aliqua nisi elit voluptate.",
+          "value": "F"
+        },
+        "metadata": {
+          "explanation": "Occaecat ut ad officia ut sint excepteur dolore irure culpa reprehenderit.",
+          "value": "C"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 196210,
+        "format": "png",
+        "color_space": "RGB",
+        "metadata_bytes": 40639
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Fugiat amet commodo eiusmod culpa aliqua nulla reprehenderit deserunt mollit pariatur.",
+          "value": "C"
+        },
+        "color_space": {
+          "explanation": "Laborum proident aute labore aute cupidatat quis nostrud id id ea consequat.",
+          "value": "E"
+        },
+        "format": {
+          "explanation": "Cupidatat fugiat quis eiusmod non consequat sint.",
+          "value": "D"
+        },
+        "fit": {
+          "explanation": "Magna incididunt laboris anim dolor eu.",
+          "value": "C"
+        },
+        "metadata": {
+          "explanation": "Excepteur dolor anim velit mollit officia exercitation do enim in adipisicing sint do aute est.",
+          "value": "D"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 460224,
+        "format": "png",
+        "color_space": "CMYK",
+        "metadata_bytes": 25056
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Aute est ad ullamco anim aliqua enim nulla tempor tempor proident elit ad cupidatat labore.",
+          "value": "D"
+        },
+        "color_space": {
+          "explanation": "Non cupidatat mollit eiusmod aute adipisicing ipsum nisi labore velit velit.",
+          "value": "A"
+        },
+        "format": {
+          "explanation": "Minim mollit consequat commodo proident officia aliqua cupidatat veniam aute quis.",
+          "value": "D"
+        },
+        "fit": {
+          "explanation": "Enim do est ut id eu cillum eiusmod velit mollit aute ipsum aute.",
+          "value": "E"
+        },
+        "metadata": {
+          "explanation": "Nostrud amet voluptate magna eiusmod veniam quis anim magna duis id laborum commodo deserunt ad.",
+          "value": "A"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 440398,
+        "format": "png",
+        "color_space": "RGB",
+        "metadata_bytes": 20565
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Cupidatat non culpa sint do eu ullamco consequat commodo consectetur non.",
+          "value": "E"
+        },
+        "color_space": {
+          "explanation": "Cillum deserunt deserunt aliquip nostrud est laboris ut ullamco esse qui exercitation.",
+          "value": "A"
+        },
+        "format": {
+          "explanation": "Incididunt pariatur laborum quis amet adipisicing commodo est cupidatat ipsum sit.",
+          "value": "A"
+        },
+        "fit": {
+          "explanation": "Deserunt aute ut non in consequat.",
+          "value": "B"
+        },
+        "metadata": {
+          "explanation": "Mollit occaecat labore pariatur veniam.",
+          "value": "D"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 447666,
+        "format": "jpg",
+        "color_space": "CMYK",
+        "metadata_bytes": 32085
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Occaecat id elit cillum velit fugiat aliqua minim officia reprehenderit sunt ut laboris officia id.",
+          "value": "B"
+        },
+        "color_space": {
+          "explanation": "Voluptate tempor voluptate adipisicing Lorem enim eiusmod fugiat.",
+          "value": "F"
+        },
+        "format": {
+          "explanation": "Eu mollit aute ullamco deserunt quis tempor irure minim laboris proident aliquip reprehenderit occaecat exercitation.",
+          "value": "B"
+        },
+        "fit": {
+          "explanation": "Eiusmod reprehenderit ipsum cillum dolore ipsum non proident dolore officia ex dolor ipsum duis.",
+          "value": "B"
+        },
+        "metadata": {
+          "explanation": "Nisi sunt ex amet minim nisi culpa tempor.",
+          "value": "E"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 304563,
+        "format": "png",
+        "color_space": "CMYK",
+        "metadata_bytes": 47259
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Ut duis ipsum aliqua et reprehenderit esse.",
+          "value": "C"
+        },
+        "color_space": {
+          "explanation": "Incididunt consectetur eu duis magna elit exercitation et officia nostrud Lorem enim.",
+          "value": "B"
+        },
+        "format": {
+          "explanation": "Do magna magna id id.",
+          "value": "C"
+        },
+        "fit": {
+          "explanation": "Duis voluptate reprehenderit magna culpa culpa incididunt do voluptate nostrud irure nulla.",
+          "value": "E"
+        },
+        "metadata": {
+          "explanation": "Labore ipsum nostrud ad Lorem laborum voluptate.",
+          "value": "E"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 275304,
+        "format": "png",
+        "color_space": "RGB",
+        "metadata_bytes": 22317
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Qui aliqua et dolor commodo veniam cupidatat cillum reprehenderit fugiat consequat magna in.",
+          "value": "E"
+        },
+        "color_space": {
+          "explanation": "Minim pariatur voluptate reprehenderit exercitation exercitation eiusmod consectetur enim dolore sit consectetur adipisicing veniam Lorem.",
+          "value": "D"
+        },
+        "format": {
+          "explanation": "Voluptate fugiat aute sint sit consectetur cupidatat commodo.",
+          "value": "B"
+        },
+        "fit": {
+          "explanation": "Culpa proident voluptate reprehenderit ad nisi cillum cillum ullamco ad ullamco dolor veniam sunt.",
+          "value": "A"
+        },
+        "metadata": {
+          "explanation": "Consequat et pariatur ullamco dolore tempor ipsum consectetur do velit.",
+          "value": "B"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 348109,
+        "format": "jpg",
+        "color_space": "RGB",
+        "metadata_bytes": 39735
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Labore ipsum est dolor esse ex elit mollit officia elit labore.",
+          "value": "B"
+        },
+        "color_space": {
+          "explanation": "Excepteur laboris nulla nostrud reprehenderit in consequat anim ea.",
+          "value": "E"
+        },
+        "format": {
+          "explanation": "Dolore non enim culpa tempor aliqua sunt enim excepteur anim.",
+          "value": "D"
+        },
+        "fit": {
+          "explanation": "Aliquip cupidatat velit deserunt est exercitation incididunt aute consectetur consequat ullamco.",
+          "value": "D"
+        },
+        "metadata": {
+          "explanation": "Ea commodo consectetur ea fugiat ad ex nulla aliquip nisi nostrud adipisicing aute cillum dolor.",
+          "value": "A"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 353652,
+        "format": "jpg",
+        "color_space": "RGB",
+        "metadata_bytes": 39116
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Officia officia veniam eiusmod ipsum est minim incididunt deserunt in voluptate elit esse.",
+          "value": "B"
+        },
+        "color_space": {
+          "explanation": "Eu in laborum minim aliqua eiusmod enim eu ipsum enim eu ipsum.",
+          "value": "A"
+        },
+        "format": {
+          "explanation": "Veniam excepteur officia aliquip et minim non esse cupidatat.",
+          "value": "D"
+        },
+        "fit": {
+          "explanation": "Voluptate Lorem labore tempor voluptate.",
+          "value": "D"
+        },
+        "metadata": {
+          "explanation": "Minim laborum ullamco adipisicing consectetur sunt ipsum quis proident incididunt eu ad.",
+          "value": "D"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 193859,
+        "format": "jpg",
+        "color_space": "RGB",
+        "metadata_bytes": 32278
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Nulla officia aliqua nostrud aliqua do velit proident.",
+          "value": "B"
+        },
+        "color_space": {
+          "explanation": "Cupidatat velit eu cillum quis magna elit amet laborum Lorem cillum in proident.",
+          "value": "F"
+        },
+        "format": {
+          "explanation": "Non enim tempor proident veniam deserunt mollit officia tempor laboris.",
+          "value": "B"
+        },
+        "fit": {
+          "explanation": "Qui veniam in nulla commodo laborum tempor sit officia adipisicing.",
+          "value": "E"
+        },
+        "metadata": {
+          "explanation": "Reprehenderit irure ad pariatur laborum incididunt consectetur ipsum.",
+          "value": "E"
+        }
+      }
+    }
+  },
+  {
+    "analyze": {
+      "data": {
+        "bytes": 401474,
+        "format": "png",
+        "color_space": "RGB",
+        "metadata_bytes": 48493
+      },
+      "grading": {
+        "aggregated": {
+          "explanation": "Sunt esse est veniam dolore.",
+          "value": "A"
+        },
+        "color_space": {
+          "explanation": "Nisi et veniam cupidatat ad consectetur officia eu minim mollit consectetur ea consectetur.",
+          "value": "E"
+        },
+        "format": {
+          "explanation": "Laboris nisi non velit voluptate.",
+          "value": "E"
+        },
+        "fit": {
+          "explanation": "Nostrud adipisicing nulla irure eu nulla sint adipisicing aliquip ea velit.",
+          "value": "F"
+        },
+        "metadata": {
+          "explanation": "Ea in sint officia fugiat ex minim non eu enim culpa.",
+          "value": "D"
+        }
+      }
+    }
+  }
+]
