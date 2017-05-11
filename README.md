@@ -13,7 +13,7 @@ This is the server app for Cloudinary image analysis tool.
 **Step 2**. Clone this repository
 
 ```shell
-$ git clone git@github.com:CloudinaryLtd/pagespeed.git pagespeed
+$ git clone git@github.com:CloudinaryLtd/pagespeed-server.git pagespeed-server
 $ cd pagespeed
 $ yarn install                  # Install project dependencies listed in package.json
 ```
