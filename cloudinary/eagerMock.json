@@ -1,0 +1,78 @@
+[
+  {
+    "transformation": "w_120,h_50,q_auto",
+    "width": 120,
+    "height": 50,
+    "url": "http://res.cloudinary.com/demo/image/upload/w_120,h_50,q_auto/v1473596672/sample.jpg",
+    "secure_url": "https://res.cloudinary.com/demo/image/upload/w_120,h_50,q_auto/v1473596672/sample.jpg",
+    "analyze": {
+      "data": {
+        "metadata_bytes": 38,
+        "color_space": "sRGB",
+        "format": "jpg",
+        "bytes": 147482
+      },
+      "explanation": [
+        "Based on intelligent content-aware encoding, delivered with automatic quality - reduced image quality from 90 to 80."
+      ]
+    }
+  },
+  {
+    "transformation": "w_120,h_50,q_auto,fl_awebp/webp",
+    "width": 120,
+    "height": 50,
+    "url": "http://res.cloudinary.com/demo/image/upload/w_120,h_50,q_auto,fl_awebp/v1473596672/sample.webp",
+    "secure_url": "https://res.cloudinary.com/demo/image/upload/w_120,h_50,q_auto,fl_awebp/v1473596672/sample.webp",
+    "analyze": {
+      "data": {
+        "metadata_bytes": 38,
+        "color_space": "sRGB",
+        "format": "webp",
+        "bytes": 15121
+      },
+      "explanation": [
+        "Based on intelligent content-aware encoding, delivered with automatic quality - reduced image quality from 90 to 80.",
+        "Format changed to optimized webp."
+      ]
+    }
+  },
+  {
+    "transformation": "w_120,h_50,q_auto/png",
+    "width": 120,
+    "height": 50,
+    "url": "http://res.cloudinary.com/demo/image/upload/w_120,h_50,q_auto,fl_awebp/v1473596672/sample.webp",
+    "secure_url": "https://res.cloudinary.com/demo/image/upload/w_120,h_50,q_auto,fl_awebp/v1473596672/sample.webp",
+    "analyze": {
+      "data": {
+        "metadata_bytes": 38,
+        "color_space": "sRGB",
+        "format": "png",
+        "bytes": 95121
+      },
+      "explanation": [
+        "Based on intelligent content-aware encoding, delivered with automatic quality - reduced image quality from 90 to 80.",
+        "Format changed to optimized webp."
+      ]
+    }
+  },
+  {
+    "transformation": "w_120,h_50,q_auto/jxr",
+    "width": 120,
+    "height": 50,
+    "url": "http://res.cloudinary.com/demo/image/upload/w_120,h_50,q_auto,fl_awebp/v1473596672/sample.webp",
+    "secure_url": "https://res.cloudinary.com/demo/image/upload/w_120,h_50,q_auto,fl_awebp/v1473596672/sample.webp",
+    "analyze": {
+      "data": {
+        "metadata_bytes": 38,
+        "color_space": "sRGB",
+        "format": "jxr",
+        "bytes": 45121
+      },
+      "explanation": [
+        "Based on intelligent content-aware encoding, delivered with automatic quality - reduced image quality from 90 to 80.",
+        "Format changed to optimized webp."
+      ]
+    }
+  }
+
+]

@@ -27,8 +27,29 @@ const parseTestResults = (testJson) => {
     imageList = filterByImageSize(imageList);
     imageList = filterByResolution(imageList);
     let dpi = JSON.parse(_.get(testJson, 'data.median.firstView.Dpi'));
-    let dpr = dpi.dppx ? dpi.dppx : 0;
-    return {imageList: imageList, dpr: dpr};
+    let resolution = JSON.parse(_.get(testJson, 'data.median.firstView.Resolution'));
+    console.log(resolution);
+    let viewportSize = resolution.available;
+    let screenShot = _.get(testJson, 'data.median.firstView.images.screenShot');
+    let location = _.get(testJson, 'data.location');
+    if (location && location.indexOf(":") != -1) {
+      location = location.split(":")[0];
+    }
+    let browserName = _.get(testJson, 'data.median.firstView.browser_name');
+    let browserVersion = _.get(testJson, 'data.median.firstView.browser_version');
+
+    return {
+      imageList: imageList,
+      dpr: dpi.dppx ? dpi.dppx : 0,
+      metaData: {
+        dpi: dpi.dpi,
+        screenShot,
+        browserName,
+        browserVersion,
+        viewportSize,
+        location
+      }
+    };
 };
 
 const parseTestResponse = (body) => {

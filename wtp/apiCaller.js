@@ -44,7 +44,7 @@ const getTestResults = (testId, res) => {
             return
 
         }
-        cloudinaryCaller(wtpRes.imageList, wtpRes.dpr, res);
+        cloudinaryCaller(wtpRes.imageList, wtpRes.dpr, wtpRes.metaData, res);
 
     })
 };
