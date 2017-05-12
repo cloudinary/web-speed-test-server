@@ -26,9 +26,9 @@ const parseTestResults = (testJson) => {
     });
     imageList = filterByImageSize(imageList);
     imageList = filterByResolution(imageList);
+    let url = _.get(testJson, 'data.url');
     let dpi = JSON.parse(_.get(testJson, 'data.median.firstView.Dpi'));
     let resolution = JSON.parse(_.get(testJson, 'data.median.firstView.Resolution'));
-    console.log(resolution);
     let viewportSize = resolution.available;
     let screenShot = _.get(testJson, 'data.median.firstView.images.screenShot');
     let location = _.get(testJson, 'data.location');
@@ -42,6 +42,7 @@ const parseTestResults = (testJson) => {
       imageList: imageList,
       dpr: dpi.dppx ? dpi.dppx : 0,
       metaData: {
+        url,
         dpi: dpi.dpi,
         screenShot,
         browserName,
