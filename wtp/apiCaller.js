@@ -102,7 +102,7 @@ const checkTestStatus = (testId, res, cb) => {
     if (testRes.statusCode >= 100 && testRes.statusCode < 200) {
       //@TODO: add timeout
       setTimeout(() => {
-        checkTestStatus(testId, res)
+        checkTestStatus(testId, res, cb)
       }, 1000)
     }
   });
