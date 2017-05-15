@@ -26,7 +26,7 @@ const parseTestResults = (testJson) => {
     });
     imageList = filterByImageSize(imageList);
     imageList = filterByResolution(imageList);
-    let url = _.get(testJson, config.get('wtp.path.url'));
+    let url = _.get(testJson, config.get('wtp.paths.url'));
     let dpi = JSON.parse(_.get(testJson, config.get('wtp.paths.dpi')));
     let resolution = JSON.parse(_.get(testJson, config.get('wtp.paths.resolution')));
     let viewportSize = resolution.available;
