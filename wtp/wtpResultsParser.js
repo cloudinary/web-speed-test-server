@@ -30,7 +30,7 @@ const parseTestResults = (testJson) => {
     let dpi = JSON.parse(_.get(testJson, config.get('wtp.paths.dpi')));
     let resolution = JSON.parse(_.get(testJson, config.get('wtp.paths.resolution')));
     let viewportSize = resolution.available;
-    let screenShot = _.get(testJson, config.get('wtp.path.screenShot'));
+    let screenShot = _.get(testJson, config.get('wtp.paths.screenShot'));
     let location = _.get(testJson, config.get('wtp.paths.location'));
     if (location && location.indexOf(":") != -1) {
       location = location.split(":")[0];
