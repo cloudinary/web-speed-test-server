@@ -11,7 +11,7 @@ const cloudinaryParser = require('./cloudinaryResultParser');
 const cloudinary = require('cloudinary');
 const async = require('async');
 
-const sentToAnalyze = (imagesArray, dpr, metaData, res) => {
+const sentToAnalyze = (imagesArray, dpr, metaData, res, cb) => {
     let batchSize = config.get('cloudinary.batchSize');
     let analyzeResults = [];
     async.eachLimit(imagesArray, batchSize, (image, callback) => {
@@ -30,11 +30,11 @@ const sentToAnalyze = (imagesArray, dpr, metaData, res) => {
       });
     }, err => {
       if (err) {
-        res.json({status: 'error', message: 'Error getting results from cloudinary', error: err.message});
+        cb({status: 'error', message: 'Error getting results from cloudinary', error: err.message}, null, res);
       }
       let parsed = cloudinaryParser.parseCloudinaryResults(analyzeResults);
       parsed.resultSumm.metaData = metaData;
-      res.json({status: 'success', data : parsed });
+      cb(null, {status: 'success', data : parsed }, res);
     })
 };
 
