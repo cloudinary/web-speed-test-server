@@ -14,7 +14,6 @@ const routeCallback = (error, result, res) => {
   } else {
     res.json(result);
   }
-  return;
 };
 
 const wtp = (app) => {

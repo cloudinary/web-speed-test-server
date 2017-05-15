@@ -10,10 +10,10 @@ const bytes = require('bytes');
 const logger = require('winston');
 
 const parseTestResults = (testJson) => {
-    let imageList = JSON.parse(_.get(testJson, 'data.median.firstView.Images'));
-    let requestsData = _.get(testJson, 'data.median.firstView.requests');
+    let imageList = JSON.parse(_.get(testJson, config.get('wtp.paths.imageList'), null));
+    let requestsData = _.get(testJson, config.get('wtp.paths.rawData'), null);
     if (!imageList || !requestsData) {
-        //TODO: handel error
+      return {status: 'error', message: 'WTP missing data'}
     }
     imageList = imageList.splice(0, config.get('images.maxNumberOfImages'));
     imageList = _.forEach(imageList, (image) => {
@@ -26,12 +26,12 @@ const parseTestResults = (testJson) => {
     });
     imageList = filterByImageSize(imageList);
     imageList = filterByResolution(imageList);
-    let url = _.get(testJson, 'data.url');
-    let dpi = JSON.parse(_.get(testJson, 'data.median.firstView.Dpi'));
-    let resolution = JSON.parse(_.get(testJson, 'data.median.firstView.Resolution'));
+    let url = _.get(testJson, config.get('wtp.path.url'));
+    let dpi = JSON.parse(_.get(testJson, config.get('wtp.paths.dpi')));
+    let resolution = JSON.parse(_.get(testJson, config.get('wtp.paths.resolution')));
     let viewportSize = resolution.available;
-    let screenShot = _.get(testJson, 'data.median.firstView.images.screenShot');
-    let location = _.get(testJson, 'data.location');
+    let screenShot = _.get(testJson, config.get('wtp.path.screenShot'));
+    let location = _.get(testJson, config.get('wtp.paths.location'));
     if (location && location.indexOf(":") != -1) {
       location = location.split(":")[0];
     }

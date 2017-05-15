@@ -33,6 +33,10 @@ const sentToAnalyze = (imagesArray, dpr, metaData, res, cb) => {
         cb({status: 'error', message: 'Error getting results from cloudinary', error: err.message}, null, res);
       }
       let parsed = cloudinaryParser.parseCloudinaryResults(analyzeResults);
+      if (parsed.status === 'error') {
+        cb(parsed, null, res);
+        return;
+      }
       parsed.resultSumm.metaData = metaData;
       cb(null, {status: 'success', data : parsed }, res);
     })
