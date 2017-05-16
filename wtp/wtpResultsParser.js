@@ -15,6 +15,7 @@ const parseTestResults = (testJson) => {
     if (!imageList || !requestsData) {
       return {status: 'error', message: 'WTP missing data'}
     }
+
     imageList = imageList.splice(0, config.get('images.maxNumberOfImages'));
     imageList = _.forEach(imageList, (image) => {
         let imageData = _.find(requestsData, (imgData) => {
@@ -64,15 +65,18 @@ const parseTestResponse = (body) => {
 
 const filterByImageSize = (imageList) => {
     let maxSizeInBytes = bytes(config.get('images.maxImageSize') + 'mb');
+    let minSizeInBytes = config.get('images.minImageSize');
     return _.filter(imageList, (image) => {
-       return image.size <= maxSizeInBytes;
+      let size = image.size || 0;
+      return  size <= maxSizeInBytes && size >= minSizeInBytes;
     });
 };
 
 const filterByResolution = (imageList) => {
   let maxRes = config.get('images.maxImageRes') * 1000000;
+  let minRes = config.get('images.maxImageRes');
   return _.filter(imageList, (image) => {
-      return (image.naturalWidth * image.naturalHeight) <= maxRes;
+      return (image.naturalWidth * image.naturalHeight) <= maxRes && (image.naturalWidth * image.naturalHeight) >= minRes;
   })
 };
 
