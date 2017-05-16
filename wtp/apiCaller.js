@@ -15,39 +15,39 @@ const RUN_TEST_URL = 'http://www.webpagetest.org/runtest.php';
 const GET_TEST_STATUS = 'http://www.webpagetest.org/testStatus.php';
 
 
-const getTestResults = (testId, res, cb) => {
+const getTestResults = (testId, cb) => {
   let options = {
     url: RESULTS_URL,
     qs: {test: testId}
   };
   request.get(options, (error, response, body) => {
     if (error) {
-      cb({status: 'error', message: 'Error calling WTP', error: error}, null, res);
+      cb({status: 'error', message: 'Error calling WTP', error: error}, null);
       return;
     }
     if (response && response.statusCode !== 200) {
-      cb({status: 'error', message: 'WTP returned bad status', error: response.statusCode}, null, res);
+      cb({status: 'error', message: 'WTP returned bad status', error: response.statusCode}, null);
       return;
     }
     if (!body) {
-      cb({status: 'error', message: 'WTP returned empty body', error: 'empty body'}, null, res);
+      cb({status: 'error', message: 'WTP returned empty body', error: 'empty body'}, null);
       return;
     }
     let resBody = JSON.parse(body);
     if (typeof resBody.data.statusCode !== 'undefined') {
-      cb({status: 'error', message: resBody.data.statusText, error: resBody.data.statusText}, null, res);
+      cb({status: 'error', message: resBody.data.statusText, error: resBody.data.statusText}, null);
       return;
     }
     let wtpRes = resultParser.parseTestResults(resBody);
     if (!wtpRes) {
-      cb({status: 'error', message: 'WTP results are missing data', error: 'data missing'}, null, res);
+      cb({status: 'error', message: 'WTP results are missing data', error: 'data missing'}, null);
       return;
     }
-    cloudinaryCaller(wtpRes.imageList, wtpRes.dpr, wtpRes.metaData, res, cb);
+    cloudinaryCaller(wtpRes.imageList, wtpRes.dpr, wtpRes.metaData, cb);
   })
 };
 
-const runWtpTest = (url, res, cb) => {
+const runWtpTest = (url, cb) => {
 
   let options = {
     'url': RUN_TEST_URL,
@@ -55,27 +55,27 @@ const runWtpTest = (url, res, cb) => {
   };
   request.get(options, (error, response, body) => {
     if (error) {
-      cb({status: 'error', message: 'Error calling WTP', error: error}, null, res);
+      cb({status: 'error', message: 'Error calling WTP', error: error}, null);
       return;
     }
     if (response && response.statusCode !== 200) {
-      cb({status: 'error', message: 'WTP returned bad status', error: response.statusCode}, null, res);
+      cb({status: 'error', message: 'WTP returned bad status', error: response.statusCode}, null);
       return;
     }
     if (!body) {
-      cb({status: 'error', message: 'WTP returned empty body', error: 'empty body'}, null, res);
+      cb({status: 'error', message: 'WTP returned empty body', error: 'empty body'}, null);
       return;
     }
     let testId = resultParser.parseTestResponse(JSON.parse(body));
     if (typeof testId === 'object') {
-      cb(null, testId, res);
+      cb(null, testId);
       return;
     }
-    checkTestStatus(testId, res, cb);
+    checkTestStatus(testId, cb);
   });
 };
 
-const checkTestStatus = (testId, res, cb) => {
+const checkTestStatus = (testId, cb) => {
   logger.debug('Test id ' + testId);
   let options = {
     'url': GET_TEST_STATUS,
@@ -83,26 +83,26 @@ const checkTestStatus = (testId, res, cb) => {
   };
   request.get(options, (error, response, body) => {
     if (error) {
-      cb({status: 'error', message: 'Error calling WTP', error: error}, null, res);
+      cb({status: 'error', message: 'Error calling WTP', error: error}, null);
       return;
     }
     if (response && response.statusCode !== 200) {
-      cb({status: 'error', message: 'WTP returned bad status', error: response.statusCode}, null, res);
+      cb({status: 'error', message: 'WTP returned bad status', error: response.statusCode}, null);
       return;
     }
     let testRes = JSON.parse(body);
     logger.debug('Test status code ' + testRes.statusCode);
     if (testRes.statusCode >= 400) {
-      cb({status: 'error', message: 'WTP returned bad status', error: testRes.statusText}, null, res);
+      cb({status: 'error', message: 'WTP returned bad status', error: testRes.statusText}, null);
       return;
     }
     if (testRes.statusCode === 200) {
-      getTestResults(testId, res, cb);
+      getTestResults(testId, cb);
     }
     if (testRes.statusCode >= 100 && testRes.statusCode < 200) {
       //@TODO: add timeout
       setTimeout(() => {
-        checkTestStatus(testId, res, cb)
+        checkTestStatus(testId, cb)
       }, 1000)
     }
   });

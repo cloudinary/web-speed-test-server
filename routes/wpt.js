@@ -19,7 +19,9 @@ const routeCallback = (error, result, res) => {
 const wtp = (app) => {
   app.get('/test/:testId', (req, res) => {
     let testId = req.params.testId;
-    apiCaller.getTestResults(testId, res, routeCallback);
+    apiCaller.getTestResults(testId, (error, result) => {
+      routeCallback(error, result, res)
+    });
   });
 
 
@@ -34,7 +36,9 @@ const wtp = (app) => {
     if (!validUrl.isUri(testUrl)) {
       routeCallback({status: 'error', message: 'URL is not valid'});
     }
-    apiCaller.runWtpTest(testUrl, res, routeCallback);
+    apiCaller.runWtpTest(testUrl, (error, result) => {
+      routeCallback(error, result, res)
+    });
   })
 };
 
