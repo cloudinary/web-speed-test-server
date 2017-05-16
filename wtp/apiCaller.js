@@ -47,8 +47,10 @@ const getTestResults = (testId, cb) => {
   })
 };
 
+
 const runWtpTest = (url, cb) => {
 
+  logger.debug('Running new test ' + url);
   let options = {
     'url': RUN_TEST_URL,
     'qs': {url: url, k: config.get('wtp.apiKey'), f: "json", custom: config.get('wtp.imageScript')} //TODO: remove image script when integrated natively
@@ -71,7 +73,8 @@ const runWtpTest = (url, cb) => {
       cb(null, testId);
       return;
     }
-    checkTestStatus(testId, cb);
+    console.log(testId);
+    cb(null, {status: "success", data : {testId}});
   });
 };
 
@@ -111,5 +114,6 @@ const checkTestStatus = (testId, cb) => {
 
 module.exports = {
   getTestResults,
-  runWtpTest
+  runWtpTest,
+  checkTestStatus
 };

@@ -1,10 +1,7 @@
-'use strict';
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
-
-
 const app = express();
 app.use(bodyParser.json());
 
@@ -39,7 +36,6 @@ app.all('*', function(req, res){
 });
 
 app.use(function(req, res, next) {
-  if (req.m)
   let err = new Error('Not Found');
   err.status = 404;
   next(err);
