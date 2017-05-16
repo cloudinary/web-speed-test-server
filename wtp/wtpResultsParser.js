@@ -68,7 +68,7 @@ const filterByImageSize = (imageList) => {
     let minSizeInBytes = config.get('images.minImageSize');
     return _.filter(imageList, (image) => {
       let size = image.size || 0;
-      return  size <= maxSizeInBytes && size >= minSizeInBytes;
+      return size <= maxSizeInBytes && size >= minSizeInBytes;
     });
 };
 

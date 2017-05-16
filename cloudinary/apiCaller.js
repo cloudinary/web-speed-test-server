@@ -37,7 +37,7 @@ const sentToAnalyze = (imagesArray, dpr, metaData, cb) => {
         cb(parsed, null);
         return;
       }
-      parsed.resultSumm.metaData = metaData;
+      Object.assign(parsed.resultSumm, metaData);
       cb(null, {status: 'success', data : parsed });
     })
 };
