@@ -78,10 +78,8 @@ const runWtpTest = (url, cb) => {
   });
 };
 
-const checkTestStatus = (testId, cb, startTime, timeout) => {
+const checkTestStatus = (testId, cb) => {
   logger.debug('Test id ' + testId);
-  startTime = (startTime) ? startTime : Date.now();
-  timeout = (timeout) ? timeout : config.get('wtp.timeout');
   let options = {
     'url': GET_TEST_STATUS,
     'qs': {test: testId, k: config.get('wtp.apiKey'), f: "json"}
@@ -105,12 +103,9 @@ const checkTestStatus = (testId, cb, startTime, timeout) => {
       getTestResults(testId, cb);
     }
     if (testRes.statusCode >= 100 && testRes.statusCode < 200) {
-      if (Date.now() - startTime > timeout) {
-        cb({status: 'error', message: 'WTP didn\'t finish after ' + timeout + ' milliseconds', error: 'timeout'}, null);
-        return
-      }
+      //@TODO: add timeout
       setTimeout(() => {
-        checkTestStatus(testId, cb, startTime, timeout)
+        checkTestStatus(testId, cb)
       }, 1000)
     }
   });
