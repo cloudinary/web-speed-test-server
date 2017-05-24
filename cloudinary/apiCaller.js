@@ -14,20 +14,30 @@ const async = require('async');
 const sentToAnalyze = (imagesArray, dpr, metaData, cb) => {
     let batchSize = config.get('cloudinary.batchSize');
     let analyzeResults = [];
+    let timestamp = Date.now() / 1000;
     async.eachLimit(imagesArray, batchSize, (image, callback) => {
       let context = {
         rendered_dimensions: {width: image.width, height: image.height},
-        dpr: dpr
+        dpr: dpr,
+        request_headers: metaData.headers
       }; //TODO: add analyse parameter once once added to API
-      cloudinary.uploader.upload(image.url, (result) => {
-        if (result.error) {
+      let transformations = config.get('cloudinary.transformations').split('|');
+      let eager = [];
+      if (transformations) {
+        eager = transformations.map((trans) => {
+          return {width: image.width, height: image.height, quality: trans};
+        });
+      }
+      cloudinary.v2.uploader.upload(image.url, {eager: eager, analyze:{context: context}, tags: timestamp},(error, result) => {
+        if (error) {
           analyzeResults.push({public_id: null});
-          logger.error('Error uploading to cloudinary', result);
+          logger.error('Error uploading to cloudinary', error);
+          callback();
         } else {
           analyzeResults.push(result);
           callback();
         }
-      });
+      } );
     }, err => {
       if (err) {
         cb({status: 'error', message: 'Error getting results from cloudinary', error: err.message}, null);

@@ -12,14 +12,14 @@ const parseCloudinaryResults = (results) => {
   let imagesTestResults = [];
   let map = {A: {val: 1}, B: {val: 2}, C: {val: 3}, D: {val: 4}, E: {val: 5}, F: {val: 6}}
   let totalPageRank = 0;
-  var totalImagesWeight = 0;
+  let totalImagesWeight = 0;
 
   for (const result of results) {
     if (result.public_id) {
       //@TODO: remove once we have a real api to work with.
-      injectMock(result);
-      injectEagerMock(result);
-      totalPageRank += map[result.analyze.grading.aggregated.value].val
+      //injectMock(result);
+      //injectEagerMock(result);
+      totalPageRank += map[result.analyze.grading.aggregated.value].val;
       imagesTestResults.push(result);
       totalImagesWeight+= result.bytes ? result.bytes : 0;
     }

@@ -26,7 +26,8 @@ const conf = {
     "cloudName": process.env.CLOUDINARY_NAME,
     "apiKey": process.env.CLOUDINARY_API,
     "secret": process.env.CLOUDINARY_SEACRET,
-    "batchSize": process.env.CLOUDINARY_BATCH || 50
+    "batchSize": process.env.CLOUDINARY_BATCH || 50,
+    "transformations": process.env.CLOUDINARY_TRANSF || 'auto'
   }
 };
 
