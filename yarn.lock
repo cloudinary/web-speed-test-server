@@ -124,9 +124,9 @@ chai@^3.5.0:
     deep-eql "^0.1.3"
     type-detect "^1.0.0"
 
-cloudinary@^1.9.0:
+"cloudinary@https://github.com/cloudinary/cloudinary_npm.git#analyze_api":
   version "1.9.0"
-  resolved "https://registry.yarnpkg.com/cloudinary/-/cloudinary-1.9.0.tgz#44bfd5da79b8650ac63015606f0122ddf601c909"
+  resolved "https://github.com/cloudinary/cloudinary_npm.git#5dfec8268746d9c3ddba45de090a156756b8458b"
   dependencies:
     lodash "3.10.x"
     q "1.4.x"
@@ -592,8 +592,8 @@ mkdirp@0.5.1:
     minimist "0.0.8"
 
 mocha@^3.3.0:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/mocha/-/mocha-3.4.1.tgz#a3802b4aa381934cacb38de70cf771621da8f9af"
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/mocha/-/mocha-3.4.2.tgz#d0ef4d332126dbf18d0d640c9b382dd48be97594"
   dependencies:
     browser-stdout "1.3.0"
     commander "2.9.0"
