@@ -28,7 +28,7 @@ const conf = {
     "apiKey": process.env.CLOUDINARY_API,
     "secret": process.env.CLOUDINARY_SEACRET,
     "batchSize": process.env.CLOUDINARY_BATCH || 50,
-    "transformations": process.env.CLOUDINARY_TRANSF || 'auto'
+    "transformations": process.env.CLOUDINARY_TRANSF || [{quality: 'auto'}, {quality: 'auto', format: 'webp'},{quality: 'auto', format: 'wdp'}, {quality: 'auto', format: 'png'}]
   }
 };
 

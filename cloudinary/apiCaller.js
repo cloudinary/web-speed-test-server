@@ -20,12 +20,15 @@ const sentToAnalyze = (imagesArray, dpr, metaData, cb) => {
         rendered_dimensions: {width: image.width, height: image.height},
         dpr: dpr,
         request_headers: metaData.headers
-      }; //TODO: add analyse parameter once once added to API
-      let transformations = config.get('cloudinary.transformations').split('|');
+      };
+      let transformations = config.get('cloudinary.transformations', null);
+      if (typeof transformations === 'string') {
+        transformations = JSON.parse(transformations);
+      }
       let eager = [];
       if (transformations) {
         eager = transformations.map((trans) => {
-          return {width: image.width, height: image.height, quality: trans};
+          return Object.assign(trans, {width: image.width, height: image.height});
         });
       }
       cloudinary.v2.uploader.upload(image.url, {eager: eager, analyze:{context: context}, tags: timestamp},(error, result) => {
