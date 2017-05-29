@@ -14,7 +14,7 @@ const async = require('async');
 const sentToAnalyze = (imagesArray, dpr, metaData, cb) => {
     let batchSize = config.get('cloudinary.batchSize');
     let analyzeResults = [];
-    let timestamp = Date.now() / 1000;
+    let timestamp = Math.floor(Date.now() / 1000);
     async.eachLimit(imagesArray, batchSize, (image, callback) => {
       let context = {
         rendered_dimensions: {width: image.width, height: image.height},
