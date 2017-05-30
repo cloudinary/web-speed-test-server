@@ -2,27 +2,33 @@
  * Created by yaniv on 5/8/17.
  */
 
+const logger = require('winston');
 const _ = require('lodash');
 "use strict";
 
 const parseCloudinaryResults = (results) => {
 
-  let imagesTestResults = [];
-  let map = {A: {val: 1}, B: {val: 2}, C: {val: 3}, D: {val: 4}, E: {val: 5}, F: {val: 6}};
-  let totalPageRank = 0;
-  let totalImagesWeight = 0;
+  try {
+    let imagesTestResults = [];
+    let map = {A: {val: 1}, B: {val: 2}, C: {val: 3}, D: {val: 4}, E: {val: 5}, F: {val: 6}};
+    let totalPageRank = 0;
+    let totalImagesWeight = 0;
 
-  for (const result of results) {
-    if (result.public_id) {
-      addPercentAndBest(result);
-      totalPageRank += map[result.analyze.grading.aggregated.value].val;
-      imagesTestResults.push(result);
-      totalImagesWeight += result.bytes ? result.bytes : 0;
+    for (const result of results) {
+      if (result.public_id) {
+        addPercentAndBest(result);
+        totalPageRank += map[result.analyze.grading.aggregated.value].val;
+        imagesTestResults.push(result);
+        totalImagesWeight += result.bytes ? result.bytes : 0;
+      }
     }
+    totalPageRank = Math.round(totalPageRank / results.length);
+    totalPageRank = _.findKey(map, {val: totalPageRank});
+    return {imagesTestResults, resultSumm: {totalPageRank, totalImagesCount: results.length, totalImagesWeight}};
+  } catch (e) {
+    logger.error('Error parsing cloudinary result \n' + JSON.stringify(e));
+    return {status: 'error', message: 'Error parsing cloudinary result'}
   }
-  totalPageRank = Math.round(totalPageRank / results.length);
-  totalPageRank = _.findKey(map, {val: totalPageRank});
-  return {imagesTestResults, resultSumm: {totalPageRank, totalImagesCount: results.length, totalImagesWeight}};
 };
 
 const addPercentAndBest = (imageResult) => {

@@ -10,6 +10,7 @@ const bytes = require('bytes');
 const logger = require('winston');
 
 const parseTestResults = (testJson) => {
+  try {
     let imageList = JSON.parse(_.get(testJson, config.get('wtp.paths.imageList'), null));
     let requestsData = _.get(testJson, config.get('wtp.paths.rawData'), null);
     if (!imageList || !requestsData) {
@@ -18,12 +19,12 @@ const parseTestResults = (testJson) => {
 
     imageList = imageList.splice(0, config.get('images.maxNumberOfImages'));
     imageList = _.forEach(imageList, (image) => {
-        let imageData = _.find(requestsData, (imgData) => {
-           return imgData.full_url === image.url && image.naturalHeight > 0 && image.naturalWidth > 0;
-        });
-        if (imageData) {
-            image.size = imageData.image_total;
-        }
+      let imageData = _.find(requestsData, (imgData) => {
+        return imgData.full_url === image.url && image.naturalHeight > 0 && image.naturalWidth > 0;
+      });
+      if (imageData) {
+        image.size = imageData.image_total;
+      }
     });
     imageList = filterByImageSize(imageList);
     imageList = filterByResolution(imageList);
@@ -36,7 +37,7 @@ const parseTestResults = (testJson) => {
     let viewportSize = resolution.available;
     let screenShot = _.get(testJson, config.get('wtp.paths.screenShot'));
     let location = _.get(testJson, config.get('wtp.paths.location'));
-    if (location && location.indexOf(":") != -1) {
+    if (location && location.indexOf(":") !== -1) {
       location = location.split(":")[0];
     }
     let browserName = _.get(testJson, 'data.median.firstView.browser_name');
@@ -56,6 +57,10 @@ const parseTestResults = (testJson) => {
         headers
       }
     };
+  } catch (e) {
+    logger.error('Error parsing WTP results \n' + e.message);
+    return null;
+  }
 };
 
 const parseTestResponse = (body) => {
