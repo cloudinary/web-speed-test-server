@@ -2,8 +2,6 @@
  * Created by yaniv on 5/8/17.
  */
 
-const mock = require('./mock.json');
-const eagerMock = require('./eagerMock.json');
 const _ = require('lodash');
 "use strict";
 
@@ -16,12 +14,10 @@ const parseCloudinaryResults = (results) => {
 
   for (const result of results) {
     if (result.public_id) {
-      //@TODO: remove once we have a real api to work with.
-      //injectMock(result);
-      //injectEagerMock(result);
+      addPercentAndBest(result);
       totalPageRank += map[result.analyze.grading.aggregated.value].val;
       imagesTestResults.push(result);
-      totalImagesWeight+= result.bytes ? result.bytes : 0;
+      totalImagesWeight += result.bytes ? result.bytes : 0;
     }
   }
   totalPageRank = Math.round(totalPageRank / results.length);
@@ -29,12 +25,30 @@ const parseCloudinaryResults = (results) => {
   return {imagesTestResults, resultSumm: {totalPageRank, totalImagesCount: results.length, totalImagesWeight}};
 };
 
-const injectMock = (item) => {
-  let rand = Math.round(Math.random() * (49));
-  item.analyze = mock[rand].analyze;
+const addPercentAndBest = (imageResult) => {
+  let origSize = imageResult.bytes;
+  let idx = 0;
+  let best = 0;
+  let small = null;
+  for (let imageTrans of imageResult.eager) {
+    let transSize = _.get(imageTrans, 'analyze.data.bytes', null);
+    if (null !== transSize) {
+      imageResult.eager[idx].percentChange = calcPercent(transSize, origSize);
+      small = (small === null) ? transSize : (small <= transSize ? small : transSize);
+      best = small >= transSize ? idx : best;
+      idx++;
+    }
+  }
+  imageResult.eager[best].best = true;
+
 };
 
-const injectEagerMock = item => item.eager = eagerMock;
+const calcPercent = (part, target) => {
+  if (_.isNumber(part) && _.isNumber(target)) {
+    return Math.round((part / target) * 100);
+  }
+  return 0;
+};
 
 
 module.exports = {
