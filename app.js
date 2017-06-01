@@ -57,9 +57,8 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
 });
-
-app.listen(5000, () => {
-  console.log('Listening on port 5000');
+const listenPort = process.env.PORT || 5000;
+app.listen(listenPort, () => {
+  console.log('Listening on port ' + listenPort);
 });
 
-//module.exports = app;
