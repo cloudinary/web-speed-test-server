@@ -24,6 +24,7 @@ const parseCloudinaryResults = (results) => {
     }
     totalPageRank = Math.round(totalPageRank / results.length);
     totalPageRank = _.findKey(map, {val: totalPageRank});
+    imagesTestResults = _.orderBy(imagesTestResults,['bytes'],['desc']);
     return {imagesTestResults, resultSumm: {totalPageRank, totalImagesCount: results.length, totalImagesWeight}};
   } catch (e) {
     logger.error('Error parsing cloudinary result \n' + JSON.stringify(e));
