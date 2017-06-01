@@ -47,12 +47,12 @@ const addPercentAndBest = (imageResult) => {
     }
   }
   imageResult.eager[best].best = true;
-
 };
 
 const calcPercent = (part, target) => {
   if (_.isNumber(part) && _.isNumber(target)) {
-    return Math.round((part / target) * 100);
+    let numb = part / target * 100;
+    return numb.toFixed(1);
   }
   return 0;
 };
