@@ -3,8 +3,8 @@
  */
 
 'use strict';
-
-const assert = require('assert');
+const chai = require('chai');
+const assert = chai.assert;
 const wtpParser = require('../wtp/wtpResultsParser');
 const fs = require('fs');
 
@@ -34,6 +34,16 @@ describe('Parse WPT result', () => {
             resultJson.data.median.firstView.Images = JSON.stringify(list);
         let images = wtpParser.parseTestResults(resultJson);
         assert.equal(images.imageList.length, 26, 'There should be 26 images in the list');
-    })
+    });
+  it('Check for result keys', () => {
+    let resultJson = JSON.parse(fs.readFileSync('./test/resources/test1.json'));
+    let results = wtpParser.parseTestResults(resultJson);
+    assert.isArray(results.imageList, 'Image list is not an array');
+    assert.isNumber(results.dpr, 'dpr is not a number');
+    assert.equal(results.metaData.headers.length, 2, 'We should have 2 headers');
+    assert.isString(results.metaData.url, 'There should be a url');
+    assert.isString(results.metaData.screenShot, 'There should be a screenshot');
+    assert.isObject(results.metaData.viewportSize, 'ViewportSize is not an object');
+  })
 
 });
