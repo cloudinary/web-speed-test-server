@@ -73,7 +73,7 @@ const runWtpTest = (url, cb) => {
       cb(null, testId);
       return;
     }
-    console.log(testId);
+    // console.log(testId);
     cb(null, {status: "success", data : {testId}});
   });
 };

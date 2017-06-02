@@ -33,7 +33,7 @@ const conf = {
       {quality: 'auto', fetch_format: 'webp', crop: 'limit'},
       {quality: 'auto', fetch_format: 'wdp', crop: 'limit'},
       {quality: 'auto', fetch_format: 'png', crop: 'limit'}
-      ]
+    ]
   }
 };
 

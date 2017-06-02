@@ -17,7 +17,7 @@ const parseCloudinaryResults = (results) => {
 
     for (const result of results) {
       if (result.public_id) {
-        totalTransformed +=  addPercentAndBest(result);
+        totalTransformed += addPercentAndBest(result);
         totalPageRank += map[result.analyze.grading.aggregated.value].val;
         imagesTestResults.push(result);
         totalImagesWeight += result.bytes ? result.bytes : 0;
@@ -25,8 +25,16 @@ const parseCloudinaryResults = (results) => {
     }
     totalPageRank = Math.round(totalPageRank / results.length);
     totalPageRank = _.findKey(map, {val: totalPageRank});
-    imagesTestResults = _.orderBy(imagesTestResults,['bytes'],['desc']);
-    return {imagesTestResults, resultSumm: {totalPageRank, totalImagesCount: results.length, totalImagesWeight, totalPercentChange: calcPercent(totalTransformed, totalImagesWeight)}};
+    imagesTestResults = _.orderBy(imagesTestResults, ['bytes'], ['desc']);
+    return {
+      imagesTestResults,
+      resultSumm: {
+        totalPageRank,
+        totalImagesCount: results.length,
+        totalImagesWeight,
+        totalPercentChange: calcPercent(totalTransformed, totalImagesWeight)
+      }
+    };
   } catch (e) {
     logger.error('Error parsing cloudinary result \n' + JSON.stringify(e));
     return {status: 'error', message: 'Error parsing cloudinary result'}
