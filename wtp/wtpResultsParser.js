@@ -18,7 +18,7 @@ const parseTestResults = (testJson) => {
     if (!imageList || !requestsData) {
       return {status: 'error', message: 'WTP missing data'}
     }
-    for (let image of imageList) {
+/*    for (let image of imageList) {
       let imageData = requestsData.find((imgData) => {
         if (image.url && imgData.full_url) {
           return extractFileName(imgData.full_url) === extractFileName(image.url);
@@ -27,8 +27,8 @@ const parseTestResults = (testJson) => {
       if (imageData) {
         image.size = imageData.image_total;
       }
-    }
-    imageList = filterByImageSize(imageList);
+    }*/
+    //imageList = filterByImageSize(imageList);
     imageList = filterByResolution(imageList);
     imageList = imageList.splice(0, config.get('images.maxNumberOfImages'));
     let headers = _.get(requestsData[0], 'headers.request').filter((head) => {
@@ -90,8 +90,8 @@ const filterByImageSize = (imageList) => {
 };
 
 const filterByResolution = (imageList) => {
-  let maxRes = config.get('images.maxImageRes') * 1000000;
-  let minRes = config.get('images.maxImageRes');
+  let maxRes = config.get('images.maxImageRes');
+  let minRes = config.get('images.minImageRes');
   return _.filter(imageList, (image) => {
     return (image.naturalWidth * image.naturalHeight) <= maxRes && (image.naturalWidth * image.naturalHeight) >= minRes;
   })

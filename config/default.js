@@ -4,8 +4,8 @@ const conf = {
     "maxNumberOfImages": process.env.MAX_IMGES || 50,
     "maxImageSize": process.env.MAX_IMAGE_SIZE || 5,
     "minImageSize": process.env.MIN_IMAGE_SIZE || 5000,
-    "maxImageRes": process.env.MAX_IMAGE_RES || 20,
-    "minImageRes": process.env.MIN_IMAGE_RES || 4,
+    "maxImageRes": process.env.MAX_IMAGE_RES || 9000000,
+    "minImageRes": process.env.MIN_IMAGE_RES || 20,
   },
   "wtp": {
     "apiKey": process.env.WTP_API_KEY,
