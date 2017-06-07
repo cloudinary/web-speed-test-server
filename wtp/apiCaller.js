@@ -103,10 +103,7 @@ const checkTestStatus = (testId, cb) => {
       getTestResults(testId, cb);
     }
     if (testRes.statusCode >= 100 && testRes.statusCode < 200) {
-      //@TODO: add timeout
-      setTimeout(() => {
-        checkTestStatus(testId, cb)
-      }, 1000)
+      cb({status: 'success', message: 'test not finished', code: 150}, null);
     }
   });
 
