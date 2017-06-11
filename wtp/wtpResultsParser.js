@@ -29,6 +29,9 @@ const parseTestResults = (testJson) => {
       }
     }*/
     //imageList = filterByImageSize(imageList);
+    imageList = _.uniqWith(imageList, (arrVal, othVal) => {
+      return arrVal.width === othVal.wdith && arrVal.height === othVal.height && arrVal.url === othVal.url;
+    });
     imageList = filterByResolution(imageList);
     imageList = imageList.splice(0, config.get('images.maxNumberOfImages'));
     let headers = _.get(requestsData[0], 'headers.request').filter((head) => {
