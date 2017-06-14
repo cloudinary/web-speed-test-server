@@ -1,4 +1,4 @@
-# Page Speed Image Performance Analysis Server App
+# web-speed-test Image Performance Analysis Server App
 
 This is the server app for Cloudinary image analysis tool.
 
@@ -13,8 +13,8 @@ This is the server app for Cloudinary image analysis tool.
 **Step 2**. Clone this repository
 
 ```shell
-$ git clone git@github.com:CloudinaryLtd/pagespeed-server.git pagespeed-server
-$ cd pagespeed
+$ git clone git@github.com:CloudinaryLtd/web-speed-test-server.git web-speed-test-server
+$ cd web-speed-test
 $ yarn install                  # Install project dependencies listed in package.json
 ```
 
