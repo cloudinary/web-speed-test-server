@@ -19,7 +19,7 @@ const parseTestResults = (testJson) => {
       return {status: 'error', message: 'WTP missing data'}
     }
     imageList = _.uniqWith(imageList, (arrVal, othVal) => {
-      return arrVal.width === othVal.wdith && arrVal.height === othVal.height && arrVal.url === othVal.url;
+      return (arrVal.width === othVal.width) && (arrVal.height === othVal.height) && (arrVal.url === othVal.url);
     });
     let origLength = imageList.length;
     imageList = filterByResolution(imageList);
