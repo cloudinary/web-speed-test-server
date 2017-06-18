@@ -23,6 +23,10 @@ const parseTestResults = (testJson) => {
     });
     let origLength = imageList.length;
     imageList = filterByResolution(imageList);
+    imageList = _.sortBy(imageList, (img) => {
+      return img.width * img.height;
+    });
+    imageList = _.reverse(imageList);
     imageList = imageList.splice(0, config.get('images.maxNumberOfImages'));
     let headers = _.get(requestsData[0], 'headers.request').filter((head) => {
       return (head.startsWith('User-Agent: ') || head.startsWith('Accept: '));
