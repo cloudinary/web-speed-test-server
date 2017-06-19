@@ -55,7 +55,7 @@ const runWtpTest = (url, cb) => {
     'url': RUN_TEST_URL,
     'qs': {url: url, k: config.get('wtp.apiKey'), f: "json", custom: config.get('wtp.imageScript')}
   };
-  request.get(options, (error, response, body) => {
+  request.post(options, (error, response, body) => {
     if (error) {
       cb({status: 'error', message: 'Error calling WTP', error: error}, null);
       return;
