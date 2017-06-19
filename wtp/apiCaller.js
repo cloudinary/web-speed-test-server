@@ -53,7 +53,7 @@ const runWtpTest = (url, cb) => {
   logger.debug('Running new test ' + url);
   let options = {
     'url': RUN_TEST_URL,
-    'qs': {url: url, k: config.get('wtp.apiKey'), f: "json"}
+    'qs': {url: url, k: config.get('wtp.apiKey'), f: "json", custom: config.get('wtp.imageScript')}
   };
   request.get(options, (error, response, body) => {
     if (error) {

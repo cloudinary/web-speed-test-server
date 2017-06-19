@@ -13,7 +13,7 @@ const path = require('path');
 
 const parseTestResults = (testJson) => {
   try {
-    let imageList = JSON.parse(_.get(testJson, config.get('wtp.paths.imageList'), null));
+    let imageList = JSON.parse(_.get(testJson, config.get('wtp.paths.imageList'), _.get(testJson, config.get('wtp.paths.imageListFallback'), null)));
     let requestsData = _.get(testJson, config.get('wtp.paths.rawData'), null);
     if (!imageList || !requestsData) {
       return {status: 'error', message: 'WTP missing data'}
@@ -21,8 +21,8 @@ const parseTestResults = (testJson) => {
     imageList = _.uniqWith(imageList, (arrVal, othVal) => {
       return (arrVal.width === othVal.width) && (arrVal.height === othVal.height) && (arrVal.url === othVal.url);
     });
-    let origLength = imageList.length;
     imageList = filterByResolution(imageList);
+    let origLength = imageList.length;
     imageList = _.sortBy(imageList, (img) => {
       return img.width * img.height;
     });
