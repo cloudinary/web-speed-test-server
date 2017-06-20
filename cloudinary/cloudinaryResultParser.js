@@ -15,8 +15,18 @@ const parseCloudinaryResults = (results) => {
     let totalImagesWeight = 0;
     let totalTransformed = 0;
 
+    results = _.uniqWith(results, (arrVal, othVal) => {
+
+    });
     for (const result of results) {
       if (result.public_id) {
+        let split = splitEager(result.eager);
+        result.transformedImage = split.nonDynamic;
+        result.dynamicFormats = split.dynamic;
+        delete result.eager;
+        result.dynamicFormats = _.uniqWith(result.dynamicFormats, (arrVal, othVal) => {
+          return arrVal.analyze.data.format === othVal.analyze.data.format;
+        });
         totalTransformed += addPercentAndBest(result);
         totalPageRank += map[result.analyze.grading.aggregated.value].val;
         imagesTestResults.push(result);
@@ -41,22 +51,35 @@ const parseCloudinaryResults = (results) => {
   }
 };
 
+const splitEager = (eagerArray) => {
+  let dynamic = [];
+  let nonDynamic;
+  for (const trans of eagerArray) {
+    if (trans.transformation.indexOf("f_") === -1) {
+      nonDynamic = trans;
+    } else {
+      dynamic.push(trans);
+    }
+  }
+  return {dynamic: dynamic, nonDynamic: nonDynamic}
+};
+
 const addPercentAndBest = (imageResult) => {
   let origSize = imageResult.bytes;
   let idx = 0;
   let best = 0;
   let small = null;
-  for (let imageTrans of imageResult.eager) {
+  for (let imageTrans of imageResult.dynamicFormats) {
     let transSize = _.get(imageTrans, 'analyze.data.bytes', null);
     if (null !== transSize) {
-      imageResult.eager[idx].percentChange = calcPercent(transSize, origSize);
+      imageResult.dynamicFormats[idx].percentChange = calcPercent(transSize, origSize);
       small = (small === null) ? transSize : (small <= transSize ? small : transSize);
       best = small >= transSize ? idx : best;
       idx++;
     }
   }
-  imageResult.eager[best].best = true;
-  return imageResult.eager[best].analyze.data.bytes;
+  imageResult.dynamicFormats[best].best = true;
+  return imageResult.dynamicFormats[best].analyze.data.bytes;
 };
 
 const calcPercent = (part, target) => {
