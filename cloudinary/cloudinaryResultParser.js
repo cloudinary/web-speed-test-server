@@ -15,22 +15,21 @@ const parseCloudinaryResults = (results) => {
     let totalImagesWeight = 0;
     let totalTransformed = 0;
 
-    results = _.uniqWith(results, (arrVal, othVal) => {
+    results = _.uniq(results);
 
-    });
     for (const result of results) {
       if (result.public_id) {
-        let split = splitEager(result.eager);
-        result.transformedImage = split.nonDynamic;
-        result.dynamicFormats = split.dynamic;
-        delete result.eager;
-        result.dynamicFormats = _.uniqWith(result.dynamicFormats, (arrVal, othVal) => {
+        result.eager = _.uniqWith(result.eager, (arrVal, othVal) => {
           return arrVal.analyze.data.format === othVal.analyze.data.format;
         });
         totalTransformed += addPercentAndBest(result);
+        let split = splitEager(result.eager);
+        result.transformedImage = split.nonDynamic;
+        result.dynamicFormats = split.dynamic;
         totalPageRank += map[result.analyze.grading.aggregated.value].val;
-        imagesTestResults.push(result);
         totalImagesWeight += result.bytes ? result.bytes : 0;
+        delete result.eager;
+        imagesTestResults.push(result);
       }
     }
     totalPageRank = Math.round(totalPageRank / results.length);
@@ -69,17 +68,17 @@ const addPercentAndBest = (imageResult) => {
   let idx = 0;
   let best = 0;
   let small = null;
-  for (let imageTrans of imageResult.dynamicFormats) {
+  for (let imageTrans of imageResult.eager) {
     let transSize = _.get(imageTrans, 'analyze.data.bytes', null);
     if (null !== transSize) {
-      imageResult.dynamicFormats[idx].percentChange = calcPercent(transSize, origSize);
+      imageResult.eager[idx].percentChange = calcPercent(transSize, origSize);
       small = (small === null) ? transSize : (small <= transSize ? small : transSize);
       best = small >= transSize ? idx : best;
       idx++;
     }
   }
-  imageResult.dynamicFormats[best].best = true;
-  return imageResult.dynamicFormats[best].analyze.data.bytes;
+  imageResult.eager[best].best = true;
+  return imageResult.eager[best].analyze.data.bytes;
 };
 
 const calcPercent = (part, target) => {
