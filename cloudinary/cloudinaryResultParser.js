@@ -14,9 +14,6 @@ const parseCloudinaryResults = (results) => {
     let totalPageRank = 0;
     let totalImagesWeight = 0;
     let totalTransformed = 0;
-
-    results = _.uniq(results);
-
     for (const result of results) {
       if (result.public_id) {
         result.eager = _.uniqWith(result.eager, (arrVal, othVal) => {
