@@ -39,9 +39,9 @@ const conf = {
     "batchSize": process.env.CLOUDINARY_BATCH || 50,
     "transformations": process.env.CLOUDINARY_TRANSF || [
       {quality: 'auto', crop: 'fit'},
-      {quality: 'auto', fetch_format: 'webp', crop: 'fit'},
-      {quality: 'auto', fetch_format: 'wdp', crop: 'fit'},
-      {quality: 'auto', fetch_format: 'png', crop: 'fit'}
+      {quality: 'auto', fetch_format: 'webp', crop: 'limit'},
+      {quality: 'auto', fetch_format: 'wdp', crop: 'limit'},
+      {quality: 'auto', fetch_format: 'png', crop: 'limit'}
     ]
   }
 };
