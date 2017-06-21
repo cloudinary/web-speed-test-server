@@ -51,11 +51,13 @@ const getTestResults = (testId, cb) => {
 const runWtpTest = (url, cb) => {
 
   logger.debug('Running new test ' + url);
+  const apiKeys = config.get('wtp.apiKey').split(',');
+  const apiKey = apiKeys[Math.floor(Math.random() * apiKeys.length)];
   let options = {
     'url': RUN_TEST_URL,
     'qs': { 
             url: url, 
-            k: config.get('wtp.apiKey'), 
+            k: apiKey,
             f: "json",
             width: config.get('wtp.viewportWidth'),
             height: config.get('wtp.viewportHeight'), 
