@@ -38,7 +38,7 @@ const conf = {
     "secret": process.env.CLOUDINARY_SEACRET,
     "batchSize": process.env.CLOUDINARY_BATCH || 50,
     "transformations": process.env.CLOUDINARY_TRANSF || [
-      {quality: 'auto', crop: 'fit'},
+      {quality: 'auto', crop: 'limit'},
       {quality: 'auto', fetch_format: 'webp', crop: 'limit'},
       {quality: 'auto', fetch_format: 'wdp', crop: 'limit'},
       {quality: 'auto', fetch_format: 'png', crop: 'limit'}
