@@ -33,8 +33,8 @@ const parseTestResults = (testJson) => {
     });
     let url = _.get(testJson, config.get('wtp.paths.url'));
     let dpi = JSON.parse(_.get(testJson, config.get('wtp.paths.dpi')));
-    let resolution = JSON.parse(_.get(testJson, config.get('wtp.paths.resolution')));
-    let viewportSize = resolution.available;
+    let resolution = JSON.parse(_.get(testJson, config.get('wtp.paths.resolution'), _.get(testJson, config.get('wtp.paths.resolutionFallback'))));
+    let viewportSize = resolution.viewport ? resolution.viewport : resolution.available;
     let screenShot = _.get(testJson, config.get('wtp.paths.screenShot'));
     let location = _.get(testJson, config.get('wtp.paths.location'));
     if (location && location.indexOf(":") !== -1) {
