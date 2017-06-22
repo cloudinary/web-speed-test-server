@@ -28,7 +28,7 @@ const sentToAnalyze = (imagesArray, dpr, metaData, cb) => {
       let eager = [];
       if (transformations) {
         eager = transformations.map((trans) => {
-          return Object.assign(trans, {width: image.width, height: image.height});
+          return Object.assign(trans, {width: image.width, height: image.height, dpr: dpr || 1});
         });
       }
       cloudinary.v2.uploader.upload(image.url, {eager: eager, analyze:{context: context}, tags: timestamp},(error, result) => {
