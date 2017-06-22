@@ -61,7 +61,8 @@ const runWtpTest = (url, cb) => {
             f: "json",
             width: config.get('wtp.viewportWidth'),
             height: config.get('wtp.viewportHeight'), 
-            custom: config.get('wtp.imageScript')
+            custom: config.get('wtp.imageScript'),
+            fvonly: 1 // first view only
           }
   };
   request.post(options, (error, response, body) => {
