@@ -99,7 +99,7 @@ var result = function() {
         var url = el.currentSrc || el.src;
         if (url && url.indexOf('http') === 0) {
           var naturalSize = naturalImageSize(url);
-          images.push({'url': url, 'width': el.width, 'height': el.height, 'naturalWidth': naturalSize['width'], 'naturalHeight': naturalSize['height']});
+          images.push({'url': url, 'width': el.width, 'height': el.height, 'naturalWidth': naturalSize['width'] || el.naturalWidth, 'naturalHeight': naturalSize['height'] || el.naturalHeight});
         }
       } else {
         var backgroundImage = getStyle(el, 'backgroundImage');
