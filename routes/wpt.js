@@ -42,6 +42,11 @@ const wtp = (app) => {
     apiCaller.runWtpTest(testUrl, (error, result) => {
       routeCallback(error, result, res)
     });
+  });
+
+  app.get('/version', (req, res) => {
+    const packageJson = require('../package.json');
+    res.json({version: packageJson.version});
   })
 };
 
