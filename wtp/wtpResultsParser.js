@@ -13,6 +13,10 @@ const path = require('path');
 
 const parseTestResults = (testJson) => {
   try {
+    let browserName = _.get(testJson, 'data.median.firstView.browser_name');
+    if ('firefox' === browserName.toLowerCase()) {
+      return {status: 'error', message: 'firefox'};
+    }
     let imageList = JSON.parse(_.get(testJson, config.get('wtp.paths.imageList'), _.get(testJson, config.get('wtp.paths.imageListFallback'), null)));
     let requestsData = _.get(testJson, config.get('wtp.paths.rawData'), null);
     if (!imageList || !requestsData) {
@@ -40,7 +44,6 @@ const parseTestResults = (testJson) => {
     if (location && location.indexOf(":") !== -1) {
       location = location.split(":")[0];
     }
-    let browserName = _.get(testJson, 'data.median.firstView.browser_name');
     let browserVersion = _.get(testJson, 'data.median.firstView.browser_version');
 
     return {
@@ -60,7 +63,7 @@ const parseTestResults = (testJson) => {
     };
   } catch (e) {
     logger.error('Error parsing WTP results \n' + e.message);
-    return null;
+    return {status: 'error', message: 'wpt_failure'};
   }
 };
 

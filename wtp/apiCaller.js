@@ -42,6 +42,8 @@ const getTestResults = (testId, cb) => {
     if (!wtpRes) {
       cb({status: 'error', message: 'WTP results are missing data', error: 'data missing'}, null);
       return;
+    } else if(wtpRes.status === 'error') {
+      cb(wtpRes);
     }
     cloudinaryCaller(wtpRes.imageList, wtpRes.dpr, wtpRes.metaData, cb);
   })
