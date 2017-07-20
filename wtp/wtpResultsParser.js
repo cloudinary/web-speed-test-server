@@ -7,7 +7,7 @@
 const _ = require('lodash');
 const config = require('config');
 const bytes = require('bytes');
-const logger = require('winston');
+const logger = require('../logger');
 const url = require('url');
 const path = require('path');
 

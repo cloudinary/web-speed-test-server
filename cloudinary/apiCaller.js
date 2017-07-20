@@ -4,7 +4,7 @@
 
 'use strict';
 require('dotenv').config();
-const logger = require('winston');
+const logger = require('../logger');
 const config = require('config');
 const _ = require('lodash');
 const cloudinaryParser = require('./cloudinaryResultParser');

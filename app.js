@@ -1,7 +1,7 @@
+const config = require('config');
 const express = require('express');
-const logger = require('winston');
-const expressWinston = require('express-winston');
 const bodyParser = require('body-parser');
+const logger = require('./logger');
 const app = express();
 app.use(bodyParser.json());
 
@@ -21,15 +21,8 @@ app.use(function (req, res, next) {
   }
 });
 
-app.use(expressWinston.logger({
-    transports: [
-      new logger.transports.Console({
-        json: true,
-        colorize: true
-      })
-    ]
-  }
-));
+app.use(logger.errorHandler());
+
 //app.use(bodyParser.urlencoded({ extended: false }));
 
 
@@ -59,6 +52,7 @@ app.use(function (err, req, res, next) {
 });
 const listenPort = process.env.PORT || 5000;
 app.listen(listenPort, () => {
+  logger.info('Server started listing on port ' + listenPort);
   console.log('Listening on port ' + listenPort);
 });
 

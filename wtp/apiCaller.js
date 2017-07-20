@@ -7,7 +7,7 @@
 
 const request = require('request');
 const config = require('config');
-const logger = require('winston');
+const logger = require('../logger');
 const resultParser = require('./wtpResultsParser');
 const cloudinaryCaller = require('../cloudinary/apiCaller');
 const RESULTS_URL = 'https://www.webpagetest.org/jsonResult.php';
