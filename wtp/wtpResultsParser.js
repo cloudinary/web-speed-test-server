@@ -13,13 +13,14 @@ const path = require('path');
 
 const parseTestResults = (testJson) => {
   try {
-    let browserName = _.get(testJson, 'data.median.firstView.browser_name');
+    let browserName = _.get(testJson, 'data.location', 'somePlace:N/A').split(':')[1];
     if ('firefox' === browserName.toLowerCase()) {
       return {status: 'error', message: 'firefox'};
     }
     let imageList = JSON.parse(_.get(testJson, config.get('wtp.paths.imageList'), _.get(testJson, config.get('wtp.paths.imageListFallback'), null)));
     let requestsData = _.get(testJson, config.get('wtp.paths.rawData'), null);
     if (!imageList || !requestsData) {
+      logger.error("WTP test data is missing information", {body:JSON.stringify(testJson)});
       return {status: 'error', message: 'WTP missing data'}
     }
     imageList = _.uniqWith(imageList, (arrVal, othVal) => {

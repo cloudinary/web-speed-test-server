@@ -44,8 +44,10 @@ const getTestResults = (testId, cb) => {
       return;
     } else if(wtpRes.status === 'error') {
       cb(wtpRes);
+      return;
+    } else {
+      cloudinaryCaller(wtpRes.imageList, wtpRes.dpr, wtpRes.metaData, cb);
     }
-    cloudinaryCaller(wtpRes.imageList, wtpRes.dpr, wtpRes.metaData, cb);
   })
 };
 
