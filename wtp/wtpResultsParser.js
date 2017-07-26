@@ -20,8 +20,8 @@ const parseTestResults = (testJson) => {
     let imageList = JSON.parse(_.get(testJson, config.get('wtp.paths.imageList'), _.get(testJson, config.get('wtp.paths.imageListFallback'), null)));
     let requestsData = _.get(testJson, config.get('wtp.paths.rawData'), null);
     if (!imageList || !requestsData) {
-      logger.error("WTP test data is missing information", {body:JSON.stringify(testJson)});
-      return {status: 'error', message: 'WTP missing data'}
+      logger.error("WPT test data is missing information", {body:JSON.stringify(testJson)});
+      return {status: 'error', message: 'WPT missing data'}
     }
     imageList = _.uniqWith(imageList, (arrVal, othVal) => {
       return (arrVal.width === othVal.width) && (arrVal.height === othVal.height) && (arrVal.url === othVal.url);
