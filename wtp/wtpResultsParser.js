@@ -33,7 +33,7 @@ const parseTestResults = (testJson) => {
     imageList = _.reverse(imageList);
     imageList = imageList.splice(0, config.get('images.maxNumberOfImages'));
     let headers = _.get(requestsData[0], 'headers.request').filter((head) => {
-      return (head.startsWith('User-Agent: ') || head.startsWith('Accept: '));
+      return (head.toLowerCase().startsWith('user-agent: ') || head.toLowerCase().startsWith('accept: '));
     });
     let url = _.get(testJson, config.get('wtp.paths.url'));
     let dpi = JSON.parse(_.get(testJson, config.get('wtp.paths.dpi')));
