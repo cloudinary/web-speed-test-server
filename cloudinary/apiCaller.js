@@ -22,7 +22,7 @@ const addServerInfo = (imageList, batchSize, dpr, metaData, cb) => {
     getServer(img, callback);
   }, err => {
     if (err) {
-      //log this
+      logger.error('error getting head for image ' + image.url, err);
     }
     sendToCloudinery(imageList, batchSize, dpr, metaData, cb);
   });
@@ -47,7 +47,6 @@ const sendToCloudinery = (imagesArray, batchSize, dpr, metaData, cb) => {
         return Object.assign(trans, {width: image.width, height: image.height, dpr: dpr || 1});
       });
     }
-    //let server = getServer(image.url);
     cloudinary.v2.uploader.upload(image.url, {eager: eager, analyze:{context: context}, tags: timestamp},(error, result) => {
       if (error) {
         analyzeResults.push({public_id: null});
@@ -77,7 +76,7 @@ const sendToCloudinery = (imagesArray, batchSize, dpr, metaData, cb) => {
 const getServer = (image, callback) => {
   request.head(image.url, (error, response, body) => {
     if (error) {
-      //log this
+      logger.error("error getting image head " + image.url, error);
       callback();
     } else {
       image.server = (response.headers.server) ? response.headers.server : 'N/A';

@@ -45,6 +45,12 @@ const parseTestResults = (testJson) => {
       location = location.split(":")[0];
     }
     let browserVersion = _.get(testJson, 'data.median.firstView.browser_version');
+    let userAgent = 'N/A';
+    headers.forEach((head) => {
+      if (head.toLowerCase().startsWith('user-agent: ')) {
+        userAgent = head.split(':').pop();
+      }
+    });
 
     return {
       imageList: imageList,
@@ -58,6 +64,7 @@ const parseTestResults = (testJson) => {
         viewportSize,
         location,
         headers,
+        userAgent: userAgent,
         imageList: {isCut: imageList.length < origLength, origLength:origLength}
       }
     };
