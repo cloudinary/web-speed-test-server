@@ -20,8 +20,8 @@ const parseTestResults = (testJson) => {
     let imageList = JSON.parse(_.get(testJson, config.get('wtp.paths.imageList'), _.get(testJson, config.get('wtp.paths.imageListFallback'), null)));
     let requestsData = _.get(testJson, config.get('wtp.paths.rawData'), null);
     if (!imageList || !requestsData) {
-      logger.error("WPT test data is missing information", {body:JSON.stringify(testJson)});
-      return {status: 'error', message: 'WPT missing data'}
+      logger.error("WPT test data is missing information", {wtpResponse:testJson});
+      return {status: 'error', message: 'wpt_failure'}
     }
     imageList = _.uniqWith(imageList, (arrVal, othVal) => {
       return (arrVal.width === othVal.width) && (arrVal.height === othVal.height) && (arrVal.url === othVal.url);
@@ -70,7 +70,7 @@ const parseTestResults = (testJson) => {
       }
     };
   } catch (e) {
-    logger.error('Error parsing WTP results \n' + e.message);
+    logger.error('Error parsing WTP results', e);
     return {status: 'error', message: 'wpt_failure'};
   }
 };
@@ -82,8 +82,8 @@ const extractFileName = (uri) => {
 
 const parseTestResponse = (body) => {
   if (body.statusText !== 'Ok') {
-    logger.error('WTP returned an error');
-    return {status: 'error', message: 'WTP returned an error'}
+    logger.error('WPT returned an error', body);
+    return {status: 'error', message: 'wpt_failure'}
   }
   return body.data.testId;
 };
