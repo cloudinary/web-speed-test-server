@@ -62,7 +62,8 @@ const runWtpTest = (url, cb) => {
             width: config.get('wtp.viewportWidth'),
             height: config.get('wtp.viewportHeight'), 
             custom: config.get('wtp.imageScript'),
-            fvonly: 1 // first view only
+            fvonly: 1, // first view only
+            timeline: 1 // workaround for WPT sometimes hanging on getComputedStyle()
           }
   };
   request.post(options, (error, response, body) => {
