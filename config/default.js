@@ -1,10 +1,13 @@
 require('dotenv').config();
 
-var fs = require('fs');
+const fs = require('fs');
 
 const CUSTOM_SCRIPT = fs.readFileSync('config/wpt/custom_metrics.min.js', 'utf8');
 
 const conf = {
+  "rollbar": {
+    postToken: process.env.ROLLBAR_TOKEN || null
+  },
   "images": {
     "maxNumberOfImages": process.env.MAX_IMGES || 50,
     "maxImageSize": process.env.MAX_IMAGE_SIZE || 5,

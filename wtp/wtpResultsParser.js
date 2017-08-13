@@ -7,16 +7,21 @@
 const _ = require('lodash');
 const config = require('config');
 const bytes = require('bytes');
-const logger = require('winston');
+const logger = require('../logger');
 const url = require('url');
 const path = require('path');
 
 const parseTestResults = (testJson) => {
   try {
+    let browserName = _.get(testJson, 'data.location', 'somePlace:N/A').split(':')[1];
+    if ('firefox' === browserName.toLowerCase()) {
+      return {status: 'error', message: 'firefox'};
+    }
     let imageList = JSON.parse(_.get(testJson, config.get('wtp.paths.imageList'), _.get(testJson, config.get('wtp.paths.imageListFallback'), null)));
     let requestsData = _.get(testJson, config.get('wtp.paths.rawData'), null);
     if (!imageList || !requestsData) {
-      return {status: 'error', message: 'WTP missing data'}
+      logger.error("WPT test data is missing information", {wtpResponse:testJson});
+      return {status: 'error', message: 'wpt_failure'}
     }
     imageList = _.uniqWith(imageList, (arrVal, othVal) => {
       return (arrVal.width === othVal.width) && (arrVal.height === othVal.height) && (arrVal.url === othVal.url);
@@ -29,7 +34,7 @@ const parseTestResults = (testJson) => {
     imageList = _.reverse(imageList);
     imageList = imageList.splice(0, config.get('images.maxNumberOfImages'));
     let headers = _.get(requestsData[0], 'headers.request').filter((head) => {
-      return (head.startsWith('User-Agent: ') || head.startsWith('Accept: '));
+      return (head.toLowerCase().startsWith('user-agent: ') || head.toLowerCase().startsWith('accept: '));
     });
     let url = _.get(testJson, config.get('wtp.paths.url'));
     let dpi = JSON.parse(_.get(testJson, config.get('wtp.paths.dpi')));
@@ -40,8 +45,13 @@ const parseTestResults = (testJson) => {
     if (location && location.indexOf(":") !== -1) {
       location = location.split(":")[0];
     }
-    let browserName = _.get(testJson, 'data.median.firstView.browser_name');
     let browserVersion = _.get(testJson, 'data.median.firstView.browser_version');
+    let userAgent = 'N/A';
+    headers.forEach((head) => {
+      if (head.toLowerCase().startsWith('user-agent: ')) {
+        userAgent = head.split(':').pop();
+      }
+    });
 
     return {
       imageList: imageList,
@@ -55,12 +65,13 @@ const parseTestResults = (testJson) => {
         viewportSize,
         location,
         headers,
+        userAgent: userAgent,
         imageList: {isCut: imageList.length < origLength, origLength:origLength}
       }
     };
   } catch (e) {
-    logger.error('Error parsing WTP results \n' + e.message);
-    return null;
+    logger.error('Error parsing WTP results', e);
+    return {status: 'error', message: 'wpt_failure'};
   }
 };
 
@@ -71,8 +82,8 @@ const extractFileName = (uri) => {
 
 const parseTestResponse = (body) => {
   if (body.statusText !== 'Ok') {
-    logger.error('WTP returned an error');
-    return {status: 'error', message: 'WTP returned an error'}
+    logger.error('WPT returned an error', body);
+    return {status: 'error', message: 'wpt_failure'}
   }
   return body.data.testId;
 };

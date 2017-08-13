@@ -7,7 +7,7 @@
 
 const request = require('request');
 const config = require('config');
-const logger = require('winston');
+const logger = require('../logger');
 const resultParser = require('./wtpResultsParser');
 const cloudinaryCaller = require('../cloudinary/apiCaller');
 const RESULTS_URL = 'https://www.webpagetest.org/jsonResult.php';
@@ -42,8 +42,12 @@ const getTestResults = (testId, cb) => {
     if (!wtpRes) {
       cb({status: 'error', message: 'WTP results are missing data', error: 'data missing'}, null);
       return;
+    } else if(wtpRes.status === 'error') {
+      cb(wtpRes);
+      return;
+    } else {
+      cloudinaryCaller(wtpRes.imageList, wtpRes.dpr, wtpRes.metaData, cb);
     }
-    cloudinaryCaller(wtpRes.imageList, wtpRes.dpr, wtpRes.metaData, cb);
   })
 };
 
@@ -62,7 +66,8 @@ const runWtpTest = (url, cb) => {
             width: config.get('wtp.viewportWidth'),
             height: config.get('wtp.viewportHeight'), 
             custom: config.get('wtp.imageScript'),
-            fvonly: 1 // first view only
+            fvonly: 1, // first view only
+            timeline: 1 // workaround for WPT sometimes hanging on getComputedStyle()
           }
   };
   request.post(options, (error, response, body) => {
