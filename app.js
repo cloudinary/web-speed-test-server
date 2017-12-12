@@ -54,7 +54,7 @@ app.use(function (err, req, res, next) {
 const listenPort = process.env.PORT || 5000;
 
 const server = http.createServer(app);
-server.setTimeout(10 * 60 * 1000)
+server.setTimeout(3 * 60 * 1000)
 server.listen(listenPort, () => {
   logger.info('Server started listing on port ' + listenPort);
   console.log('Listening on port ' + listenPort);
