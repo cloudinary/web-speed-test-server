@@ -74,7 +74,8 @@ const sendToCloudinery = (imagesArray, batchSize, dpr, metaData, cb) => {
 };
 
 const getServer = (image, callback) => {
-  request.head(image.url, (error, response, body) => {
+  let  opts = {url: image.url, timeout: config.get("cloudinary.serverHeadTimeout")};
+  request.head(opts, (error, response, body) => {
     if (error) {
       logger.error("error getting image head " + image.url, error);
       callback();
