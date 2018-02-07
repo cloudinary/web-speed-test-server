@@ -22,25 +22,25 @@ const getTestResults = (testId, cb) => {
   };
   request.get(options, (error, response, body) => {
     if (error) {
-      cb({status: 'error', message: 'Error calling WTP', error: error}, null);
+      cb({status: 'error', message: 'Error calling WTP with testId ' + testId, error: error}, null);
       return;
     }
     if (response && response.statusCode !== 200) {
-      cb({status: 'error', message: 'WTP returned bad status', error: response.statusCode}, null);
+      cb({status: 'error', message: 'WTP returned bad status with testId ' + testId, error: response.statusCode}, null);
       return;
     }
     if (!body) {
-      cb({status: 'error', message: 'WTP returned empty body', error: 'empty body'}, null);
+      cb({status: 'error', message: 'WTP returned empty body with testId ' + testId, error: 'empty body'}, null);
       return;
     }
     let resBody = JSON.parse(body);
     if (typeof resBody.data.statusCode !== 'undefined') {
-      cb({status: 'error', message: resBody.data.statusText, error: resBody.data.statusText}, null);
+      cb({status: 'error', message: resBody.data.statusText + 'testId ' + testId, error: resBody}, null);
       return;
     }
     let wtpRes = resultParser.parseTestResults(resBody);
     if (!wtpRes) {
-      cb({status: 'error', message: 'WTP results are missing data', error: 'data missing'}, null);
+      cb({status: 'error', message: 'WTP results are missing data with testId ' + testId, error: resBody}, null);
       return;
     } else if(wtpRes.status === 'error') {
       cb(wtpRes);
@@ -72,15 +72,15 @@ const runWtpTest = (url, cb) => {
   };
   request.post(options, (error, response, body) => {
     if (error) {
-      cb({status: 'error', message: 'Error calling WTP', error: error}, null);
+      cb({status: 'error', message: 'Error calling WTP with url ' + url, error: error}, null);
       return;
     }
     if (response && response.statusCode !== 200) {
-      cb({status: 'error', message: 'WTP returned bad status', error: response.statusCode}, null);
+      cb({status: 'error', message: 'WTP returned bad status with url ' + url, error: response}, null);
       return;
     }
     if (!body) {
-      cb({status: 'error', message: 'WTP returned empty body', error: 'empty body'}, null);
+      cb({status: 'error', message: 'WTP returned empty body with url ' + url, error: 'empty body'}, null);
       return;
     }
     let testId = resultParser.parseTestResponse(JSON.parse(body));
@@ -101,17 +101,17 @@ const checkTestStatus = (testId, cb) => {
   };
   request.get(options, (error, response, body) => {
     if (error) {
-      cb({status: 'error', message: 'Error calling WTP', error: error}, null);
+      cb({status: 'error', message: 'Error checking WTP status with testId ' + testId, error: error}, null);
       return;
     }
     if (response && response.statusCode !== 200) {
-      cb({status: 'error', message: 'WTP returned bad status', error: response.statusCode}, null);
+      cb({status: 'error', message: 'WTP returned bad status testId ' + testId , error: response.statusCode}, null);
       return;
     }
     let testRes = JSON.parse(body);
     logger.debug('Test status code ' + testRes.statusCode);
     if (testRes.statusCode >= 400) {
-      cb({status: 'error', message: 'WTP returned bad status', error: testRes.statusText}, null);
+      cb({status: 'error', message: 'WTP returned bad status with testId ' + testId, error: testRes}, null);
       return;
     }
     if (testRes.statusCode === 200) {

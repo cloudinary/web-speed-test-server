@@ -22,7 +22,7 @@ const addServerInfo = (imageList, batchSize, dpr, metaData, cb) => {
     getServer(img, callback);
   }, err => {
     if (err) {
-      logger.error('error getting head for image ' + image.url, err);
+      logger.warning('error getting head for image ' + image.url, err);
     }
     sendToCloudinery(imageList, batchSize, dpr, metaData, cb);
   });
@@ -60,7 +60,7 @@ const sendToCloudinery = (imagesArray, batchSize, dpr, metaData, cb) => {
     } );
   }, err => {
     if (err) {
-      cb({status: 'error', message: 'Error getting results from cloudinary', error: err.message}, null);
+      cb({status: 'error', message: 'Error getting results from cloudinary', error: err}, null);
     }
     let parsed = cloudinaryParser.parseCloudinaryResults(analyzeResults);
     if (parsed.status === 'error') {
@@ -77,7 +77,7 @@ const getServer = (image, callback) => {
   let  opts = {url: image.url, timeout: config.get("cloudinary.serverHeadTimeout")};
   request.head(opts, (error, response, body) => {
     if (error) {
-      logger.error("error getting image head " + image.url, error);
+      logger.warning("error getting image head " + image.url, error);
       callback();
     } else {
       image.server = (response.headers.server) ? response.headers.server : 'N/A';

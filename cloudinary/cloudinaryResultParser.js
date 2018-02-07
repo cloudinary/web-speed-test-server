@@ -49,7 +49,7 @@ const parseCloudinaryResults = (results) => {
       }
     };
   } catch (e) {
-    logger.error('Error parsing cloudinary result \n' + JSON.stringify(e));
+    logger.error('Error parsing cloudinary result', e);
     return {status: 'error', message: 'Error parsing cloudinary result'}
   }
 };
