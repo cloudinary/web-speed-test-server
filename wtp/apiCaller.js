@@ -54,7 +54,7 @@ const getTestResults = (testId, cb) => {
 
 const runWtpTest = (url, cb) => {
 
-  logger.debug('Running new test ' + url);
+  logger.info('Running new test ' + url);
   const apiKeys = config.get('wtp.apiKey').split(',');
   const apiKey = apiKeys[Math.floor(Math.random() * apiKeys.length)];
   let options = {
@@ -94,7 +94,7 @@ const runWtpTest = (url, cb) => {
 };
 
 const checkTestStatus = (testId, cb) => {
-  logger.debug('Test id ' + testId);
+  logger.info('Test id ' + testId);
   let options = {
     'url': GET_TEST_STATUS,
     'qs': {test: testId, k: config.get('wtp.apiKey'), f: "json"}
