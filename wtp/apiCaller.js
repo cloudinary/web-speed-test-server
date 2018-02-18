@@ -126,7 +126,7 @@ const checkTestStatus = (testId, cb) => {
       getTestResults(testId, cb);
     }
     if (bodyJson.statusCode >= 100 && bodyJson.statusCode < 200) {
-      cb({status: 'success', message: 'test not finished', code: 150}, null, response, rollBarMsg);
+      cb(null, {status: 'success', message: 'test not finished', code: 150}, null, null);
     }
   });
 
