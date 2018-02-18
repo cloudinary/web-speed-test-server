@@ -3,14 +3,14 @@ const express = require('express');
 const validUrl = require('valid-url');
 const apiCaller = require('../wtp/apiCaller');
 const logger = require('../logger');
+const path = require('path');
 
-
-const routeCallback = (error, result, res) => {
+const routeCallback = (error, result, res, rollBarMsg) => {
   if (error) {
     if (typeof error.error === 'object') {
-      logger.error(error.message, error.error)
+      logger.error(error.message, error.error, rollBarMsg)
     } else {
-      logger.error(error.message)
+      logger.error(error.message, rollBarMsg)
     }
     if (error.statusCode) {
       res.sendStatus(error.statusCode)
@@ -25,7 +25,8 @@ const routeCallback = (error, result, res) => {
 const wtp = (app) => {
   app.get('/test/:testId', (req, res) => {
     let testId = req.params.testId;
-    logger.info('Checking test with id ' + testId);
+    let rollBarMsg = {testId: testId, thirdPartyErrorCode: "", file: path.basename((__filename))};
+    logger.info('Checking test with id ' + testId + " status", rollBarMsg, req);
     apiCaller.checkTestStatus(testId, (error, result) => {
       routeCallback(error, result, res)
     });
@@ -33,23 +34,25 @@ const wtp = (app) => {
 
 
   app.post('/test/run', (req, res) => {
+    let rollBarMsg = {testId: "N/A", thirdPartyErrorCode: "", file: path.basename((__filename))};
     if (!req.body) {
-      logger.error('Could not run test missing request body', req);
+      logger.error('Could not run test missing request body', rollBarMsg, req);
       routeCallback({statusCode: 400}, null, res);
       return;
     }
     let testUrl = req.body.url;
+    rollBarMsg.analyzedUrl = testUrl;
     if (!testUrl) {
-      logger.error('Could not run test missing test url', req);
+      logger.error('Could not run test missing test url',rollBarMsg, req);
       routeCallback({statusCode: 400}, null, res);
       return;
     }
-    if (!validUrl.isUri(testUrl)) {
-      logger.error('Could not run test url is not valid \n test url is ' + testUrl, req);
+/*    if (!validUrl.isWebUri(testUrl)) {
+      logger.error('Could not run test url is not valid \n test url is ' + testUrl, rollBarMsg, req);
       routeCallback({status: 'error', message: 'URL is not valid'});
       return;
-    }
-    logger.info('Started test called from webspeedtest', req);
+    }*/
+    logger.info('Started test called from webspeedtest',rollBarMsg, req);
     apiCaller.runWtpTest(testUrl, (error, result) => {
       routeCallback(error, result, res)
     });
