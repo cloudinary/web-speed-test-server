@@ -12,23 +12,23 @@ const cloudinary = require('cloudinary');
 const async = require('async');
 const request = require('request');
 
-const sentToAnalyze = (imagesArray, dpr, metaData, cb) => {
+const sentToAnalyze = (imagesArray, dpr, metaData, cb, rollBarMsg) => {
     let batchSize = config.get('cloudinary.batchSize');
-    addServerInfo(imagesArray, batchSize, dpr, metaData, cb);
+    addServerInfo(imagesArray, batchSize, dpr, metaData, cb, rollBarMsg);
 };
 
-const addServerInfo = (imageList, batchSize, dpr, metaData, cb) => {
+const addServerInfo = (imageList, batchSize, dpr, metaData, cb, rollBarMsg) => {
   async.eachLimit(imageList, batchSize, (img, callback) => {
-    getServer(img, callback);
+    getServer(img, callback, rollBarMsg);
   }, err => {
     if (err) {
-      logger.error('error getting head for image ' + image.url, err);
+      logger.warning('error getting head for image ' + image.url, err, rollBarMsg);
     }
-    sendToCloudinery(imageList, batchSize, dpr, metaData, cb);
+    sendToCloudinery(imageList, batchSize, dpr, metaData, cb, rollBarMsg);
   });
 };
 
-const sendToCloudinery = (imagesArray, batchSize, dpr, metaData, cb) => {
+const sendToCloudinery = (imagesArray, batchSize, dpr, metaData, cb, rollBarMsg) => {
   let analyzeResults = [];
   let timestamp = Math.floor(Date.now() / 1000);
   async.eachLimit(imagesArray, batchSize, (image, callback) => {
@@ -50,7 +50,7 @@ const sendToCloudinery = (imagesArray, batchSize, dpr, metaData, cb) => {
     cloudinary.v2.uploader.upload(image.url, {eager: eager, analyze:{context: context}, tags: timestamp},(error, result) => {
       if (error) {
         analyzeResults.push({public_id: null});
-        logger.error('Error uploading to cloudinary', error);
+        logger.error('Error uploading to cloudinary', error, rollBarMsg);
         callback();
       } else {
         result.server = image.server;
@@ -60,9 +60,9 @@ const sendToCloudinery = (imagesArray, batchSize, dpr, metaData, cb) => {
     } );
   }, err => {
     if (err) {
-      cb({status: 'error', message: 'Error getting results from cloudinary', error: err.message}, null);
+      cb({status: 'error', message: 'Error getting results from cloudinary', error: err}, null, null, rollBarMsg);
     }
-    let parsed = cloudinaryParser.parseCloudinaryResults(analyzeResults);
+    let parsed = cloudinaryParser.parseCloudinaryResults(analyzeResults, rollBarMsg);
     if (parsed.status === 'error') {
       cb(parsed, null);
       return;
@@ -73,11 +73,11 @@ const sendToCloudinery = (imagesArray, batchSize, dpr, metaData, cb) => {
 
 };
 
-const getServer = (image, callback) => {
+const getServer = (image, callback, rollBarMsg) => {
   let  opts = {url: image.url, timeout: config.get("cloudinary.serverHeadTimeout")};
   request.head(opts, (error, response, body) => {
     if (error) {
-      logger.error("error getting image head " + image.url, error);
+      logger.warning("error getting image head " + image.url, error, rollBarMsg);
       callback();
     } else {
       image.server = (response.headers.server) ? response.headers.server : 'N/A';

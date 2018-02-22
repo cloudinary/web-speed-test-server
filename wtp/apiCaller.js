@@ -5,6 +5,7 @@
 "use strict";
 
 
+const path = require('path');
 const request = require('request');
 const config = require('config');
 const logger = require('../logger');
@@ -21,32 +22,33 @@ const getTestResults = (testId, cb) => {
     qs: {test: testId}
   };
   request.get(options, (error, response, body) => {
+    let resBody = JSON.parse(body);
+    let rollBarMsg = {testId: resBody.data.id, analyzedUrl: resBody.data.testUrl, thirdPartyErrorCode: "", file: path.basename((__filename))};
     if (error) {
-      cb({status: 'error', message: 'Error calling WTP', error: error}, null);
+      cb({status: 'error', message: 'Error calling WTP with testId ' + testId, error: error}, null, response, rollBarMsg);
       return;
     }
     if (response && response.statusCode !== 200) {
-      cb({status: 'error', message: 'WTP returned bad status', error: response.statusCode}, null);
+      cb({status: 'error', message: 'WTP returned bad status with testId ' + testId, error: response.statusCode}, null, response, rollBarMsg);
       return;
     }
     if (!body) {
-      cb({status: 'error', message: 'WTP returned empty body', error: 'empty body'}, null);
+      cb({status: 'error', message: 'WTP returned empty body with testId ' + testId, error: 'empty body'}, null, response, rollBarMsg);
       return;
     }
-    let resBody = JSON.parse(body);
     if (typeof resBody.data.statusCode !== 'undefined') {
-      cb({status: 'error', message: resBody.data.statusText, error: resBody.data.statusText}, null);
+      cb({status: 'error', message: resBody.data.statusText + 'testId ' + testId, error: resBody}, null, response, rollBarMsg);
       return;
     }
     let wtpRes = resultParser.parseTestResults(resBody);
     if (!wtpRes) {
-      cb({status: 'error', message: 'WTP results are missing data', error: 'data missing'}, null);
+      cb({status: 'error', message: 'WTP results are missing data with testId ' + testId, error: resBody}, null, response, rollBarMsg);
       return;
     } else if(wtpRes.status === 'error') {
       cb(wtpRes);
       return;
     } else {
-      cloudinaryCaller(wtpRes.imageList, wtpRes.dpr, wtpRes.metaData, cb);
+      cloudinaryCaller(wtpRes.imageList, wtpRes.dpr, wtpRes.metaData, cb, rollBarMsg);
     }
   })
 };
@@ -54,7 +56,7 @@ const getTestResults = (testId, cb) => {
 
 const runWtpTest = (url, cb) => {
 
-  logger.debug('Running new test ' + url);
+  logger.info('Running new test ' + url);
   const apiKeys = config.get('wtp.apiKey').split(',');
   const apiKey = apiKeys[Math.floor(Math.random() * apiKeys.length)];
   let options = {
@@ -71,19 +73,23 @@ const runWtpTest = (url, cb) => {
           }
   };
   request.post(options, (error, response, body) => {
+    let bodyJson = JSON.parse(body);
+    let tID = (typeof bodyJson.data !== 'undefined' && typeof bodyJson.data.testId !== 'undefined') ? (bodyJson.data.testId) : "N/A";
+    let rollBarMsg = {testId: tID, analyzedUrl: url, thirdPartyErrorCode: "", file: path.basename((__filename))};
     if (error) {
-      cb({status: 'error', message: 'Error calling WTP', error: error}, null);
+      cb({status: 'error', message: 'Error calling WTP with url ' + url, error: error}, null, response, rollBarMsg);
       return;
     }
     if (response && response.statusCode !== 200) {
-      cb({status: 'error', message: 'WTP returned bad status', error: response.statusCode}, null);
+      rollBarMsg.thirdPartyErrorCode = response.statusCode;
+      cb({status: 'error', message: 'WTP returned bad status with url ' + url}, null, response, rollBarMsg);
       return;
     }
     if (!body) {
-      cb({status: 'error', message: 'WTP returned empty body', error: 'empty body'}, null);
+      cb({status: 'error', message: 'WTP returned empty body with url ' + url, error: 'empty body'}, null, response, rollBarMsg);
       return;
     }
-    let testId = resultParser.parseTestResponse(JSON.parse(body));
+    let testId = resultParser.parseTestResponse(bodyJson, rollBarMsg);
     if (typeof testId === 'object') {
       cb(null, testId);
       return;
@@ -94,31 +100,33 @@ const runWtpTest = (url, cb) => {
 };
 
 const checkTestStatus = (testId, cb) => {
-  logger.debug('Test id ' + testId);
   let options = {
     'url': GET_TEST_STATUS,
     'qs': {test: testId, k: config.get('wtp.apiKey'), f: "json"}
   };
   request.get(options, (error, response, body) => {
+    let bodyJson = JSON.parse(body);
+    let rollBarMsg = {testId: testId, thirdPartyErrorCode: "", file: path.basename((__filename))};
     if (error) {
-      cb({status: 'error', message: 'Error calling WTP', error: error}, null);
+      cb({status: 'error', message: 'Error checking WTP status with testId ' + testId, error: error}, null, response, rollBarMsg);
       return;
     }
     if (response && response.statusCode !== 200) {
-      cb({status: 'error', message: 'WTP returned bad status', error: response.statusCode}, null);
+      cb({status: 'error', message: 'WTP returned bad status testId ' + testId , error: response.statusCode}, null, response, rollBarMsg);
       return;
     }
-    let testRes = JSON.parse(body);
-    logger.debug('Test status code ' + testRes.statusCode);
-    if (testRes.statusCode >= 400) {
-      cb({status: 'error', message: 'WTP returned bad status', error: testRes.statusText}, null);
+    logger.debug('Test status code ' + bodyJson.statusCode, rollBarMsg);
+    rollBarMsg.thirdPartyErrorCode = bodyJson.statusCode;
+    if (bodyJson.statusCode >= 400) {
+      rollBarMsg.thirdPartyErrorCode = bodyJson.statusCode;
+      cb({status: 'error', message: 'WTP returned bad status with testId ' + testId, error: bodyJson}, null, response, rollBarMsg);
       return;
     }
-    if (testRes.statusCode === 200) {
+    if (bodyJson.statusCode === 200) {
       getTestResults(testId, cb);
     }
-    if (testRes.statusCode >= 100 && testRes.statusCode < 200) {
-      cb({status: 'success', message: 'test not finished', code: 150}, null);
+    if (bodyJson.statusCode >= 100 && bodyJson.statusCode < 200) {
+      cb(null, {status: 'success', message: 'test not finished', code: 150}, null, null);
     }
   });
 
