@@ -12,7 +12,7 @@ const url = require('url');
 const path = require('path');
 
 const parseTestResults = (testJson) => {
-  let rollBarMsg = {testId: testJson.data.id, analyzedUrl: testJson.testUrl, thirdPartyErrorCode: "", file: path.basename((__filename))};
+  let rollBarMsg = {testId: testJson.data.id, analyzedUrl: testJson.data.testUrl, thirdPartyErrorCode: "", file: path.basename((__filename))};
   try {
     let browserName = _.get(testJson, 'data.location', 'somePlace:N/A').split(':')[1];
     if ('firefox' === browserName.toLowerCase()) {
