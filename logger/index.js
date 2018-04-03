@@ -9,7 +9,7 @@ const logger = new Rollbar({
   reportLevel: process.env.LOG_LEVEL || 'info'
 });
 if ('development' === process.env.NODE_ENV) {
-  logger.configure({verbose: true});
+  //logger.configure({verbose: true});
 }
 
 module.exports = logger;
