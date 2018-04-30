@@ -2,7 +2,7 @@
  * Created by yaniv on 5/8/17.
  */
 
-const logger = require('../logger');
+const logger = require('../logger').logger;
 const _ = require('lodash');
 "use strict";
 

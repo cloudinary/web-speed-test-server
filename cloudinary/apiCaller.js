@@ -5,6 +5,7 @@
 'use strict';
 require('dotenv').config();
 const logger = require('../logger');
+const log = logger.logger;
 const config = require('config');
 const _ = require('lodash');
 const cloudinaryParser = require('./cloudinaryResultParser');
@@ -22,7 +23,7 @@ const addServerInfo = (imageList, batchSize, dpr, metaData, cb, rollBarMsg) => {
     getServer(img, callback, rollBarMsg);
   }, err => {
     if (err) {
-      logger.warning('error getting head for image ' + image.url, err, rollBarMsg);
+      log.warn('error getting head for image ' + image.url, err, rollBarMsg);
     }
     sendToCloudinery(imageList, batchSize, dpr, metaData, cb, rollBarMsg);
   });
@@ -50,7 +51,7 @@ const sendToCloudinery = (imagesArray, batchSize, dpr, metaData, cb, rollBarMsg)
     cloudinary.v2.uploader.upload(image.url, {eager: eager, analyze:{context: context}, tags: timestamp},(error, result) => {
       if (error) {
         analyzeResults.push({public_id: null});
-        logger.error('Error uploading to cloudinary', error, rollBarMsg);
+        log.error('Error uploading to cloudinary', error, rollBarMsg);
         callback();
       } else {
         result.server = image.server;
@@ -60,7 +61,7 @@ const sendToCloudinery = (imagesArray, batchSize, dpr, metaData, cb, rollBarMsg)
     } );
   }, err => {
     if (err) {
-      cb({status: 'error', message: 'Error getting results from cloudinary', error: err}, null, null, rollBarMsg);
+      cb({status: 'error', message: 'Error getting results from cloudinary', error: err, logLevel: logger.LOG_LEVEL_ERROR}, null, null, rollBarMsg);
     }
     let parsed = cloudinaryParser.parseCloudinaryResults(analyzeResults, rollBarMsg);
     if (parsed.status === 'error') {
@@ -77,7 +78,7 @@ const getServer = (image, callback, rollBarMsg) => {
   let  opts = {url: image.url, timeout: config.get("cloudinary.serverHeadTimeout")};
   request.head(opts, (error, response, body) => {
     if (error) {
-      logger.warning("error getting image head " + image.url, error, rollBarMsg);
+      log.warning("error getting image head " + image.url, error, rollBarMsg);
       callback();
     } else {
       image.server = (response.headers.server) ? response.headers.server : 'N/A';

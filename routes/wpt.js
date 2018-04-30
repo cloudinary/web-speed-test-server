@@ -2,15 +2,18 @@
 const express = require('express');
 const validUrl = require('valid-url');
 const apiCaller = require('../wtp/apiCaller');
-const logger = require('../logger');
+const logger = require('../logger').logger;
 const path = require('path');
 
 const routeCallback = (error, result, res, rollBarMsg) => {
   if (error) {
-    if (typeof error.error === 'object') {
-      logger.error(error.message, error.error, rollBarMsg)
-    } else {
-      logger.error(error.message, rollBarMsg)
+    if (error.logLevel) {
+      logger.configure({logLevel: error.logLevel});
+      if (typeof error.error === 'object') {
+        logger.log(error.message, error.error, rollBarMsg)
+      } else {
+        logger.log(error.message, rollBarMsg)
+      }
     }
     if (error.statusCode) {
       res.sendStatus(error.statusCode)

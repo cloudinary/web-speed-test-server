@@ -2,7 +2,7 @@ const config = require('config');
 const express = require('express');
 const http = require('http');
 const bodyParser = require('body-parser');
-const logger = require('./logger');
+const logger = require('./logger').logger;
 const app = express();
 app.use(bodyParser.json());
 
