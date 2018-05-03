@@ -7,19 +7,22 @@
 const _ = require('lodash');
 const config = require('config');
 const bytes = require('bytes');
-const logger = require('../logger');
+const logger = require('../logger').logger;
 const url = require('url');
 const path = require('path');
 
 const parseTestResults = (testJson) => {
-  let rollBarMsg = {testId: testJson.data.id, analyzedUrl: testJson.testUrl, thirdPartyErrorCode: "", file: path.basename((__filename))};
+  let rollBarMsg = {testId: testJson.data.id, analyzedUrl: testJson.data.testUrl, thirdPartyErrorCode: "", file: path.basename((__filename))};
   try {
     let browserName = _.get(testJson, 'data.location', 'somePlace:N/A').split(':')[1];
     if ('firefox' === browserName.toLowerCase()) {
-      logger.error("Test run with firefox that is not supported", rollBarMsg);
+      logger.warning("Test run with firefox that is not supported", rollBarMsg);
       return {status: 'error', message: 'firefox'};
     }
     let imageList = JSON.parse(_.get(testJson, config.get('wtp.paths.imageList'), _.get(testJson, config.get('wtp.paths.imageListFallback'), null)));
+    if (typeof imageList === 'string') {
+      imageList = JSON.parse(imageList);
+    }
     let requestsData = _.get(testJson, config.get('wtp.paths.rawData'), null);
     if (!imageList || !requestsData) {
       logger.error("WPT test data is missing information", rollBarMsg);
@@ -84,7 +87,7 @@ const extractFileName = (uri) => {
 
 const parseTestResponse = (body, rollBarMsg) => {
   if (body.statusText !== 'Ok') {
-    logger.error('WPT returned an error', rollBarMsg);
+    logger.warn('WPT returned an error', rollBarMsg);
     return {status: 'error', message: 'wpt_failure'}
   }
   return body.data.testId;

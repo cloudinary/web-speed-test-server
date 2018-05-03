@@ -1,9 +1,10 @@
 {
   "name": "pagespeed-server",
-  "version": "1.0.1",
+  "version": "1.0.32",
   "private": true,
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "precommit": "yarn version --no-git-tag-version --new-version patch"
   },
   "dependencies": {
     "async": "^2.4.0",
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "husky": "^0.14.3",
     "mocha": "^3.3.0"
   }
 }

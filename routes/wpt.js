@@ -2,15 +2,18 @@
 const express = require('express');
 const validUrl = require('valid-url');
 const apiCaller = require('../wtp/apiCaller');
-const logger = require('../logger');
+const logger = require('../logger').logger;
 const path = require('path');
 
 const routeCallback = (error, result, res, rollBarMsg) => {
   if (error) {
-    if (typeof error.error === 'object') {
-      logger.error(error.message, error.error, rollBarMsg)
-    } else {
-      logger.error(error.message, rollBarMsg)
+    if (error.logLevel) {
+      logger.configure({logLevel: error.logLevel});
+      if (typeof error.error === 'object') {
+        logger.log(error.message, error.error, rollBarMsg)
+      } else {
+        logger.log(error.message, rollBarMsg)
+      }
     }
     if (error.statusCode) {
       res.sendStatus(error.statusCode)
@@ -28,7 +31,7 @@ const wtp = (app) => {
     let rollBarMsg = {testId: testId, thirdPartyErrorCode: "", file: path.basename((__filename))};
     logger.info('Checking test with id ' + testId + " status", rollBarMsg, req);
     apiCaller.checkTestStatus(testId, (error, result) => {
-      routeCallback(error, result, res)
+      routeCallback(error, result, res, rollBarMsg)
     });
   });
 
@@ -37,14 +40,14 @@ const wtp = (app) => {
     let rollBarMsg = {testId: "N/A", thirdPartyErrorCode: "", file: path.basename((__filename))};
     if (!req.body) {
       logger.error('Could not run test missing request body', rollBarMsg, req);
-      routeCallback({statusCode: 400}, null, res);
+      routeCallback({statusCode: 400}, null, res, rollBarMsg);
       return;
     }
     let testUrl = req.body.url;
     rollBarMsg.analyzedUrl = testUrl;
     if (!testUrl) {
       logger.error('Could not run test missing test url',rollBarMsg, req);
-      routeCallback({statusCode: 400}, null, res);
+      routeCallback({statusCode: 400}, null, res, rollBarMsg);
       return;
     }
 /*    if (!validUrl.isWebUri(testUrl)) {
@@ -54,7 +57,7 @@ const wtp = (app) => {
     }*/
     logger.info('Started test called from webspeedtest',rollBarMsg, req);
     apiCaller.runWtpTest(testUrl, (error, result) => {
-      routeCallback(error, result, res)
+      routeCallback(error, result, res, rollBarMsg)
     });
   });
 
