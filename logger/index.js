@@ -11,7 +11,7 @@ const logger = new Rollbar({
   handleUncaughtExceptions: true,
   handleUnhandledRejections: true,
   environment: process.env.NODE_ENV || process.env.HOSTNAME,
-  reportLevel: process.env.LOG_LEVEL || 'info',
+  reportLevel: process.env.LOG_LEVEL || LOG_LEVEL_WARNING,
   payload: {
     system: {
       appVersion: packageJson.version,
