@@ -19,9 +19,11 @@ const parseTestResults = (testJson) => {
       logger.warning("Test run with firefox that is not supported", rollBarMsg);
       return {status: 'error', message: 'firefox'};
     }
-    let imageList = JSON.parse(_.get(testJson, config.get('wtp.paths.imageList'), _.get(testJson, config.get('wtp.paths.imageListFallback'), null)));
-    if (typeof imageList === 'string') {
-      imageList = JSON.parse(imageList);
+    let imageList = _.get(testJson, config.get('wtp.paths.imageList'), _.get(testJson, config.get('wtp.paths.imageListFallback'), null));
+    for (var i = 0; i <= 1; i++) {
+      if (typeof imageList === 'string') {
+        imageList = JSON.parse(imageList);
+      }
     }
     let requestsData = _.get(testJson, config.get('wtp.paths.rawData'), null);
     if (!imageList || !requestsData) {
