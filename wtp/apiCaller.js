@@ -117,12 +117,12 @@ const checkTestStatus = (testId, cb) => {
     }
     //logger.debug('Test status code ' + bodyJson.statusCode, rollBarMsg);
     rollBarMsg.thirdPartyErrorCode = bodyJson.statusCode;
-    if (bodyJson.statusCode >= 400) {
+    if (bodyJson.statusCode > 400) {
       rollBarMsg.thirdPartyErrorCode = bodyJson.statusCode;
       cb({status: 'error', message: 'WTP returned bad status with testId ' + testId, error: bodyJson}, null, response, rollBarMsg);
       return;
     }
-    if (bodyJson.statusCode === 200) {
+    if (bodyJson.statusCode === 200 || bodyJson.statusCode === 400) {
       getTestResults(testId, cb);
     }
     if (bodyJson.statusCode >= 100 && bodyJson.statusCode < 200) {
