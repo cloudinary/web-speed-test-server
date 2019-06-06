@@ -12,7 +12,7 @@ const url = require('url');
 const path = require('path');
 
 const conditionalJsonParse = (data, passes = 1) => {
-    for (var i = 0; i <= passes; i++) {
+    for (var i = 0; i < passes; i++) {
       if (typeof data === 'string') {
         data = JSON.parse(data);
       }
