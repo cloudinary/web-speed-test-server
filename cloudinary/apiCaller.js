@@ -13,7 +13,7 @@ const cloudinary = require('cloudinary');
 const async = require('async');
 const request = require('request');
 
-const sentToAnalyze = (imagesArray, dpr, metaData, cb, rollBarMsg) => {
+const sendToAnalyze = (imagesArray, dpr, metaData, cb, rollBarMsg) => {
     let batchSize = config.get('cloudinary.batchSize');
     addServerInfo(imagesArray, batchSize, dpr, metaData, cb, rollBarMsg);
 };
@@ -25,11 +25,11 @@ const addServerInfo = (imageList, batchSize, dpr, metaData, cb, rollBarMsg) => {
     if (err) {
       log.warn('error getting head for image ' + image.url, err, rollBarMsg);
     }
-    sendToCloudinery(imageList, batchSize, dpr, metaData, cb, rollBarMsg);
+    sendToCloudinary(imageList, batchSize, dpr, metaData, cb, rollBarMsg);
   });
 };
 
-const sendToCloudinery = (imagesArray, batchSize, dpr, metaData, cb, rollBarMsg) => {
+const sendToCloudinary = (imagesArray, batchSize, dpr, metaData, cb, rollBarMsg) => {
   let analyzeResults = [];
   let timestamp = Math.floor(Date.now() / 1000);
   async.eachLimit(imagesArray, batchSize, (image, callback) => {
@@ -88,6 +88,6 @@ const getServer = (image, callback, rollBarMsg) => {
 
 };
 
-module.exports = sentToAnalyze;
+module.exports = sendToAnalyze;
 
 
