@@ -7,6 +7,7 @@ const LOG_LEVEL_ERROR = 'error';
 const packageJson = require('../package.json');
 const os = require('os');
 const logger = new Rollbar({
+  enabled: false,  // silence rollbar as it takes too much quota.
   accessToken: config.get('rollbar.postToken'),
   handleUncaughtExceptions: true,
   handleUnhandledRejections: true,
