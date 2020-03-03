@@ -10,7 +10,7 @@
     "async": "^2.4.0",
     "body-parser": "~1.17.1",
     "bytes": "^2.5.0",
-    "cloudinary": "https://github.com/cloudinary/cloudinary_npm.git",
+    "cloudinary": "https://github.com/cloudinary/cloudinary_npm.git#analyze_api_legacy",
     "config": "^1.25.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
