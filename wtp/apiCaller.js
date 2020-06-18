@@ -20,7 +20,8 @@ const GET_TEST_STATUS = 'http://www.webpagetest.org/testStatus.php';
 const getTestResults = (testId, cb) => {
   let options = {
     url: RESULTS_URL,
-    qs: {test: testId}
+    qs: {test: testId},
+    headers: { 'User-Agent': 'WebSpeedTest' }
   };
   request.get(options, (error, response, body) => {
     let resBody = JSON.parse(body);
@@ -61,16 +62,17 @@ const runWtpTest = (url, cb) => {
   const apiKey = apiKeys[Math.floor(Math.random() * apiKeys.length)];
   let options = {
     'url': RUN_TEST_URL,
-    'qs': { 
-            url: url, 
+    'qs': {
+            url: url,
             k: apiKey,
             f: "json",
             width: config.get('wtp.viewportWidth'),
-            height: config.get('wtp.viewportHeight'), 
+            height: config.get('wtp.viewportHeight'),
             custom: config.get('wtp.imageScript'),
             fvonly: 1, // first view only
             timeline: 1 // workaround for WPT sometimes hanging on getComputedStyle()
-          }
+          },
+    'headers': { 'User-Agent': 'WebSpeedTest' }
   };
   request.post(options, (error, response, body) => {
     let bodyJson = JSON.parse(body);
@@ -102,7 +104,8 @@ const runWtpTest = (url, cb) => {
 const checkTestStatus = (testId, cb) => {
   let options = {
     'url': GET_TEST_STATUS,
-    'qs': {test: testId, k: config.get('wtp.apiKey'), f: "json"}
+    'qs': {test: testId, k: config.get('wtp.apiKey'), f: "json"},
+    'headers': { 'User-Agent': 'WebSpeedTest' }
   };
   request.get(options, (error, response, body) => {
     let bodyJson = JSON.parse(body);
