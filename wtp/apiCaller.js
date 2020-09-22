@@ -69,6 +69,7 @@ const runWtpTest = (url, cb) => {
             width: config.get('wtp.viewportWidth'),
             height: config.get('wtp.viewportHeight'),
             custom: config.get('wtp.imageScript'),
+            location: 'Dulles:Chrome.Native', // Native means no speed shaping in browser, full speed ahead
             fvonly: 1, // first view only
             timeline: 1 // workaround for WPT sometimes hanging on getComputedStyle()
           },
