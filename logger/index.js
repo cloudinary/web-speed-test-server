@@ -4,15 +4,16 @@ const Rollbar = require('rollbar');
 const LOG_LEVEL_INFO = 'info';
 const LOG_LEVEL_WARNING = 'warning';
 const LOG_LEVEL_ERROR = 'error';
+const LOG_LEVEL_CRITICAL = 'critical';
 const packageJson = require('../package.json');
 const os = require('os');
 const logger = new Rollbar({
-  enabled: false,  // silence rollbar as it takes too much quota.
+  // enabled: false,  // silence rollbar as it takes too much quota.
   accessToken: config.get('rollbar.postToken'),
   handleUncaughtExceptions: true,
   handleUnhandledRejections: true,
   environment: process.env.NODE_ENV || process.env.HOSTNAME,
-  reportLevel: process.env.LOG_LEVEL || LOG_LEVEL_WARNING,
+  reportLevel: process.env.LOG_LEVEL || LOG_LEVEL_CRITICAL,
   payload: {
     system: {
       appVersion: packageJson.version,
@@ -31,4 +32,5 @@ module.exports = {
   LOG_LEVEL_INFO: LOG_LEVEL_INFO,
   LOG_LEVEL_WARNING: LOG_LEVEL_WARNING,
   LOG_LEVEL_ERROR: LOG_LEVEL_ERROR,
+  LOG_LEVEL_CRITICAL: LOG_LEVEL_CRITICAL
 };
