@@ -82,27 +82,12 @@ const parseTestResults = (testJson) => {
   }
 };
 
-const extractFileName = (uri) => {
-  let parsedUrl = url.parse(uri);
-  return path.basename(parsedUrl.pathname)
-};
-
 const parseTestResponse = (body, rollBarMsg) => {
   if (body.statusText !== 'Ok') {
     logger.warn('WPT returned an error', rollBarMsg);
     return {status: 'error', message: 'wpt_failure'}
   }
   return body.data.testId;
-};
-
-
-const filterByImageSize = (imageList) => {
-  let maxSizeInBytes = bytes(config.get('images.maxImageSize') + 'mb');
-  let minSizeInBytes = config.get('images.minImageSize');
-  return _.filter(imageList, (image) => {
-    let size = image.size || 0;
-    return size <= maxSizeInBytes && size >= minSizeInBytes;
-  });
 };
 
 const filterByResolution = (imageList) => {
@@ -112,7 +97,6 @@ const filterByResolution = (imageList) => {
     return (image.naturalWidth * image.naturalHeight) <= maxRes && (image.naturalWidth * image.naturalHeight) >= minRes;
   })
 };
-
 
 module.exports = {
   parseTestResults: parseTestResults,
