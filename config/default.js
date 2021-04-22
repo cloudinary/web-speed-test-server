@@ -44,6 +44,8 @@ const conf = {
     "transformations": process.env.CLOUDINARY_TRANSF || [
       {quality: 'auto', crop: 'limit'},
       {quality: 'auto', fetch_format: 'webp', flags: 'awebp', crop: 'limit'},
+      {quality: 'auto', fetch_format: 'jp2', crop: 'limit'},
+      {quality: 'auto', fetch_format: 'avif', crop: 'limit'},
       {quality: 'auto', fetch_format: 'wdp', crop: 'limit'},
       {quality: 'auto', fetch_format: 'png', flags: 'apng', crop: 'limit'}
     ]

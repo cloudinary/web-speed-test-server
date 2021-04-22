@@ -180,7 +180,7 @@ var result = function() {
       }
       return;
     } catch(e) { 
-      return; 
+      return;
     }
   };
 

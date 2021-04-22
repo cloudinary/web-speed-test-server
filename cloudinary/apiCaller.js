@@ -48,6 +48,7 @@ const sendToCloudinery = (imagesArray, batchSize, dpr, metaData, cb, rollBarMsg)
         return Object.assign(trans, {width: image.width, height: image.height, dpr: dpr || 1});
       });
     }
+
     cloudinary.v2.uploader.upload(image.url, {eager: eager, analyze:{context: context}, tags: timestamp},(error, result) => {
       if (error) {
         analyzeResults.push({public_id: null});
