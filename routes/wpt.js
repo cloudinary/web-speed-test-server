@@ -55,7 +55,7 @@ const wtp = (app) => {
       routeCallback({status: 'error', message: 'URL is not valid'});
       return;
     }*/
-    logger.info('Started test called from webspeedtest',rollBarMsg, req);
+    logger.info('Started test called from webspeedtest', rollBarMsg, req);
     apiCaller.runWtpTest(testUrl, (error, result) => {
       routeCallback(error, result, res, rollBarMsg)
     });
