@@ -11,6 +11,15 @@ const logger = require('../logger').logger;
 const url = require('url');
 const path = require('path');
 
+const conditionalJsonParse = (data, passes = 1) => {
+    for (var i = 0; i < passes; i++) {
+      if (typeof data === 'string') {
+        data = JSON.parse(data);
+      }
+    }
+    return data;
+}
+
 const parseTestResults = (testJson) => {
   let rollBarMsg = {testId: testJson.data.id, analyzedUrl: testJson.data.testUrl, thirdPartyErrorCode: "", file: path.basename((__filename))};
   try {
@@ -20,12 +29,9 @@ const parseTestResults = (testJson) => {
       return {status: 'error', message: 'firefox'};
     }
     let imageList = _.get(testJson, config.get('wtp.paths.imageList'), _.get(testJson, config.get('wtp.paths.imageListFallback'), null));
-    for (var i = 0; i <= 1; i++) {
-      if (typeof imageList === 'string') {
-        imageList = JSON.parse(imageList);
-      }
-    }
-    let requestsData = _.get(testJson, config.get('wtp.paths.rawData'), null);
+    imageList = conditionalJsonParse(imageList, 2);
+
+    let requestsData = conditionalJsonParse(_.get(testJson, config.get('wtp.paths.rawData'), null));
     if (!imageList || !requestsData) {
       logger.error("WPT test data is missing information", rollBarMsg);
       return {status: 'error', message: 'wpt_failure'}
@@ -44,8 +50,8 @@ const parseTestResults = (testJson) => {
       return (head.toLowerCase().startsWith('user-agent: ') || head.toLowerCase().startsWith('accept: '));
     });
     let url = _.get(testJson, config.get('wtp.paths.url'));
-    let dpi = JSON.parse(_.get(testJson, config.get('wtp.paths.dpi')));
-    let resolution = JSON.parse(_.get(testJson, config.get('wtp.paths.resolution'), _.get(testJson, config.get('wtp.paths.resolutionFallback'))));
+    let dpi = conditionalJsonParse(_.get(testJson, config.get('wtp.paths.dpi')));
+    let resolution = conditionalJsonParse(_.get(testJson, config.get('wtp.paths.resolution'), _.get(testJson, config.get('wtp.paths.resolutionFallback'))));
     let viewportSize = resolution.viewport ? resolution.viewport : resolution.available;
     let screenShot = _.get(testJson, config.get('wtp.paths.screenShot'));
     let location = _.get(testJson, config.get('wtp.paths.location'));
