@@ -45,7 +45,7 @@ const sendToCloudinery = (imagesArray, batchSize, dpr, metaData, cb, rollBarMsg)
     let eager = [];
     if (transformations) {
       eager = transformations.map((trans) => {
-        return Object.assign(trans, {width: image.width, height: image.height, dpr: dpr || 1});
+        return Object.assign({}, trans, {width: image.width, height: image.height, dpr: dpr || 1});
       });
     }
 

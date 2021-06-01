@@ -24,14 +24,22 @@ describe('Cloudinary parser tests', ()=> {
     let resultJson = JSON.parse(fs.readFileSync('./test/resources/cloudRes.json'));
     let parsedResults = cloudinaryParser.parseCloudinaryResults(resultJson);
     for (let res of parsedResults.imagesTestResults) {
-      assert.isTrue(res.eager.every((trans) => {return typeof trans.percentChange === 'string'}));
+      if (res.eager) {
+        assert.isTrue(res.eager.every((trans) => {
+          return typeof trans.percentChange === 'string'
+        }));
+    }
     }
   });
   it('Check added best image transformation', () => {
     let resultJson = JSON.parse(fs.readFileSync('./test/resources/cloudRes.json'));
     let parsedResults = cloudinaryParser.parseCloudinaryResults(resultJson);
     for (let res of parsedResults.imagesTestResults) {
-      assert.isTrue(res.eager.some((trans) => {return trans.best}));
+      if (res.eager) {
+        assert.isTrue(res.eager.some((trans) => {
+          return trans.best
+        }));
+      }
     }
   });
 });
