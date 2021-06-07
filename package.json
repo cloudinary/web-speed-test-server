@@ -1,10 +1,9 @@
 {
   "name": "pagespeed-server",
-  "version": "1.0.32",
+  "version": "1.0.33",
   "private": true,
   "scripts": {
-    "start": "node app.js",
-    "precommit": "yarn version --no-git-tag-version --new-version patch"
+    "start": "node app.js"
   },
   "dependencies": {
     "async": "^3.2.0",
