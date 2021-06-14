@@ -43,7 +43,8 @@ const wtp = (app) => {
       routeCallback({statusCode: 400}, null, res, rollBarMsg);
       return;
     }
-    let testUrl = req.body.url;
+    const testUrl = req.body.url;
+    const mobile = req.body.mobile === true;
     rollBarMsg.analyzedUrl = testUrl;
     if (!testUrl) {
       logger.error('Could not run test missing test url',rollBarMsg, req);
@@ -56,7 +57,7 @@ const wtp = (app) => {
       return;
     }*/
     logger.info('Started test called from webspeedtest', rollBarMsg, req);
-    apiCaller.runWtpTest(testUrl, (error, result) => {
+    apiCaller.runWtpTest(testUrl, mobile, (error, result) => {
       routeCallback(error, result, res, rollBarMsg)
     });
   });
