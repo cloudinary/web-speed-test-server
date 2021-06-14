@@ -49,7 +49,8 @@ const parseTestResults = (testJson) => {
     const viewportSize = resolution.viewport ? resolution.viewport : resolution.available;
     const screenShot = _.get(testJson, config.get('wtp.paths.screenShot'));
     let location = _.get(testJson, config.get('wtp.paths.location'));
-    const lcp = _.get(testJson, config.get('wtp.paths.lcp'));
+    const lcp = extractLCP(_.get(testJson, config.get('wtp.paths.lcp')));
+    const lcpURL = _.get(testJson, config.get('wtp.paths.lcpURL'))
     if (location && location.indexOf(":") !== -1) {
       location = location.split(":")[0];
     }
@@ -75,6 +76,7 @@ const parseTestResults = (testJson) => {
         headers,
         userAgent: userAgent,
         lcp: lcp,
+        lcpURL: lcpURL,
         imageList: {isCut: imageList.length < origLength, origLength:origLength}
       }
     };
@@ -97,6 +99,17 @@ const parseTestResponse = (body, rollBarMsg) => {
   return body.data.testId;
 };
 
+const extractLCP = (paintsArray) => {
+  let imagePaints = paintsArray.filter((p) => {
+    return p.event === 'LargestContentfulPaint' && p.type === 'image';
+  });
+  if (imagePaints.length === 0) {
+    imagePaints = paintsArray.filter((p) => {
+      return p.event === 'LargestImagePaint'
+    })
+  }
+  return imagePaints[0];
+}
 
 const filterByImageSize = (imageList) => {
   let maxSizeInBytes = bytes(config.get('images.maxImageSize') + 'mb');

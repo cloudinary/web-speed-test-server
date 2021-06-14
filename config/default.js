@@ -32,7 +32,8 @@ const conf = {
       "url": process.env.WTP_URL_PATH || 'data.url',
       "browserName": process.env.WTP_BROWSER_NAME_PATH || 'data.median.firstView.browser_name',
       "browserVer": process.env.WTP_BROWSER_VER_PATH || 'data.median.firstView.browser_version',
-      "lcp": process.env.LCP_PATH || "data.median.firstView['chromeUserTiming.firstContentfulPaint']"
+      "lcp": process.env.LCP_PATH || "data.median.firstView.largestPaints",
+      "lcpURL": process.env.LCP_PATH || "data.median.firstView.LargestContentfulPaintImageURL"
     },
     timeout: process.env.WTP_TIMEOUT || 30000
   },
