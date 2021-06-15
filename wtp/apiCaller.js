@@ -17,7 +17,7 @@ const RUN_TEST_URL = 'http://www.webpagetest.org/runtest.php';
 const GET_TEST_STATUS = 'http://www.webpagetest.org/testStatus.php';
 
 
-const getTestResults = (testId, cb) => {
+const getTestResults = (testId, quality, cb) => {
   let options = {
     url: RESULTS_URL,
     qs: {test: testId},
@@ -50,7 +50,7 @@ const getTestResults = (testId, cb) => {
       cb(wtpRes);
       return;
     } else {
-      cloudinaryCaller(wtpRes.imageList, wtpRes.dpr, wtpRes.metaData, cb, rollBarMsg);
+      cloudinaryCaller(wtpRes.imageList, wtpRes.dpr, wtpRes.metaData, quality, cb, rollBarMsg);
     }
   })
 };
@@ -103,7 +103,7 @@ const runWtpTest = (url, mobile, cb) => {
   });
 };
 
-const checkTestStatus = (testId, cb) => {
+const checkTestStatus = (testId, quality, cb) => {
   let options = {
     'url': GET_TEST_STATUS,
     'qs': {test: testId, k: config.get('wtp.apiKey'), f: "json"},
@@ -128,7 +128,7 @@ const checkTestStatus = (testId, cb) => {
       return;
     }
     if (bodyJson.statusCode === 200 || bodyJson.statusCode === 400) {
-      getTestResults(testId, cb);
+      getTestResults(testId, quality, cb);
     }
     if (bodyJson.statusCode >= 100 && bodyJson.statusCode < 200) {
       cb(null, {status: 'success', message: 'test not finished', code: 150}, null, null);
