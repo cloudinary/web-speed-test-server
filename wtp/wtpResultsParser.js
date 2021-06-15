@@ -108,6 +108,9 @@ const extractLCP = (paintsArray) => {
       return p.event === 'LargestImagePaint'
     })
   }
+  imagePaints.sort((a, b) => {
+    return a.time - b.time;
+  })
   return imagePaints[0];
 }
 
