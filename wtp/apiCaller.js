@@ -56,7 +56,7 @@ const getTestResults = (testId, cb) => {
 };
 
 
-const runWtpTest = (url, cb) => {
+const runWtpTest = (url, mobile, cb) => {
   //logger.info('Running new test ' + url);
   const apiKeys = config.get('wtp.apiKey').split(',');
   const apiKey = apiKeys[Math.floor(Math.random() * apiKeys.length)];
@@ -70,6 +70,7 @@ const runWtpTest = (url, cb) => {
             height: config.get('wtp.viewportHeight'),
             custom: config.get('wtp.imageScript'),
             location: 'Dulles:Chrome.Native', // Native means no speed shaping in browser, full speed ahead
+            mobile: (mobile) ? 1 : 0,
             fvonly: 1, // first view only
             timeline: 1 // workaround for WPT sometimes hanging on getComputedStyle()
           },
