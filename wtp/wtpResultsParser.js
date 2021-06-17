@@ -43,12 +43,14 @@ const parseTestResults = (testJson) => {
     let headers = _.get(requestsData[0], 'headers.request').filter((head) => {
       return (head.toLowerCase().startsWith('user-agent: ') || head.toLowerCase().startsWith('accept: '));
     });
-    let url = _.get(testJson, config.get('wtp.paths.url'));
-    let dpi = JSON.parse(_.get(testJson, config.get('wtp.paths.dpi')));
-    let resolution = JSON.parse(_.get(testJson, config.get('wtp.paths.resolution'), _.get(testJson, config.get('wtp.paths.resolutionFallback'))));
-    let viewportSize = resolution.viewport ? resolution.viewport : resolution.available;
-    let screenShot = _.get(testJson, config.get('wtp.paths.screenShot'));
+    const url = _.get(testJson, config.get('wtp.paths.url'));
+    const dpi = JSON.parse(_.get(testJson, config.get('wtp.paths.dpi')));
+    const resolution = JSON.parse(_.get(testJson, config.get('wtp.paths.resolution'), _.get(testJson, config.get('wtp.paths.resolutionFallback'))));
+    const viewportSize = resolution.viewport ? resolution.viewport : resolution.available;
+    const screenShot = _.get(testJson, config.get('wtp.paths.screenShot'));
     let location = _.get(testJson, config.get('wtp.paths.location'));
+    const lcp = extractLCP(_.get(testJson, config.get('wtp.paths.lcp')));
+    const lcpURL = _.get(testJson, config.get('wtp.paths.lcpURL'))
     if (location && location.indexOf(":") !== -1) {
       location = location.split(":")[0];
     }
@@ -73,6 +75,8 @@ const parseTestResults = (testJson) => {
         location,
         headers,
         userAgent: userAgent,
+        lcp: lcp,
+        lcpURL: lcpURL,
         imageList: {isCut: imageList.length < origLength, origLength:origLength}
       }
     };
@@ -95,6 +99,20 @@ const parseTestResponse = (body, rollBarMsg) => {
   return body.data.testId;
 };
 
+const extractLCP = (paintsArray) => {
+  let imagePaints = paintsArray.filter((p) => {
+    return p.event === 'LargestContentfulPaint' && p.type === 'image';
+  });
+  if (imagePaints.length === 0) {
+    imagePaints = paintsArray.filter((p) => {
+      return p.event === 'LargestImagePaint'
+    })
+  }
+  imagePaints.sort((a, b) => {
+    return a.time - b.time;
+  })
+  return imagePaints[0];
+}
 
 const filterByImageSize = (imageList) => {
   let maxSizeInBytes = bytes(config.get('images.maxImageSize') + 'mb');
