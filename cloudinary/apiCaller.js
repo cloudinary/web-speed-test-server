@@ -45,7 +45,11 @@ const sendToCloudinery = (imagesArray, batchSize, dpr, metaData, quality, cb, ro
     let eager = [];
     if (transformations) {
       eager = transformations.map((trans) => {
-        return Object.assign({}, trans, {width: image.width, height: image.height, dpr: dpr || 1, quality: 'auto:' + quality});
+        let t = Object.assign({}, trans, {width: image.width, height: image.height, dpr: dpr || 1});
+        if (quality) {
+           Object.assign(t, {quality: 'auto:' + quality})
+        }
+        return t;
       });
     }
 
@@ -53,7 +57,7 @@ const sendToCloudinery = (imagesArray, batchSize, dpr, metaData, quality, cb, ro
       if (error) {
         analyzeResults.push({public_id: null});
         log.error('Error uploading to cloudinary', error, rollBarMsg);
-        callback();
+        callback(error);
       } else {
         result.server = image.server;
         analyzeResults.push(result);
