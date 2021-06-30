@@ -28,9 +28,10 @@ const routeCallback = (error, result, res, rollBarMsg) => {
 const wtp = (app) => {
   app.get('/test/:testId', (req, res) => {
     let testId = req.params.testId;
+    const quality = req.query.quality;
     let rollBarMsg = {testId: testId, thirdPartyErrorCode: "", file: path.basename((__filename))};
     logger.info('Checking test with id ' + testId + " status", rollBarMsg, req);
-    apiCaller.checkTestStatus(testId, (error, result) => {
+    apiCaller.checkTestStatus(testId, quality, (error, result) => {
       routeCallback(error, result, res, rollBarMsg)
     });
   });
