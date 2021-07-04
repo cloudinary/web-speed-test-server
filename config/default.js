@@ -33,7 +33,8 @@ const conf = {
       "browserName": process.env.WTP_BROWSER_NAME_PATH || 'data.median.firstView.browser_name',
       "browserVer": process.env.WTP_BROWSER_VER_PATH || 'data.median.firstView.browser_version',
       "lcp": process.env.LCP_PATH || "data.median.firstView.largestPaints",
-      "lcpURL": process.env.LCP_URL_PATH || "data.median.firstView.LargestContentfulPaintImageURL"
+      "lcpURL": process.env.LCP_URL_PATH || "data.median.firstView.LargestContentfulPaintImageURL",
+      "pageParts": process.env.PAGE_PARTS || "data.median.firstView.breakdown"
     },
     timeout: process.env.WTP_TIMEOUT || 30000
   },
