@@ -50,7 +50,8 @@ const parseTestResults = (testJson) => {
     const screenShot = _.get(testJson, config.get('wtp.paths.screenShot'));
     let location = _.get(testJson, config.get('wtp.paths.location'));
     const lcp = extractLCP(_.get(testJson, config.get('wtp.paths.lcp')));
-    const lcpURL = _.get(testJson, config.get('wtp.paths.lcpURL'))
+    const lcpURL = _.get(testJson, config.get('wtp.paths.lcpURL'));
+    const weights = getPageWeight(_.get(testJson, config.get('wtp.paths.pageParts')));
     if (location && location.indexOf(":") !== -1) {
       location = location.split(":")[0];
     }
@@ -77,6 +78,7 @@ const parseTestResults = (testJson) => {
         userAgent: userAgent,
         lcp: lcp,
         lcpURL: lcpURL,
+        weights: weights,
         imageList: {isCut: imageList.length < origLength, origLength:origLength}
       }
     };
@@ -131,6 +133,17 @@ const filterByResolution = (imageList) => {
   })
 };
 
+const getPageWeight = (parts) => {
+  let totals = {compressed: 0, uncompressed: 0};
+  if (parts) {
+    let t = Object.values(parts).reduce((total, p) => {
+      return {compressed: total.compressed + p.bytes, uncompressed: total.uncompressed + p.bytesUncompressed}
+    }, totals)
+    t.images = {compressed: parts.image.bytes, uncompressed: parts.image.bytesUncompressed};
+    return t;
+  }
+  return totals;
+}
 
 module.exports = {
   parseTestResults: parseTestResults,
