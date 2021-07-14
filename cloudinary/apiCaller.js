@@ -12,6 +12,7 @@ const cloudinaryParser = require('./cloudinaryResultParser');
 const cloudinary = require('cloudinary');
 const async = require('async');
 const request = require('request');
+const path = require('path');
 
 const sentToAnalyze = (imagesArray, dpr, metaData, quality, cb, rollBarMsg) => {
     let batchSize = config.get('cloudinary.batchSize');
@@ -52,8 +53,12 @@ const sendToCloudinery = (imagesArray, batchSize, dpr, metaData, quality, cb, ro
         return t;
       });
     }
+    const tags = [timestamp];
+    if (image.url === metaData.lcpURL) {
+      tags.push('lcp');
+    }
 
-    cloudinary.v2.uploader.upload(image.url, {eager: eager, analyze:{context: context}, tags: timestamp},(error, result) => {
+    cloudinary.v2.uploader.upload(image.url, {eager: eager, analyze:{context: context}, tags: tags},(error, result) => {
       if (error) {
         analyzeResults.push({public_id: null});
         log.error('Error uploading to cloudinary', error, rollBarMsg);
@@ -73,6 +78,9 @@ const sendToCloudinery = (imagesArray, batchSize, dpr, metaData, quality, cb, ro
       cb(parsed, null);
       return;
     }
+    // move lcp
+    const lcpIdx = parsed.imagesTestResults.findIndex((i) => i.tags.includes('lcp'));
+    metaData.lcp = parsed.imagesTestResults.splice(lcpIdx, 1)[0];
     Object.assign(parsed.resultSumm, metaData);
     cb(null, {status: 'success', data : parsed });
   })
