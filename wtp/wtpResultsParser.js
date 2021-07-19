@@ -19,18 +19,16 @@ const parseTestResults = (testJson) => {
       logger.warning("Test run with firefox that is not supported", rollBarMsg);
       return {status: 'error', message: 'firefox'};
     }
-    let imageList = _.get(testJson, config.get('wtp.paths.imageList'), _.get(testJson, config.get('wtp.paths.imageListFallback'), null));
-    for (var i = 0; i <= 1; i++) {
-      if (typeof imageList === 'string') {
-        imageList = JSON.parse(imageList);
-      }
+    let origImageList = _.get(testJson, config.get('wtp.paths.imageList'), _.get(testJson, config.get('wtp.paths.imageListFallback'), null));
+    if (typeof origImageList === 'string') {
+      origImageList = JSON.parse(origImageList);
     }
     let requestsData = _.get(testJson, config.get('wtp.paths.rawData'), null);
-    if (!imageList || !requestsData) {
+    if (!origImageList || !requestsData) {
       logger.error("WPT test data is missing information", rollBarMsg);
       return {status: 'error', message: 'wpt_failure'}
     }
-    imageList = _.uniqWith(imageList, (arrVal, othVal) => {
+    let imageList = _.uniqWith(origImageList, (arrVal, othVal) => {
       return (arrVal.width === othVal.width) && (arrVal.height === othVal.height) && (arrVal.url === othVal.url);
     });
     imageList = filterByResolution(imageList);
@@ -49,7 +47,6 @@ const parseTestResults = (testJson) => {
     const viewportSize = resolution.viewport ? resolution.viewport : resolution.available;
     const screenShot = _.get(testJson, config.get('wtp.paths.screenShot'));
     let location = _.get(testJson, config.get('wtp.paths.location'));
-    const lcp = extractLCP(_.get(testJson, config.get('wtp.paths.lcp')));
     const lcpURL = _.get(testJson, config.get('wtp.paths.lcpURL'))
     if (location && location.indexOf(":") !== -1) {
       location = location.split(":")[0];
@@ -61,6 +58,15 @@ const parseTestResults = (testJson) => {
         userAgent = head.split(':').pop();
       }
     });
+    // make sure LCP image is in image list to analyze
+    const inList = imageList.findIndex((image) => {
+      return image.url === lcpURL;
+    });
+    if (inList === -1) {
+      imageList.push(origImageList.find((image) => {
+        return image.url === lcpURL;
+      }));
+    }
 
     return {
       imageList: imageList,
@@ -75,7 +81,6 @@ const parseTestResults = (testJson) => {
         location,
         headers,
         userAgent: userAgent,
-        lcp: lcp,
         lcpURL: lcpURL,
         imageList: {isCut: imageList.length < origLength, origLength:origLength}
       }
@@ -98,21 +103,6 @@ const parseTestResponse = (body, rollBarMsg) => {
   }
   return body.data.testId;
 };
-
-const extractLCP = (paintsArray) => {
-  let imagePaints = paintsArray.filter((p) => {
-    return p.event === 'LargestContentfulPaint' && p.type === 'image';
-  });
-  if (imagePaints.length === 0) {
-    imagePaints = paintsArray.filter((p) => {
-      return p.event === 'LargestImagePaint'
-    })
-  }
-  imagePaints.sort((a, b) => {
-    return a.time - b.time;
-  })
-  return imagePaints[0];
-}
 
 const filterByImageSize = (imageList) => {
   let maxSizeInBytes = bytes(config.get('images.maxImageSize') + 'mb');
