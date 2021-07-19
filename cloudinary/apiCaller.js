@@ -12,7 +12,6 @@ const cloudinaryParser = require('./cloudinaryResultParser');
 const cloudinary = require('cloudinary');
 const async = require('async');
 const request = require('request');
-const path = require('path');
 
 const sentToAnalyze = (imagesArray, dpr, metaData, quality, cb, rollBarMsg) => {
     let batchSize = config.get('cloudinary.batchSize');
