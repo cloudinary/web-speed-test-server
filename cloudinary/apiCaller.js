@@ -25,11 +25,11 @@ const addServerInfo = (imageList, batchSize, dpr, metaData, quality, cb, rollBar
     if (err) {
       log.warn('error getting head for image ' + image.url, err, rollBarMsg);
     }
-    sendToCloudinery(imageList, batchSize, dpr, metaData, quality, cb, rollBarMsg);
+    sendToCloudinary(imageList, batchSize, dpr, metaData, quality, cb, rollBarMsg);
   });
 };
 
-const sendToCloudinery = (imagesArray, batchSize, dpr, metaData, quality, cb, rollBarMsg) => {
+const sendToCloudinary = (imagesArray, batchSize, dpr, metaData, quality, cb, rollBarMsg) => {
   let analyzeResults = [];
   let timestamp = Math.floor(Date.now() / 1000);
   async.eachLimit(imagesArray, batchSize, (image, callback) => {
