@@ -11,7 +11,7 @@ const _ = require('lodash');
 const cloudinaryParser = require('./cloudinaryResultParser');
 const cloudinary = require('cloudinary');
 const async = require('async');
-const request = require('request');
+const request = require('got');
 
 const sentToAnalyze = (imagesArray, dpr, metaData, quality, cb, rollBarMsg) => {
     let batchSize = config.get('cloudinary.batchSize');
@@ -19,17 +19,23 @@ const sentToAnalyze = (imagesArray, dpr, metaData, quality, cb, rollBarMsg) => {
 };
 
 const addServerInfo = (imageList, batchSize, dpr, metaData, quality, cb, rollBarMsg) => {
-  async.eachLimit(imageList, batchSize, (img, callback) => {
-    getServer(img, callback, rollBarMsg);
-  }, err => {
+  // filter out empty
+  const list = imageList.filter((el) => el);
+  async.eachLimit(list, batchSize, (img, callback) => {
+    request.head(img.url).then(({headers}) => {
+      img.server = (headers.server) ? headers.server : 'N/A';
+      callback();
+    });
+  }, (err, res) => {
     if (err) {
-      log.warn('error getting head for image ' + image.url, err, rollBarMsg);
+      log.warn('error getting head for image ', err, rollBarMsg);
+    } else {
+      sendToCloudinary(list, batchSize, dpr, metaData, quality, cb, rollBarMsg);
     }
-    sendToCloudinery(imageList, batchSize, dpr, metaData, quality, cb, rollBarMsg);
   });
 };
 
-const sendToCloudinery = (imagesArray, batchSize, dpr, metaData, quality, cb, rollBarMsg) => {
+const sendToCloudinary = (imagesArray, batchSize, dpr, metaData, quality, cb, rollBarMsg) => {
   let analyzeResults = [];
   let timestamp = Math.floor(Date.now() / 1000);
   async.eachLimit(imagesArray, batchSize, (image, callback) => {
@@ -79,27 +85,17 @@ const sendToCloudinery = (imagesArray, batchSize, dpr, metaData, quality, cb, ro
     }
     // move lcp
     const lcpIdx = parsed.imagesTestResults.findIndex((i) => i.tags.includes('lcp'));
-    metaData.lcp = parsed.imagesTestResults.splice(lcpIdx, 1)[0];
+    metaData.lcp = {
+      isImage: metaData.lcpEvent.type === 'image',
+      analyzed: parsed.imagesTestResults.splice(lcpIdx, 1)[0],
+      event: metaData.lcpEvent
+    };
+    delete(metaData.lcpEvent);
     Object.assign(parsed.resultSumm, metaData);
     cb(null, {status: 'success', data : parsed });
   })
 
 };
-
-const getServer = (image, callback, rollBarMsg) => {
-  let  opts = {url: image.url, timeout: config.get("cloudinary.serverHeadTimeout")};
-  request.head(opts, (error, response, body) => {
-    if (error) {
-      log.warning("error getting image head " + image.url, error, rollBarMsg);
-      callback();
-    } else {
-      image.server = (response.headers.server) ? response.headers.server : 'N/A';
-      callback();
-    }
-  });
-
-};
-
 module.exports = sentToAnalyze;
 
 
