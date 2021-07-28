@@ -48,6 +48,7 @@ const parseTestResults = (testJson) => {
     const screenShot = _.get(testJson, config.get('wtp.paths.screenShot'));
     let location = _.get(testJson, config.get('wtp.paths.location'));
     const lcpURL = _.get(testJson, config.get('wtp.paths.lcpURL'))
+    const lcp = extractLCP(_.get(testJson, config.get('wtp.paths.lcp')));
     if (location && location.indexOf(":") !== -1) {
       location = location.split(":")[0];
     }
@@ -82,6 +83,7 @@ const parseTestResults = (testJson) => {
         headers,
         userAgent: userAgent,
         lcpURL: lcpURL,
+        lcpEvent: lcp,
         imageList: {isCut: imageList.length < origLength, origLength:origLength}
       }
     };
@@ -103,6 +105,17 @@ const parseTestResponse = (body, rollBarMsg) => {
   }
   return body.data.testId;
 };
+
+const extractLCP = (paintsArray) => {
+  let paints = paintsArray.filter((p) => {
+    return p.event === 'LargestContentfulPaint';
+  });
+  paints.sort((a, b) => {
+    return a.time - b.time;
+  }).reverse()
+
+  return paints[0];
+}
 
 const filterByImageSize = (imageList) => {
   let maxSizeInBytes = bytes(config.get('images.maxImageSize') + 'mb');

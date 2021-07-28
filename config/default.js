@@ -42,7 +42,7 @@ const conf = {
     "apiKey": process.env.CLOUDINARY_API,
     "secret": process.env.CLOUDINARY_SEACRET,
     "batchSize": process.env.CLOUDINARY_BATCH || 50,
-    "serverHeadTimeout": process.env.HEAD_TIMEOUT || 1000,
+    "serverHeadTimeout": process.env.HEAD_TIMEOUT || 5000,
     "transformations": process.env.CLOUDINARY_TRANSF || [
       {quality: 'auto', crop: 'limit'},
       {quality: 'auto', fetch_format: 'webp', flags: 'awebp', crop: 'limit'},
