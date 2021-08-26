@@ -4,11 +4,12 @@
 
 'use strict';
 
+
 const _ = require('lodash');
 const config = require('config');
 const bytes = require('bytes');
 const logger = require('../logger').logger;
-const url = require('url');
+const URL = require('url');
 const path = require('path');
 
 const parseTestResults = (testJson) => {
@@ -32,6 +33,7 @@ const parseTestResults = (testJson) => {
       return (arrVal.width === othVal.width) && (arrVal.height === othVal.height) && (arrVal.url === othVal.url);
     });
     imageList = filterByResolution(imageList);
+    imageList = filterNotRendered(imageList);
     let origLength = imageList.length;
     imageList = _.sortBy(imageList, (img) => {
       return img.width * img.height;
@@ -93,10 +95,12 @@ const parseTestResults = (testJson) => {
   }
 };
 
+/*
 const extractFileName = (uri) => {
   let parsedUrl = url.parse(uri);
   return path.basename(parsedUrl.pathname)
 };
+*/
 
 const parseTestResponse = (body, rollBarMsg) => {
   if (body.statusText !== 'Ok') {
@@ -133,6 +137,12 @@ const filterByResolution = (imageList) => {
     return (image.naturalWidth * image.naturalHeight) <= maxRes && (image.naturalWidth * image.naturalHeight) >= minRes;
   })
 };
+
+const filterNotRendered = (imageList) => {
+  return _.filter(imageList, (image) => {
+    return !(image.width === 0 || image.height === 0)
+  })
+}
 
 
 module.exports = {

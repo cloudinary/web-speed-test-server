@@ -14,8 +14,8 @@ const async = require('async');
 const request = require('got');
 
 const sentToAnalyze = (imagesArray, dpr, metaData, quality, cb, rollBarMsg) => {
-    let batchSize = config.get('cloudinary.batchSize');
-    addServerInfo(imagesArray, batchSize, dpr, metaData, quality, cb, rollBarMsg);
+  let batchSize = config.get('cloudinary.batchSize');
+  addServerInfo(imagesArray, batchSize, dpr, metaData, quality, cb, rollBarMsg);
 };
 
 const addServerInfo = (imageList, batchSize, dpr, metaData, quality, cb, rollBarMsg) => {
@@ -37,12 +37,13 @@ const addServerInfo = (imageList, batchSize, dpr, metaData, quality, cb, rollBar
 
 const sendToCloudinary = (imagesArray, batchSize, dpr, metaData, quality, cb, rollBarMsg) => {
   let analyzeResults = [];
+  let uploadErrors = [];
   let timestamp = Math.floor(Date.now() / 1000);
   async.eachLimit(imagesArray, batchSize, (image, callback) => {
     let context = {
       rendered_dimensions: {width: image.width, height: image.height},
       dpr: dpr,
-      request_headers: metaData.headers
+      request_headers: metaData.headers,
     };
     let transformations = config.get('cloudinary.transformations', null);
     if (typeof transformations === 'string') {
@@ -53,7 +54,7 @@ const sendToCloudinary = (imagesArray, batchSize, dpr, metaData, quality, cb, ro
       eager = transformations.map((trans) => {
         let t = Object.assign({}, trans, {width: image.width, height: image.height, dpr: dpr || 1});
         if (quality) {
-           Object.assign(t, {quality: 'auto:' + quality})
+          Object.assign(t, {quality: 'auto:' + quality});
         }
         return t;
       });
@@ -63,20 +64,30 @@ const sendToCloudinary = (imagesArray, batchSize, dpr, metaData, quality, cb, ro
       tags.push('lcp');
     }
 
-    cloudinary.v2.uploader.upload(image.url, {eager: eager, analyze:{context: context}, tags: tags},(error, result) => {
-      if (error) {
-        analyzeResults.push({public_id: null});
-        log.error('Error uploading to cloudinary', error, rollBarMsg);
-        callback(error);
-      } else {
-        result.server = image.server;
-        analyzeResults.push(result);
-        callback();
-      }
-    } );
+    cloudinary.v2.uploader.upload(
+        image.url, {eager: eager, analyze: {context: context}, tags: tags}, (error, result) => {
+          if (error) {
+            analyzeResults.push({public_id: null});
+            uploadErrors.push(error);
+            console.error('Error uploading to cloudinary', error);
+            callback();
+          } else {
+            result.server = image.server;
+            analyzeResults.push(result);
+            callback();
+          }
+        });
   }, err => {
+    if (uploadErrors.length > 0) {
+      log.error('cloudinary upload errors', uploadErrors, rollBarMsg);
+    }
     if (err) {
-      cb({status: 'error', message: 'Error getting results from cloudinary', error: err, logLevel: logger.LOG_LEVEL_ERROR}, null, null, rollBarMsg);
+      cb({
+        status: 'error',
+        message: 'Error getting results from cloudinary',
+        error: err,
+        logLevel: logger.LOG_LEVEL_ERROR,
+      }, null, null, rollBarMsg);
     }
     let parsed = cloudinaryParser.parseCloudinaryResults(analyzeResults, rollBarMsg);
     if (parsed.status === 'error') {
@@ -88,12 +99,12 @@ const sendToCloudinary = (imagesArray, batchSize, dpr, metaData, quality, cb, ro
     metaData.lcp = {
       isImage: metaData.lcpEvent.type === 'image',
       analyzed: parsed.imagesTestResults.splice(lcpIdx, 1)[0],
-      event: metaData.lcpEvent
+      event: metaData.lcpEvent,
     };
-    delete(metaData.lcpEvent);
+    delete (metaData.lcpEvent);
     Object.assign(parsed.resultSumm, metaData);
-    cb(null, {status: 'success', data : parsed });
-  })
+    cb(null, {status: 'success', data: parsed});
+  });
 
 };
 module.exports = sentToAnalyze;
