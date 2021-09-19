@@ -31,7 +31,9 @@ const conf = {
       "location": process.env.WTP_LOCATION_PATH || 'data.location',
       "url": process.env.WTP_URL_PATH || 'data.url',
       "browserName": process.env.WTP_BROWSER_NAME_PATH || 'data.median.firstView.browser_name',
-      "browserVer": process.env.WTP_BROWSER_VER_PATH || 'data.median.firstView.browser_version'
+      "browserVer": process.env.WTP_BROWSER_VER_PATH || 'data.median.firstView.browser_version',
+      "lcp": process.env.LCP_PATH || "data.median.firstView.largestPaints",
+      "lcpURL": process.env.LCP_URL_PATH || "data.median.firstView.LargestContentfulPaintImageURL"
     },
     timeout: process.env.WTP_TIMEOUT || 30000
   },
@@ -40,7 +42,7 @@ const conf = {
     "apiKey": process.env.CLOUDINARY_API,
     "secret": process.env.CLOUDINARY_SEACRET,
     "batchSize": process.env.CLOUDINARY_BATCH || 50,
-    "serverHeadTimeout": process.env.HEAD_TIMEOUT || 1000,
+    "serverHeadTimeout": process.env.HEAD_TIMEOUT || 5000,
     "transformations": process.env.CLOUDINARY_TRANSF || [
       {quality: 'auto', crop: 'limit'},
       {quality: 'auto', fetch_format: 'webp', flags: 'awebp', crop: 'limit'},

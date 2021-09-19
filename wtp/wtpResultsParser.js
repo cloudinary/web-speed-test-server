@@ -4,11 +4,12 @@
 
 'use strict';
 
+
 const _ = require('lodash');
 const config = require('config');
 const bytes = require('bytes');
 const logger = require('../logger').logger;
-const url = require('url');
+const URL = require('url');
 const path = require('path');
 
 const parseTestResults = (testJson) => {
@@ -19,21 +20,20 @@ const parseTestResults = (testJson) => {
       logger.warning("Test run with firefox that is not supported", rollBarMsg);
       return {status: 'error', message: 'firefox'};
     }
-    let imageList = _.get(testJson, config.get('wtp.paths.imageList'), _.get(testJson, config.get('wtp.paths.imageListFallback'), null));
-    for (var i = 0; i <= 1; i++) {
-      if (typeof imageList === 'string') {
-        imageList = JSON.parse(imageList);
-      }
+    let origImageList = _.get(testJson, config.get('wtp.paths.imageList'), _.get(testJson, config.get('wtp.paths.imageListFallback'), null));
+    if (typeof origImageList === 'string') {
+      origImageList = JSON.parse(origImageList);
     }
     let requestsData = _.get(testJson, config.get('wtp.paths.rawData'), null);
-    if (!imageList || !requestsData) {
+    if (!origImageList || !requestsData) {
       logger.error("WPT test data is missing information", rollBarMsg);
       return {status: 'error', message: 'wpt_failure'}
     }
-    imageList = _.uniqWith(imageList, (arrVal, othVal) => {
+    let imageList = _.uniqWith(origImageList, (arrVal, othVal) => {
       return (arrVal.width === othVal.width) && (arrVal.height === othVal.height) && (arrVal.url === othVal.url);
     });
     imageList = filterByResolution(imageList);
+    imageList = filterNotRendered(imageList);
     let origLength = imageList.length;
     imageList = _.sortBy(imageList, (img) => {
       return img.width * img.height;
@@ -43,12 +43,14 @@ const parseTestResults = (testJson) => {
     let headers = _.get(requestsData[0], 'headers.request').filter((head) => {
       return (head.toLowerCase().startsWith('user-agent: ') || head.toLowerCase().startsWith('accept: '));
     });
-    let url = _.get(testJson, config.get('wtp.paths.url'));
-    let dpi = JSON.parse(_.get(testJson, config.get('wtp.paths.dpi')));
-    let resolution = JSON.parse(_.get(testJson, config.get('wtp.paths.resolution'), _.get(testJson, config.get('wtp.paths.resolutionFallback'))));
-    let viewportSize = resolution.viewport ? resolution.viewport : resolution.available;
-    let screenShot = _.get(testJson, config.get('wtp.paths.screenShot'));
+    const url = _.get(testJson, config.get('wtp.paths.url'));
+    const dpi = JSON.parse(_.get(testJson, config.get('wtp.paths.dpi')));
+    const resolution = JSON.parse(_.get(testJson, config.get('wtp.paths.resolution'), _.get(testJson, config.get('wtp.paths.resolutionFallback'))));
+    const viewportSize = resolution.viewport ? resolution.viewport : resolution.available;
+    const screenShot = _.get(testJson, config.get('wtp.paths.screenShot'));
     let location = _.get(testJson, config.get('wtp.paths.location'));
+    const lcpURL = _.get(testJson, config.get('wtp.paths.lcpURL'))
+    const lcp = extractLCP(_.get(testJson, config.get('wtp.paths.lcp')));
     if (location && location.indexOf(":") !== -1) {
       location = location.split(":")[0];
     }
@@ -59,6 +61,15 @@ const parseTestResults = (testJson) => {
         userAgent = head.split(':').pop();
       }
     });
+    // make sure LCP image is in image list to analyze
+    const inList = imageList.findIndex((image) => {
+      return image.url === lcpURL;
+    });
+    if (inList === -1) {
+      imageList.push(origImageList.find((image) => {
+        return image.url === lcpURL;
+      }));
+    }
 
     return {
       imageList: imageList,
@@ -73,6 +84,8 @@ const parseTestResults = (testJson) => {
         location,
         headers,
         userAgent: userAgent,
+        lcpURL: lcpURL,
+        lcpEvent: lcp,
         imageList: {isCut: imageList.length < origLength, origLength:origLength}
       }
     };
@@ -82,10 +95,12 @@ const parseTestResults = (testJson) => {
   }
 };
 
+/*
 const extractFileName = (uri) => {
   let parsedUrl = url.parse(uri);
   return path.basename(parsedUrl.pathname)
 };
+*/
 
 const parseTestResponse = (body, rollBarMsg) => {
   if (body.statusText !== 'Ok') {
@@ -95,6 +110,16 @@ const parseTestResponse = (body, rollBarMsg) => {
   return body.data.testId;
 };
 
+const extractLCP = (paintsArray) => {
+  let paints = paintsArray.filter((p) => {
+    return p.event === 'LargestContentfulPaint';
+  });
+  paints.sort((a, b) => {
+    return a.time - b.time;
+  }).reverse()
+
+  return paints[0];
+}
 
 const filterByImageSize = (imageList) => {
   let maxSizeInBytes = bytes(config.get('images.maxImageSize') + 'mb');
@@ -112,6 +137,12 @@ const filterByResolution = (imageList) => {
     return (image.naturalWidth * image.naturalHeight) <= maxRes && (image.naturalWidth * image.naturalHeight) >= minRes;
   })
 };
+
+const filterNotRendered = (imageList) => {
+  return _.filter(imageList, (image) => {
+    return !(image.width === 0 || image.height === 0)
+  })
+}
 
 
 module.exports = {

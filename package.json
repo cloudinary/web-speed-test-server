@@ -1,32 +1,32 @@
 {
   "name": "pagespeed-server",
-  "version": "1.0.32",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
-    "start": "node app.js",
-    "precommit": "yarn version --no-git-tag-version --new-version patch"
+    "start": "node app.js"
   },
   "dependencies": {
-    "async": "^2.4.0",
-    "body-parser": "~1.17.1",
-    "bytes": "^2.5.0",
+    "async": "^3.2.0",
+    "body-parser": "~1.19.0",
+    "bytes": "^3.1.0",
     "cloudinary": "https://github.com/cloudinary/cloudinary_npm.git#analyze_api_legacy",
-    "config": "^1.25.1",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.3",
-    "dotenv": "^4.0.0",
-    "express": "~4.15.2",
-    "express-winston": "^2.4.0",
-    "lodash": "^4.17.4",
-    "request": "^2.81.0",
-    "rollbar": "^2.1.0",
+    "config": "^3.3.6",
+    "cookie-parser": "~1.4.5",
+    "debug": "~4.3.1",
+    "dotenv": "^10.0.0",
+    "express": "~4.17.1",
+    "express-winston": "^4.1.0",
+    "got": "^11.8.2",
+    "lodash": "^4.17.21",
+    "request": "^2.88.2",
+    "rollbar": "^2.21.1",
     "valid-url": "^1.0.9",
-    "winston": "^2.3.1",
-    "winston-airbrake": "^1.0.0"
+    "winston": "^3.3.3",
+    "winston-airbrake": "^1.1.0"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "husky": "^0.14.3",
-    "mocha": "^3.3.0"
+    "chai": "^4.3.4",
+    "husky": "^6.0.0",
+    "mocha": "^8.4.0"
   }
 }
