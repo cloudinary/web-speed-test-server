@@ -18,19 +18,23 @@ const sentToAnalyze = (imagesArray, dpr, metaData, quality, cb, rollBarMsg) => {
   addServerInfo(imagesArray, batchSize, dpr, metaData, quality, cb, rollBarMsg);
 };
 
-const addServerInfo = (imageList, batchSize, dpr, metaData, quality, cb, rollBarMsg) => {
+const addServerInfo = async (imageList, batchSize, dpr, metaData, quality, cb, rollBarMsg) => {
   // filter out empty
   const list = imageList.filter((el) => el);
-  async.eachLimit(list, batchSize, (img, callback) => {
+  let bs = list.length > batchSize ? batchSize : list.length;
+  async.eachLimit(list, bs, (img, callback) => {
     request.head(img.url).then(({headers}) => {
       img.server = (headers.server) ? headers.server : 'N/A';
+      callback();
+    }).catch((e) => {
+      img.server = "N/A"
       callback();
     });
   }, (err, res) => {
     if (err) {
       log.warn('error getting head for image ', err, rollBarMsg);
     } else {
-      sendToCloudinary(list, batchSize, dpr, metaData, quality, cb, rollBarMsg);
+      sendToCloudinary(list, bs, dpr, metaData, quality, cb, rollBarMsg);
     }
   });
 };
