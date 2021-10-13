@@ -18,7 +18,7 @@ const sentToAnalyze = (imagesArray, dpr, metaData, quality, cb, rollBarMsg) => {
   addServerInfo(imagesArray, batchSize, dpr, metaData, quality, cb, rollBarMsg);
 };
 
-const addServerInfo = async (imageList, batchSize, dpr, metaData, quality, cb, rollBarMsg) => {
+const addServerInfo = (imageList, batchSize, dpr, metaData, quality, cb, rollBarMsg) => {
   // filter out empty
   const list = imageList.filter((el) => el);
   let bs = list.length > batchSize ? batchSize : list.length;
