@@ -13,30 +13,31 @@ const cloudinary = require('cloudinary');
 const async = require('async');
 const request = require('got');
 
-const sentToAnalyze = (imagesArray, dpr, metaData, quality, cb, rollBarMsg) => {
+const sentToAnalyze = async (imagesArray, dpr, metaData, quality, cb, rollBarMsg) => {
   let batchSize = config.get('cloudinary.batchSize');
-  addServerInfo(imagesArray, batchSize, dpr, metaData, quality, cb, rollBarMsg);
+  const list = await addServerInfoPromise(imagesArray);
+  sendToCloudinary(list, batchSize, dpr, metaData, quality, cb, rollBarMsg);
 };
 
-const addServerInfo = async (imageList, batchSize, dpr, metaData, quality, cb, rollBarMsg) => {
+const addServerInfoPromise = async (imageList) => {
   // filter out empty
   const list = imageList.filter((el) => el);
-  let bs = list.length > batchSize ? batchSize : list.length;
-  async.eachLimit(list, bs, (img, callback) => {
-    request.head(img.url).then(({headers}) => {
+  let s =  await Promise.allSettled(list.map((img) => {
+    return new Promise(async (resolve) => {
+      const {headers} = await request.head(img.url, {timeout: {request: 5000}}).on('error', (e) =>{
+        log.error('Error getting server info', e);
+        img.server = 'N/A';
+        resolve(img);
+      }).catch((e) => {
+        log.error('Error getting server info', e);
+        img.server = 'N/A';
+        resolve(img);
+      });
       img.server = (headers.server) ? headers.server : 'N/A';
-      callback();
-    }).catch((e) => {
-      img.server = "N/A"
-      callback();
-    });
-  }, (err, res) => {
-    if (err) {
-      log.warn('error getting head for image ', err, rollBarMsg);
-    } else {
-      sendToCloudinary(list, bs, dpr, metaData, quality, cb, rollBarMsg);
-    }
-  });
+      resolve(img);
+    })
+  }));
+  return s.map((i) => { return i.value})
 };
 
 const sendToCloudinary = (imagesArray, batchSize, dpr, metaData, quality, cb, rollBarMsg) => {
