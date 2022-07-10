@@ -51,7 +51,7 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
 });
-const listenPort = process.env.PORT || 5000;
+const listenPort = process.env.PORT || 3000;
 
 const server = http.createServer(app);
 server.setTimeout(3 * 60 * 1000)
