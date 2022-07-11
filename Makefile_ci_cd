@@ -6,7 +6,6 @@ prepare_environment:
 build_ci:
 	docker build --build-arg build_number=${BUILD_NUMBER} --build-arg revision=${VERSION} --build-arg srv_name=${SERVICE_NAME} --target final --tag ${IMAGE_NAME}_ci_builder ./
 cleanup_ci:
-	docker-compose rm --stop --force -v
 test:
 build:
 	docker build --build-arg build_number=${BUILD_NUMBER} --build-arg revision=${VERSION} --build-arg srv_name=${SERVICE_NAME} --target final --tag ${IMAGE_NAME}:${COMMIT} --tag ${IMAGE_NAME}:dev ./
