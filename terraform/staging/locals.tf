@@ -18,8 +18,7 @@ locals {
   create_alarm            = false
   max_capacity            = 2
   associate_alb           = true
-  health_check_path       = "/version"
+  health_check_path       = "/health"
   container_port          = 3000
   is_external             = true
-  
 }
