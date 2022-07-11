@@ -8,7 +8,7 @@ const LOG_LEVEL_DEBUG = 'debug';
 const LOG_LEVEL_CRITICAL = 'critical';
 const packageJson = require('../package.json');
 const os = require('os');
-let logger = new Rollbar({
+const logger = new Rollbar({
   // enabled: false,  // silence rollbar as it takes too much quota.
   accessToken: config.get('rollbar.postToken'),
   verbose: true,
