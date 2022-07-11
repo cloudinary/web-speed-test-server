@@ -8,7 +8,7 @@ const LOG_LEVEL_DEBUG = 'debug';
 const LOG_LEVEL_CRITICAL = 'critical';
 const packageJson = require('../package.json');
 const os = require('os');
-const logger = new Rollbar({
+let logger = new Rollbar({
   // enabled: false,  // silence rollbar as it takes too much quota.
   accessToken: config.get('rollbar.postToken'),
   verbose: true,
@@ -26,9 +26,10 @@ const logger = new Rollbar({
   },
 });
 
-if ('development' === process.env.NODE_ENV) {
+// if ('development' === process.env.NODE_ENV) {
   logger.configure({verbose: true});
-}
+// }
+
 
 module.exports = {
   logger: logger,
