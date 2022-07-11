@@ -5,10 +5,22 @@ WORKDIR /usr/src/app
 # Copy source files
 COPY . .
 
-# RUN npm install -g yarn
 RUN yarn install --frozen-lockfile
 
 # Expose network
 EXPOSE 3000
 
+FROM builder AS dev
+
+# Start server for dev mode
 CMD yarn start
+
+FROM builder AS final
+
+WORKDIR /usr/src/app
+
+COPY --from=builder /usr/src/app/ ./
+
+ENV TASK=""
+
+CMD  yarn start

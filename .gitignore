@@ -6,9 +6,12 @@ build
 *.log*
 npm-debug.log
 .history
+.vscode
 
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+
 .env
