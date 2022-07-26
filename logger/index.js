@@ -26,7 +26,7 @@ const logger = new Rollbar({
   },
 });
 
-if ('development' === process.env.NODE_ENV) {
+if ('development' === process.env.NODE_ENV || 'true' === process.env.PRINT_LOGS_CONSOLE) {
   logger.configure({verbose: true});
 }
 
