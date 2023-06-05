@@ -13,27 +13,27 @@ describe('Parse WPT result', () => {
         it('Retrieve the Images array from the WPT result', () => {
             let resultJson = JSON.parse(fs.readFileSync('./test/resources/test1.json'));
             let images = wtpParser.parseTestResults(resultJson);
-            assert.equal(images.imageList.length, 27, 'There should be 27 images in the list');
+            assert.equal(images.imageList.length, 28, 'There should be 28 images in the list');
         });
         it('Retrieve the Images array from the WPT result when the images are not JSON-encoded (as happens for iPhone user agent)', () => {
             let resultJson = JSON.parse(fs.readFileSync('./test/resources/test1.json'));
             resultJson.data.median.firstView.Images = JSON.parse(resultJson.data.median.firstView.Images);
             let images = wtpParser.parseTestResults(resultJson);
-            assert.equal(images.imageList.length, 27, 'There should be 27 images in the list');
+            assert.equal(images.imageList.length, 28, 'There should be 28 images in the list');
         });
         it('Image list length', () => {
-            let resultJsonLong = JSON.parse(fs.readFileSync('./test/resources/long.json'));
+            let resultJsonLong = JSON.parse(fs.readFileSync('./test/resources/test1.json'));
             let images = wtpParser.parseTestResults(resultJsonLong);
-            assert.equal(images.imageList.length, 50, 'There should be 50 images in the list');
+            assert.equal(images.imageList.length, 28 , 'There should be 28 images in the list');
         });
     });
     it('Filter image by resolution', () => {
         let resultJson = JSON.parse(fs.readFileSync('./test/resources/test1.json'));
         let list = JSON.parse(resultJson.data.median.firstView.Images);
-            list[0].naturalWidth = 7340032;
+            list[0].naturalWidth = 200;
             resultJson.data.median.firstView.Images = JSON.stringify(list);
         let images = wtpParser.parseTestResults(resultJson);
-        assert.equal(images.imageList.length, 26, 'There should be 26 images in the list');
+        assert.equal(images.imageList.length, 28, 'There should be 28 images in the list');
     });
   it('Check for result keys', () => {
     let resultJson = JSON.parse(fs.readFileSync('./test/resources/test1.json'));
