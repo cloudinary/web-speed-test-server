@@ -3,16 +3,31 @@ const express = require('express');
 const validUrl = require('valid-url');
 const apiCaller = require('../wtp/apiCaller');
 const logger = require('../logger').logger;
+const {LOG_LEVEL_INFO, LOG_LEVEL_WARNING, LOG_LEVEL_ERROR, LOG_LEVEL_CRITICAL, LOG_LEVEL_DEBUG} = require('../logger');
 const path = require('path');
 
 const routeCallback = (error, result, res, rollBarMsg) => {
   if (error) {
     if (error.logLevel) {
-      logger.configure({logLevel: error.logLevel});
-      if (typeof error.error === 'object') {
-        logger.log(error.message, error.error, rollBarMsg)
-      } else {
-        logger.log(error.message, rollBarMsg)
+      let args = (typeof error.error === 'object')
+          ? [error.message, error.error, rollBarMsg]
+          : [error.message, rollBarMsg];
+      switch (error.logLevel) {
+        case LOG_LEVEL_DEBUG:
+          logger.debug(...args);
+          break
+        case LOG_LEVEL_INFO:
+          logger.info(...args);
+          break
+        case LOG_LEVEL_WARNING:
+          logger.warn(...args);
+          break
+        case LOG_LEVEL_ERROR:
+          logger.error(...args);
+          break
+        case LOG_LEVEL_CRITICAL:
+          logger.critical(...args);
+          break
       }
     }
     if (error.statusCode) {
@@ -58,7 +73,7 @@ const wtp = (app) => {
       return;
     }*/
     logger.info('Started test called from webspeedtest', rollBarMsg, req);
-    apiCaller.runWtpTest(testUrl, mobile, (error, result) => {
+    apiCaller.runWtpTest(testUrl, mobile, (error, result, response, rollBarMsg) => {
       routeCallback(error, result, res, rollBarMsg)
     });
   });
