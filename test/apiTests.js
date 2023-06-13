@@ -60,7 +60,6 @@ describe('API', () => {
             expect(wpt.isDone()).to.be.true;
 
             expect(log.error).to.be.called;
-            console.log(spy.getCall(0).args)
             expect(500).to.equal(spy.getCall(0).args[1].thirdPartyErrorCode);
 
             log.error.restore();

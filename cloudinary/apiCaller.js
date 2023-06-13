@@ -13,7 +13,7 @@ const cloudinary = require('cloudinary');
 const async = require('async');
 const request = require('got');
 
-const sentToAnalyze = (imagesArray, dpr, metaData, quality, cb, rollBarMsg) => {
+const sendToAnalyze = (imagesArray, dpr, metaData, quality, cb, rollBarMsg) => {
   let batchSize = config.get('cloudinary.batchSize');
   addServerInfo(imagesArray, batchSize, dpr, metaData, quality, cb, rollBarMsg);
 };
@@ -111,6 +111,6 @@ const sendToCloudinary = (imagesArray, batchSize, dpr, metaData, quality, cb, ro
   });
 
 };
-module.exports = sentToAnalyze;
+module.exports = sendToAnalyze;
 
 

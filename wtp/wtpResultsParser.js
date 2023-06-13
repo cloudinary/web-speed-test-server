@@ -95,13 +95,6 @@ const parseTestResults = (testJson) => {
   }
 };
 
-/*
-const extractFileName = (uri) => {
-  let parsedUrl = url.parse(uri);
-  return path.basename(parsedUrl.pathname)
-};
-*/
-
 const parseTestResponse = (body, rollBarMsg) => {
   if (body.statusText !== 'Ok') {
     rollBarMsg.thirdPartyErrorCode = body?.statusCode;
