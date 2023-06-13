@@ -6,7 +6,7 @@ const logger = require('../logger').logger;
 const _ = require('lodash');
 "use strict";
 
-const parseCloudinaryResults = (results, rollBarMag) => {
+const parseCloudinaryResults = (results, rollBarMsg) => {
 
   try {
     let imagesTestResults = [];
@@ -49,7 +49,7 @@ const parseCloudinaryResults = (results, rollBarMag) => {
       }
     };
   } catch (e) {
-    logger.error('Error parsing cloudinary result', e, rollBarMag);
+    logger.error('Error parsing cloudinary result', e, rollBarMsg);
     return {status: 'error', message: 'Error parsing cloudinary result'}
   }
 };
