@@ -19,7 +19,7 @@
     "got": "^11.8.2",
     "lodash": "^4.17.21",
     "request": "^2.88.2",
-    "rollbar": "^2.21.1",
+    "rollbar": "^2.26.1",
     "valid-url": "^1.0.9",
     "winston": "^3.3.3",
     "winston-airbrake": "^1.1.0"
