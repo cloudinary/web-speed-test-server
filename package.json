@@ -7,7 +7,7 @@
   },
   "dependencies": {
     "async": "^3.2.0",
-    "body-parser": "~1.19.0",
+    "body-parser": "~1.20.2",
     "bytes": "^3.1.0",
     "cloudinary": "https://github.com/cloudinary/cloudinary_npm.git#analyze_api_legacy",
     "config": "^3.3.6",
