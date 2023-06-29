@@ -1,0 +1,26 @@
+name: CI
+on:
+  pull_request:
+    branches:
+      - '**'
+
+permissions:
+  contents: read # for checkout
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v3
+        with:
+          cache: yarn
+          node-version: "18.16"
+      - run: yarn install --immutable
+      - name: Run tests
+        env:
+          WTP_API_KEY: mock
+        run: yarn run test
