@@ -383,9 +383,10 @@ cloudinary-core@2.13.0:
   resolved "https://registry.yarnpkg.com/cloudinary-core/-/cloudinary-core-2.13.0.tgz#b59f90871b6c708c3d0735b9be47ac08181c57fb"
   integrity sha512-Nt0Q5I2FtenmJghtC4YZ3MZZbGg1wLm84SsxcuVwZ83OyJqG9CNIGp86CiI6iDv3QobaqBUpOT7vg+HqY5HxEA==
 
-"cloudinary@https://github.com/cloudinary/cloudinary_npm.git#analyze_api_legacy":
-  version "1.37.1"
-  resolved "https://github.com/cloudinary/cloudinary_npm.git#b701925d396cca8e33d764f5db8972d34f9f5bf0"
+cloudinary@1.37.2:
+  version "1.37.2"
+  resolved "https://registry.yarnpkg.com/cloudinary/-/cloudinary-1.37.2.tgz#a2b5670a18ac8b267e9f822bbfbdbc1c9cca0b94"
+  integrity sha512-xxENxedG9wSf46BfMUD08AQwzRFbbbVclqBzTGYHEON/lfQ2Y26D0pqErDdSZ61yciZ69zwCxArKtzyoVcZZcw==
   dependencies:
     cloudinary-core "2.13.0"
     core-js "3.30.2"
