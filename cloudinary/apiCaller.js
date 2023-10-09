@@ -11,7 +11,7 @@ const _ = require('lodash');
 const cloudinaryParser = require('./cloudinaryResultParser');
 const cloudinary = require('cloudinary');
 const async = require('async');
-const request = require('got');
+const got = (...args) => import('got').then(({default: got}) => got(...args));
 
 const sendToAnalyze = (imagesArray, dpr, metaData, quality, cb, rollBarMsg) => {
   let batchSize = config.get('cloudinary.batchSize');
@@ -23,7 +23,7 @@ const addServerInfo = (imageList, batchSize, dpr, metaData, quality, cb, rollBar
   const list = imageList.filter((el) => el);
   let bs = list.length > batchSize ? batchSize : list.length;
   async.eachLimit(list, bs, (img, callback) => {
-    request.head(img.url).then(({headers}) => {
+    got({method: "HEAD", url: img.url}).then(({headers}) => {
       img.server = (headers.server) ? headers.server : 'N/A';
       callback();
     }).catch((e) => {

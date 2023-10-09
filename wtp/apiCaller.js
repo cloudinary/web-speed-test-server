@@ -6,7 +6,7 @@
 
 
 const path = require('path');
-const got = require('got');
+const got = (...args) => import('got').then(({default: got}) => got(...args));
 const config = require('config');
 const logger = require('../logger');
 const log = logger.logger;
@@ -19,12 +19,13 @@ const GET_TEST_STATUS = 'http://www.webpagetest.org/testStatus.php';
 
 const getTestResults = async (testId, quality, cb) => {
   let options = {
+    method: "GET",
     url: RESULTS_URL,
     searchParams: {test: testId},
     headers: { 'User-Agent': 'WebSpeedTest' }
   };
   try {
-    const response = await got.get(options)
+    const response = await got(options)
     const {statusCode, body} = response;
     let resBody = JSON.parse(body);
     let rollBarMsg = {testId: resBody.data.id, analyzedUrl: resBody.data.testUrl, thirdPartyErrorCode: "", file: path.basename((__filename))};
@@ -62,6 +63,7 @@ const runWtpTest = async (url, mobile, cb) => {
   const apiKeys = config.get('wtp.apiKey').split(',');
   const apiKey = apiKeys[Math.floor(Math.random() * apiKeys.length)];
   let options = {
+    method: "POST",
     url: RUN_TEST_URL,
     searchParams: {
             url: url,
@@ -81,7 +83,7 @@ const runWtpTest = async (url, mobile, cb) => {
   let response;
   let rollBarMsg = {testId: "", analyzedUrl: url, thirdPartyErrorCode: "", file: path.basename((__filename))};
   try {
-    response = await got.post(options);
+    response = await got(options);
     const {statusCode, body} = response;
     if (statusCode !== 200) {
       rollBarMsg.thirdPartyErrorCode = response.statusCode;
@@ -112,6 +114,7 @@ const runWtpTest = async (url, mobile, cb) => {
 
 const checkTestStatus = async (testId, quality, cb) => {
   let options = {
+    method: "GET",
     url: GET_TEST_STATUS,
     searchParams: {test: testId, k: config.get('wtp.apiKey'), f: "json"},
     'headers': { 'User-Agent': 'WebSpeedTest' }
@@ -119,7 +122,7 @@ const checkTestStatus = async (testId, quality, cb) => {
   let response;
   let rollBarMsg = {};
   try {
-    response = await got.get(options);
+    response = await got(options);
     const {statusCode, body} = response;
     let bodyJson = JSON.parse(body);
     rollBarMsg = {testId: testId, thirdPartyErrorCode: "", file: path.basename((__filename))};
