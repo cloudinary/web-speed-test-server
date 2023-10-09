@@ -1,5 +1,5 @@
 {
-  "name": "pagespeed-server",
+  "name": "web-speed-test-server",
   "version": "1.1.2",
   "private": true,
   "scripts": {
