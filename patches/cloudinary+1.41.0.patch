@@ -1,0 +1,30 @@
+diff --git a/node_modules/cloudinary/lib-es5/utils/index.js b/node_modules/cloudinary/lib-es5/utils/index.js
+index 35f9385..76fd24e 100644
+--- a/node_modules/cloudinary/lib-es5/utils/index.js
++++ b/node_modules/cloudinary/lib-es5/utils/index.js
+@@ -437,7 +437,9 @@ function build_upload_params(options) {
+     accessibility_analysis: utils.as_safe_bool(options.accessibility_analysis),
+     use_asset_folder_as_public_id_prefix: utils.as_safe_bool(options.use_asset_folder_as_public_id_prefix),
+     visual_search: utils.as_safe_bool(options.visual_search),
+-    on_success: options.on_success
++    on_success: options.on_success,
++    /* for internal use only */
++    analyze: JSON.stringify(options.analyze)
+   };
+   return utils.updateable_resource_params(options, params);
+ }
+diff --git a/node_modules/cloudinary/lib/utils/index.js b/node_modules/cloudinary/lib/utils/index.js
+index 47acd25..a3ac938 100644
+--- a/node_modules/cloudinary/lib/utils/index.js
++++ b/node_modules/cloudinary/lib/utils/index.js
+@@ -415,7 +415,9 @@ function build_upload_params(options) {
+     accessibility_analysis: utils.as_safe_bool(options.accessibility_analysis),
+     use_asset_folder_as_public_id_prefix: utils.as_safe_bool(options.use_asset_folder_as_public_id_prefix),
+     visual_search: utils.as_safe_bool(options.visual_search),
+-    on_success: options.on_success
++    on_success: options.on_success,
++    /* for internal use only */
++    analyze: JSON.stringify(options.analyze)
+   };
+   return utils.updateable_resource_params(options, params);
+ }
