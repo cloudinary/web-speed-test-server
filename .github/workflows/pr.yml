@@ -11,14 +11,6 @@ jobs:
     name: Validate PR title
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${#${{secrets.TEST}}}
-      - uses: amannn/action-semantic-pull-request@v4
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          types: |
-            fix
-            feat
-            chore
-        
+      - run: echo "xxxxxxx"
+      - run: echo ${#${{secrets.TEST}}}        
 
