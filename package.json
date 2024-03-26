@@ -8,18 +8,18 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
-    "async": "^3.2.4",
+    "async": "^3.2.5",
     "body-parser": "~1.20.2",
     "bytes": "^3.1.2",
-    "cloudinary": "1.41.0",
-    "config": "^3.3.9",
+    "cloudinary": "1.41.3",
+    "config": "^3.3.11",
     "cookie-parser": "~1.4.6",
     "debug": "~4.3.4",
-    "dotenv": "^16.3.1",
+    "dotenv": "^16.4.5",
     "express": "~4.18.2",
     "got": "^13.0.0",
     "lodash": "^4.17.21",
-    "rollbar": "^2.26.2",
+    "rollbar": "^2.26.4",
     "valid-url": "^1.0.9"
   },
   "devDependencies": {
