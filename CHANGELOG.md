@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.4](https://github.com/cloudinary/web-speed-test-server/compare/v1.1.3...v1.1.4) (2024-03-26)
+
+
+### Bug Fixes
+
+* WPT API change wrt auth ([15a7d2e](https://github.com/cloudinary/web-speed-test-server/commit/15a7d2ea388b34497746d0107920644f23b3ef44))
+
 ## [1.1.3](https://github.com/cloudinary/web-speed-test-server/compare/v1.1.2...v1.1.3) (2023-10-09)
 
 
