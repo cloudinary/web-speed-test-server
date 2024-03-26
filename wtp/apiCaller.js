@@ -67,7 +67,6 @@ const runWtpTest = async (url, mobile, cb) => {
     url: RUN_TEST_URL,
     searchParams: {
             url: url,
-            k: apiKey,
             f: "json",
             width: config.get('wtp.viewportWidth'),
             height: config.get('wtp.viewportHeight'),
@@ -77,7 +76,7 @@ const runWtpTest = async (url, mobile, cb) => {
             fvonly: 1, // first view only
             timeline: 1 // workaround for WPT sometimes hanging on getComputedStyle()
           },
-    headers: { 'User-Agent': 'WebSpeedTest' },
+    headers: { 'User-Agent': 'WebSpeedTest', 'X-WPT-API-KEY': apiKey },
     throwHttpErrors: false
   };
   let response;
@@ -116,7 +115,7 @@ const checkTestStatus = async (testId, quality, cb) => {
   let options = {
     method: "GET",
     url: GET_TEST_STATUS,
-    searchParams: {test: testId, k: config.get('wtp.apiKey'), f: "json"},
+    searchParams: {test: testId, f: "json"},
     'headers': { 'User-Agent': 'WebSpeedTest' }
   };
   let response;
