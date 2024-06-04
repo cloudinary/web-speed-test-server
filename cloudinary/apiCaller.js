@@ -100,12 +100,14 @@ const sendToCloudinary = (imagesArray, batchSize, dpr, metaData, quality, cb, ro
     }
     // move lcp
     const lcpIdx = parsed.imagesTestResults.findIndex((i) => i.tags.includes('lcp'));
-    metaData.lcp = {
-      isImage: metaData.lcpEvent.type === 'image',
-      analyzed: parsed.imagesTestResults.splice(lcpIdx, 1)[0],
-      event: metaData.lcpEvent,
-    };
-    delete (metaData.lcpEvent);
+    if (lcpIdx >= 0) {
+      metaData.lcp = {
+        isImage: metaData.lcpEvent.type === 'image',
+        analyzed: parsed.imagesTestResults.splice(lcpIdx, 1)[0],
+        event: metaData.lcpEvent,
+      };
+      delete (metaData.lcpEvent);
+    }
     Object.assign(parsed.resultSumm, metaData);
     cb(null, {status: 'success', data: parsed});
   });
