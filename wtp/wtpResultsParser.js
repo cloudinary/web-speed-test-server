@@ -98,7 +98,7 @@ const parseTestResults = (testJson) => {
 const parseTestResponse = (body, rollBarMsg) => {
   if (body.statusText !== 'Ok') {
     rollBarMsg.thirdPartyErrorCode = body?.statusCode;
-    rollBarMsg.responseBody = body.statusText;
+    rollBarMsg.thirdPartyErrorBody = body.statusText;
     logger.warn('WPT returned an error', rollBarMsg);
     return {status: 'error', message: 'wpt_failure'}
   }
