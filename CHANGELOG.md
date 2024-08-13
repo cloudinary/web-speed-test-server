@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.6](https://github.com/cloudinary/web-speed-test-server/compare/v1.1.5...v1.1.6) (2024-08-13)
+
+
+### Bug Fixes
+
+* not all WPT API errors logged (DELO-4614) ([#77](https://github.com/cloudinary/web-speed-test-server/issues/77)) ([9fa85b0](https://github.com/cloudinary/web-speed-test-server/commit/9fa85b001af7f47498e26d7adfb019822a5d018a))
+
 ## [1.1.5](https://github.com/cloudinary/web-speed-test-server/compare/v1.1.4...v1.1.5) (2024-06-04)
 
 
