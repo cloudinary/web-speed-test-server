@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.7](https://github.com/cloudinary/web-speed-test-server/compare/v1.1.6...v1.1.7) (2024-08-13)
+
+
+### Bug Fixes
+
+* set rollbar environment properly ([f6d58ef](https://github.com/cloudinary/web-speed-test-server/commit/f6d58ef42f874779550da9d56e5ddd918d73a1a9))
+
 ## [1.1.6](https://github.com/cloudinary/web-speed-test-server/compare/v1.1.5...v1.1.6) (2024-08-13)
 
 
