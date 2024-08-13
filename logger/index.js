@@ -14,7 +14,7 @@ const logger = new Rollbar({
   verbose: true,
   handleUncaughtExceptions: true,
   handleUnhandledRejections: true,
-  environment: process.env.NODE_ENV || process.env.HOSTNAME,
+  environment: process.env.ENVIRONMENT || "development",
   reportLevel: process.env.LOG_LEVEL || LOG_LEVEL_CRITICAL,
   payload: {
     system: {
