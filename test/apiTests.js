@@ -61,6 +61,7 @@ describe('API', () => {
 
             expect(log.error).to.be.called;
             expect(500).to.equal(spy.getCall(0).args[1].thirdPartyErrorCode);
+            expect("Unknown WPT issue").to.equal(spy.getCall(0).args[1].thirdPartyErrorBody);
 
             log.error.restore();
         });
@@ -85,7 +86,7 @@ describe('API', () => {
             expect(log.warn).to.be.called;
             expect(log.error).to.not.be.called;
             expect(400).to.equal(spy.getCall(0).args[1].thirdPartyErrorCode);
-            expect("unknown issue").to.equal(spy.getCall(0).args[1].responseBody);
+            expect("unknown issue").to.equal(spy.getCall(0).args[1].thirdPartyErrorBody);
 
             log.error.restore();
             log.warn.restore();

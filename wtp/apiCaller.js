@@ -12,6 +12,7 @@ const logger = require('../logger');
 const log = logger.logger;
 const resultParser = require('./wtpResultsParser');
 const cloudinaryCaller = require('../cloudinary/apiCaller');
+const {truncateString} = require('../util/strings');
 const RESULTS_URL = 'https://www.webpagetest.org/jsonResult.php';
 const RUN_TEST_URL = 'http://www.webpagetest.org/runtest.php';
 const GET_TEST_STATUS = 'http://www.webpagetest.org/testStatus.php';
@@ -80,12 +81,13 @@ const runWtpTest = async (url, mobile, cb) => {
     throwHttpErrors: false
   };
   let response;
-  let rollBarMsg = {testId: "", analyzedUrl: url, thirdPartyErrorCode: "", file: path.basename((__filename))};
+  let rollBarMsg = {testId: "", analyzedUrl: url, thirdPartyErrorCode: "", thirdPartyErrorMsg: "", file: path.basename((__filename))};
   try {
     response = await got(options);
     const {statusCode, body} = response;
     if (statusCode !== 200) {
       rollBarMsg.thirdPartyErrorCode = response.statusCode;
+      rollBarMsg.thirdPartyErrorBody = body && truncateString(body, 1000) || "";
       cb({status: 'error', message: 'WTP returned bad status with url ' + url, error: response.statusMessage, logLevel: logger.LOG_LEVEL_ERROR}, null, response, rollBarMsg);
       return;
     }
