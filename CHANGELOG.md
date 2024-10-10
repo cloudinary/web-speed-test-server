@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.8](https://github.com/cloudinary/web-speed-test-server/compare/v1.1.7...v1.1.8) (2024-10-10)
+
+
+### Bug Fixes
+
+* security update https://snyk.io/vuln/SNYK-JS-BODYPARSER-7926860 (DELO-4731) ([#90](https://github.com/cloudinary/web-speed-test-server/issues/90)) ([83690d3](https://github.com/cloudinary/web-speed-test-server/commit/83690d36bee9918f3e34e9a683a6b5a6e611661b))
+
 ## [1.1.7](https://github.com/cloudinary/web-speed-test-server/compare/v1.1.6...v1.1.7) (2024-08-13)
 
 
