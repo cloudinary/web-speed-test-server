@@ -1,5 +1,5 @@
 const got = (...args) => import('got').then(({default: got}) => got(...args));
-const {Mutex} = require('async-mutex');
+const {Mutex, withTimeout, E_TIMEOUT} = require('async-mutex');
 const apiKeys = require('./apiKey');
 const path = require("path");
 const logger = require('../logger').logger;
@@ -7,15 +7,16 @@ const logger = require('../logger').logger;
 const GET_LOCATIONS = 'http://www.webpagetest.org/getLocations.php?f=json';
 
 class LocationSelector {
-    CACHE_TTL = 10;
+    CACHE_TTL = 0;
     DEFAULT_LOCATION = 'IAD_US_01';
+    UPDATE_LOCATIONS_TIMEOUT = 20;
 
     constructor() {
         if (!LocationSelector.instance) {
             this.cachedAllLocations = [];
             this.location = this.DEFAULT_LOCATION;
             this.lastUpdated = null;
-            this.mutex = new Mutex();
+            this.mutex = withTimeout(new Mutex(), this.UPDATE_LOCATIONS_TIMEOUT * 1000);
             LocationSelector.instance = this;
         }
         return LocationSelector.instance;
@@ -50,19 +51,42 @@ class LocationSelector {
         }
     };
 
-    getLocationScore(location) {
-        let metrics = location.PendingTests;
-
-        // Idle + Testing ==> capacity
-        if (metrics.Idle + metrics.Testing == 0) {
-            return 1;   // no instances running, hopefully they will be spin up for our request?
+    getLocationScore(loc) {
+        // no instances running, hopefully they will be spin up for our request?
+        if (this.getLocationCapacity(loc) == 0) {
+            return 1;
         }
 
+        let metrics = loc.PendingTests;
         return (metrics.HighPriority + metrics.Testing) / (metrics.Idle + metrics.Testing)
     }
 
+    getLocationCapacity(loc) {
+        return loc.PendingTests.Idle + loc.PendingTests.Testing;
+    }
+
     getBestLocationId(locations) {
-        let selected = locations.reduce((acc, cur) => acc && acc.score < cur.score ? acc : cur);
+        let selected = locations.reduce((acc, cur) => {
+            // if nothing to compare to, use current value
+            if (!acc) {
+                return cur;
+            }
+
+            // if acc less loaded
+            if (acc.score < cur.score) {
+                return acc;
+            }
+
+            // if cur less loaded
+            if (acc.score > cur.score) {
+                return cur;
+            }
+
+            // if same load on acc and cur
+            // then choose the one with bigger capacity (Idle + Testing)
+            return this.getLocationCapacity(acc) > this.getLocationCapacity(cur) ? acc : cur;
+        });
+
         return selected.location;
     }
 
@@ -83,7 +107,9 @@ class LocationSelector {
         }
 
         // enrich locations with our internal score
-        filtered.forEach((location) => { location.score = this.getLocationScore(location); });
+        filtered.forEach((loc) => {
+            loc.score = this.getLocationScore(loc);
+        });
 
         this.location = this.getBestLocationId(filtered);
         this.cachedAllLocations = filtered;
@@ -92,11 +118,17 @@ class LocationSelector {
 
     async getLocation() {
         if (this.isExpired()) {
-            await this.mutex.runExclusive(async () => {
-                if (this.isExpired()) {
-                    await this.updateLocations();
+            try {
+                await this.mutex.runExclusive(async () => {
+                    if (this.isExpired()) {
+                        await this.updateLocations();
+                    }
+                });
+            } catch(e) {
+                if (e === E_TIMEOUT) {
+                    logger.error('Locations update is taking too long', e);
                 }
-            });
+            }
         }
 
         return this.location;
