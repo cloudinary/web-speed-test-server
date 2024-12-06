@@ -62,7 +62,7 @@ class LocationSelector {
     }
 
     getBestLocationId(locations) {
-        let selected = locations.reduce((acc, cur) => acc && this.getLocationScore(acc) < this.getLocationScore(cur) ? acc : cur);
+        let selected = locations.reduce((acc, cur) => acc && acc.score < cur.score ? acc : cur);
         return selected.location;
     }
 
@@ -81,6 +81,9 @@ class LocationSelector {
         if (filtered.length === 0) {
             return
         }
+
+        // enrich locations with our internal score
+        filtered.forEach((location) => { location.score = this.getLocationScore(location); });
 
         this.location = this.getBestLocationId(filtered);
         this.cachedAllLocations = filtered;
