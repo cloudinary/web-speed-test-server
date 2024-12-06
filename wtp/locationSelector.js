@@ -124,7 +124,7 @@ class LocationSelector {
                         await this.updateLocations();
                     }
                 });
-            } catch(e) {
+            } catch (e) {
                 if (e === E_TIMEOUT) {
                     logger.error('Locations update is taking too long', e);
                 }
