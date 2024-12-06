@@ -2,6 +2,7 @@
 const express = require('express');
 const validUrl = require('valid-url');
 const apiCaller = require('../wtp/apiCaller');
+const locationSelector = require("../wtp/locationSelector");
 const logger = require('../logger').logger;
 const {LOG_LEVEL_INFO, LOG_LEVEL_WARNING, LOG_LEVEL_ERROR, LOG_LEVEL_CRITICAL, LOG_LEVEL_DEBUG} = require('../logger');
 const path = require('path');
@@ -81,7 +82,19 @@ const wtp = (app) => {
   app.get('/version', (req, res) => {
     const packageJson = require('../package.json');
     res.json({version: packageJson.version});
+  });
+
+  app.get('/locations', async (req, res) => {
+    let locations = locationSelector.cachedAllLocations;
+    res.json({locations});
   })
+
+  app.get('/locations/current', async (req, res) => {
+    let location = locationSelector.location;
+    let lastUpdated = new Date(locationSelector.lastUpdated || 0).toISOString();
+    res.json({location, lastUpdated});
+  })
+
 };
 
 module.exports = wtp;
