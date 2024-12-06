@@ -7,7 +7,7 @@ const logger = require('../logger').logger;
 const GET_LOCATIONS = 'http://www.webpagetest.org/getLocations.php?f=json';
 
 class LocationSelector {
-    CACHE_TTL = 0;
+    CACHE_TTL = 10;
     DEFAULT_LOCATION = 'IAD_US_01';
     UPDATE_LOCATIONS_TIMEOUT = 20;
 
