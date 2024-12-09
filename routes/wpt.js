@@ -8,7 +8,7 @@ const {LOG_LEVEL_INFO, LOG_LEVEL_WARNING, LOG_LEVEL_ERROR, LOG_LEVEL_CRITICAL, L
 const path = require('path');
 const opentelemetry = require('@opentelemetry/api');
 
-const WstMeter = opentelemetry.metrics.getMeter();
+const WstMeter = opentelemetry.metrics.getMeter('default');
 const testrunCounter = WstMeter.createCounter('testrun.total');
 
 const routeCallback = (error, result, res, rollBarMsg) => {

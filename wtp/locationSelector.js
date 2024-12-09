@@ -8,7 +8,7 @@ const logger = require('../logger').logger;
 
 const GET_LOCATIONS = 'http://www.webpagetest.org/getLocations.php?f=json';
 
-const WstMeter = opentelemetry.metrics.getMeter("web-speed-test-server");
+const WstMeter = opentelemetry.metrics.getMeter('default');
 const locationMetrics = {
     total: WstMeter.createGauge('location.total'),
     lastUpdate: WstMeter.createGauge('location.last_update'),
