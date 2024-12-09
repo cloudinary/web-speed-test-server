@@ -5,9 +5,15 @@
   "scripts": {
     "test": "mocha",
     "start": "node start.js",
+    "start-with-instrumentation": "node --require ./instrumentation.js start.js",
     "postinstall": "patch-package"
   },
   "dependencies": {
+    "@opentelemetry/api": "^1.9.0",
+    "@opentelemetry/exporter-prometheus": "^0.56.0",
+    "@opentelemetry/resources": "^1.29.0",
+    "@opentelemetry/sdk-node": "^0.56.0",
+    "@opentelemetry/semantic-conventions": "^1.28.0",
     "async": "^3.2.6",
     "async-mutex": "^0.5.0",
     "body-parser": "~1.20.3",

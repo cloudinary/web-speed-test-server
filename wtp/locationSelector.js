@@ -3,9 +3,28 @@ const config = require('config');
 const {Mutex, withTimeout, E_TIMEOUT} = require('async-mutex');
 const apiKeys = require('./apiKey');
 const path = require("path");
+const opentelemetry = require("@opentelemetry/api");
 const logger = require('../logger').logger;
 
 const GET_LOCATIONS = 'http://www.webpagetest.org/getLocations.php?f=json';
+
+const WstMeter = opentelemetry.metrics.getMeter();
+const locationMetrics = {
+    total: WstMeter.createGauge('location.total'),
+    lastUpdate: WstMeter.createGauge('location.last_update'),
+    ratio: WstMeter.createGauge('location.ratio'),
+    score: WstMeter.createGauge('location.score'),
+    selected: WstMeter.createGauge('location.selected'),
+    agent: {
+        total: WstMeter.createGauge('location.agent.total'),
+        idle: WstMeter.createGauge('location.agent.idle'),
+        queued: WstMeter.createGauge('location.agent.queued'),
+        highprio: WstMeter.createGauge('location.agent.highprio'),
+        lowprio: WstMeter.createGauge('location.agent.lowprio'),
+        testing: WstMeter.createGauge('location.agent.testing'),
+        blocking: WstMeter.createGauge('location.agent.blocking')
+    },
+};
 
 class LocationSelector {
     constructor() {
@@ -111,6 +130,26 @@ class LocationSelector {
         this.location = this.getBestLocationId(filtered);
         this.cachedAllLocations = filtered;
         this.lastUpdated = Date.now();
+
+        // telemetry
+        locationMetrics.total = this.cachedAllLocations.length;
+        locationMetrics.lastUpdate = this.lastUpdated;
+        this.cachedAllLocations.forEach((loc) => {
+            let labels = {location: loc.location};
+
+            locationMetrics.ratio.record(loc.PendingTests.TestAgentRatio, labels);
+            locationMetrics.score.record(loc.score, labels);
+
+            locationMetrics.selected.record(loc.location === this.location ? 1 : 0, labels);
+
+            locationMetrics.agent.total.record(loc.PendingTests.Total, labels);
+            locationMetrics.agent.idle.record(loc.PendingTests.Idle, labels);
+            locationMetrics.agent.queued.record(loc.PendingTests.Queued, labels);
+            locationMetrics.agent.highprio.record(loc.PendingTests.HighPriority, labels);
+            locationMetrics.agent.lowprio.record(loc.PendingTests.LowPriority, labels);
+            locationMetrics.agent.testing.record(loc.PendingTests.Testing, labels);
+            locationMetrics.agent.blocking.record(loc.PendingTests.Blocking, labels);
+        });
     };
 
     async getLocation() {

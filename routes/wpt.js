@@ -6,6 +6,10 @@ const locationSelector = require("../wtp/locationSelector");
 const logger = require('../logger').logger;
 const {LOG_LEVEL_INFO, LOG_LEVEL_WARNING, LOG_LEVEL_ERROR, LOG_LEVEL_CRITICAL, LOG_LEVEL_DEBUG} = require('../logger');
 const path = require('path');
+const opentelemetry = require('@opentelemetry/api');
+
+const WstMeter = opentelemetry.metrics.getMeter();
+const testrunCounter = WstMeter.createCounter('testrun.total');
 
 const routeCallback = (error, result, res, rollBarMsg) => {
   if (error) {
@@ -52,11 +56,11 @@ const wtp = (app) => {
     });
   });
 
-
   app.post('/test/run', (req, res) => {
     let rollBarMsg = {testId: "N/A", thirdPartyErrorCode: "", file: path.basename((__filename))};
     if (!req.body) {
       logger.error('Could not run test missing request body', rollBarMsg, req);
+      testrunCounter.add(1, {"status": "BAD_REQUEST"});
       routeCallback({statusCode: 400}, null, res, rollBarMsg);
       return;
     }
@@ -65,6 +69,7 @@ const wtp = (app) => {
     rollBarMsg.analyzedUrl = testUrl;
     if (!testUrl) {
       logger.error('Could not run test missing test url',rollBarMsg, req);
+      testrunCounter.add(1, {"status": "BAD_REQUEST"});
       routeCallback({statusCode: 400}, null, res, rollBarMsg);
       return;
     }
@@ -75,6 +80,7 @@ const wtp = (app) => {
     }*/
     logger.info('Started test called from webspeedtest', rollBarMsg, req);
     apiCaller.runWtpTest(testUrl, mobile, (error, result, response, rollBarMsg) => {
+      testrunCounter.add(1, {"status": error ? "FAILURE" : "OK"});
       routeCallback(error, result, res, rollBarMsg)
     });
   });
