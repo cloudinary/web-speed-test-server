@@ -32,7 +32,7 @@ wpt(app);
 
 // catch 404 and forward to error handler
 app.all('*', function (req, res) {
-  res.send('what???', 404);
+  res.status(404).send('what???');
 });
 
 app.use(function (req, res, next) {

@@ -4,7 +4,6 @@
 
 "use strict";
 
-
 const path = require('path');
 const got = (...args) => import('got').then(({default: got}) => got(...args));
 const config = require('config');
@@ -16,7 +15,8 @@ const {truncateString} = require('../util/strings');
 const RESULTS_URL = 'https://www.webpagetest.org/jsonResult.php';
 const RUN_TEST_URL = 'http://www.webpagetest.org/runtest.php';
 const GET_TEST_STATUS = 'http://www.webpagetest.org/testStatus.php';
-
+const locationSelector = require('./locationSelector');
+const apiKeys = require('./apiKey');
 
 const getTestResults = async (testId, quality, cb) => {
   let options = {
@@ -58,11 +58,8 @@ const getTestResults = async (testId, quality, cb) => {
   }
 };
 
-
 const runWtpTest = async (url, mobile, cb) => {
   //logger.info('Running new test ' + url);
-  const apiKeys = config.get('wtp.apiKey').split(',');
-  const apiKey = apiKeys[Math.floor(Math.random() * apiKeys.length)];
   let options = {
     method: "POST",
     url: RUN_TEST_URL,
@@ -72,12 +69,12 @@ const runWtpTest = async (url, mobile, cb) => {
             width: config.get('wtp.viewportWidth'),
             height: config.get('wtp.viewportHeight'),
             custom: config.get('wtp.imageScript'),
-            location: 'Dulles:Chrome.Native', // Native means no speed shaping in browser, full speed ahead
-            mobile: (mobile) ? 1 : 0,
+            location: await locationSelector.getLocation() + ':Chrome.Native', // Native means no speed shaping in browser, full speed ahead
+      mobile: (mobile) ? 1 : 0,
             fvonly: 1, // first view only
             timeline: 1 // workaround for WPT sometimes hanging on getComputedStyle()
           },
-    headers: { 'User-Agent': 'WebSpeedTest', 'X-WPT-API-KEY': apiKey },
+    headers: { 'User-Agent': 'WebSpeedTest', 'X-WPT-API-KEY': apiKeys.getRandom() },
     throwHttpErrors: false
   };
   let response;
