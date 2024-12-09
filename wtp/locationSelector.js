@@ -11,9 +11,9 @@ class LocationSelector {
     constructor() {
         if (!LocationSelector.instance) {
             this.cachedAllLocations = [];
-            this.location = config.get('locationSelector.locationSelector.defaultLocation');
+            this.location = config.get('wtp.locationSelector.defaultLocation');
             this.lastUpdated = null;
-            this.mutex = withTimeout(new Mutex(), config.get('locationSelector.locationSelector.updateTimeout') * 1000);
+            this.mutex = withTimeout(new Mutex(), config.get('wtp.locationSelector.updateTimeout') * 1000);
             LocationSelector.instance = this;
         }
         return LocationSelector.instance;
@@ -21,7 +21,7 @@ class LocationSelector {
 
     isExpired() {
         const now = Date.now();
-        return (!this.lastUpdated || (now - this.lastUpdated) > config.get('locationSelector.locationSelector.cacheTtl') * 1000);
+        return (!this.lastUpdated || (now - this.lastUpdated) > config.get('wtp.locationSelector.cacheTtl') * 1000);
     }
 
     async fetchLocations() {
