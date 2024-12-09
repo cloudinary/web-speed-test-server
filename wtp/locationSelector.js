@@ -28,7 +28,7 @@ class LocationSelector {
         let options = {
             method: "GET",
             url: GET_LOCATIONS,
-            headers: {'User-Agent': 'WebSpeedTest', 'X-WPT-API-KEY': apiKeys.get()},
+            headers: {'User-Agent': 'WebSpeedTest', 'X-WPT-API-KEY': apiKeys.getRandom()},
         };
         let response;
         let rollBarMsg = {};

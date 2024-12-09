@@ -74,7 +74,7 @@ const runWtpTest = async (url, mobile, cb) => {
             fvonly: 1, // first view only
             timeline: 1 // workaround for WPT sometimes hanging on getComputedStyle()
           },
-    headers: { 'User-Agent': 'WebSpeedTest', 'X-WPT-API-KEY': apiKeys.get() },
+    headers: { 'User-Agent': 'WebSpeedTest', 'X-WPT-API-KEY': apiKeys.getRandom() },
     throwHttpErrors: false
   };
   let response;
