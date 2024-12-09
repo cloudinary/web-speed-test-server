@@ -35,7 +35,12 @@ const conf = {
       "lcp": process.env.LCP_PATH || "data.median.firstView.largestPaints",
       "lcpURL": process.env.LCP_URL_PATH || "data.median.firstView.LargestContentfulPaintImageURL"
     },
-    timeout: process.env.WTP_TIMEOUT || 30000
+    timeout: process.env.WTP_TIMEOUT || 30000,
+    "locationSelector": {
+      "cacheTtl": process.env.WTP_LS_CACHE_TTL || 10,
+      "updateTimeout": process.env.WTP_LS_UPDATE_TIMEOUT || 20,
+      "defaultLocation": process.env.WTP_LS_DEFAULT_LOCATION || "IAD_US_01"
+    }
   },
   "cloudinary": {
     "cloudName": process.env.CLOUDINARY_NAME,

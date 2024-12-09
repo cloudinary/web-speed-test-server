@@ -1,4 +1,5 @@
 const got = (...args) => import('got').then(({default: got}) => got(...args));
+const config = require('config');
 const {Mutex, withTimeout, E_TIMEOUT} = require('async-mutex');
 const apiKeys = require('./apiKey');
 const path = require("path");
@@ -7,16 +8,12 @@ const logger = require('../logger').logger;
 const GET_LOCATIONS = 'http://www.webpagetest.org/getLocations.php?f=json';
 
 class LocationSelector {
-    CACHE_TTL = 10;
-    DEFAULT_LOCATION = 'IAD_US_01';
-    UPDATE_LOCATIONS_TIMEOUT = 20;
-
     constructor() {
         if (!LocationSelector.instance) {
             this.cachedAllLocations = [];
-            this.location = this.DEFAULT_LOCATION;
+            this.location = config.get('locationSelector.locationSelector.defaultLocation');
             this.lastUpdated = null;
-            this.mutex = withTimeout(new Mutex(), this.UPDATE_LOCATIONS_TIMEOUT * 1000);
+            this.mutex = withTimeout(new Mutex(), config.get('locationSelector.locationSelector.updateTimeout') * 1000);
             LocationSelector.instance = this;
         }
         return LocationSelector.instance;
@@ -24,7 +21,7 @@ class LocationSelector {
 
     isExpired() {
         const now = Date.now();
-        return (!this.lastUpdated || (now - this.lastUpdated) > this.CACHE_TTL * 1000);
+        return (!this.lastUpdated || (now - this.lastUpdated) > config.get('locationSelector.locationSelector.cacheTtl') * 1000);
     }
 
     async fetchLocations() {
@@ -136,5 +133,4 @@ class LocationSelector {
 }
 
 const instance = new LocationSelector();
-
 module.exports = instance;
