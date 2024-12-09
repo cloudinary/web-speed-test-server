@@ -8,7 +8,7 @@ const logger = require('../logger').logger;
 
 const GET_LOCATIONS = 'http://www.webpagetest.org/getLocations.php?f=json';
 
-const WstMeter = opentelemetry.metrics.getMeter();
+const WstMeter = opentelemetry.metrics.getMeter("web-speed-test-server");
 const locationMetrics = {
     total: WstMeter.createGauge('location.total'),
     lastUpdate: WstMeter.createGauge('location.last_update'),
@@ -132,8 +132,8 @@ class LocationSelector {
         this.lastUpdated = Date.now();
 
         // telemetry
-        locationMetrics.total = this.cachedAllLocations.length;
-        locationMetrics.lastUpdate = this.lastUpdated;
+        locationMetrics.total.record(this.cachedAllLocations.length);
+        locationMetrics.lastUpdate.record(this.lastUpdated);
         this.cachedAllLocations.forEach((loc) => {
             let labels = {location: loc.location};
 
