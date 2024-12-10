@@ -29,9 +29,10 @@ const locationMetrics = {
 class LocationSelector {
     constructor() {
         if (!LocationSelector.instance) {
+            this.enabled = config.get('wtp.locationSelector.enabled');
             this.cachedAllLocations = [];
             this.location = config.get('wtp.locationSelector.defaultLocation');
-            this.allowRegex = new RegExp(config.get('wtp.locationSelector.allowRegex'));
+            this.allowedLocationsRegex = new RegExp(config.get('wtp.locationSelector.allowedLocationsRegex'));
             this.lastUpdated = null;
             this.mutex = withTimeout(new Mutex(), config.get('wtp.locationSelector.updateTimeout') * 1000);
             LocationSelector.instance = this;
@@ -114,7 +115,7 @@ class LocationSelector {
         }
 
         const filtered = Object.keys(newLocations)
-            .filter(key => this.allowRegex.test(key))
+            .filter(key => this.allowedLocationsRegex.test(key))
             .reduce((arr, key) => {
                 return [...arr, newLocations[key]];
             }, []);
@@ -154,7 +155,7 @@ class LocationSelector {
     };
 
     async getLocation() {
-        if (this.isExpired()) {
+        if (this.enabled && this.isExpired()) {
             try {
                 await this.mutex.runExclusive(async () => {
                     if (this.isExpired()) {
