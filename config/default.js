@@ -37,7 +37,7 @@ const conf = {
     },
     timeout: process.env.WTP_TIMEOUT || 30000,
     "locationSelector": {
-      "enabled": process.env.WTP_LS_ENABLED || false,
+      "enabled": process.env.WTP_LS_ENABLED === 'true',
       "allowedLocationsRegex": process.env.WTP_LS_ALLOWED_LOCATIONS_REGEX || '_US_',
       "cacheTtl": process.env.WTP_LS_CACHE_TTL || 10,
       "updateTimeout": process.env.WTP_LS_UPDATE_TIMEOUT || 20,
