@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/cloudinary/web-speed-test-server/compare/v1.2.0...v1.2.1) (2024-12-10)
+
+
+### Bug Fixes
+
+* region selection criteria should be configurable ([#98](https://github.com/cloudinary/web-speed-test-server/issues/98)) ([1c06bff](https://github.com/cloudinary/web-speed-test-server/commit/1c06bff1bf3646a1c6d6413759f31a7f74f13a60))
+
 ## [1.2.0](https://github.com/cloudinary/web-speed-test-server/compare/v1.1.8...v1.2.0) (2024-12-10)
 
 
