@@ -31,6 +31,7 @@ class LocationSelector {
         if (!LocationSelector.instance) {
             this.cachedAllLocations = [];
             this.location = config.get('wtp.locationSelector.defaultLocation');
+            this.allowRegex = new RegExp(config.get('wtp.locationSelector.allowRegex'));
             this.lastUpdated = null;
             this.mutex = withTimeout(new Mutex(), config.get('wtp.locationSelector.updateTimeout') * 1000);
             LocationSelector.instance = this;
@@ -113,7 +114,7 @@ class LocationSelector {
         }
 
         const filtered = Object.keys(newLocations)
-            .filter(key => key.includes("_US_"))    // we only want US-based instances
+            .filter(key => this.allowRegex.test(key))
             .reduce((arr, key) => {
                 return [...arr, newLocations[key]];
             }, []);
