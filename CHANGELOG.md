@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/cloudinary/web-speed-test-server/compare/v1.2.1...v1.2.2) (2024-12-10)
+
+
+### Bug Fixes
+
+* changed name of WTP_LS_ALLOW_REGEX to WTP_LS_ALLOWED_LOCATIONS_REGEX and introduced a new option WTP_LS_ENABLED ([#102](https://github.com/cloudinary/web-speed-test-server/issues/102)) ([ed3f881](https://github.com/cloudinary/web-speed-test-server/commit/ed3f88128ed08825fa2ded97034233e5d356262b))
+
 ## [1.2.1](https://github.com/cloudinary/web-speed-test-server/compare/v1.2.0...v1.2.1) (2024-12-10)
 
 
