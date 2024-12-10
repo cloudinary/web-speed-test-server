@@ -37,7 +37,8 @@ const conf = {
     },
     timeout: process.env.WTP_TIMEOUT || 30000,
     "locationSelector": {
-      "allowRegex": process.env.WTP_LS_ALLOW_REGEX || '_US_',
+      "enabled": process.env.WTP_LS_ENABLED || false,
+      "allowedLocationsRegex": process.env.WTP_LS_ALLOWED_LOCATIONS_REGEX || '_US_',
       "cacheTtl": process.env.WTP_LS_CACHE_TTL || 10,
       "updateTimeout": process.env.WTP_LS_UPDATE_TIMEOUT || 20,
       "defaultLocation": process.env.WTP_LS_DEFAULT_LOCATION || "IAD_US_01"
