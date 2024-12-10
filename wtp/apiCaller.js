@@ -70,7 +70,7 @@ const runWtpTest = async (url, mobile, cb) => {
             height: config.get('wtp.viewportHeight'),
             custom: config.get('wtp.imageScript'),
             location: await locationSelector.getLocation() + ':Chrome.Native', // Native means no speed shaping in browser, full speed ahead
-      mobile: (mobile) ? 1 : 0,
+            mobile: (mobile) ? 1 : 0,
             fvonly: 1, // first view only
             timeline: 1 // workaround for WPT sometimes hanging on getComputedStyle()
           },
