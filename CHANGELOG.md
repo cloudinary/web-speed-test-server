@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://github.com/cloudinary/web-speed-test-server/compare/v1.1.8...v1.2.0) (2024-12-10)
+
+
+### Features
+
+* add WPT queue WST selected region monitoring (DELO-4838) ([#97](https://github.com/cloudinary/web-speed-test-server/issues/97)) ([ae132d2](https://github.com/cloudinary/web-speed-test-server/commit/ae132d20344e5fde293f1d9d3c6e82b3ebcafd6d))
+* load balance test location in WPT (DELO-4766) ([#95](https://github.com/cloudinary/web-speed-test-server/issues/95)) ([1b5be14](https://github.com/cloudinary/web-speed-test-server/commit/1b5be1497cd16830b648c4ff84f815714451ea6f))
+
 ## [1.1.8](https://github.com/cloudinary/web-speed-test-server/compare/v1.1.7...v1.1.8) (2024-10-10)
 
 
