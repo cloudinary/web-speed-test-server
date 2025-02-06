@@ -1,6 +1,6 @@
 {
   "name": "web-speed-test-server",
-  "version": "1.2.3",
+  "version": "1.2.2",
   "private": true,
   "scripts": {
     "test": "mocha",
