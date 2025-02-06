@@ -73,11 +73,6 @@ const wtp = (app) => {
       routeCallback({statusCode: 400}, null, res, rollBarMsg);
       return;
     }
-/*    if (!validUrl.isWebUri(testUrl)) {
-      logger.error('Could not run test url is not valid \n test url is ' + testUrl, rollBarMsg, req);
-      routeCallback({status: 'error', message: 'URL is not valid'});
-      return;
-    }*/
     logger.info('Started test called from webspeedtest', rollBarMsg, req);
     apiCaller.runWtpTest(testUrl, mobile, (error, result, response, rollBarMsg) => {
       testrunCounter.add(1, {"status": error ? "FAILURE" : "OK"});

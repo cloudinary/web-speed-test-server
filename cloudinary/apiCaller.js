@@ -73,7 +73,6 @@ const sendToCloudinary = (imagesArray, batchSize, dpr, metaData, quality, cb, ro
           if (error) {
             analyzeResults.push({public_id: null});
             uploadErrors.push(error);
-            console.error('Error uploading to cloudinary', error);
             callback();
           } else {
             result.server = image.server;

@@ -101,7 +101,6 @@ const runWtpTest = async (url, mobile, cb) => {
       cb(null, testId);
       return;
     }
-    // console.log(testId);
     cb(null, {status: "success", data: {testId}});
   } catch (error) {
       cb({status: 'error', message: 'Error calling WTP with url ' + url, error: error}, null, response, rollBarMsg);
