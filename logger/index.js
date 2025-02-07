@@ -37,7 +37,6 @@ const logger = winston.createLogger({
     format: combine(
         timestamp(),
         errors({stack: true}),
-        winston.format.json(),
         winston.format((info, opts) => {
             const span = trace.getSpan(context.active());
             const traceId = span?.spanContext().traceId;
@@ -50,6 +49,7 @@ const logger = winston.createLogger({
             }
             return info;
         })(),
+        winston.format.json(),
         ...(process.env.NODE_ENV !== "production" ? [prettyPrint()] : [])
     ),
     transports: [
