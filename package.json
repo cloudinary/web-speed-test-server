@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "test": "mocha",
-    "start": "node start.js",
-    "start-with-instrumentation": "node --require ./instrumentation.js start.js",
+    "start": "node --require ./instrumentation.js start.js",
     "postinstall": "patch-package"
   },
   "dependencies": {
@@ -25,7 +24,7 @@
     "cookie-parser": "~1.4.7",
     "debug": "~4.4.0",
     "dotenv": "^16.4.7",
-    "express": "^5.0.1",
+    "express": "^4.21.2",
     "got": "^14.4.5",
     "lodash": "^4.17.21",
     "rollbar": "^2.26.4",

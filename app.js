@@ -1,37 +1,5 @@
 const logger = require('./logger').logger;
 
-const { NodeTracerProvider } = require('@opentelemetry/sdk-trace-node');
-const { registerInstrumentations } = require('@opentelemetry/instrumentation');
-const { HttpInstrumentation } = require('@opentelemetry/instrumentation-http');
-const { ExpressInstrumentation } = require('@opentelemetry/instrumentation-express');
-
-const provider = new NodeTracerProvider();
-// const { SimpleSpanProcessor } = require('@opentelemetry/sdk-trace-base');
-// const { ConsoleSpanExporter } = require('@opentelemetry/tracing');
-// provider.addSpanProcessor(new SimpleSpanProcessor(new ConsoleSpanExporter()));
-provider.register();
-
-let expressInstrumentation = new ExpressInstrumentation();
-expressInstrumentation.setTracerProvider(provider);
-
-registerInstrumentations({
-    instrumentations: [
-        // Express instrumentation expects HTTP layer to be instrumented
-        new HttpInstrumentation({
-            ignoreIncomingRequestHook: (req) => {
-                return req.connection.localPort === 6060;   // ignore incoming requests to prometheus
-            },
-            ignoreOutgoingRequestHook: (req) => {
-                return ![   // we care about performance of outgoing requests to those hosts only
-                    'www.webpagetest.org',
-                    'api.cloudinary.com'
-                ].includes(req.hostname);
-            },
-        }),
-        expressInstrumentation,
-    ],
-});
-
 const express = require('express');
 const app = express();
 
@@ -55,7 +23,7 @@ const wpt = require('./routes/wpt');
 wpt(app);
 
 // catch 404 and forward to error handler
-app.all('*any', function (req, res) {
+app.all('*', function (req, res) {
     res.status(404).send('what???');
 });
 
