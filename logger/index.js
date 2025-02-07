@@ -28,12 +28,14 @@ const rollbarConfig = {
     }
 };
 
-const {combine, timestamp, printf} = winston.format;
+const {combine, timestamp, prettyPrint, errors} = winston.format;
 const logger = winston.createLogger({
     level: process.env.LOG_LEVEL || LOG_LEVEL_INFO,
     format: combine(
         timestamp(),
-        printf((info) => `${info.timestamp} [${info.level}] ${info.message}`)
+        errors({stack: true}),
+        winston.format.json(),
+        ...(process.env.NODE_ENV !== "production" ? [prettyPrint()] : [])
     ),
     transports: [
         new winston.transports.Console(),
