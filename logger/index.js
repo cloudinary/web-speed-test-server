@@ -1,7 +1,5 @@
 require('dotenv').config();
 const config = require('config');
-const winston = require('winston');
-const RollbarTransport = require('winston-transport-rollbar-3');
 
 const LOG_LEVEL_INFO = 'info';
 const LOG_LEVEL_WARNING = 'warning';
@@ -28,6 +26,10 @@ const rollbarConfig = {
     }
 };
 
+const winston = require('winston');
+const RollbarTransport = require('winston-transport-rollbar-3');
+const { context, trace } = require('@opentelemetry/api');
+
 const {combine, timestamp, prettyPrint, errors} = winston.format;
 const logger = winston.createLogger({
     exitOnError: true,
@@ -36,6 +38,18 @@ const logger = winston.createLogger({
         timestamp(),
         errors({stack: true}),
         winston.format.json(),
+        winston.format((info, opts) => {
+            const span = trace.getSpan(context.active());
+            const traceId = span?.spanContext().traceId;
+            if (traceId) {
+                info.traceId = traceId;
+            }
+            const testId = span?.spanContext().testId;
+            if (testId) {
+                info.testId = testId;
+            }
+            return info;
+        })(),
         ...(process.env.NODE_ENV !== "production" ? [prettyPrint()] : [])
     ),
     transports: [

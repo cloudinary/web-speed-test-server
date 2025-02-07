@@ -7,8 +7,8 @@
 const path = require('path');
 const got = (...args) => import('got').then(({default: got}) => got(...args));
 const config = require('config');
-const logger = require('../logger');
-const log = logger.logger;
+const logger = require('../logger').logger;
+const {LOG_LEVEL_INFO, LOG_LEVEL_WARNING, LOG_LEVEL_ERROR, LOG_LEVEL_CRITICAL, LOG_LEVEL_DEBUG} = require('../logger');
 const resultParser = require('./wtpResultsParser');
 const cloudinaryCaller = require('../cloudinary/apiCaller');
 const {truncateString} = require('../util/strings');
@@ -29,24 +29,25 @@ const getTestResults = async (testId, quality, cb) => {
   let rollBarMsg = {};
   try {
     response = await got(options)
+    logger.info("Fetched WPT test results");
     const {statusCode, body} = response;
     let resBody = JSON.parse(body);
     rollBarMsg = {testId: resBody.data.id, analyzedUrl: resBody.data.testUrl, thirdPartyErrorCode: "", file: path.basename((__filename))};
     if (statusCode !== 200) {
-      cb({status: 'error', message: 'WTP returned bad status with testId ' + testId, error: response.statusCode, logLevel: logger.LOG_LEVEL_ERROR}, null, response, rollBarMsg);
+      cb({status: 'error', message: 'WTP returned bad status with testId ' + testId, error: response.statusCode, logLevel: LOG_LEVEL_ERROR}, null, response, rollBarMsg);
       return;
     }
     if (!body) {
-      cb({status: 'error', message: 'WTP returned empty body with testId ' + testId, error: 'empty body', logLevel:logger.LOG_LEVEL_WARNING}, null, response, rollBarMsg);
+      cb({status: 'error', message: 'WTP returned empty body with testId ' + testId, error: 'empty body', logLevel: LOG_LEVEL_WARNING}, null, response, rollBarMsg);
       return;
     }
     if (typeof resBody.data.statusCode !== 'undefined') {
-      cb({status: 'error', message: resBody.data.statusText + 'testId ' + testId, error: resBody, logLevel: logger.LOG_LEVEL_WARNING}, null, response, rollBarMsg);
+      cb({status: 'error', message: resBody.data.statusText + 'testId ' + testId, error: resBody, logLevel: LOG_LEVEL_WARNING}, null, response, rollBarMsg);
       return;
     }
     let wtpRes = resultParser.parseTestResults(resBody);
     if (!wtpRes) {
-      cb({status: 'error', message: 'WTP results are missing data with testId ' + testId, error: resBody, logLevel: logger.LOG_LEVEL_ERROR}, null, response, rollBarMsg);
+      cb({status: 'error', message: 'WTP results are missing data with testId ' + testId, error: resBody, logLevel: LOG_LEVEL_ERROR}, null, response, rollBarMsg);
       return;
     } else if(wtpRes.status === 'error') {
       cb(wtpRes);
@@ -55,7 +56,7 @@ const getTestResults = async (testId, quality, cb) => {
       cloudinaryCaller(wtpRes.imageList, wtpRes.dpr, wtpRes.metaData, quality, cb, rollBarMsg);
     }
   } catch (e) {
-    cb({status: 'error', message: 'Error calling WTP with testId ' + testId, error: e, logLevel: logger.LOG_LEVEL_ERROR}, null, response, rollBarMsg);
+    cb({status: 'error', message: 'Error calling WTP with testId ' + testId, error: e, logLevel: LOG_LEVEL_ERROR}, null, response, rollBarMsg);
     return;
   }
 };
@@ -83,11 +84,12 @@ const runWtpTest = async (url, mobile, cb) => {
   let rollBarMsg = {testId: "", analyzedUrl: url, thirdPartyErrorCode: "", thirdPartyErrorMsg: "", file: path.basename((__filename))};
   try {
     response = await got(options);
+    logger.info("Started WPT test");
     const {statusCode, body} = response;
     if (statusCode !== 200) {
       rollBarMsg.thirdPartyErrorCode = response.statusCode;
       rollBarMsg.thirdPartyErrorBody = body && truncateString(body, 1000) || "";
-      cb({status: 'error', message: 'WTP returned bad status with url ' + url, error: response.statusMessage, logLevel: logger.LOG_LEVEL_ERROR}, null, response, rollBarMsg);
+      cb({status: 'error', message: 'WTP returned bad status with url ' + url, error: response.statusMessage, logLevel: LOG_LEVEL_ERROR}, null, response, rollBarMsg);
       return;
     }
     if (!body) {
@@ -108,7 +110,6 @@ const runWtpTest = async (url, mobile, cb) => {
       cb({status: 'error', message: 'Error calling WTP with url ' + url, error: error}, null, response, rollBarMsg);
       return;
   }
-
 };
 
 const checkTestStatus = async (testId, quality, cb) => {
@@ -122,6 +123,7 @@ const checkTestStatus = async (testId, quality, cb) => {
   let rollBarMsg = {};
   try {
     response = await got(options);
+    logger.info("Fetched WPT test status");
     const {statusCode, body} = response;
     let bodyJson = JSON.parse(body);
     rollBarMsg = {testId: testId, thirdPartyErrorCode: "", file: path.basename((__filename))};

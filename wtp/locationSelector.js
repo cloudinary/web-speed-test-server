@@ -4,6 +4,7 @@ const {Mutex, withTimeout, E_TIMEOUT} = require('async-mutex');
 const apiKeys = require('./apiKey');
 const path = require("path");
 const opentelemetry = require("@opentelemetry/api");
+const e = require("express");
 const logger = require('../logger').logger;
 
 const GET_LOCATIONS = 'http://www.webpagetest.org/getLocations.php?f=json';
@@ -157,6 +158,7 @@ class LocationSelector {
     async getLocation() {
         if (this.enabled && this.isExpired()) {
             try {
+                logger.info('Update WPT locations');
                 await this.mutex.runExclusive(async () => {
                     if (this.isExpired()) {
                         await this.updateLocations();
@@ -166,6 +168,8 @@ class LocationSelector {
                 if (e === E_TIMEOUT) {
                     logger.error('Locations update is taking too long', e);
                 }
+            } finally {
+                log.info('Finished WPT locations update');
             }
         }
 
