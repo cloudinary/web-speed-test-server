@@ -30,6 +30,7 @@ const rollbarConfig = {
 
 const {combine, timestamp, prettyPrint, errors} = winston.format;
 const logger = winston.createLogger({
+    exitOnError: true,
     level: process.env.LOG_LEVEL || LOG_LEVEL_INFO,
     format: combine(
         timestamp(),

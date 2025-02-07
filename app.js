@@ -2,8 +2,6 @@ const express = require('express');
 const logger = require('./logger').logger;
 const app = express();
 
-app.use(express.json());
-
 // @for working with localhost
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -11,12 +9,14 @@ app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
     if ('OPTIONS' === req.method) {
         // respond with 200
-        res.sendStatus(200);
+        res.status(200).send();
     } else {
         // move on
         next();
     }
 });
+
+app.use(express.json());
 
 const wpt = require('./routes/wpt');
 wpt(app);
@@ -33,8 +33,20 @@ app.use(function (req, res, next) {
 });
 
 app.use((err, req, res, next) => {
-    logger.error(err);
-    res.status(500).send();
+    // attributes from body-parser we don't want
+    delete err.body;
+    delete err.expose;
+
+    let statusCode = Number(err.statusCode);
+    if (!(statusCode >= 400 && statusCode < 600)) {
+        statusCode = 500;
+    }
+    res.status(statusCode).send();
+    logger.error(err, {
+        method: req.method,
+        url: req.url,
+        statusCode,
+    });
 })
 
 module.exports = app;

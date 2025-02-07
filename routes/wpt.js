@@ -36,7 +36,7 @@ const routeCallback = (error, result, res, rollBarMsg) => {
       }
     }
     if (error.statusCode) {
-      res.sendStatus(error.statusCode)
+      res.status(error.statusCode).send();
     } else {
       res.json(error);
     }
