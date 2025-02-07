@@ -169,7 +169,7 @@ class LocationSelector {
                     logger.error('Locations update is taking too long', e);
                 }
             } finally {
-                log.info('Finished WPT locations update');
+                logger.info('Finished WPT locations update');
             }
         }
 
