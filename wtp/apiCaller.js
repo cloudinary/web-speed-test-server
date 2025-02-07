@@ -25,11 +25,13 @@ const getTestResults = async (testId, quality, cb) => {
     searchParams: {test: testId},
     headers: { 'User-Agent': 'WebSpeedTest' }
   };
+  let response;
+  let rollBarMsg = {};
   try {
-    const response = await got(options)
+    response = await got(options)
     const {statusCode, body} = response;
     let resBody = JSON.parse(body);
-    let rollBarMsg = {testId: resBody.data.id, analyzedUrl: resBody.data.testUrl, thirdPartyErrorCode: "", file: path.basename((__filename))};
+    rollBarMsg = {testId: resBody.data.id, analyzedUrl: resBody.data.testUrl, thirdPartyErrorCode: "", file: path.basename((__filename))};
     if (statusCode !== 200) {
       cb({status: 'error', message: 'WTP returned bad status with testId ' + testId, error: response.statusCode, logLevel: logger.LOG_LEVEL_ERROR}, null, response, rollBarMsg);
       return;
