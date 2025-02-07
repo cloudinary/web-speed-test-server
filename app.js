@@ -13,10 +13,21 @@ provider.register();
 
 let expressInstrumentation = new ExpressInstrumentation();
 expressInstrumentation.setTracerProvider(provider);
+
 registerInstrumentations({
     instrumentations: [
         // Express instrumentation expects HTTP layer to be instrumented
-        new HttpInstrumentation(),
+        new HttpInstrumentation({
+            ignoreIncomingRequestHook: (req) => {
+                return req.connection.localPort === 6060;   // ignore incoming requests to prometheus
+            },
+            ignoreOutgoingRequestHook: (req) => {
+                return ![   // we care about performance of outgoing requests to those hosts only
+                    'www.webpagetest.org',
+                    'api.cloudinary.com'
+                ].includes(req.hostname);
+            },
+        }),
         expressInstrumentation,
     ],
 });
