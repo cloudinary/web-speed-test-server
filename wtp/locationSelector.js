@@ -4,7 +4,6 @@ const {Mutex, withTimeout, E_TIMEOUT} = require('async-mutex');
 const apiKeys = require('./apiKey');
 const path = require("path");
 const opentelemetry = require("@opentelemetry/api");
-const e = require("express");
 const logger = require('../logger').logger;
 
 const GET_LOCATIONS = 'http://www.webpagetest.org/getLocations.php?f=json';
