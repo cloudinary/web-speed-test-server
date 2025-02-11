@@ -157,6 +157,7 @@ class LocationSelector {
     async getLocation() {
         if (this.enabled && this.isExpired()) {
             try {
+                logger.info('Update WPT locations');
                 await this.mutex.runExclusive(async () => {
                     if (this.isExpired()) {
                         await this.updateLocations();
@@ -166,6 +167,8 @@ class LocationSelector {
                 if (e === E_TIMEOUT) {
                     logger.error('Locations update is taking too long', e);
                 }
+            } finally {
+                logger.info('Finished WPT locations update');
             }
         }
 

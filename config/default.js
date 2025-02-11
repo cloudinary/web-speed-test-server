@@ -6,7 +6,7 @@ const CUSTOM_SCRIPT = fs.readFileSync('config/wpt/custom_metrics.min.js', 'utf8'
 
 const conf = {
   "rollbar": {
-    postToken: process.env.ROLLBAR_TOKEN || null
+    postToken: process.env.ROLLBAR_TOKEN || "dummy"
   },
   "images": {
     "maxNumberOfImages": process.env.MAX_IMGES || 50,
@@ -16,7 +16,7 @@ const conf = {
     "minImageRes": process.env.MIN_IMAGE_RES || 20,
   },
   "wtp": {
-    "apiKey": process.env.WTP_API_KEY,
+    "apiKey": process.env.WTP_API_KEY || "dummy",
     "imageScript": process.env.WTP_CUSTOM || CUSTOM_SCRIPT,
     "viewportWidth": 1366,
     "viewportHeight": 784,

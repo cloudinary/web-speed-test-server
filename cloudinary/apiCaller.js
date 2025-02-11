@@ -4,8 +4,8 @@
 
 'use strict';
 require('dotenv').config();
-const logger = require('../logger');
-const log = logger.logger;
+const logger = require('../logger').logger;
+const {LOG_LEVEL_INFO, LOG_LEVEL_WARNING, LOG_LEVEL_ERROR, LOG_LEVEL_CRITICAL, LOG_LEVEL_DEBUG} = require('../logger');
 const config = require('config');
 const _ = require('lodash');
 const cloudinaryParser = require('./cloudinaryResultParser');
@@ -32,7 +32,7 @@ const addServerInfo = (imageList, batchSize, dpr, metaData, quality, cb, rollBar
     });
   }, (err, res) => {
     if (err) {
-      log.warn('error getting head for image ', err, rollBarMsg);
+      logger.warn('error getting head for image ', err, rollBarMsg);
     } else {
       sendToCloudinary(list, bs, dpr, metaData, quality, cb, rollBarMsg);
     }
@@ -73,7 +73,6 @@ const sendToCloudinary = (imagesArray, batchSize, dpr, metaData, quality, cb, ro
           if (error) {
             analyzeResults.push({public_id: null});
             uploadErrors.push(error);
-            console.error('Error uploading to cloudinary', error);
             callback();
           } else {
             result.server = image.server;
@@ -83,14 +82,14 @@ const sendToCloudinary = (imagesArray, batchSize, dpr, metaData, quality, cb, ro
         });
   }, err => {
     if (uploadErrors.length > 0) {
-      log.error('cloudinary upload errors', uploadErrors, rollBarMsg);
+      logger.error('cloudinary upload errors', uploadErrors, rollBarMsg);
     }
     if (err) {
       cb({
         status: 'error',
         message: 'Error getting results from cloudinary',
         error: err,
-        logLevel: logger.LOG_LEVEL_ERROR,
+        logLevel: LOG_LEVEL_ERROR,
       }, null, null, rollBarMsg);
     }
     let parsed = cloudinaryParser.parseCloudinaryResults(analyzeResults, rollBarMsg);
@@ -109,6 +108,7 @@ const sendToCloudinary = (imagesArray, batchSize, dpr, metaData, quality, cb, ro
       delete (metaData.lcpEvent);
     }
     Object.assign(parsed.resultSumm, metaData);
+    logger.info("Finished upload to cloudinary");
     cb(null, {status: 'success', data: parsed});
   });
 

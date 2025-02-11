@@ -1,12 +1,11 @@
 'use strict';
-const express = require('express');
-const validUrl = require('valid-url');
 const apiCaller = require('../wtp/apiCaller');
 const locationSelector = require("../wtp/locationSelector");
 const logger = require('../logger').logger;
 const {LOG_LEVEL_INFO, LOG_LEVEL_WARNING, LOG_LEVEL_ERROR, LOG_LEVEL_CRITICAL, LOG_LEVEL_DEBUG} = require('../logger');
 const path = require('path');
 const opentelemetry = require('@opentelemetry/api');
+const { context, trace } = require('@opentelemetry/api');
 
 const WstMeter = opentelemetry.metrics.getMeter('default');
 const testrunCounter = WstMeter.createCounter('testrun.total');
@@ -36,7 +35,7 @@ const routeCallback = (error, result, res, rollBarMsg) => {
       }
     }
     if (error.statusCode) {
-      res.sendStatus(error.statusCode)
+      res.status(error.statusCode).send();
     } else {
       res.json(error);
     }
@@ -48,9 +47,13 @@ const routeCallback = (error, result, res, rollBarMsg) => {
 const wtp = (app) => {
   app.get('/test/:testId', (req, res) => {
     let testId = req.params.testId;
+    const span = trace.getSpan(context.active());
+    if (span) {
+      span.spanContext().testId = testId;
+    }
     const quality = req.query.quality;
     let rollBarMsg = {testId: testId, thirdPartyErrorCode: "", file: path.basename((__filename))};
-    logger.info('Checking test with id ' + testId + " status", rollBarMsg, req);
+    logger.info("Fetch WPT test results", rollBarMsg, req);
     apiCaller.checkTestStatus(testId, quality, (error, result) => {
       routeCallback(error, result, res, rollBarMsg)
     });
@@ -73,12 +76,7 @@ const wtp = (app) => {
       routeCallback({statusCode: 400}, null, res, rollBarMsg);
       return;
     }
-/*    if (!validUrl.isWebUri(testUrl)) {
-      logger.error('Could not run test url is not valid \n test url is ' + testUrl, rollBarMsg, req);
-      routeCallback({status: 'error', message: 'URL is not valid'});
-      return;
-    }*/
-    logger.info('Started test called from webspeedtest', rollBarMsg, req);
+    logger.info('Start WPT test', rollBarMsg, req);
     apiCaller.runWtpTest(testUrl, mobile, (error, result, response, rollBarMsg) => {
       testrunCounter.add(1, {"status": error ? "FAILURE" : "OK"});
       routeCallback(error, result, res, rollBarMsg)
