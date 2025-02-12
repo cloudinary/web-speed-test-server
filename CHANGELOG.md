@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.2](https://github.com/cloudinary/web-speed-test-server/compare/v1.3.1...v1.3.2) (2025-02-12)
+
+
+### Bug Fixes
+
+* typo in logger function name ([0a8ca2e](https://github.com/cloudinary/web-speed-test-server/commit/0a8ca2ea7162abfda6b8deffa49fe59c13b6cc09))
+
 ## [1.3.1](https://github.com/cloudinary/web-speed-test-server/compare/v1.3.0...v1.3.1) (2025-02-12)
 
 
