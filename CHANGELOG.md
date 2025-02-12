@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/cloudinary/web-speed-test-server/compare/v1.3.0...v1.3.1) (2025-02-12)
+
+
+### Bug Fixes
+
+* do not exit on unhandled rejection or uncaught exception ([a01ab77](https://github.com/cloudinary/web-speed-test-server/commit/a01ab77d35902729f44a6154cb1e98eba8792b9f))
+
 ## [1.3.0](https://github.com/cloudinary/web-speed-test-server/compare/v1.2.2...v1.3.0) (2025-02-11)
 
 
