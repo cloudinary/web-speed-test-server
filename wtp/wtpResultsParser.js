@@ -17,7 +17,7 @@ const parseTestResults = (testJson) => {
   try {
     let browserName = _.get(testJson, 'data.location', 'somePlace:N/A').split(':')[1];
     if ('firefox' === browserName.toLowerCase()) {
-      logger.warning("Test run with firefox that is not supported", rollBarMsg);
+      logger.warn("Test run with firefox that is not supported", rollBarMsg);
       return {status: 'error', message: 'firefox'};
     }
     let origImageList = _.get(testJson, config.get('wtp.paths.imageList'), _.get(testJson, config.get('wtp.paths.imageListFallback'), null));
