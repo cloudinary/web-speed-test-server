@@ -32,7 +32,7 @@ const { context, trace } = require('@opentelemetry/api');
 
 const {combine, timestamp, prettyPrint, errors} = winston.format;
 const logger = winston.createLogger({
-    exitOnError: true,
+    exitOnError: false,
     level: process.env.LOG_LEVEL || LOG_LEVEL_INFO,
     format: combine(
         timestamp(),
