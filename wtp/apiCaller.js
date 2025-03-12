@@ -84,7 +84,6 @@ const runWtpTest = async (url, mobile, cb) => {
   let rollBarMsg = {testId: "", analyzedUrl: url, thirdPartyErrorCode: "", thirdPartyErrorMsg: "", file: path.basename((__filename))};
   try {
     response = await got(options);
-    logger.info("Started WPT test");
     const {statusCode, body} = response;
     if (statusCode !== 200) {
       rollBarMsg.thirdPartyErrorCode = response.statusCode;
@@ -100,6 +99,7 @@ const runWtpTest = async (url, mobile, cb) => {
     rollBarMsg.testId = (typeof bodyJson.data !== 'undefined' && typeof bodyJson.data.testId !== 'undefined') ?
         (bodyJson.data.testId) :
         "N/A";
+    logger.info("Started WPT test", {"testId": rollBarMsg.testId});
     let testId = resultParser.parseTestResponse(bodyJson, rollBarMsg);
     if (typeof testId === 'object') {
       cb(null, testId);
