@@ -79,10 +79,12 @@ const sendToCloudinary = (imagesArray, batchSize, dpr, metaData, quality, cb, ro
             analyzeResults.push(result);
             callback();
           }
-        });
+        }).catch(error => {
+          logger.error('cloudinary upload error', error, rollBarMsg);
+    });
   }, err => {
     if (uploadErrors.length > 0) {
-      logger.error('cloudinary upload errors', JSON.stringify(uploadErrors), rollBarMsg);
+      logger.error(`cloudinary upload errors: ${uploadErrors.length} issues`, rollBarMsg);
     }
     if (err) {
       cb({
