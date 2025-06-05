@@ -23,7 +23,7 @@ const getTestResults = async (testId, quality, cb) => {
     method: "GET",
     url: RESULTS_URL,
     searchParams: {test: testId},
-    headers: { 'User-Agent': 'WebSpeedTest' }
+    headers: { 'User-Agent': 'WebSpeedTest', 'X-WPT-API-KEY': apiKeys.getRandom() }
   };
   let response;
   let rollBarMsg = {};
@@ -117,7 +117,7 @@ const checkTestStatus = async (testId, quality, cb) => {
     method: "GET",
     url: GET_TEST_STATUS,
     searchParams: {test: testId, f: "json"},
-    'headers': { 'User-Agent': 'WebSpeedTest' }
+    'headers': { 'User-Agent': 'WebSpeedTest', 'X-WPT-API-KEY': apiKeys.getRandom() }
   };
   let response;
   let rollBarMsg = {};
