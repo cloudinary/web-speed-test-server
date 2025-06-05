@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.4](https://github.com/cloudinary/web-speed-test-server/compare/v1.3.3...v1.3.4) (2025-06-05)
+
+
+### Bug Fixes
+
+* use api key in all requests (ONCALL-7076) ([#136](https://github.com/cloudinary/web-speed-test-server/issues/136)) ([786d7d1](https://github.com/cloudinary/web-speed-test-server/commit/786d7d1532c2d4d7b5fb29a5d479ce51ce45dd62))
+
 ## [1.3.3](https://github.com/cloudinary/web-speed-test-server/compare/v1.3.2...v1.3.3) (2025-03-12)
 
 
