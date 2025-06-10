@@ -13,8 +13,8 @@ const resultParser = require('./wtpResultsParser');
 const cloudinaryCaller = require('../cloudinary/apiCaller');
 const {truncateString} = require('../util/strings');
 const RESULTS_URL = 'https://www.webpagetest.org/jsonResult.php';
-const RUN_TEST_URL = 'http://www.webpagetest.org/runtest.php';
-const GET_TEST_STATUS = 'http://www.webpagetest.org/testStatus.php';
+const RUN_TEST_URL = 'https://www.webpagetest.org/runtest.php';
+const GET_TEST_STATUS = 'https://www.webpagetest.org/testStatus.php';
 const locationSelector = require('./locationSelector');
 const apiKeys = require('./apiKey');
 

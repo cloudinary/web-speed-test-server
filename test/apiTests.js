@@ -13,7 +13,7 @@ const {LOG_LEVEL_WARNING} = require("../logger");
 const logger = require('../logger');
 const log = logger.logger;
 
-const RUN_TEST_HOST = 'http://www.webpagetest.org';
+const RUN_TEST_HOST = 'https://www.webpagetest.org';
 const RUN_TEST_PATH = '/runtest.php';
 
 chai.use(chaiHttp);
