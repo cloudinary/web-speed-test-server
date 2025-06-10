@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.5](https://github.com/cloudinary/web-speed-test-server/compare/v1.3.4...v1.3.5) (2025-06-10)
+
+
+### Bug Fixes
+
+* use HTTPS everywhere (ONCALL-7126) ([#138](https://github.com/cloudinary/web-speed-test-server/issues/138)) ([298503e](https://github.com/cloudinary/web-speed-test-server/commit/298503eeea4e710644dfd620f090221db6ff98cf))
+
 ## [1.3.4](https://github.com/cloudinary/web-speed-test-server/compare/v1.3.3...v1.3.4) (2025-06-05)
 
 
