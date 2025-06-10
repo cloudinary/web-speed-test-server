@@ -6,7 +6,7 @@ const path = require("path");
 const opentelemetry = require("@opentelemetry/api");
 const logger = require('../logger').logger;
 
-const GET_LOCATIONS = 'http://www.webpagetest.org/getLocations.php?f=json';
+const GET_LOCATIONS = 'https://www.webpagetest.org/getLocations.php?f=json';
 
 const WstMeter = opentelemetry.metrics.getMeter('default');
 const locationMetrics = {
