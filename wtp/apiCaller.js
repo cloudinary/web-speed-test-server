@@ -14,59 +14,71 @@ const cloudinaryCaller = require('../cloudinary/apiCaller');
 const {truncateString} = require('../util/strings');
 const RESULTS_URL = 'https://www.webpagetest.org/jsonResult.php';
 const RUN_TEST_URL = 'https://www.webpagetest.org/runtest.php';
-const GET_TEST_STATUS = 'https://www.webpagetest.org/testStatus.php';
 const locationSelector = require('./locationSelector');
 const apiKeys = require('./apiKey');
 
 const getTestResults = async (testId, quality, cb) => {
-  let options = {
-    method: "GET",
-    url: RESULTS_URL,
-    searchParams: {test: testId},
-    headers: { 'User-Agent': 'WebSpeedTest', 'X-WPT-API-KEY': apiKeys.getRandom() }
-  };
-  let response;
-  let rollBarMsg = {};
-  try {
-    response = await got(options)
-    logger.info("Fetched WPT test results");
-    const {statusCode, body} = response;
-    let resBody = JSON.parse(body);
-    rollBarMsg = {testId: resBody.data.id, analyzedUrl: resBody.data.testUrl, thirdPartyErrorCode: "", file: path.basename((__filename))};
-    if (statusCode !== 200) {
-      cb({status: 'error', message: 'WTP returned bad status with testId ' + testId, error: response.statusCode, logLevel: LOG_LEVEL_ERROR}, null, response, rollBarMsg);
-      return;
+    let options = {
+        method: "GET",
+        url: RESULTS_URL,
+        searchParams: {test: testId},
+        headers: {'User-Agent': 'WebSpeedTest', 'X-WPT-API-KEY': apiKeys.getRandom()}
+    };
+    let response;
+    let rollBarMsg = {};
+    try {
+        response = await got(options)
+        logger.info("Fetched WPT test results");
+        const {statusCode, body} = response;
+        let resBody = JSON.parse(body);
+        rollBarMsg = {testId: resBody.data.id, analyzedUrl: resBody.data.testUrl, thirdPartyErrorCode: "", file: path.basename((__filename))};
+        if (statusCode !== 200) {
+            cb({status: 'error', message: 'WTP returned bad status with testId ' + testId, error: response.statusCode, logLevel: LOG_LEVEL_ERROR}, null, response, rollBarMsg);
+            return;
+        }
+        rollBarMsg.thirdPartyErrorCode = resBody.statusCode;
+        if (resBody.statusCode > 400) {
+            rollBarMsg.thirdPartyErrorCode = resBody.statusCode;
+            cb({status: 'error', message: 'WTP returned bad status with testId ' + testId, error: resBody}, null, response, rollBarMsg);
+            return;
+        }
+        if (resBody.statusCode >= 100 && resBody.statusCode < 200) {
+            cb(null, {status: 'success', message: 'test not finished', code: 150}, null, null);
+            return;
+        }
+        if (!body) {
+            cb({status: 'error', message: 'WTP returned empty body with testId ' + testId, error: 'empty body', logLevel: LOG_LEVEL_WARNING}, null, response, rollBarMsg);
+            return;
+        }
+        if (typeof resBody.data.statusCode !== 'undefined') {
+            cb({status: 'error', message: resBody.data.statusText + 'testId ' + testId, error: resBody, logLevel: LOG_LEVEL_WARNING}, null, response, rollBarMsg);
+            return;
+        }
+        let wtpRes = resultParser.parseTestResults(resBody);
+        if (!wtpRes) {
+            cb({status: 'error', message: 'WTP results are missing data with testId ' + testId, error: resBody, logLevel: LOG_LEVEL_ERROR}, null, response, rollBarMsg);
+            return;
+        } else if (wtpRes.status === 'not_ready') {
+            cb(null, {status: 'success', message: 'data not ready yet', code: 150}, null, null);
+            return;
+        } else if (wtpRes.status === 'error') {
+            cb(wtpRes);
+            return;
+        } else {
+            cloudinaryCaller(wtpRes.imageList, wtpRes.dpr, wtpRes.metaData, quality, cb, rollBarMsg);
+        }
+    } catch (e) {
+        cb({status: 'error', message: 'Error calling WTP with testId ' + testId, error: e, logLevel: LOG_LEVEL_ERROR}, null, response, rollBarMsg);
+        return;
     }
-    if (!body) {
-      cb({status: 'error', message: 'WTP returned empty body with testId ' + testId, error: 'empty body', logLevel: LOG_LEVEL_WARNING}, null, response, rollBarMsg);
-      return;
-    }
-    if (typeof resBody.data.statusCode !== 'undefined') {
-      cb({status: 'error', message: resBody.data.statusText + 'testId ' + testId, error: resBody, logLevel: LOG_LEVEL_WARNING}, null, response, rollBarMsg);
-      return;
-    }
-    let wtpRes = resultParser.parseTestResults(resBody);
-    if (!wtpRes) {
-      cb({status: 'error', message: 'WTP results are missing data with testId ' + testId, error: resBody, logLevel: LOG_LEVEL_ERROR}, null, response, rollBarMsg);
-      return;
-    } else if(wtpRes.status === 'error') {
-      cb(wtpRes);
-      return;
-    } else {
-      cloudinaryCaller(wtpRes.imageList, wtpRes.dpr, wtpRes.metaData, quality, cb, rollBarMsg);
-    }
-  } catch (e) {
-    cb({status: 'error', message: 'Error calling WTP with testId ' + testId, error: e, logLevel: LOG_LEVEL_ERROR}, null, response, rollBarMsg);
-    return;
-  }
 };
 
 const runWtpTest = async (url, mobile, cb) => {
-  //logger.info('Running new test ' + url);
-  let options = {
-    method: "POST",
-    url: RUN_TEST_URL,
-    searchParams: {
+    //logger.info('Running new test ' + url);
+    let options = {
+        method: "POST",
+        url: RUN_TEST_URL,
+        searchParams: {
             url: url,
             f: "json",
             width: config.get('wtp.viewportWidth'),
@@ -76,82 +88,43 @@ const runWtpTest = async (url, mobile, cb) => {
             mobile: (mobile) ? 1 : 0,
             fvonly: 1, // first view only
             timeline: 1 // workaround for WPT sometimes hanging on getComputedStyle()
-          },
-    headers: { 'User-Agent': 'WebSpeedTest', 'X-WPT-API-KEY': apiKeys.getRandom() },
-    throwHttpErrors: false
-  };
-  let response;
-  let rollBarMsg = {testId: "", analyzedUrl: url, thirdPartyErrorCode: "", thirdPartyErrorMsg: "", file: path.basename((__filename))};
-  try {
-    response = await got(options);
-    const {statusCode, body} = response;
-    if (statusCode !== 200) {
-      rollBarMsg.thirdPartyErrorCode = response.statusCode;
-      rollBarMsg.thirdPartyErrorBody = body && truncateString(body, 1000) || "";
-      cb({status: 'error', message: 'WTP returned bad status with url ' + url, error: response.statusMessage, logLevel: LOG_LEVEL_ERROR}, null, response, rollBarMsg);
-      return;
+        },
+        headers: {'User-Agent': 'WebSpeedTest', 'X-WPT-API-KEY': apiKeys.getRandom()},
+        throwHttpErrors: false
+    };
+    let response;
+    let rollBarMsg = {testId: "", analyzedUrl: url, thirdPartyErrorCode: "", thirdPartyErrorMsg: "", file: path.basename((__filename))};
+    try {
+        response = await got(options);
+        const {statusCode, body} = response;
+        if (statusCode !== 200) {
+            rollBarMsg.thirdPartyErrorCode = response.statusCode;
+            rollBarMsg.thirdPartyErrorBody = body && truncateString(body, 1000) || "";
+            cb({status: 'error', message: 'WTP returned bad status with url ' + url, error: response.statusMessage, logLevel: LOG_LEVEL_ERROR}, null, response, rollBarMsg);
+            return;
+        }
+        if (!body) {
+            cb({status: 'error', message: 'WTP returned empty body with url ' + url, error: 'empty body'}, null, response, rollBarMsg);
+            return;
+        }
+        let bodyJson = JSON.parse(body);
+        rollBarMsg.testId = (typeof bodyJson.data !== 'undefined' && typeof bodyJson.data.testId !== 'undefined') ?
+            (bodyJson.data.testId) :
+            "N/A";
+        logger.info("Started WPT test", {"testId": rollBarMsg.testId});
+        let testId = resultParser.parseTestResponse(bodyJson, rollBarMsg);
+        if (typeof testId === 'object') {
+            cb(null, testId);
+            return;
+        }
+        cb(null, {status: "success", data: {testId}});
+    } catch (error) {
+        cb({status: 'error', message: 'Error calling WTP with url ' + url, error: error}, null, response, rollBarMsg);
+        return;
     }
-    if (!body) {
-      cb({status: 'error', message: 'WTP returned empty body with url ' + url, error: 'empty body'}, null, response, rollBarMsg);
-      return;
-    }
-    let bodyJson = JSON.parse(body);
-    rollBarMsg.testId = (typeof bodyJson.data !== 'undefined' && typeof bodyJson.data.testId !== 'undefined') ?
-        (bodyJson.data.testId) :
-        "N/A";
-    logger.info("Started WPT test", {"testId": rollBarMsg.testId});
-    let testId = resultParser.parseTestResponse(bodyJson, rollBarMsg);
-    if (typeof testId === 'object') {
-      cb(null, testId);
-      return;
-    }
-    cb(null, {status: "success", data: {testId}});
-  } catch (error) {
-      cb({status: 'error', message: 'Error calling WTP with url ' + url, error: error}, null, response, rollBarMsg);
-      return;
-  }
-};
-
-const checkTestStatus = async (testId, quality, cb) => {
-  let options = {
-    method: "GET",
-    url: GET_TEST_STATUS,
-    searchParams: {test: testId, f: "json"},
-    'headers': { 'User-Agent': 'WebSpeedTest', 'X-WPT-API-KEY': apiKeys.getRandom() }
-  };
-  let response;
-  let rollBarMsg = {};
-  try {
-    response = await got(options);
-    logger.info("Fetched WPT test status");
-    const {statusCode, body} = response;
-    let bodyJson = JSON.parse(body);
-    rollBarMsg = {testId: testId, thirdPartyErrorCode: "", file: path.basename((__filename))};
-    if (statusCode !== 200) {
-      cb({status: 'error', message: 'WTP returned bad status testId ' + testId , error: response.statusCode}, null, response, rollBarMsg);
-      return;
-    }
-    //logger.debug('Test status code ' + bodyJson.statusCode, rollBarMsg);
-    rollBarMsg.thirdPartyErrorCode = bodyJson.statusCode;
-    if (bodyJson.statusCode > 400) {
-      rollBarMsg.thirdPartyErrorCode = bodyJson.statusCode;
-      cb({status: 'error', message: 'WTP returned bad status with testId ' + testId, error: bodyJson}, null, response, rollBarMsg);
-      return;
-    }
-    if (bodyJson.statusCode === 200 || bodyJson.statusCode === 400) {
-      getTestResults(testId, quality, cb);
-    }
-    if (bodyJson.statusCode >= 100 && bodyJson.statusCode < 200) {
-      cb(null, {status: 'success', message: 'test not finished', code: 150}, null, null);
-    }
-  } catch (error) {
-      cb({status: 'error', message: 'Error checking WTP status with testId ' + testId, error: error}, null, response, rollBarMsg);
-      return;
-  }
 };
 
 module.exports = {
-  getTestResults,
-  runWtpTest,
-  checkTestStatus
+    getTestResults,
+    runWtpTest
 };

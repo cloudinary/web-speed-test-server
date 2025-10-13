@@ -45,5 +45,10 @@ describe('Parse WPT result', () => {
     assert.isString(results.metaData.screenShot, 'There should be a screenshot');
     assert.isObject(results.metaData.viewportSize, 'ViewportSize is not an object');
   })
+  it('No firstView data', () => {
+    let resultJson = JSON.parse(fs.readFileSync('./test/resources/test2.json'));
+    let results = wtpParser.parseTestResults(resultJson);
+    assert.equal(results.status, 'not_ready', 'Data not ready is expected');
+  })
 
 });

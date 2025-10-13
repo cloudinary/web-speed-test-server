@@ -15,6 +15,12 @@ const path = require('path');
 const parseTestResults = (testJson) => {
   let rollBarMsg = {testId: testJson.data.id, analyzedUrl: testJson.data.testUrl, thirdPartyErrorCode: "", file: path.basename((__filename))};
   try {
+    // check if data is available
+    if (Array.isArray(testJson.data.median) && testJson.data.median.length == 0) {
+      logger.warn("Test results not ready yet", rollBarMsg);
+      return {status: 'not_ready', message: 'data_not_ready'};
+    }
+
     let browserName = _.get(testJson, 'data.location', 'somePlace:N/A').split(':')[1];
     if ('firefox' === browserName.toLowerCase()) {
       logger.warn("Test run with firefox that is not supported", rollBarMsg);
