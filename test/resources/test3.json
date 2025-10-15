@@ -1,0 +1,3650 @@
+{
+  "data": {
+    "id": "251015_ZiDc0E_7PQ",
+    "url": "http:\/\/smdserver.xyz",
+    "summary": "https:\/\/www.webpagetest.org\/results.php?test=251015_ZiDc0E_7PQ",
+    "testUrl": "http:\/\/smdserver.xyz",
+    "location": "IAD_US_01:Chrome",
+    "from": "Dulles, Virginia USA - <b>Chrome<\/b> - <b>Native<\/b>",
+    "connectivity": "Native",
+    "bwDown": 0,
+    "bwUp": 0,
+    "latency": 0,
+    "plr": "0",
+    "shaperLimit": 0,
+    "mobile": 0,
+    "completed": 1760532552,
+    "testRuns": 1,
+    "fvonly": true,
+    "successfulFVRuns": 0,
+    "average": {
+      "firstView": []
+    },
+    "standardDeviation": {
+      "firstView": []
+    },
+    "median": {
+      "firstView": {
+        "numSteps": 1,
+        "run": 1,
+        "tester": "iad-us-asg-wtqt-10.10.1.168",
+        "loadTime": 193,
+        "docTime": 193,
+        "fullyLoaded": 193,
+        "bytesOut": 3950,
+        "bytesOutDoc": 3950,
+        "bytesIn": 6436,
+        "bytesInDoc": 6436,
+        "requests": [
+          {
+            "type": 3,
+            "id": "B1D21CAE0B645C415B65E2066F6C4598-1",
+            "request_id": "B1D21CAE0B645C415B65E2066F6C4598-1",
+            "ip_addr": "104.26.5.167",
+            "full_url": "https:\/\/smdserver.xyz\/",
+            "is_secure": 1,
+            "method": "GET",
+            "host": "smdserver.xyz",
+            "url": "\/",
+            "raw_id": "B1D21CAE0B645C415B65E2066F6C4598",
+            "frame_id": "07B2FF28C41BAB60A25887FF914770F7",
+            "documentURL": "https:\/\/smdserver.xyz\/",
+            "responseCode": 403,
+            "request_type": "Document",
+            "load_ms": 10,
+            "ttfb_ms": 8,
+            "load_start": 39,
+            "load_start_float": 39.000104999999998,
+            "bytesIn": 1882,
+            "objectSize": 1882,
+            "objectSizeUncompressed": 5464,
+            "chunks": [
+              {
+                "ts": 48,
+                "bytes": 1882,
+                "inflated": 5464
+              }
+            ],
+            "expires": "Thu, 01 Jan 1970 00:00:01 GMT",
+            "cacheControl": "private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+            "contentType": "text\/html",
+            "contentEncoding": "br",
+            "socket": 123,
+            "protocol": "HTTP\/2",
+            "dns_start": 9,
+            "dns_end": 20,
+            "connect_start": 20,
+            "connect_end": 22,
+            "ssl_start": 22,
+            "ssl_end": 39,
+            "securityDetails": {
+              "protocol": "TLS 1.3",
+              "keyExchange": "",
+              "keyExchangeGroup": "X25519MLKEM768",
+              "cipher": "AES_128_GCM",
+              "certificateId": 0,
+              "subjectName": "smdserver.xyz",
+              "sanList": [
+                "smdserver.xyz",
+                "*.smdserver.xyz"
+              ],
+              "issuer": "WE1",
+              "validFrom": 1758546849,
+              "validTo": 1766326436,
+              "signedCertificateTimestampList": [
+                {
+                  "status": "Verified",
+                  "origin": "Embedded in certificate",
+                  "logDescription": "Google 'Argon2025h2' log",
+                  "logId": "12F14E34BD53724C840619C38F3F7A13F8E7B56287889C6D300584EBE586263A",
+                  "timestamp": 1758550449535,
+                  "hashAlgorithm": "SHA-256",
+                  "signatureAlgorithm": "ECDSA",
+                  "signatureData": "3045022100A59B3637FA829CA694876FDFEA17E1CDEC467E2C24222B1CEE8D3C3D71B8E29B02205197572CF33E8EB68ED35EBADFD21F435BC18E930C07F29BC4FB5D306C3178CA"
+                },
+                {
+                  "status": "Verified",
+                  "origin": "Embedded in certificate",
+                  "logDescription": "Cloudflare 'Nimbus2025'",
+                  "logId": "CCFB0F6A85710965FE959B53CEE9B27C22E9855C0D978DB6A97E54C0FE4C0DB0",
+                  "timestamp": 1758550449596,
+                  "hashAlgorithm": "SHA-256",
+                  "signatureAlgorithm": "ECDSA",
+                  "signatureData": "3045022060B9FC5A5D4175BE53178C70BB671DF639146032E1B0C0870C59C93AC5B49CAB02210091BF67A021DFD8A4F41C7409655F17E140BCC2043963C264A664B9D0D058B801"
+                }
+              ],
+              "certificateTransparencyCompliance": "unknown",
+              "serverSignatureAlgorithm": 1027,
+              "encryptedClientHello": false
+            },
+            "initiator": "https:\/\/smdserver.xyz\/",
+            "initiator_line": "",
+            "initiator_column": "",
+            "initiator_type": "script",
+            "priority": "Highest",
+            "initial_priority": "Highest",
+            "server_rtt": null,
+            "headers": {
+              "request": [
+                ":authority: smdserver.xyz",
+                ":method: GET",
+                ":path: \/",
+                ":scheme: https",
+                "accept: text\/html,application\/xhtml+xml,application\/xml;q=0.9,image\/avif,image\/webp,image\/apng,*\/*;q=0.8,application\/signed-exchange;v=b3;q=0.7",
+                "accept-encoding: gzip, deflate, br, zstd",
+                "accept-language: en-US,en;q=0.9",
+                "priority: u=0, i",
+                "sec-ch-ua: \" Not A;Brand\";v=\"99\", \"Chromium\";v=\"136\", \"Google Chrome\";v=\"136\"",
+                "sec-ch-ua-mobile: ?0",
+                "sec-ch-ua-platform: \"Unknown\"",
+                "sec-fetch-dest: document",
+                "sec-fetch-mode: navigate",
+                "sec-fetch-site: cross-site",
+                "upgrade-insecure-requests: 1",
+                "user-agent: Mozilla\/5.0 (X11; Linux x86_64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/136.0.0.0 Safari\/537.36 PTST\/25.05"
+              ],
+              "response": [
+                "cache-control: private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+                "cf-ray: 98ef6f5ad8ecd67c-IAD",
+                "content-encoding: br",
+                "content-type: text\/html; charset=UTF-8",
+                "date: Wed, 15 Oct 2025 12:49:10 GMT",
+                "expires: Thu, 01 Jan 1970 00:00:01 GMT",
+                "nel: {\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+                "referrer-policy: same-origin",
+                "report-to: {\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https:\/\/a.nel.cloudflare.com\/report\/v4?s=D9NXMz4O2G%2FSnhD7aH7tFR3W0sVsXatim%2BF6EpDagvFmnmiBmDjQbZ4t17rMdoYZAlkg2GFH%2BXzqo84vVYmObIxssz2MJ6z90hA%3D\"}]}",
+                "server: cloudflare",
+                "vary: accept-encoding",
+                "x-frame-options: SAMEORIGIN",
+                ":status: 403"
+              ]
+            },
+            "bytesOut": 2113,
+            "score_cache": -1,
+            "score_cdn": 100,
+            "score_gzip": -1,
+            "score_cookies": -1,
+            "score_keep-alive": -1,
+            "score_minify": -1,
+            "score_combine": -1,
+            "score_compress": -1,
+            "score_etags": -1,
+            "dns_ms": 11,
+            "connect_ms": 2,
+            "ssl_ms": 17,
+            "gzip_total": null,
+            "gzip_save": null,
+            "minify_total": null,
+            "minify_save": null,
+            "image_total": null,
+            "image_save": null,
+            "cache_time": null,
+            "cdn_provider": "Cloudflare",
+            "server_count": null,
+            "created": 17,
+            "socket_group": "https:\/\/smdserver.xyz <https:\/\/smdserver.xyz same_site>",
+            "http2_stream_id": 1,
+            "http2_stream_dependency": 0,
+            "http2_stream_weight": 256,
+            "http2_stream_exclusive": 1,
+            "http2_server_settings": {
+              "SETTINGS_MAX_CONCURRENT_STREAMS": 100,
+              "SETTINGS_INITIAL_WINDOW_SIZE": 65536,
+              "SETTINGS_MAX_FRAME_SIZE": 16777215
+            },
+            "tls_version": "TLS 1.3",
+            "tls_resumed": "False",
+            "tls_next_proto": "h2",
+            "tls_cipher_suite": 4865,
+            "netlog_id": 105,
+            "certificates": [
+              "-----BEGIN CERTIFICATE-----\nMIIDqzCCA1GgAwIBAgIRAOB4pjIKup3KDqbg2ozR8qAwCgYIKoZIzj0EAwIwOzEL\nMAkGA1UEBhMCVVMxHjAcBgNVBAoTFUdvb2dsZSBUcnVzdCBTZXJ2aWNlczEMMAoG\nA1UEAxMDV0UxMB4XDTI1MDkyMjEzMTQwOVoXDTI1MTIyMTE0MTM1NlowGDEWMBQG\nA1UEAxMNc21kc2VydmVyLnh5ejBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABGaf\nE4RmimC6LXbWxGjjG3H9DUw5X+jTPWtL3FrMPP9AGXCMAokyAB15+bSJdvLMV+pg\ndPj2kdS\/\/Ay1kOuI9pGjggJXMIICUzAOBgNVHQ8BAf8EBAMCB4AwEwYDVR0lBAww\nCgYIKwYBBQUHAwEwDAYDVR0TAQH\/BAIwADAdBgNVHQ4EFgQUc9gI7P3J30qYr0Tp\nqyHxIMC07DUwHwYDVR0jBBgwFoAUkHeSNWfE\/6jMqeZ72YB5e8yT+TgwXgYIKwYB\nBQUHAQEEUjBQMCcGCCsGAQUFBzABhhtodHRwOi8vby5wa2kuZ29vZy9zL3dlMS80\nSGcwJQYIKwYBBQUHMAKGGWh0dHA6Ly9pLnBraS5nb29nL3dlMS5jcnQwKQYDVR0R\nBCIwIIINc21kc2VydmVyLnh5eoIPKi5zbWRzZXJ2ZXIueHl6MBMGA1UdIAQMMAow\nCAYGZ4EMAQIBMDYGA1UdHwQvMC0wK6ApoCeGJWh0dHA6Ly9jLnBraS5nb29nL3dl\nMS8tQTRRSXhlQnRISS5jcmwwggEEBgorBgEEAdZ5AgQCBIH1BIHyAPAAdgAS8U40\nvVNyTIQGGcOPP3oT+Oe1YoeInG0wBYTr5YYmOgAAAZlxxl1\/AAAEAwBHMEUCIQCl\nmzY3+oKcppSHb9\/qF+HN7EZ+LCQiKxzujTw9cbjimwIgUZdXLPM+jraO016639If\nQ1vBjpMMB\/KbxPtdMGwxeMoAdgDM+w9qhXEJZf6Vm1PO6bJ8IumFXA2XjbapflTA\n\/kwNsAAAAZlxxl28AAAEAwBHMEUCIGC5\/FpdQXW+UxeMcLtnHfY5FGAy4bDAhwxZ\nyTrFtJyrAiEAkb9noCHf2KT0HHQJZV8X4UC8wgQ5Y8JkpmS50NBYuAEwCgYIKoZI\nzj0EAwIDSAAwRQIhAOJsm3uo8Y9prgz5ZKwdle0Eehfy+Mp11FlwnG\/M8t5OAiAb\nb8nP78mucpDztapyHlq+\/T8XWCidMNgMSzZlr3+bMQ==\n-----END CERTIFICATE-----\n",
+              "-----BEGIN CERTIFICATE-----\nMIICnzCCAiWgAwIBAgIQf\/MZd5csIkp2FV0TttaF4zAKBggqhkjOPQQDAzBHMQsw\nCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEU\nMBIGA1UEAxMLR1RTIFJvb3QgUjQwHhcNMjMxMjEzMDkwMDAwWhcNMjkwMjIwMTQw\nMDAwWjA7MQswCQYDVQQGEwJVUzEeMBwGA1UEChMVR29vZ2xlIFRydXN0IFNlcnZp\nY2VzMQwwCgYDVQQDEwNXRTEwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARvzTr+\nZ1dHTCEDhUDCR127WEcPQMFcF4XGGTfn1XzthkubgdnXGhOlCgP4mMTG6J7\/EFmP\nLCaY9eYmJbsPAvpWo4H+MIH7MA4GA1UdDwEB\/wQEAwIBhjAdBgNVHSUEFjAUBggr\nBgEFBQcDAQYIKwYBBQUHAwIwEgYDVR0TAQH\/BAgwBgEB\/wIBADAdBgNVHQ4EFgQU\nkHeSNWfE\/6jMqeZ72YB5e8yT+TgwHwYDVR0jBBgwFoAUgEzW63T\/STaj1dj8tT7F\navCUHYwwNAYIKwYBBQUHAQEEKDAmMCQGCCsGAQUFBzAChhhodHRwOi8vaS5wa2ku\nZ29vZy9yNC5jcnQwKwYDVR0fBCQwIjAgoB6gHIYaaHR0cDovL2MucGtpLmdvb2cv\nci9yNC5jcmwwEwYDVR0gBAwwCjAIBgZngQwBAgEwCgYIKoZIzj0EAwMDaAAwZQIx\nAOcCq1HW90OVznX+0RGU1cxAQXomvtgM8zItPZCuFQ8jSBJSjz5keROv9aYsAm5V\nsQIwJonMaAFi54mrfhfoFNZEfuNMSQ6\/bIBiNLiyoX46FohQvKeIoJ99cx7sUkFN\n7uJW\n-----END CERTIFICATE-----\n",
+              "-----BEGIN CERTIFICATE-----\nMIIDejCCAmKgAwIBAgIQf+UwvzMTQ77dghYQST2KGzANBgkqhkiG9w0BAQsFADBX\nMQswCQYDVQQGEwJCRTEZMBcGA1UEChMQR2xvYmFsU2lnbiBudi1zYTEQMA4GA1UE\nCxMHUm9vdCBDQTEbMBkGA1UEAxMSR2xvYmFsU2lnbiBSb290IENBMB4XDTIzMTEx\nNTAzNDMyMVoXDTI4MDEyODAwMDA0MlowRzELMAkGA1UEBhMCVVMxIjAgBgNVBAoT\nGUdvb2dsZSBUcnVzdCBTZXJ2aWNlcyBMTEMxFDASBgNVBAMTC0dUUyBSb290IFI0\nMHYwEAYHKoZIzj0CAQYFK4EEACIDYgAE83Rzp2iLYK5DuDXFgTB7S0md+8Fhzube\nRr1r1WEYNa5A3XP3iZEwWus87oV8okB2O6nGuEfYKueSkWpz6bFyOZ8pn6KY019e\nWIZlD6GEZQbR3IvJx3PIjGov5cSr0R2Ko4H\/MIH8MA4GA1UdDwEB\/wQEAwIBhjAd\nBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDwYDVR0TAQH\/BAUwAwEB\/zAd\nBgNVHQ4EFgQUgEzW63T\/STaj1dj8tT7FavCUHYwwHwYDVR0jBBgwFoAUYHtmGkUN\nl8qJUC99BM00qP\/8\/UswNgYIKwYBBQUHAQEEKjAoMCYGCCsGAQUFBzAChhpodHRw\nOi8vaS5wa2kuZ29vZy9nc3IxLmNydDAtBgNVHR8EJjAkMCKgIKAehhxodHRwOi8v\nYy5wa2kuZ29vZy9yL2dzcjEuY3JsMBMGA1UdIAQMMAowCAYGZ4EMAQIBMA0GCSqG\nSIb3DQEBCwUAA4IBAQAYQrsPBtYDh5bjP2OBDwmkoWhIDDkic574y04tfzHpn+cJ\nodI2D4SseesQ6bDrarZ7C30ddLibZatoKiws3UL9xnELz4ct92vID24FfVbiI1hY\n+SW6FoVHkNeWIP0GCbaM4C6uVdF5dTUsMVs\/ZbzNnIdCp5Gxmx5ejvEau8otR\/Cs\nkGN+hr\/W5GvT1tMBjgWKZ1i4\/\/emhA1JG1BbPzoLJQvyEotc03lXjTaCzv8mEbep\n8RqZ7a2CPsgRbuvTPBwcOMBBmuFeU88+FSBX6+7iP0il8b4Z0QFqIwwMHfs\/L6K1\nvepuoxtGzi4CZ68zJpiq1UvSqTbFJjtbD4seiMHl\n-----END CERTIFICATE-----\n"
+            ],
+            "server_port": "443",
+            "load_end": 49,
+            "ttfb_start": 39,
+            "ttfb_end": 47,
+            "download_start": 47,
+            "download_end": 49,
+            "download_ms": 2,
+            "all_start": 9,
+            "all_end": 49,
+            "all_ms": 40,
+            "index": 0,
+            "number": 1
+          },
+          {
+            "type": 3,
+            "id": "604611.2",
+            "request_id": "604611.2",
+            "ip_addr": "104.26.5.167",
+            "full_url": "https:\/\/smdserver.xyz\/cdn-cgi\/styles\/cf.errors.css",
+            "is_secure": 1,
+            "method": "GET",
+            "host": "smdserver.xyz",
+            "url": "\/cdn-cgi\/styles\/cf.errors.css",
+            "raw_id": "604611.2",
+            "frame_id": "07B2FF28C41BAB60A25887FF914770F7",
+            "documentURL": "https:\/\/smdserver.xyz\/",
+            "responseCode": 200,
+            "request_type": "Stylesheet",
+            "load_ms": 9,
+            "ttfb_ms": 7,
+            "load_start": 65,
+            "load_start_float": 65.000140000000002,
+            "bytesIn": 4554,
+            "objectSize": 4554,
+            "objectSizeUncompressed": 24051,
+            "chunks": [
+              {
+                "ts": 74,
+                "bytes": 4554,
+                "inflated": 24051
+              }
+            ],
+            "expires": "",
+            "cacheControl": "",
+            "contentType": "text\/css",
+            "contentEncoding": "br",
+            "socket": 123,
+            "protocol": "HTTP\/2",
+            "dns_start": -1,
+            "dns_end": -1,
+            "connect_start": -1,
+            "connect_end": -1,
+            "ssl_start": -1,
+            "ssl_end": -1,
+            "initiator": "https:\/\/smdserver.xyz\/",
+            "initiator_line": 12,
+            "initiator_column": "",
+            "initiator_type": "parser",
+            "priority": "Highest",
+            "initial_priority": "Highest",
+            "server_rtt": null,
+            "headers": {
+              "request": [
+                ":authority: smdserver.xyz",
+                ":method: GET",
+                ":path: \/cdn-cgi\/styles\/cf.errors.css",
+                ":scheme: https",
+                "accept: text\/css,*\/*;q=0.1",
+                "accept-encoding: gzip, deflate, br, zstd",
+                "accept-language: en-US,en;q=0.9",
+                "priority: u=0",
+                "referer: https:\/\/smdserver.xyz\/",
+                "sec-ch-ua: \" Not A;Brand\";v=\"99\", \"Chromium\";v=\"136\", \"Google Chrome\";v=\"136\"",
+                "sec-ch-ua-mobile: ?0",
+                "sec-ch-ua-platform: \"Unknown\"",
+                "sec-fetch-dest: style",
+                "sec-fetch-mode: no-cors",
+                "sec-fetch-site: same-origin",
+                "user-agent: Mozilla\/5.0 (X11; Linux x86_64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/136.0.0.0 Safari\/537.36 PTST\/25.05"
+              ],
+              "response": [
+                "cf-ray: 98ef6f5b095ed67c-IAD",
+                "content-encoding: br",
+                "content-type: text\/css",
+                "date: Wed, 15 Oct 2025 12:49:10 GMT",
+                "nel: {\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+                "report-to: {\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https:\/\/a.nel.cloudflare.com\/report\/v4?s=TpR85TmGbM7OStCV5lK74e2T%2FcQy6tlPTTdpP9vSiuNA7%2FLeM9MNJkKJzSRym%2FzC4W%2BjEdo%2Byf1xrUP3L9oaOw8QsWrlneYHPwg%3D\"}]}",
+                "server: cloudflare",
+                "vary: accept-encoding",
+                ":status: 200"
+              ]
+            },
+            "bytesOut": 1837,
+            "score_cache": 0,
+            "score_cdn": 100,
+            "score_gzip": 100,
+            "score_cookies": -1,
+            "score_keep-alive": 100,
+            "score_minify": -1,
+            "score_combine": -1,
+            "score_compress": -1,
+            "score_etags": -1,
+            "dns_ms": -1,
+            "connect_ms": -1,
+            "ssl_ms": -1,
+            "gzip_total": 4792,
+            "gzip_save": 0,
+            "minify_total": null,
+            "minify_save": null,
+            "image_total": null,
+            "image_save": null,
+            "cache_time": 0,
+            "cdn_provider": "Cloudflare",
+            "server_count": null,
+            "created": 61,
+            "socket_group": "https:\/\/smdserver.xyz <https:\/\/smdserver.xyz same_site>",
+            "http2_stream_id": 3,
+            "http2_stream_dependency": 0,
+            "http2_stream_weight": 256,
+            "http2_stream_exclusive": 1,
+            "netlog_id": 140,
+            "server_port": "443",
+            "final_base_page": true,
+            "is_base_page": true,
+            "renderBlocking": "blocking",
+            "load_end": 74,
+            "ttfb_start": 65,
+            "ttfb_end": 72,
+            "download_start": 72,
+            "download_end": 74,
+            "download_ms": 2,
+            "all_start": 65,
+            "all_end": 74,
+            "all_ms": 9,
+            "index": 1,
+            "number": 2
+          },
+          {
+            "type": 3,
+            "full_url": "https:\/\/a.nel.cloudflare.com\/report\/v4?s=D9NXMz4O2G%2FSnhD7aH7tFR3W0sVsXatim%2BF6EpDagvFmnmiBmDjQbZ4t17rMdoYZAlkg2GFH%2BXzqo84vVYmObIxssz2MJ6z90hA%3D",
+            "id": "99999.99999.1",
+            "is_secure": 1,
+            "host": "a.nel.cloudflare.com",
+            "url": "\/report\/v4?s=D9NXMz4O2G%2FSnhD7aH7tFR3W0sVsXatim%2BF6EpDagvFmnmiBmDjQbZ4t17rMdoYZAlkg2GFH%2BXzqo84vVYmObIxssz2MJ6z90hA%3D",
+            "responseCode": -1,
+            "score_cache": -1,
+            "score_cdn": -1,
+            "score_gzip": -1,
+            "score_cookies": -1,
+            "score_keep-alive": -1,
+            "score_minify": -1,
+            "score_combine": -1,
+            "score_compress": -1,
+            "score_etags": -1,
+            "dns_ms": 5,
+            "connect_ms": 2,
+            "ssl_ms": 9,
+            "gzip_total": null,
+            "gzip_save": null,
+            "minify_total": null,
+            "minify_save": null,
+            "image_total": null,
+            "image_save": null,
+            "cache_time": null,
+            "cdn_provider": null,
+            "server_count": null,
+            "dns_start": 53,
+            "dns_end": 58,
+            "connect_start": 59,
+            "connect_end": 61,
+            "ssl_start": 61,
+            "ssl_end": 70,
+            "frame_id": "07B2FF28C41BAB60A25887FF914770F7",
+            "created": 52,
+            "load_start": 71,
+            "priority": "Lowest",
+            "protocol": "HTTP\/2",
+            "socket": 139,
+            "socket_group": "pm\/https:\/\/a.nel.cloudflare.com <https:\/\/smdserver.xyz same_site>",
+            "http2_stream_id": 1,
+            "http2_stream_dependency": 0,
+            "http2_stream_weight": 110,
+            "http2_stream_exclusive": 1,
+            "chunks": [],
+            "http2_server_settings": "{'SETTINGS_MAX_CONCURRENT_STREAMS': 100, 'SETTINGS_INITIAL_WINDOW_SIZE': 1048576, 'SETTINGS_MAX_HEADER_LIST_SIZE': 65536}",
+            "tls_version": "TLS 1.3",
+            "tls_resumed": "False",
+            "tls_next_proto": "h2",
+            "tls_cipher_suite": 4865,
+            "netlog_id": 126,
+            "load_start_float": 71.000125999999995,
+            "headers": {
+              "request": [
+                ":method: OPTIONS",
+                ":authority: a.nel.cloudflare.com",
+                ":scheme: https",
+                ":path: \/report\/v4?s=D9NXMz4O2G%2FSnhD7aH7tFR3W0sVsXatim%2BF6EpDagvFmnmiBmDjQbZ4t17rMdoYZAlkg2GFH%2BXzqo84vVYmObIxssz2MJ6z90hA%3D",
+                "origin: https:\/\/smdserver.xyz",
+                "access-control-request-method: POST",
+                "access-control-request-headers: content-type",
+                "user-agent: Mozilla\/5.0 (X11; Linux x86_64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/136.0.0.0 Safari\/537.36",
+                "accept-encoding: gzip, deflate, br, zstd",
+                "accept-language: en-US,en;q=0.9",
+                "priority: u=4, i"
+              ],
+              "response": []
+            },
+            "bytesIn": 0,
+            "objectSize": 0,
+            "certificates": [
+              "-----BEGIN CERTIFICATE-----\nMIIFazCCBFOgAwIBAgIRAILMQ7pnD9GyEJWlO1foOlwwDQYJKoZIhvcNAQELBQAw\nOzELMAkGA1UEBhMCVVMxHjAcBgNVBAoTFUdvb2dsZSBUcnVzdCBTZXJ2aWNlczEM\nMAoGA1UEAxMDV1IzMB4XDTI1MTAwNjE4MjIxM1oXDTI2MDEwNDE5MTY0NlowITEf\nMB0GA1UEAxMWZ2NwLm5lbC5jbG91ZGZsYXJlLmNvbTCCASIwDQYJKoZIhvcNAQEB\nBQADggEPADCCAQoCggEBALEVzLxEnv9oGGz4o+7E1Z8l312HQgihzBDqlRicTE7C\ny5oZZWAatueKHngehM5wsT7O48iHAKSUDiOuxyyv7+zdkSt\/kXG+vqKC4E5+8HD7\n+2V3ADStjyI7uka3Uw9wJt1owhXZV+5Ddq7L\/illMniznFjCVrSyJOfAPPt7UDW0\njfQOR7OY\/PVivJxW8iEbLYVHH5XViKGgXPSuHS2CJGdKOi5Kw90w4P9wKIzqFWF8\noCKtPBNso2eVn87aTgnqhm1pDwmAhxEcBlLN7VH5r6ZKGDd4W+2ic2T1xM2xluMP\n1VTbF9zXykkmNvEDXUwLsoufvL4iebUAcdV6xQTJFdECAwEAAaOCAoIwggJ+MA4G\nA1UdDwEB\/wQEAwIFoDATBgNVHSUEDDAKBggrBgEFBQcDATAMBgNVHRMBAf8EAjAA\nMB0GA1UdDgQWBBQO7SLMVAsN0JgtlLdHugnBsF+\/7jAfBgNVHSMEGDAWgBTHgfX9\njojZADxNY6JQMSSgziP+IzBeBggrBgEFBQcBAQRSMFAwJwYIKwYBBQUHMAGGG2h0\ndHA6Ly9vLnBraS5nb29nL3Mvd3IzL2dzdzAlBggrBgEFBQcwAoYZaHR0cDovL2ku\ncGtpLmdvb2cvd3IzLmNydDBUBgNVHREETTBLghZnY3AubmVsLmNsb3VkZmxhcmUu\nY29tghRhLm5lbC5jbG91ZGZsYXJlLmNvbYIbeG4tLTY2OGgubmVsLmNsb3VkZmxh\ncmUuY29tMBMGA1UdIAQMMAowCAYGZ4EMAQIBMDYGA1UdHwQvMC0wK6ApoCeGJWh0\ndHA6Ly9jLnBraS5nb29nL3dyMy9vT0xHVzBXVWRORS5jcmwwggEEBgorBgEEAdZ5\nAgQCBIH1BIHyAPAAdgAOV5S8866pPjMbLJkHs\/eQ35vCPXEyJd0hqSWsYcVOIQAA\nAZm6+XGQAAAEAwBHMEUCIA+BOT7rEkT9\/HtJMxQdlNoAt8UD7LapbZs+ehvipy30\nAiEA3ypOOIxPX1o3WUwCU\/NSfUaZX9Jh4hkJIly8bTXI8gYAdgDRbqmlaAd+ZjWg\nPzel3bwDpTxBEhTUiBj16TGzI8uVBAAAAZm6+XKoAAAEAwBHMEUCIQCZqgHp59LZ\nBiiGy2yYzR4\/+OeIzh9HHofurho3f9rZ7wIgCxMn0+TWZGDrml8AEwhds3hNRrAY\n5WnASSHKA7LPMyswDQYJKoZIhvcNAQELBQADggEBADJsY5+6ZRfLpj0fiq7X6Mqp\nQA4yUU+LiR4+MU9gwhdjcRcK2dZY0PBRSHpE8hc9Qw+TxwuyVjEWmOb9xP5kuKOe\n1L+SEfxJxCoShbW6dsWfCV4DyQAeq7Y7fbWyQC0JFvBxodZbI5iDhdbd+otUdrfE\nNuQNlbc\/joQ2YaaYQnzsnR4Ab8D9K9Av2m1Hgm5LCT3j99fmo6RlFiL\/WK7LSDhx\num8NYdA4DcHrLWxDzktFCOU5s0an7rblA5756wkD\/+ADUkVBGXkMPmZlEpfKq3gx\n5bgpuHoDXeAKnnwe+8ttBnU1KgEEfS0RdFJJKTAc\/TI1UZrEGSI5uzlj1zHkCgQ=\n-----END CERTIFICATE-----\n",
+              "-----BEGIN CERTIFICATE-----\nMIIFCzCCAvOgAwIBAgIQf\/AFqRVo1jq8IoYWhKpLWjANBgkqhkiG9w0BAQsFADBH\nMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExM\nQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjEwHhcNMjMxMjEzMDkwMDAwWhcNMjkwMjIw\nMTQwMDAwWjA7MQswCQYDVQQGEwJVUzEeMBwGA1UEChMVR29vZ2xlIFRydXN0IFNl\ncnZpY2VzMQwwCgYDVQQDEwNXUjMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK\nAoIBAQCPNHWHr4RyFI0HEJFvA6zx1Ag1mhnymxiJNGyYj3rU3eoF6N4bfIxUErp5\nivsYDQ18nPO9OOSoXsYzy0aJb0ag6TdjjdzM1ZdOMq17HSMFufV7SUOY0LxXx1N4\nGLHtp1SyfIa+8FRFvIe6mVkd9LjbAPuBT0YrYl6xOqUqFyOsor7FjuVe\/XEefaS0\nI30EUrI00t+ZrIfGTFlf+OZPjnWSwrIwRpLQtg3H5Iln\/z9UlCdl4wHISiyEL2Vf\nza1c\/aatQVvcTD8XlpF9qdg8Uyoc0ObUd+ZDSsK3+Eiiza1jtSVrlnIdgUVvhmnE\n5OZ4TDHmoX+nAXMKh++HiXLM08WNAgMBAAGjgf4wgfswDgYDVR0PAQH\/BAQDAgGG\nMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjASBgNVHRMBAf8ECDAGAQH\/\nAgEAMB0GA1UdDgQWBBTHgfX9jojZADxNY6JQMSSgziP+IzAfBgNVHSMEGDAWgBTk\nrysmcRorSCeFL1JmLO\/wiRNxPjA0BggrBgEFBQcBAQQoMCYwJAYIKwYBBQUHMAKG\nGGh0dHA6Ly9pLnBraS5nb29nL3IxLmNydDArBgNVHR8EJDAiMCCgHqAchhpodHRw\nOi8vYy5wa2kuZ29vZy9yL3IxLmNybDATBgNVHSAEDDAKMAgGBmeBDAECATANBgkq\nhkiG9w0BAQsFAAOCAgEAnI1DlJQzSKcWbyXXrJSsgKMo6KG74TMqhsuTg67a0FX0\n2752+eiJb5YsOJc8DVOHalwpOvbuPdl5BuAEgIK4Va7l9j3J9M1\/EjeWjGTM3Ros\nzmBJGu82oz6EWi5q75xeF+onJmh2Hm98a\/yJAI\/mODXq5LofYcQ9AffKP9ZMZu+Y\nwW+\/qHqyX2JhaOntvl7i8S+l1Y8CcKEqM1NFK4s4EBYPRFjZDawOHX7fSchbSMVP\nn5Nu04lrU6xufuZqRosEQw2o0UAyzDoyA52NXzJTWr1G2FVg\/0A9hdrQ\/6fe9G31\n67zKxNqXErs6MpHttEouGbpm2ftzrmcvruYxTfxc4G2GwBi3LFLozNpy042gDfXB\nzDyn1staWsy7+QnzMlR59Fz6jBOk5R4LT+ma0+KjnfRhMh5T2ucm69HkvNQtDZlV\na1tLUlzs0zLEdQSehTCjZ6SYsGt2bMVK6dvtxzcyCP0QDUFnNXCwgw12+mGSkAuj\n4ORi8kMRpnL8UEjkNbdw9KL1eYbEC3D0GPue2Yk2AGhxkmcdm1BoOp05kYw\/Nnqg\nh7QV8DKyBTUHbjH0pXlLiOsSOY+CLh1eTM+Do6rSjqGnDQeUXylZmPCmuveaw38I\nVnBaa6Eiz6pngZ1u6OeO\/1UzfhmyTm0n0G+9JZ3KS2Mq08isNgXHLnhlHJaphpE=\n-----END CERTIFICATE-----\n",
+              "-----BEGIN CERTIFICATE-----\nMIIFYjCCBEqgAwIBAgIQd70NbNs2+RrqIQ\/E8FjTDTANBgkqhkiG9w0BAQsFADBX\nMQswCQYDVQQGEwJCRTEZMBcGA1UEChMQR2xvYmFsU2lnbiBudi1zYTEQMA4GA1UE\nCxMHUm9vdCBDQTEbMBkGA1UEAxMSR2xvYmFsU2lnbiBSb290IENBMB4XDTIwMDYx\nOTAwMDA0MloXDTI4MDEyODAwMDA0MlowRzELMAkGA1UEBhMCVVMxIjAgBgNVBAoT\nGUdvb2dsZSBUcnVzdCBTZXJ2aWNlcyBMTEMxFDASBgNVBAMTC0dUUyBSb290IFIx\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAthECix7joXebO9y\/lD63\nladAPKH9gvl9MgaCcfb2jH\/76Nu8ai6Xl6OMS\/kr9rH5zoQdsfnFl97vufKj6bwS\niV6nqlKr+CMny6SxnGPb15l+8Ape62im9MZaRw1NEDPjTrETo8gYbEvs\/AmQ351k\nKSUjB6G00j0uYODP0gmHu81I8E3CwnqIiru6z1kZ1q+PsAewnjHxgsHA3y6mbWwZ\nDrXYfiYaRQM9sHmklCitD38m5agI\/pboPGiUU+6DOogrFZYJsuB6jC511pzrp1Zk\nj5ZPaK49l8KEj8C8QMALXL32h7M1bKwYUH+E4EzNktMg6TO8UpmvMrUpsyUqtEj5\ncuHKZPfmghCN6J3Cioj6OGaK\/GP5Afl4\/Xtcd\/p2h\/rs37EOeZVXtL0m79YB0esW\nCruOC7XFxYpVq9Os6pFLKcwZpDIlTirxZUTQAs6qzkm06p98g7BAe+dDq6dso499\niYH6TKX\/1Y7DzkvgtdizjkXPdsDtQCv9Uw+wp9U7DbGKogPeMa3Md+pvez7W35Ei\nEua++tgy\/BBjFFFy3l3WFpO9KWgz7zpm7AeKJt8T11dleCfeXkkUAKIAf5qoIbap\nsZWwpbkNFhHax2xIPEDgfg1azVY80ZcFuctL7TlLnMQ\/0lUTbiSw1nH69MG6zO0b\n9f6BQdgAmD06yK56mDcYBZUCAwEAAaOCATgwggE0MA4GA1UdDwEB\/wQEAwIBhjAP\nBgNVHRMBAf8EBTADAQH\/MB0GA1UdDgQWBBTkrysmcRorSCeFL1JmLO\/wiRNxPjAf\nBgNVHSMEGDAWgBRge2YaRQ2XyolQL30EzTSo\/\/z9SzBgBggrBgEFBQcBAQRUMFIw\nJQYIKwYBBQUHMAGGGWh0dHA6Ly9vY3NwLnBraS5nb29nL2dzcjEwKQYIKwYBBQUH\nMAKGHWh0dHA6Ly9wa2kuZ29vZy9nc3IxL2dzcjEuY3J0MDIGA1UdHwQrMCkwJ6Al\noCOGIWh0dHA6Ly9jcmwucGtpLmdvb2cvZ3NyMS9nc3IxLmNybDA7BgNVHSAENDAy\nMAgGBmeBDAECATAIBgZngQwBAgIwDQYLKwYBBAHWeQIFAwIwDQYLKwYBBAHWeQIF\nAwMwDQYJKoZIhvcNAQELBQADggEBADSkHrEoo9C0dhemMXoh6dFSPsjbdBZBiLg9\nNR3t5P+T4Vxfq7vqfM\/b5A3Ri1fyJm9bvhdGaJQ3b2t6yMAYN\/olUazsaL+yyEn9\nWprKASOshIArAoyZl+tJaox118fessmXn1hIVw41oeQa1v1vg4Fv74zPl6\/AhSrw\n9U5pCZEt4Wi4wStz6dTZ\/CLANx8LZh1J7QJVj2fhMtfTJr9w4z30Z209fOU0iOMy\n+qduBmpvvYuR7hZL6Dupszfnw0Skfths18dG9ZKb59UhvmaSGZRVbNQpsg3BZlvi\nd0lIKO2d1xozclOzgjXPYovJJIultzkMu34qQb9Sz\/yilrbCgj8=\n-----END CERTIFICATE-----\n"
+            ],
+            "ip_addr": "35.190.80.1",
+            "server_port": "443",
+            "bytesOut": 0,
+            "request_id": "99999.99999.1",
+            "raw_id": "99999.99999.1",
+            "load_end": 0,
+            "ttfb_start": 71,
+            "ttfb_end": 0,
+            "download_start": 71,
+            "download_end": 0,
+            "download_ms": -71,
+            "all_start": 53,
+            "all_end": 0,
+            "all_ms": 16,
+            "index": 2,
+            "number": 3
+          }
+        ],
+        "requestsFull": 3,
+        "requestsDoc": 3,
+        "responses_200": 1,
+        "responses_404": 0,
+        "responses_other": 2,
+        "result": 403,
+        "testStartOffset": 0,
+        "cached": 0,
+        "optimization_checked": 1,
+        "main_frame": "07B2FF28C41BAB60A25887FF914770F7",
+        "loadEventStart": 193,
+        "loadEventEnd": 193,
+        "domContentLoadedEventStart": 81,
+        "domContentLoadedEventEnd": 81,
+        "URL": "http:\/\/smdserver.xyz",
+        "connections": 1,
+        "final_base_page_request": 1,
+        "final_base_page_request_id": "604611.2",
+        "final_url": "https:\/\/smdserver.xyz\/cdn-cgi\/styles\/cf.errors.css",
+        "domInteractive": 81,
+        "renderBlockingCSS": 1,
+        "renderBlockingJS": 0,
+        "TTFB": 72,
+        "score_cache": 0,
+        "score_cdn": 100,
+        "score_gzip": 100,
+        "score_cookies": -1,
+        "score_keep-alive": 100,
+        "score_minify": -1,
+        "score_combine": -1,
+        "score_compress": -1,
+        "score_etags": -1,
+        "score_progressive_jpeg": -1,
+        "gzip_total": 4792,
+        "gzip_savings": 0,
+        "minify_total": -1,
+        "minify_savings": -1,
+        "image_total": 0,
+        "image_savings": 0,
+        "base_page_cdn": "Cloudflare",
+        "cpuTimes": {
+          "PrePaint": 0,
+          "Paint": 0,
+          "Layerize": 0,
+          "FireAnimationFrame": 0,
+          "FunctionCall": 1,
+          "EventDispatch": 0,
+          "Idle": 192
+        },
+        "cpuTimesDoc": {
+          "PrePaint": 0,
+          "Paint": 0,
+          "Layerize": 0,
+          "FireAnimationFrame": 0,
+          "FunctionCall": 1,
+          "EventDispatch": 0,
+          "Idle": 192
+        },
+        "cpu.PrePaint": 0,
+        "cpu.Paint": 0,
+        "cpu.Layerize": 0,
+        "cpu.FireAnimationFrame": 0,
+        "cpu.FunctionCall": 1,
+        "cpu.EventDispatch": 0,
+        "cpu.Idle": 192,
+        "v8Stats": {
+          "main_thread": [],
+          "background": []
+        },
+        "start_epoch": 1760532548.8343828,
+        "osVersion": "Linux 6.8.0-1018-gcp",
+        "os_version": "Linux 6.8.0-1018-gcp",
+        "osPlatform": "x86_64 x86_64",
+        "date": 1760532550.7341859,
+        "browserVersion": "136.0.0.0",
+        "browser_version": "136.0.0.0",
+        "fullyLoadedCPUms": 219,
+        "fullyLoadedCPUpct": 28.947368421235286,
+        "audit_issues": [
+          {
+            "code": "QuirksModeIssue",
+            "details": {
+              "quirksModeIssueDetails": {
+                "isLimitedQuirksMode": false,
+                "documentNodeId": 2,
+                "url": "http:\/\/127.0.0.1:8888\/orange.html",
+                "frameId": "07B2FF28C41BAB60A25887FF914770F7",
+                "loaderId": "9994984833FAF0DC92CE506ACAB74C2B"
+              }
+            }
+          },
+          {
+            "code": "DeprecationIssue",
+            "details": {
+              "deprecationIssueDetails": {
+                "affectedFrame": {
+                  "frameId": "58DE7BA0E7F961C95A1CAD5B90350B04"
+                },
+                "sourceCodeLocation": {
+                  "scriptId": "12",
+                  "url": "https:\/\/smdserver.xyz\/cdn-cgi\/challenge-platform\/scripts\/jsd\/main.js",
+                  "lineNumber": 0,
+                  "columnNumber": 8675
+                },
+                "type": "PersistentQuotaType"
+              }
+            }
+          }
+        ],
+        "execution_contexts": [
+          {
+            "id": 2,
+            "origin": "https:\/\/smdserver.xyz",
+            "name": ""
+          },
+          {
+            "id": 1,
+            "origin": "https:\/\/smdserver.xyz",
+            "name": ""
+          }
+        ],
+        "origin_dns": {
+          "cname": [],
+          "ns": [],
+          "mx": [],
+          "txt": [],
+          "soa": [],
+          "https": [],
+          "svcb": []
+        },
+        "detected": {
+          "CDN": "Cloudflare"
+        },
+        "detected_apps": {
+          "Cloudflare": ""
+        },
+        "detected_technologies": {
+          "Cloudflare": {
+            "name": "Cloudflare",
+            "description": "Cloudflare is a web-infrastructure and website-security company, providing content-delivery-network services, DDoS mitigation, Internet security, and distributed domain-name-server services.",
+            "slug": "cloudflare",
+            "categories": [
+              {
+                "id": 31,
+                "slug": "cdn",
+                "groups": [
+                  7
+                ],
+                "name": "CDN",
+                "priority": 9
+              }
+            ],
+            "confidence": 100,
+            "version": "",
+            "icon": "CloudFlare.svg",
+            "website": "http:\/\/www.cloudflare.com",
+            "pricing": [],
+            "cpe": null
+          }
+        },
+        "detected_raw": [
+          {
+            "name": "Cloudflare",
+            "description": "Cloudflare is a web-infrastructure and website-security company, providing content-delivery-network services, DDoS mitigation, Internet security, and distributed domain-name-server services.",
+            "slug": "cloudflare",
+            "categories": [
+              {
+                "id": 31,
+                "slug": "cdn",
+                "groups": [
+                  7
+                ],
+                "name": "CDN",
+                "priority": 9
+              }
+            ],
+            "confidence": 100,
+            "version": "",
+            "icon": "CloudFlare.svg",
+            "website": "http:\/\/www.cloudflare.com",
+            "pricing": [],
+            "cpe": null
+          }
+        ],
+        "axe": {
+          "testEngine": "4.10.2",
+          "violations": [],
+          "passes": [
+            {
+              "id": "aria-hidden-body",
+              "impact": null,
+              "tags": [
+                "cat.aria",
+                "wcag2a",
+                "wcag131",
+                "wcag412",
+                "EN-301-549",
+                "EN-9.1.3.1",
+                "EN-9.4.1.2"
+              ],
+              "description": "Ensure aria-hidden=\"true\" is not present on the document body.",
+              "help": "aria-hidden=\"true\" must not be present on the document body",
+              "helpUrl": "https:\/\/dequeuniversity.com\/rules\/axe\/4.10\/aria-hidden-body?application=axeAPI",
+              "nodes": [
+                {
+                  "any": [
+                    {
+                      "id": "aria-hidden-body",
+                      "data": null,
+                      "relatedNodes": [],
+                      "impact": "critical",
+                      "message": "No aria-hidden attribute is present on document body"
+                    }
+                  ],
+                  "all": [],
+                  "none": [],
+                  "impact": null,
+                  "html": "<body>",
+                  "target": [
+                    "body"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "button-name",
+              "impact": null,
+              "tags": [
+                "cat.name-role-value",
+                "wcag2a",
+                "wcag412",
+                "section508",
+                "section508.22.a",
+                "TTv5",
+                "TT6.a",
+                "EN-301-549",
+                "EN-9.4.1.2",
+                "ACT"
+              ],
+              "description": "Ensure buttons have discernible text",
+              "help": "Buttons must have discernible text",
+              "helpUrl": "https:\/\/dequeuniversity.com\/rules\/axe\/4.10\/button-name?application=axeAPI",
+              "nodes": [
+                {
+                  "any": [
+                    {
+                      "id": "button-has-visible-text",
+                      "data": null,
+                      "relatedNodes": [],
+                      "impact": "critical",
+                      "message": "Element has inner text that is visible to screen readers"
+                    }
+                  ],
+                  "all": [],
+                  "none": [],
+                  "impact": null,
+                  "html": "<button type=\"button\" id=\"cf-footer-ip-reveal\" class=\"cf-footer-ip-reveal-btn\">Click to reveal<\/button>",
+                  "target": [
+                    "#cf-footer-ip-reveal"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "bypass",
+              "impact": null,
+              "tags": [
+                "cat.keyboard",
+                "wcag2a",
+                "wcag241",
+                "section508",
+                "section508.22.o",
+                "TTv5",
+                "TT9.a",
+                "EN-301-549",
+                "EN-9.2.4.1"
+              ],
+              "description": "Ensure each page has at least one mechanism for a user to bypass navigation and jump straight to the content",
+              "help": "Page must have means to bypass repeated blocks",
+              "helpUrl": "https:\/\/dequeuniversity.com\/rules\/axe\/4.10\/bypass?application=axeAPI",
+              "nodes": [
+                {
+                  "any": [
+                    {
+                      "id": "header-present",
+                      "data": null,
+                      "relatedNodes": [
+                        {
+                          "html": "<h1 data-translate=\"block_headline\">Sorry, you have been blocked<\/h1>",
+                          "target": [
+                            "h1"
+                          ]
+                        },
+                        {
+                          "html": "<h2 class=\"cf-subheadline\"><span data-translate=\"unable_to_access\">You are unable to access<\/span> smdserver.xyz<\/h2>",
+                          "target": [
+                            ".cf-subheadline"
+                          ]
+                        },
+                        {
+                          "html": "<h2 data-translate=\"blocked_why_headline\">Why have I been blocked?<\/h2>",
+                          "target": [
+                            "h2[data-translate=\"blocked_why_headline\"]"
+                          ]
+                        },
+                        {
+                          "html": "<h2 data-translate=\"blocked_resolve_headline\">What can I do to resolve this?<\/h2>",
+                          "target": [
+                            "h2[data-translate=\"blocked_resolve_headline\"]"
+                          ]
+                        }
+                      ],
+                      "impact": "serious",
+                      "message": "Page has a heading"
+                    }
+                  ],
+                  "all": [],
+                  "none": [],
+                  "impact": null,
+                  "html": "<html class=\"no-js\" lang=\"en-US\">",
+                  "target": [
+                    "html"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "color-contrast",
+              "impact": null,
+              "tags": [
+                "cat.color",
+                "wcag2aa",
+                "wcag143",
+                "TTv5",
+                "TT13.c",
+                "EN-301-549",
+                "EN-9.1.4.3",
+                "ACT"
+              ],
+              "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+              "help": "Elements must meet minimum color contrast ratio thresholds",
+              "helpUrl": "https:\/\/dequeuniversity.com\/rules\/axe\/4.10\/color-contrast?application=axeAPI",
+              "nodes": [
+                {
+                  "any": [
+                    {
+                      "id": "color-contrast",
+                      "data": {
+                        "fgColor": "#404040",
+                        "bgColor": "#ffffff",
+                        "contrastRatio": 10.359999999999999,
+                        "fontSize": "45.0pt (60px)",
+                        "fontWeight": "normal",
+                        "expectedContrastRatio": "3:1"
+                      },
+                      "relatedNodes": [],
+                      "impact": "serious",
+                      "message": "Element has sufficient color contrast of 10.36"
+                    }
+                  ],
+                  "all": [],
+                  "none": [],
+                  "impact": null,
+                  "html": "<h1 data-translate=\"block_headline\">Sorry, you have been blocked<\/h1>",
+                  "target": [
+                    "h1"
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "id": "color-contrast",
+                      "data": {
+                        "fgColor": "#595959",
+                        "bgColor": "#ffffff",
+                        "contrastRatio": 7,
+                        "fontSize": "22.5pt (30px)",
+                        "fontWeight": "normal",
+                        "expectedContrastRatio": "3:1"
+                      },
+                      "relatedNodes": [],
+                      "impact": "serious",
+                      "message": "Element has sufficient color contrast of 7"
+                    }
+                  ],
+                  "all": [],
+                  "none": [],
+                  "impact": null,
+                  "html": "<h2 class=\"cf-subheadline\"><span data-translate=\"unable_to_access\">You are unable to access<\/span> smdserver.xyz<\/h2>",
+                  "target": [
+                    ".cf-subheadline"
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "id": "color-contrast",
+                      "data": {
+                        "fgColor": "#595959",
+                        "bgColor": "#ffffff",
+                        "contrastRatio": 7,
+                        "fontSize": "22.5pt (30px)",
+                        "fontWeight": "normal",
+                        "expectedContrastRatio": "3:1"
+                      },
+                      "relatedNodes": [],
+                      "impact": "serious",
+                      "message": "Element has sufficient color contrast of 7"
+                    }
+                  ],
+                  "all": [],
+                  "none": [],
+                  "impact": null,
+                  "html": "<span data-translate=\"unable_to_access\">You are unable to access<\/span>",
+                  "target": [
+                    "span[data-translate=\"unable_to_access\"]"
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "id": "color-contrast",
+                      "data": {
+                        "fgColor": "#404040",
+                        "bgColor": "#ffffff",
+                        "contrastRatio": 10.359999999999999,
+                        "fontSize": "22.5pt (30px)",
+                        "fontWeight": "normal",
+                        "expectedContrastRatio": "3:1"
+                      },
+                      "relatedNodes": [],
+                      "impact": "serious",
+                      "message": "Element has sufficient color contrast of 10.36"
+                    }
+                  ],
+                  "all": [],
+                  "none": [],
+                  "impact": null,
+                  "html": "<h2 data-translate=\"blocked_why_headline\">Why have I been blocked?<\/h2>",
+                  "target": [
+                    "h2[data-translate=\"blocked_why_headline\"]"
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "id": "color-contrast",
+                      "data": {
+                        "fgColor": "#404040",
+                        "bgColor": "#ffffff",
+                        "contrastRatio": 10.359999999999999,
+                        "fontSize": "11.3pt (15px)",
+                        "fontWeight": "normal",
+                        "expectedContrastRatio": "4.5:1"
+                      },
+                      "relatedNodes": [],
+                      "impact": "serious",
+                      "message": "Element has sufficient color contrast of 10.36"
+                    }
+                  ],
+                  "all": [],
+                  "none": [],
+                  "impact": null,
+                  "html": "<p data-translate=\"blocked_why_detail\">",
+                  "target": [
+                    "p[data-translate=\"blocked_why_detail\"]"
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "id": "color-contrast",
+                      "data": {
+                        "fgColor": "#404040",
+                        "bgColor": "#ffffff",
+                        "contrastRatio": 10.359999999999999,
+                        "fontSize": "22.5pt (30px)",
+                        "fontWeight": "normal",
+                        "expectedContrastRatio": "3:1"
+                      },
+                      "relatedNodes": [],
+                      "impact": "serious",
+                      "message": "Element has sufficient color contrast of 10.36"
+                    }
+                  ],
+                  "all": [],
+                  "none": [],
+                  "impact": null,
+                  "html": "<h2 data-translate=\"blocked_resolve_headline\">What can I do to resolve this?<\/h2>",
+                  "target": [
+                    "h2[data-translate=\"blocked_resolve_headline\"]"
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "id": "color-contrast",
+                      "data": {
+                        "fgColor": "#404040",
+                        "bgColor": "#ffffff",
+                        "contrastRatio": 10.359999999999999,
+                        "fontSize": "11.3pt (15px)",
+                        "fontWeight": "normal",
+                        "expectedContrastRatio": "4.5:1"
+                      },
+                      "relatedNodes": [],
+                      "impact": "serious",
+                      "message": "Element has sufficient color contrast of 10.36"
+                    }
+                  ],
+                  "all": [],
+                  "none": [],
+                  "impact": null,
+                  "html": "<p data-translate=\"blocked_resolve_detail\">You can email the site owner to let them know you were blocked. Please include what you were doing when this page came up and the Cloudflare Ray ID found at the bottom of this page.<\/p>",
+                  "target": [
+                    "p[data-translate=\"blocked_resolve_detail\"]"
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "id": "color-contrast",
+                      "data": {
+                        "fgColor": "#404040",
+                        "bgColor": "#ffffff",
+                        "contrastRatio": 10.359999999999999,
+                        "fontSize": "9.8pt (13px)",
+                        "fontWeight": "normal",
+                        "expectedContrastRatio": "4.5:1"
+                      },
+                      "relatedNodes": [],
+                      "impact": "serious",
+                      "message": "Element has sufficient color contrast of 10.36"
+                    }
+                  ],
+                  "all": [],
+                  "none": [],
+                  "impact": null,
+                  "html": "<span class=\"cf-footer-item sm:block sm:mb-1\">Cloudflare Ray ID: <strong class=\"font-semibold\">98ef6f5ad8ecd67c<\/strong><\/span>",
+                  "target": [
+                    ".cf-footer-item.sm\\:block.sm\\:mb-1:nth-child(1)"
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "id": "color-contrast",
+                      "data": {
+                        "fgColor": "#404040",
+                        "bgColor": "#ffffff",
+                        "contrastRatio": 10.359999999999999,
+                        "fontSize": "9.8pt (13px)",
+                        "fontWeight": "normal",
+                        "expectedContrastRatio": "4.5:1"
+                      },
+                      "relatedNodes": [],
+                      "impact": "serious",
+                      "message": "Element has sufficient color contrast of 10.36"
+                    }
+                  ],
+                  "all": [],
+                  "none": [],
+                  "impact": null,
+                  "html": "<strong class=\"font-semibold\">98ef6f5ad8ecd67c<\/strong>",
+                  "target": [
+                    "strong"
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "id": "color-contrast",
+                      "data": {
+                        "fgColor": "#404040",
+                        "bgColor": "#ffffff",
+                        "contrastRatio": 10.359999999999999,
+                        "fontSize": "9.8pt (13px)",
+                        "fontWeight": "normal",
+                        "expectedContrastRatio": "4.5:1"
+                      },
+                      "relatedNodes": [],
+                      "impact": "serious",
+                      "message": "Element has sufficient color contrast of 10.36"
+                    }
+                  ],
+                  "all": [],
+                  "none": [],
+                  "impact": null,
+                  "html": "<span id=\"cf-footer-item-ip\" class=\"cf-footer-item sm:block sm:mb-1\">",
+                  "target": [
+                    "#cf-footer-item-ip"
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "id": "color-contrast",
+                      "data": {
+                        "fgColor": "#0051c3",
+                        "bgColor": "#ffffff",
+                        "contrastRatio": 7.0800000000000001,
+                        "fontSize": "9.8pt (13px)",
+                        "fontWeight": "normal",
+                        "expectedContrastRatio": "4.5:1"
+                      },
+                      "relatedNodes": [],
+                      "impact": "serious",
+                      "message": "Element has sufficient color contrast of 7.08"
+                    }
+                  ],
+                  "all": [],
+                  "none": [],
+                  "impact": null,
+                  "html": "<button type=\"button\" id=\"cf-footer-ip-reveal\" class=\"cf-footer-ip-reveal-btn\">Click to reveal<\/button>",
+                  "target": [
+                    "#cf-footer-ip-reveal"
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "id": "color-contrast",
+                      "data": {
+                        "fgColor": "#404040",
+                        "bgColor": "#ffffff",
+                        "contrastRatio": 10.359999999999999,
+                        "fontSize": "9.8pt (13px)",
+                        "fontWeight": "normal",
+                        "expectedContrastRatio": "4.5:1"
+                      },
+                      "relatedNodes": [],
+                      "impact": "serious",
+                      "message": "Element has sufficient color contrast of 10.36"
+                    }
+                  ],
+                  "all": [],
+                  "none": [],
+                  "impact": null,
+                  "html": "<span>Performance &amp; security by<\/span>",
+                  "target": [
+                    ".cf-footer-item.sm\\:block.sm\\:mb-1:nth-child(4) > span"
+                  ]
+                },
+                {
+                  "any": [
+                    {
+                      "id": "color-contrast",
+                      "data": {
+                        "fgColor": "#0051c3",
+                        "bgColor": "#ffffff",
+                        "contrastRatio": 7.0800000000000001,
+                        "fontSize": "9.8pt (13px)",
+                        "fontWeight": "normal",
+                        "expectedContrastRatio": "4.5:1"
+                      },
+                      "relatedNodes": [],
+                      "impact": "serious",
+                      "message": "Element has sufficient color contrast of 7.08"
+                    }
+                  ],
+                  "all": [],
+                  "none": [],
+                  "impact": null,
+                  "html": "<a rel=\"noopener noreferrer\" href=\"https:\/\/www.cloudflare.com\/5xx-error-landing\" id=\"brand_link\" target=\"_blank\">Cloudflare<\/a>",
+                  "target": [
+                    "#brand_link"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "document-title",
+              "impact": null,
+              "tags": [
+                "cat.text-alternatives",
+                "wcag2a",
+                "wcag242",
+                "TTv5",
+                "TT12.a",
+                "EN-301-549",
+                "EN-9.2.4.2",
+                "ACT"
+              ],
+              "description": "Ensure each HTML document contains a non-empty <title> element",
+              "help": "Documents must have <title> element to aid in navigation",
+              "helpUrl": "https:\/\/dequeuniversity.com\/rules\/axe\/4.10\/document-title?application=axeAPI",
+              "nodes": [
+                {
+                  "any": [
+                    {
+                      "id": "doc-has-title",
+                      "data": null,
+                      "relatedNodes": [],
+                      "impact": "serious",
+                      "message": "Document has a non-empty <title> element"
+                    }
+                  ],
+                  "all": [],
+                  "none": [],
+                  "impact": null,
+                  "html": "<html class=\"no-js\" lang=\"en-US\">",
+                  "target": [
+                    "html"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "html-has-lang",
+              "impact": null,
+              "tags": [
+                "cat.language",
+                "wcag2a",
+                "wcag311",
+                "TTv5",
+                "TT11.a",
+                "EN-301-549",
+                "EN-9.3.1.1",
+                "ACT"
+              ],
+              "description": "Ensure every HTML document has a lang attribute",
+              "help": "<html> element must have a lang attribute",
+              "helpUrl": "https:\/\/dequeuniversity.com\/rules\/axe\/4.10\/html-has-lang?application=axeAPI",
+              "nodes": [
+                {
+                  "any": [
+                    {
+                      "id": "has-lang",
+                      "data": null,
+                      "relatedNodes": [],
+                      "impact": "serious",
+                      "message": "The <html> element has a lang attribute"
+                    }
+                  ],
+                  "all": [],
+                  "none": [],
+                  "impact": null,
+                  "html": "<html class=\"no-js\" lang=\"en-US\">",
+                  "target": [
+                    "html"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "html-lang-valid",
+              "impact": null,
+              "tags": [
+                "cat.language",
+                "wcag2a",
+                "wcag311",
+                "TTv5",
+                "TT11.a",
+                "EN-301-549",
+                "EN-9.3.1.1",
+                "ACT"
+              ],
+              "description": "Ensure the lang attribute of the <html> element has a valid value",
+              "help": "<html> element must have a valid value for the lang attribute",
+              "helpUrl": "https:\/\/dequeuniversity.com\/rules\/axe\/4.10\/html-lang-valid?application=axeAPI",
+              "nodes": [
+                {
+                  "any": [],
+                  "all": [],
+                  "none": [
+                    {
+                      "id": "valid-lang",
+                      "data": null,
+                      "relatedNodes": [],
+                      "impact": "serious",
+                      "message": "Value of lang attribute is included in the list of valid languages"
+                    }
+                  ],
+                  "impact": null,
+                  "html": "<html class=\"no-js\" lang=\"en-US\">",
+                  "target": [
+                    "html"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "link-name",
+              "impact": null,
+              "tags": [
+                "cat.name-role-value",
+                "wcag2a",
+                "wcag244",
+                "wcag412",
+                "section508",
+                "section508.22.a",
+                "TTv5",
+                "TT6.a",
+                "EN-301-549",
+                "EN-9.2.4.4",
+                "EN-9.4.1.2",
+                "ACT"
+              ],
+              "description": "Ensure links have discernible text",
+              "help": "Links must have discernible text",
+              "helpUrl": "https:\/\/dequeuniversity.com\/rules\/axe\/4.10\/link-name?application=axeAPI",
+              "nodes": [
+                {
+                  "any": [
+                    {
+                      "id": "has-visible-text",
+                      "data": null,
+                      "relatedNodes": [],
+                      "impact": "serious",
+                      "message": "Element has text that is visible to screen readers"
+                    }
+                  ],
+                  "all": [],
+                  "none": [
+                    {
+                      "id": "focusable-no-name",
+                      "data": null,
+                      "relatedNodes": [],
+                      "impact": "serious",
+                      "message": "Element is not in tab order or has accessible text"
+                    }
+                  ],
+                  "impact": null,
+                  "html": "<a rel=\"noopener noreferrer\" href=\"https:\/\/www.cloudflare.com\/5xx-error-landing\" id=\"brand_link\" target=\"_blank\">Cloudflare<\/a>",
+                  "target": [
+                    "#brand_link"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "meta-viewport",
+              "impact": null,
+              "tags": [
+                "cat.sensory-and-visual-cues",
+                "wcag2aa",
+                "wcag144",
+                "EN-301-549",
+                "EN-9.1.4.4",
+                "ACT"
+              ],
+              "description": "Ensure <meta name=\"viewport\"> does not disable text scaling and zooming",
+              "help": "Zooming and scaling must not be disabled",
+              "helpUrl": "https:\/\/dequeuniversity.com\/rules\/axe\/4.10\/meta-viewport?application=axeAPI",
+              "nodes": [
+                {
+                  "any": [
+                    {
+                      "id": "meta-viewport",
+                      "data": null,
+                      "relatedNodes": [],
+                      "impact": "critical",
+                      "message": "<meta> tag does not disable zooming on mobile devices"
+                    }
+                  ],
+                  "all": [],
+                  "none": [],
+                  "impact": null,
+                  "html": "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">",
+                  "target": [
+                    "meta[name=\"viewport\"]"
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "nested-interactive",
+              "impact": null,
+              "tags": [
+                "cat.keyboard",
+                "wcag2a",
+                "wcag412",
+                "TTv5",
+                "TT6.a",
+                "EN-301-549",
+                "EN-9.4.1.2"
+              ],
+              "description": "Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
+              "help": "Interactive controls must not be nested",
+              "helpUrl": "https:\/\/dequeuniversity.com\/rules\/axe\/4.10\/nested-interactive?application=axeAPI",
+              "nodes": [
+                {
+                  "any": [
+                    {
+                      "id": "no-focusable-content",
+                      "data": null,
+                      "relatedNodes": [],
+                      "impact": "serious",
+                      "message": "Element does not have focusable descendants"
+                    }
+                  ],
+                  "all": [],
+                  "none": [],
+                  "impact": null,
+                  "html": "<button type=\"button\" id=\"cf-footer-ip-reveal\" class=\"cf-footer-ip-reveal-btn\">Click to reveal<\/button>",
+                  "target": [
+                    "#cf-footer-ip-reveal"
+                  ]
+                }
+              ]
+            }
+          ],
+          "incomplete": [
+            {
+              "id": "link-in-text-block",
+              "impact": "serious",
+              "tags": [
+                "cat.color",
+                "wcag2a",
+                "wcag141",
+                "TTv5",
+                "TT13.a",
+                "EN-301-549",
+                "EN-9.1.4.1"
+              ],
+              "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+              "help": "Links must be distinguishable without relying on color",
+              "helpUrl": "https:\/\/dequeuniversity.com\/rules\/axe\/4.10\/link-in-text-block?application=axeAPI",
+              "nodes": [
+                {
+                  "any": [
+                    {
+                      "id": "link-in-text-block",
+                      "data": {
+                        "messageKey": "bgOverlap"
+                      },
+                      "relatedNodes": [
+                        {
+                          "html": "<span class=\"cf-footer-item sm:block sm:mb-1\"><span>Performance &amp; security by<\/span> <a rel=\"noopener noreferrer\" href=\"https:\/\/www.cloudflare.com\/5xx-error-landing\" id=\"brand_link\" target=\"_blank\">Cloudflare<\/a><\/span>",
+                          "target": [
+                            ".cf-footer-item.sm\\:block.sm\\:mb-1:nth-child(4)"
+                          ]
+                        }
+                      ],
+                      "impact": "serious",
+                      "message": "Element's contrast ratio could not be determined because of element overlap"
+                    }
+                  ],
+                  "all": [],
+                  "none": [],
+                  "impact": "serious",
+                  "html": "<a rel=\"noopener noreferrer\" href=\"https:\/\/www.cloudflare.com\/5xx-error-landing\" id=\"brand_link\" target=\"_blank\">Cloudflare<\/a>",
+                  "target": [
+                    "#brand_link"
+                  ],
+                  "failureSummary": "Fix any of the following:\n  Element's contrast ratio could not be determined because of element overlap"
+                }
+              ]
+            }
+          ]
+        },
+        "base_page_ip_ptr": "",
+        "base_page_cname": "",
+        "base_page_dns_server": "",
+        "browser_name": "Chrome",
+        "eventName": "Step_1",
+        "test_run_time_ms": 1701,
+        "testUrl": "http:\/\/smdserver.xyz",
+        "custom": [
+          "CloudinaryImages",
+          "CloudinaryResolution",
+          "Colordepth",
+          "Dpi",
+          "Images",
+          "Resolution",
+          "fonts",
+          "generated-content-percent",
+          "generated-content-size",
+          "imgs-in-viewport",
+          "imgs-no-alt",
+          "imgs-out-viewport",
+          "jsLibsVulns",
+          "meta-viewport",
+          "possibly-render-blocking-reqs",
+          "rendered-html",
+          "securityHeaders"
+        ],
+        "CloudinaryImages": null,
+        "CloudinaryResolution": null,
+        "Colordepth": null,
+        "Dpi": null,
+        "Images": null,
+        "Resolution": null,
+        "fonts": null,
+        "generated-content-percent": null,
+        "generated-content-size": null,
+        "imgs-in-viewport": null,
+        "imgs-no-alt": null,
+        "imgs-out-viewport": null,
+        "jsLibsVulns": null,
+        "meta-viewport": null,
+        "possibly-render-blocking-reqs": null,
+        "rendered-html": null,
+        "securityHeaders": null,
+        "interactivePeriods": [
+          [
+            0,
+            130
+          ]
+        ],
+        "lastVisualChange": 0,
+        "visualComplete85": 0,
+        "visualComplete90": 0,
+        "visualComplete95": 0,
+        "visualComplete99": 0,
+        "visualComplete": 0,
+        "SpeedIndex": 0,
+        "chromeUserTiming": [
+          {
+            "name": "navigationStart",
+            "time": 49
+          },
+          {
+            "name": "redirectStart",
+            "time": 56
+          },
+          {
+            "name": "redirectEnd",
+            "time": 62
+          },
+          {
+            "name": "fetchStart",
+            "time": 62
+          },
+          {
+            "name": "navigationStart",
+            "time": 80
+          },
+          {
+            "name": "domLoading",
+            "time": 80
+          },
+          {
+            "name": "responseEnd",
+            "time": 80
+          },
+          {
+            "name": "domInteractive",
+            "time": 81
+          },
+          {
+            "name": "domContentLoadedEventStart",
+            "time": 81
+          },
+          {
+            "name": "domContentLoadedEventEnd",
+            "time": 81
+          },
+          {
+            "name": "domComplete",
+            "time": 81
+          },
+          {
+            "name": "unloadEventStart",
+            "time": 107
+          },
+          {
+            "name": "unloadEventEnd",
+            "time": 107
+          },
+          {
+            "name": "markAsMainFrame",
+            "time": 107
+          },
+          {
+            "name": "commitNavigationEnd",
+            "time": 108
+          },
+          {
+            "name": "domLoading",
+            "time": 108
+          },
+          {
+            "name": "TotalLayoutShift",
+            "value": 0
+          },
+          {
+            "name": "CumulativeLayoutShift",
+            "value": 0
+          }
+        ],
+        "chromeUserTiming.navigationStart": 80,
+        "chromeUserTiming.redirectStart": 57,
+        "chromeUserTiming.redirectEnd": 62,
+        "chromeUserTiming.fetchStart": 62,
+        "chromeUserTiming.domLoading": 109,
+        "chromeUserTiming.responseEnd": 81,
+        "chromeUserTiming.domInteractive": 81,
+        "chromeUserTiming.domContentLoadedEventStart": 81,
+        "chromeUserTiming.domContentLoadedEventEnd": 81,
+        "chromeUserTiming.domComplete": 81,
+        "chromeUserTiming.unloadEventStart": 107,
+        "chromeUserTiming.unloadEventEnd": 107,
+        "chromeUserTiming.markAsMainFrame": 107,
+        "chromeUserTiming.commitNavigationEnd": 108,
+        "chromeUserTiming.TotalLayoutShift": 0,
+        "chromeUserTiming.CumulativeLayoutShift": 0,
+        "blinkFeatureFirstUsed": {
+          "Features": {
+            "1075": {
+              "name": "V8SloppyMode",
+              "firstUsed": 129.84200000000001
+            },
+            "5285": {
+              "name": "V8Window_Location_AttributeSetter",
+              "firstUsed": 49.488999999999997
+            },
+            "5284": {
+              "name": "V8Window_Location_AttributeGetter",
+              "firstUsed": 49.493000000000002
+            },
+            "593": {
+              "name": "SetReferrerPolicy",
+              "firstUsed": 111.65900000000001
+            },
+            "1441": {
+              "name": "SecureContextCheckPassed",
+              "firstUsed": 111.676
+            },
+            "1753": {
+              "name": "ReferrerPolicyHeader",
+              "firstUsed": 111.679
+            },
+            "1910": {
+              "name": "CrossOriginMainFrameNulledNameAccessed",
+              "firstUsed": 111.681
+            },
+            "2627": {
+              "name": "PageLifeCycleFreeze",
+              "firstUsed": 112.217
+            },
+            "2188": {
+              "name": "PerformanceObserverForWindow",
+              "firstUsed": 122.776
+            },
+            "2927": {
+              "name": "LargestContentfulPaintExplicitlyRequested",
+              "firstUsed": 122.84
+            },
+            "3004": {
+              "name": "PerformanceObserverBufferedFlag",
+              "firstUsed": 122.84399999999999
+            },
+            "2782": {
+              "name": "LayoutShiftExplicitlyRequested",
+              "firstUsed": 122.857
+            },
+            "2203": {
+              "name": "HasIDClassTagAttribute",
+              "firstUsed": 128.92599999999999
+            },
+            "2204": {
+              "name": "HasBeforeOrAfterPseudoElement",
+              "firstUsed": 129.197
+            },
+            "973": {
+              "name": "CSSAtRuleMedia",
+              "firstUsed": 129.22999999999999
+            },
+            "2387": {
+              "name": "CSSSelectorPseudoFocus",
+              "firstUsed": 129.31999999999999
+            },
+            "3275": {
+              "name": "NavigatorCookieEnabled",
+              "firstUsed": 130.62299999999999
+            }
+          },
+          "CSSFeatures": {
+            "74": {
+              "name": "CSSPropertyContent",
+              "firstUsed": 129.44900000000001
+            },
+            "83": {
+              "name": "CSSPropertyLeft",
+              "firstUsed": 129.45599999999999
+            },
+            "81": {
+              "name": "CSSPropertyHeight",
+              "firstUsed": 129.46000000000001
+            },
+            "119": {
+              "name": "CSSPropertyPosition",
+              "firstUsed": 129.464
+            },
+            "128": {
+              "name": "CSSPropertyTextAlign",
+              "firstUsed": 129.46799999999999
+            },
+            "130": {
+              "name": "CSSPropertyTextIndent",
+              "firstUsed": 129.471
+            },
+            "149": {
+              "name": "CSSPropertyTop",
+              "firstUsed": 129.47399999999999
+            },
+            "161": {
+              "name": "CSSPropertyWidth",
+              "firstUsed": 129.477
+            },
+            "2": {
+              "name": "CSSPropertyColor",
+              "firstUsed": 129.601
+            },
+            "89": {
+              "name": "CSSPropertyMargin",
+              "firstUsed": 129.66399999999999
+            },
+            "109": {
+              "name": "CSSPropertyPadding",
+              "firstUsed": 129.66800000000001
+            }
+          },
+          "AnimatedCSSFeatures": []
+        },
+        "testID": "251015_ZiDc0E_7PQ",
+        "step": 1,
+        "effectiveBps": 53190,
+        "render": 0,
+        "domTime": 0,
+        "aft": 0,
+        "titleTime": 81,
+        "domLoading": 0,
+        "server_rtt": 0,
+        "firstPaint": 0,
+        "error": "403 Navigation error",
+        "edge-processed": true,
+        "longTasks": [],
+        "utilization": {
+          "cpu": {
+            "data": {
+              "0": 0,
+              "105": 50,
+              "205": 95
+            },
+            "max": 100,
+            "count": 3
+          },
+          "bw": {
+            "data": {
+              "0": 0,
+              "105": 45119,
+              "205": 2415307
+            },
+            "max": 2415307,
+            "count": 3
+          }
+        },
+        "effectiveBpsDoc": 53190,
+        "pages": {
+          "details": "https:\/\/www.webpagetest.org\/result\/251015_ZiDc0E_7PQ\/1\/details\/",
+          "checklist": "https:\/\/www.webpagetest.org\/result\/251015_ZiDc0E_7PQ\/1\/performance_optimization\/",
+          "breakdown": "https:\/\/www.webpagetest.org\/result\/251015_ZiDc0E_7PQ\/1\/breakdown\/",
+          "domains": "https:\/\/www.webpagetest.org\/result\/251015_ZiDc0E_7PQ\/1\/domains\/",
+          "screenShot": "https:\/\/www.webpagetest.org\/result\/251015_ZiDc0E_7PQ\/1\/screen_shot\/",
+          "opportunities": "https:\/\/www.webpagetest.org\/result\/251015_ZiDc0E_7PQ\/1\/experiments\/"
+        },
+        "thumbnails": {
+          "waterfall": "https:\/\/www.webpagetest.org\/result\/251015_ZiDc0E_7PQ\/1_waterfall_thumb.png",
+          "checklist": "https:\/\/www.webpagetest.org\/result\/251015_ZiDc0E_7PQ\/1_optimization_thumb.png",
+          "screenShot": "https:\/\/www.webpagetest.org\/result\/251015_ZiDc0E_7PQ\/1_screen_thumb.png"
+        },
+        "images": {
+          "waterfall": "https:\/\/www.webpagetest.org\/result\/25\/10\/15\/ZiDc0E\/7PQ\/1_waterfall.png",
+          "connectionView": "https:\/\/www.webpagetest.org\/result\/25\/10\/15\/ZiDc0E\/7PQ\/1_connection.png",
+          "checklist": "https:\/\/www.webpagetest.org\/result\/25\/10\/15\/ZiDc0E\/7PQ\/1_optimization.png",
+          "screenShot": "https:\/\/www.webpagetest.org\/getfile.php?test=251015_ZiDc0E_7PQ&file=1_screen.jpg"
+        },
+        "rawData": {
+          "headers": "https:\/\/www.webpagetest.org\/result\/25\/10\/15\/ZiDc0E\/7PQ\/1_report.txt",
+          "pageData": "https:\/\/www.webpagetest.org\/result\/25\/10\/15\/ZiDc0E\/7PQ\/1_IEWPG.txt",
+          "requestsData": "https:\/\/www.webpagetest.org\/result\/25\/10\/15\/ZiDc0E\/7PQ\/1_IEWTR.txt",
+          "utilization": "https:\/\/www.webpagetest.org\/result\/25\/10\/15\/ZiDc0E\/7PQ\/1_progress.csv",
+          "trace": "https:\/\/www.webpagetest.org\/getgzip.php?test=251015_ZiDc0E_7PQ&compressed=1&file=1_trace.json.gz"
+        },
+        "videoFrames": [
+          {
+            "time": 0,
+            "image": "https:\/\/www.webpagetest.org\/getfile.php?test=251015_ZiDc0E_7PQ&video=video_1&file=ms_000000.jpg",
+            "VisuallyComplete": 100
+          }
+        ],
+        "domains": {
+          "a.nel.cloudflare.com": {
+            "bytes": 0,
+            "requests": 1,
+            "connections": 1
+          },
+          "smdserver.xyz": {
+            "bytes": 6436,
+            "requests": 2,
+            "cdn_provider": "Cloudflare",
+            "connections": 1
+          }
+        },
+        "breakdown": {
+          "html": {
+            "color": [
+              130,
+              181,
+              252
+            ],
+            "bytes": 1882,
+            "bytesUncompressed": 5464,
+            "requests": 1
+          },
+          "js": {
+            "color": [
+              254,
+              197,
+              132
+            ],
+            "bytes": 0,
+            "bytesUncompressed": 0,
+            "requests": 0
+          },
+          "css": {
+            "color": [
+              178,
+              234,
+              148
+            ],
+            "bytes": 4554,
+            "bytesUncompressed": 24051,
+            "requests": 1
+          },
+          "image": {
+            "color": [
+              196,
+              154,
+              232
+            ],
+            "bytes": 0,
+            "bytesUncompressed": 0,
+            "requests": 0
+          },
+          "flash": {
+            "color": [
+              45,
+              183,
+              193
+            ],
+            "bytes": 0,
+            "bytesUncompressed": 0,
+            "requests": 0
+          },
+          "font": {
+            "color": [
+              255,
+              82,
+              62
+            ],
+            "bytes": 0,
+            "bytesUncompressed": 0,
+            "requests": 0
+          },
+          "video": {
+            "color": [
+              33,
+              194,
+              162
+            ],
+            "bytes": 0,
+            "bytesUncompressed": 0,
+            "requests": 0
+          },
+          "other": {
+            "color": [
+              196,
+              196,
+              196
+            ],
+            "bytes": 0,
+            "bytesUncompressed": 0,
+            "requests": 0
+          }
+        },
+        "consoleLog": [
+          {
+            "source": "network",
+            "level": "error",
+            "text": "Failed to load resource: the server responded with a status of 403 ()",
+            "timestamp": 1760532550870.605,
+            "url": "https:\/\/smdserver.xyz\/",
+            "networkRequestId": "B1D21CAE0B645C415B65E2066F6C4598"
+          },
+          {
+            "source": "network",
+            "level": "error",
+            "text": "Failed to load resource: the server responded with a status of 403 ()",
+            "timestamp": 1760532551277.9619,
+            "url": "https:\/\/smdserver.xyz\/favicon.ico",
+            "networkRequestId": "604611.8"
+          }
+        ]
+      }
+    },
+    "runs": {
+      "1": {
+        "firstView": {
+          "numSteps": 1,
+          "run": 1,
+          "tester": "iad-us-asg-wtqt-10.10.1.168",
+          "loadTime": 193,
+          "docTime": 193,
+          "fullyLoaded": 193,
+          "bytesOut": 3950,
+          "bytesOutDoc": 3950,
+          "bytesIn": 6436,
+          "bytesInDoc": 6436,
+          "requests": [
+            {
+              "type": 3,
+              "id": "B1D21CAE0B645C415B65E2066F6C4598-1",
+              "request_id": "B1D21CAE0B645C415B65E2066F6C4598-1",
+              "ip_addr": "104.26.5.167",
+              "full_url": "https:\/\/smdserver.xyz\/",
+              "is_secure": 1,
+              "method": "GET",
+              "host": "smdserver.xyz",
+              "url": "\/",
+              "raw_id": "B1D21CAE0B645C415B65E2066F6C4598",
+              "frame_id": "07B2FF28C41BAB60A25887FF914770F7",
+              "documentURL": "https:\/\/smdserver.xyz\/",
+              "responseCode": 403,
+              "request_type": "Document",
+              "load_ms": 10,
+              "ttfb_ms": 8,
+              "load_start": 39,
+              "load_start_float": 39.000104999999998,
+              "bytesIn": 1882,
+              "objectSize": 1882,
+              "objectSizeUncompressed": 5464,
+              "chunks": [
+                {
+                  "ts": 48,
+                  "bytes": 1882,
+                  "inflated": 5464
+                }
+              ],
+              "expires": "Thu, 01 Jan 1970 00:00:01 GMT",
+              "cacheControl": "private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+              "contentType": "text\/html",
+              "contentEncoding": "br",
+              "socket": 123,
+              "protocol": "HTTP\/2",
+              "dns_start": 9,
+              "dns_end": 20,
+              "connect_start": 20,
+              "connect_end": 22,
+              "ssl_start": 22,
+              "ssl_end": 39,
+              "securityDetails": {
+                "protocol": "TLS 1.3",
+                "keyExchange": "",
+                "keyExchangeGroup": "X25519MLKEM768",
+                "cipher": "AES_128_GCM",
+                "certificateId": 0,
+                "subjectName": "smdserver.xyz",
+                "sanList": [
+                  "smdserver.xyz",
+                  "*.smdserver.xyz"
+                ],
+                "issuer": "WE1",
+                "validFrom": 1758546849,
+                "validTo": 1766326436,
+                "signedCertificateTimestampList": [
+                  {
+                    "status": "Verified",
+                    "origin": "Embedded in certificate",
+                    "logDescription": "Google 'Argon2025h2' log",
+                    "logId": "12F14E34BD53724C840619C38F3F7A13F8E7B56287889C6D300584EBE586263A",
+                    "timestamp": 1758550449535,
+                    "hashAlgorithm": "SHA-256",
+                    "signatureAlgorithm": "ECDSA",
+                    "signatureData": "3045022100A59B3637FA829CA694876FDFEA17E1CDEC467E2C24222B1CEE8D3C3D71B8E29B02205197572CF33E8EB68ED35EBADFD21F435BC18E930C07F29BC4FB5D306C3178CA"
+                  },
+                  {
+                    "status": "Verified",
+                    "origin": "Embedded in certificate",
+                    "logDescription": "Cloudflare 'Nimbus2025'",
+                    "logId": "CCFB0F6A85710965FE959B53CEE9B27C22E9855C0D978DB6A97E54C0FE4C0DB0",
+                    "timestamp": 1758550449596,
+                    "hashAlgorithm": "SHA-256",
+                    "signatureAlgorithm": "ECDSA",
+                    "signatureData": "3045022060B9FC5A5D4175BE53178C70BB671DF639146032E1B0C0870C59C93AC5B49CAB02210091BF67A021DFD8A4F41C7409655F17E140BCC2043963C264A664B9D0D058B801"
+                  }
+                ],
+                "certificateTransparencyCompliance": "unknown",
+                "serverSignatureAlgorithm": 1027,
+                "encryptedClientHello": false
+              },
+              "initiator": "https:\/\/smdserver.xyz\/",
+              "initiator_line": "",
+              "initiator_column": "",
+              "initiator_type": "script",
+              "priority": "Highest",
+              "initial_priority": "Highest",
+              "server_rtt": null,
+              "headers": {
+                "request": [
+                  ":authority: smdserver.xyz",
+                  ":method: GET",
+                  ":path: \/",
+                  ":scheme: https",
+                  "accept: text\/html,application\/xhtml+xml,application\/xml;q=0.9,image\/avif,image\/webp,image\/apng,*\/*;q=0.8,application\/signed-exchange;v=b3;q=0.7",
+                  "accept-encoding: gzip, deflate, br, zstd",
+                  "accept-language: en-US,en;q=0.9",
+                  "priority: u=0, i",
+                  "sec-ch-ua: \" Not A;Brand\";v=\"99\", \"Chromium\";v=\"136\", \"Google Chrome\";v=\"136\"",
+                  "sec-ch-ua-mobile: ?0",
+                  "sec-ch-ua-platform: \"Unknown\"",
+                  "sec-fetch-dest: document",
+                  "sec-fetch-mode: navigate",
+                  "sec-fetch-site: cross-site",
+                  "upgrade-insecure-requests: 1",
+                  "user-agent: Mozilla\/5.0 (X11; Linux x86_64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/136.0.0.0 Safari\/537.36 PTST\/25.05"
+                ],
+                "response": [
+                  "cache-control: private, max-age=0, no-store, no-cache, must-revalidate, post-check=0, pre-check=0",
+                  "cf-ray: 98ef6f5ad8ecd67c-IAD",
+                  "content-encoding: br",
+                  "content-type: text\/html; charset=UTF-8",
+                  "date: Wed, 15 Oct 2025 12:49:10 GMT",
+                  "expires: Thu, 01 Jan 1970 00:00:01 GMT",
+                  "nel: {\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+                  "referrer-policy: same-origin",
+                  "report-to: {\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https:\/\/a.nel.cloudflare.com\/report\/v4?s=D9NXMz4O2G%2FSnhD7aH7tFR3W0sVsXatim%2BF6EpDagvFmnmiBmDjQbZ4t17rMdoYZAlkg2GFH%2BXzqo84vVYmObIxssz2MJ6z90hA%3D\"}]}",
+                  "server: cloudflare",
+                  "vary: accept-encoding",
+                  "x-frame-options: SAMEORIGIN",
+                  ":status: 403"
+                ]
+              },
+              "bytesOut": 2113,
+              "score_cache": -1,
+              "score_cdn": 100,
+              "score_gzip": -1,
+              "score_cookies": -1,
+              "score_keep-alive": -1,
+              "score_minify": -1,
+              "score_combine": -1,
+              "score_compress": -1,
+              "score_etags": -1,
+              "dns_ms": 11,
+              "connect_ms": 2,
+              "ssl_ms": 17,
+              "gzip_total": null,
+              "gzip_save": null,
+              "minify_total": null,
+              "minify_save": null,
+              "image_total": null,
+              "image_save": null,
+              "cache_time": null,
+              "cdn_provider": "Cloudflare",
+              "server_count": null,
+              "created": 17,
+              "socket_group": "https:\/\/smdserver.xyz <https:\/\/smdserver.xyz same_site>",
+              "http2_stream_id": 1,
+              "http2_stream_dependency": 0,
+              "http2_stream_weight": 256,
+              "http2_stream_exclusive": 1,
+              "http2_server_settings": {
+                "SETTINGS_MAX_CONCURRENT_STREAMS": 100,
+                "SETTINGS_INITIAL_WINDOW_SIZE": 65536,
+                "SETTINGS_MAX_FRAME_SIZE": 16777215
+              },
+              "tls_version": "TLS 1.3",
+              "tls_resumed": "False",
+              "tls_next_proto": "h2",
+              "tls_cipher_suite": 4865,
+              "netlog_id": 105,
+              "certificates": [
+                "-----BEGIN CERTIFICATE-----\nMIIDqzCCA1GgAwIBAgIRAOB4pjIKup3KDqbg2ozR8qAwCgYIKoZIzj0EAwIwOzEL\nMAkGA1UEBhMCVVMxHjAcBgNVBAoTFUdvb2dsZSBUcnVzdCBTZXJ2aWNlczEMMAoG\nA1UEAxMDV0UxMB4XDTI1MDkyMjEzMTQwOVoXDTI1MTIyMTE0MTM1NlowGDEWMBQG\nA1UEAxMNc21kc2VydmVyLnh5ejBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABGaf\nE4RmimC6LXbWxGjjG3H9DUw5X+jTPWtL3FrMPP9AGXCMAokyAB15+bSJdvLMV+pg\ndPj2kdS\/\/Ay1kOuI9pGjggJXMIICUzAOBgNVHQ8BAf8EBAMCB4AwEwYDVR0lBAww\nCgYIKwYBBQUHAwEwDAYDVR0TAQH\/BAIwADAdBgNVHQ4EFgQUc9gI7P3J30qYr0Tp\nqyHxIMC07DUwHwYDVR0jBBgwFoAUkHeSNWfE\/6jMqeZ72YB5e8yT+TgwXgYIKwYB\nBQUHAQEEUjBQMCcGCCsGAQUFBzABhhtodHRwOi8vby5wa2kuZ29vZy9zL3dlMS80\nSGcwJQYIKwYBBQUHMAKGGWh0dHA6Ly9pLnBraS5nb29nL3dlMS5jcnQwKQYDVR0R\nBCIwIIINc21kc2VydmVyLnh5eoIPKi5zbWRzZXJ2ZXIueHl6MBMGA1UdIAQMMAow\nCAYGZ4EMAQIBMDYGA1UdHwQvMC0wK6ApoCeGJWh0dHA6Ly9jLnBraS5nb29nL3dl\nMS8tQTRRSXhlQnRISS5jcmwwggEEBgorBgEEAdZ5AgQCBIH1BIHyAPAAdgAS8U40\nvVNyTIQGGcOPP3oT+Oe1YoeInG0wBYTr5YYmOgAAAZlxxl1\/AAAEAwBHMEUCIQCl\nmzY3+oKcppSHb9\/qF+HN7EZ+LCQiKxzujTw9cbjimwIgUZdXLPM+jraO016639If\nQ1vBjpMMB\/KbxPtdMGwxeMoAdgDM+w9qhXEJZf6Vm1PO6bJ8IumFXA2XjbapflTA\n\/kwNsAAAAZlxxl28AAAEAwBHMEUCIGC5\/FpdQXW+UxeMcLtnHfY5FGAy4bDAhwxZ\nyTrFtJyrAiEAkb9noCHf2KT0HHQJZV8X4UC8wgQ5Y8JkpmS50NBYuAEwCgYIKoZI\nzj0EAwIDSAAwRQIhAOJsm3uo8Y9prgz5ZKwdle0Eehfy+Mp11FlwnG\/M8t5OAiAb\nb8nP78mucpDztapyHlq+\/T8XWCidMNgMSzZlr3+bMQ==\n-----END CERTIFICATE-----\n",
+                "-----BEGIN CERTIFICATE-----\nMIICnzCCAiWgAwIBAgIQf\/MZd5csIkp2FV0TttaF4zAKBggqhkjOPQQDAzBHMQsw\nCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExMQzEU\nMBIGA1UEAxMLR1RTIFJvb3QgUjQwHhcNMjMxMjEzMDkwMDAwWhcNMjkwMjIwMTQw\nMDAwWjA7MQswCQYDVQQGEwJVUzEeMBwGA1UEChMVR29vZ2xlIFRydXN0IFNlcnZp\nY2VzMQwwCgYDVQQDEwNXRTEwWTATBgcqhkjOPQIBBggqhkjOPQMBBwNCAARvzTr+\nZ1dHTCEDhUDCR127WEcPQMFcF4XGGTfn1XzthkubgdnXGhOlCgP4mMTG6J7\/EFmP\nLCaY9eYmJbsPAvpWo4H+MIH7MA4GA1UdDwEB\/wQEAwIBhjAdBgNVHSUEFjAUBggr\nBgEFBQcDAQYIKwYBBQUHAwIwEgYDVR0TAQH\/BAgwBgEB\/wIBADAdBgNVHQ4EFgQU\nkHeSNWfE\/6jMqeZ72YB5e8yT+TgwHwYDVR0jBBgwFoAUgEzW63T\/STaj1dj8tT7F\navCUHYwwNAYIKwYBBQUHAQEEKDAmMCQGCCsGAQUFBzAChhhodHRwOi8vaS5wa2ku\nZ29vZy9yNC5jcnQwKwYDVR0fBCQwIjAgoB6gHIYaaHR0cDovL2MucGtpLmdvb2cv\nci9yNC5jcmwwEwYDVR0gBAwwCjAIBgZngQwBAgEwCgYIKoZIzj0EAwMDaAAwZQIx\nAOcCq1HW90OVznX+0RGU1cxAQXomvtgM8zItPZCuFQ8jSBJSjz5keROv9aYsAm5V\nsQIwJonMaAFi54mrfhfoFNZEfuNMSQ6\/bIBiNLiyoX46FohQvKeIoJ99cx7sUkFN\n7uJW\n-----END CERTIFICATE-----\n",
+                "-----BEGIN CERTIFICATE-----\nMIIDejCCAmKgAwIBAgIQf+UwvzMTQ77dghYQST2KGzANBgkqhkiG9w0BAQsFADBX\nMQswCQYDVQQGEwJCRTEZMBcGA1UEChMQR2xvYmFsU2lnbiBudi1zYTEQMA4GA1UE\nCxMHUm9vdCBDQTEbMBkGA1UEAxMSR2xvYmFsU2lnbiBSb290IENBMB4XDTIzMTEx\nNTAzNDMyMVoXDTI4MDEyODAwMDA0MlowRzELMAkGA1UEBhMCVVMxIjAgBgNVBAoT\nGUdvb2dsZSBUcnVzdCBTZXJ2aWNlcyBMTEMxFDASBgNVBAMTC0dUUyBSb290IFI0\nMHYwEAYHKoZIzj0CAQYFK4EEACIDYgAE83Rzp2iLYK5DuDXFgTB7S0md+8Fhzube\nRr1r1WEYNa5A3XP3iZEwWus87oV8okB2O6nGuEfYKueSkWpz6bFyOZ8pn6KY019e\nWIZlD6GEZQbR3IvJx3PIjGov5cSr0R2Ko4H\/MIH8MA4GA1UdDwEB\/wQEAwIBhjAd\nBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwDwYDVR0TAQH\/BAUwAwEB\/zAd\nBgNVHQ4EFgQUgEzW63T\/STaj1dj8tT7FavCUHYwwHwYDVR0jBBgwFoAUYHtmGkUN\nl8qJUC99BM00qP\/8\/UswNgYIKwYBBQUHAQEEKjAoMCYGCCsGAQUFBzAChhpodHRw\nOi8vaS5wa2kuZ29vZy9nc3IxLmNydDAtBgNVHR8EJjAkMCKgIKAehhxodHRwOi8v\nYy5wa2kuZ29vZy9yL2dzcjEuY3JsMBMGA1UdIAQMMAowCAYGZ4EMAQIBMA0GCSqG\nSIb3DQEBCwUAA4IBAQAYQrsPBtYDh5bjP2OBDwmkoWhIDDkic574y04tfzHpn+cJ\nodI2D4SseesQ6bDrarZ7C30ddLibZatoKiws3UL9xnELz4ct92vID24FfVbiI1hY\n+SW6FoVHkNeWIP0GCbaM4C6uVdF5dTUsMVs\/ZbzNnIdCp5Gxmx5ejvEau8otR\/Cs\nkGN+hr\/W5GvT1tMBjgWKZ1i4\/\/emhA1JG1BbPzoLJQvyEotc03lXjTaCzv8mEbep\n8RqZ7a2CPsgRbuvTPBwcOMBBmuFeU88+FSBX6+7iP0il8b4Z0QFqIwwMHfs\/L6K1\nvepuoxtGzi4CZ68zJpiq1UvSqTbFJjtbD4seiMHl\n-----END CERTIFICATE-----\n"
+              ],
+              "server_port": "443",
+              "load_end": 49,
+              "ttfb_start": 39,
+              "ttfb_end": 47,
+              "download_start": 47,
+              "download_end": 49,
+              "download_ms": 2,
+              "all_start": 9,
+              "all_end": 49,
+              "all_ms": 40,
+              "index": 0,
+              "number": 1
+            },
+            {
+              "type": 3,
+              "id": "604611.2",
+              "request_id": "604611.2",
+              "ip_addr": "104.26.5.167",
+              "full_url": "https:\/\/smdserver.xyz\/cdn-cgi\/styles\/cf.errors.css",
+              "is_secure": 1,
+              "method": "GET",
+              "host": "smdserver.xyz",
+              "url": "\/cdn-cgi\/styles\/cf.errors.css",
+              "raw_id": "604611.2",
+              "frame_id": "07B2FF28C41BAB60A25887FF914770F7",
+              "documentURL": "https:\/\/smdserver.xyz\/",
+              "responseCode": 200,
+              "request_type": "Stylesheet",
+              "load_ms": 9,
+              "ttfb_ms": 7,
+              "load_start": 65,
+              "load_start_float": 65.000140000000002,
+              "bytesIn": 4554,
+              "objectSize": 4554,
+              "objectSizeUncompressed": 24051,
+              "chunks": [
+                {
+                  "ts": 74,
+                  "bytes": 4554,
+                  "inflated": 24051
+                }
+              ],
+              "expires": "",
+              "cacheControl": "",
+              "contentType": "text\/css",
+              "contentEncoding": "br",
+              "socket": 123,
+              "protocol": "HTTP\/2",
+              "dns_start": -1,
+              "dns_end": -1,
+              "connect_start": -1,
+              "connect_end": -1,
+              "ssl_start": -1,
+              "ssl_end": -1,
+              "initiator": "https:\/\/smdserver.xyz\/",
+              "initiator_line": 12,
+              "initiator_column": "",
+              "initiator_type": "parser",
+              "priority": "Highest",
+              "initial_priority": "Highest",
+              "server_rtt": null,
+              "headers": {
+                "request": [
+                  ":authority: smdserver.xyz",
+                  ":method: GET",
+                  ":path: \/cdn-cgi\/styles\/cf.errors.css",
+                  ":scheme: https",
+                  "accept: text\/css,*\/*;q=0.1",
+                  "accept-encoding: gzip, deflate, br, zstd",
+                  "accept-language: en-US,en;q=0.9",
+                  "priority: u=0",
+                  "referer: https:\/\/smdserver.xyz\/",
+                  "sec-ch-ua: \" Not A;Brand\";v=\"99\", \"Chromium\";v=\"136\", \"Google Chrome\";v=\"136\"",
+                  "sec-ch-ua-mobile: ?0",
+                  "sec-ch-ua-platform: \"Unknown\"",
+                  "sec-fetch-dest: style",
+                  "sec-fetch-mode: no-cors",
+                  "sec-fetch-site: same-origin",
+                  "user-agent: Mozilla\/5.0 (X11; Linux x86_64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/136.0.0.0 Safari\/537.36 PTST\/25.05"
+                ],
+                "response": [
+                  "cf-ray: 98ef6f5b095ed67c-IAD",
+                  "content-encoding: br",
+                  "content-type: text\/css",
+                  "date: Wed, 15 Oct 2025 12:49:10 GMT",
+                  "nel: {\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+                  "report-to: {\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https:\/\/a.nel.cloudflare.com\/report\/v4?s=TpR85TmGbM7OStCV5lK74e2T%2FcQy6tlPTTdpP9vSiuNA7%2FLeM9MNJkKJzSRym%2FzC4W%2BjEdo%2Byf1xrUP3L9oaOw8QsWrlneYHPwg%3D\"}]}",
+                  "server: cloudflare",
+                  "vary: accept-encoding",
+                  ":status: 200"
+                ]
+              },
+              "bytesOut": 1837,
+              "score_cache": 0,
+              "score_cdn": 100,
+              "score_gzip": 100,
+              "score_cookies": -1,
+              "score_keep-alive": 100,
+              "score_minify": -1,
+              "score_combine": -1,
+              "score_compress": -1,
+              "score_etags": -1,
+              "dns_ms": -1,
+              "connect_ms": -1,
+              "ssl_ms": -1,
+              "gzip_total": 4792,
+              "gzip_save": 0,
+              "minify_total": null,
+              "minify_save": null,
+              "image_total": null,
+              "image_save": null,
+              "cache_time": 0,
+              "cdn_provider": "Cloudflare",
+              "server_count": null,
+              "created": 61,
+              "socket_group": "https:\/\/smdserver.xyz <https:\/\/smdserver.xyz same_site>",
+              "http2_stream_id": 3,
+              "http2_stream_dependency": 0,
+              "http2_stream_weight": 256,
+              "http2_stream_exclusive": 1,
+              "netlog_id": 140,
+              "server_port": "443",
+              "final_base_page": true,
+              "is_base_page": true,
+              "renderBlocking": "blocking",
+              "load_end": 74,
+              "ttfb_start": 65,
+              "ttfb_end": 72,
+              "download_start": 72,
+              "download_end": 74,
+              "download_ms": 2,
+              "all_start": 65,
+              "all_end": 74,
+              "all_ms": 9,
+              "index": 1,
+              "number": 2
+            },
+            {
+              "type": 3,
+              "full_url": "https:\/\/a.nel.cloudflare.com\/report\/v4?s=D9NXMz4O2G%2FSnhD7aH7tFR3W0sVsXatim%2BF6EpDagvFmnmiBmDjQbZ4t17rMdoYZAlkg2GFH%2BXzqo84vVYmObIxssz2MJ6z90hA%3D",
+              "id": "99999.99999.1",
+              "is_secure": 1,
+              "host": "a.nel.cloudflare.com",
+              "url": "\/report\/v4?s=D9NXMz4O2G%2FSnhD7aH7tFR3W0sVsXatim%2BF6EpDagvFmnmiBmDjQbZ4t17rMdoYZAlkg2GFH%2BXzqo84vVYmObIxssz2MJ6z90hA%3D",
+              "responseCode": -1,
+              "score_cache": -1,
+              "score_cdn": -1,
+              "score_gzip": -1,
+              "score_cookies": -1,
+              "score_keep-alive": -1,
+              "score_minify": -1,
+              "score_combine": -1,
+              "score_compress": -1,
+              "score_etags": -1,
+              "dns_ms": 5,
+              "connect_ms": 2,
+              "ssl_ms": 9,
+              "gzip_total": null,
+              "gzip_save": null,
+              "minify_total": null,
+              "minify_save": null,
+              "image_total": null,
+              "image_save": null,
+              "cache_time": null,
+              "cdn_provider": null,
+              "server_count": null,
+              "dns_start": 53,
+              "dns_end": 58,
+              "connect_start": 59,
+              "connect_end": 61,
+              "ssl_start": 61,
+              "ssl_end": 70,
+              "frame_id": "07B2FF28C41BAB60A25887FF914770F7",
+              "created": 52,
+              "load_start": 71,
+              "priority": "Lowest",
+              "protocol": "HTTP\/2",
+              "socket": 139,
+              "socket_group": "pm\/https:\/\/a.nel.cloudflare.com <https:\/\/smdserver.xyz same_site>",
+              "http2_stream_id": 1,
+              "http2_stream_dependency": 0,
+              "http2_stream_weight": 110,
+              "http2_stream_exclusive": 1,
+              "chunks": [],
+              "http2_server_settings": "{'SETTINGS_MAX_CONCURRENT_STREAMS': 100, 'SETTINGS_INITIAL_WINDOW_SIZE': 1048576, 'SETTINGS_MAX_HEADER_LIST_SIZE': 65536}",
+              "tls_version": "TLS 1.3",
+              "tls_resumed": "False",
+              "tls_next_proto": "h2",
+              "tls_cipher_suite": 4865,
+              "netlog_id": 126,
+              "load_start_float": 71.000125999999995,
+              "headers": {
+                "request": [
+                  ":method: OPTIONS",
+                  ":authority: a.nel.cloudflare.com",
+                  ":scheme: https",
+                  ":path: \/report\/v4?s=D9NXMz4O2G%2FSnhD7aH7tFR3W0sVsXatim%2BF6EpDagvFmnmiBmDjQbZ4t17rMdoYZAlkg2GFH%2BXzqo84vVYmObIxssz2MJ6z90hA%3D",
+                  "origin: https:\/\/smdserver.xyz",
+                  "access-control-request-method: POST",
+                  "access-control-request-headers: content-type",
+                  "user-agent: Mozilla\/5.0 (X11; Linux x86_64) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/136.0.0.0 Safari\/537.36",
+                  "accept-encoding: gzip, deflate, br, zstd",
+                  "accept-language: en-US,en;q=0.9",
+                  "priority: u=4, i"
+                ],
+                "response": []
+              },
+              "bytesIn": 0,
+              "objectSize": 0,
+              "certificates": [
+                "-----BEGIN CERTIFICATE-----\nMIIFazCCBFOgAwIBAgIRAILMQ7pnD9GyEJWlO1foOlwwDQYJKoZIhvcNAQELBQAw\nOzELMAkGA1UEBhMCVVMxHjAcBgNVBAoTFUdvb2dsZSBUcnVzdCBTZXJ2aWNlczEM\nMAoGA1UEAxMDV1IzMB4XDTI1MTAwNjE4MjIxM1oXDTI2MDEwNDE5MTY0NlowITEf\nMB0GA1UEAxMWZ2NwLm5lbC5jbG91ZGZsYXJlLmNvbTCCASIwDQYJKoZIhvcNAQEB\nBQADggEPADCCAQoCggEBALEVzLxEnv9oGGz4o+7E1Z8l312HQgihzBDqlRicTE7C\ny5oZZWAatueKHngehM5wsT7O48iHAKSUDiOuxyyv7+zdkSt\/kXG+vqKC4E5+8HD7\n+2V3ADStjyI7uka3Uw9wJt1owhXZV+5Ddq7L\/illMniznFjCVrSyJOfAPPt7UDW0\njfQOR7OY\/PVivJxW8iEbLYVHH5XViKGgXPSuHS2CJGdKOi5Kw90w4P9wKIzqFWF8\noCKtPBNso2eVn87aTgnqhm1pDwmAhxEcBlLN7VH5r6ZKGDd4W+2ic2T1xM2xluMP\n1VTbF9zXykkmNvEDXUwLsoufvL4iebUAcdV6xQTJFdECAwEAAaOCAoIwggJ+MA4G\nA1UdDwEB\/wQEAwIFoDATBgNVHSUEDDAKBggrBgEFBQcDATAMBgNVHRMBAf8EAjAA\nMB0GA1UdDgQWBBQO7SLMVAsN0JgtlLdHugnBsF+\/7jAfBgNVHSMEGDAWgBTHgfX9\njojZADxNY6JQMSSgziP+IzBeBggrBgEFBQcBAQRSMFAwJwYIKwYBBQUHMAGGG2h0\ndHA6Ly9vLnBraS5nb29nL3Mvd3IzL2dzdzAlBggrBgEFBQcwAoYZaHR0cDovL2ku\ncGtpLmdvb2cvd3IzLmNydDBUBgNVHREETTBLghZnY3AubmVsLmNsb3VkZmxhcmUu\nY29tghRhLm5lbC5jbG91ZGZsYXJlLmNvbYIbeG4tLTY2OGgubmVsLmNsb3VkZmxh\ncmUuY29tMBMGA1UdIAQMMAowCAYGZ4EMAQIBMDYGA1UdHwQvMC0wK6ApoCeGJWh0\ndHA6Ly9jLnBraS5nb29nL3dyMy9vT0xHVzBXVWRORS5jcmwwggEEBgorBgEEAdZ5\nAgQCBIH1BIHyAPAAdgAOV5S8866pPjMbLJkHs\/eQ35vCPXEyJd0hqSWsYcVOIQAA\nAZm6+XGQAAAEAwBHMEUCIA+BOT7rEkT9\/HtJMxQdlNoAt8UD7LapbZs+ehvipy30\nAiEA3ypOOIxPX1o3WUwCU\/NSfUaZX9Jh4hkJIly8bTXI8gYAdgDRbqmlaAd+ZjWg\nPzel3bwDpTxBEhTUiBj16TGzI8uVBAAAAZm6+XKoAAAEAwBHMEUCIQCZqgHp59LZ\nBiiGy2yYzR4\/+OeIzh9HHofurho3f9rZ7wIgCxMn0+TWZGDrml8AEwhds3hNRrAY\n5WnASSHKA7LPMyswDQYJKoZIhvcNAQELBQADggEBADJsY5+6ZRfLpj0fiq7X6Mqp\nQA4yUU+LiR4+MU9gwhdjcRcK2dZY0PBRSHpE8hc9Qw+TxwuyVjEWmOb9xP5kuKOe\n1L+SEfxJxCoShbW6dsWfCV4DyQAeq7Y7fbWyQC0JFvBxodZbI5iDhdbd+otUdrfE\nNuQNlbc\/joQ2YaaYQnzsnR4Ab8D9K9Av2m1Hgm5LCT3j99fmo6RlFiL\/WK7LSDhx\num8NYdA4DcHrLWxDzktFCOU5s0an7rblA5756wkD\/+ADUkVBGXkMPmZlEpfKq3gx\n5bgpuHoDXeAKnnwe+8ttBnU1KgEEfS0RdFJJKTAc\/TI1UZrEGSI5uzlj1zHkCgQ=\n-----END CERTIFICATE-----\n",
+                "-----BEGIN CERTIFICATE-----\nMIIFCzCCAvOgAwIBAgIQf\/AFqRVo1jq8IoYWhKpLWjANBgkqhkiG9w0BAQsFADBH\nMQswCQYDVQQGEwJVUzEiMCAGA1UEChMZR29vZ2xlIFRydXN0IFNlcnZpY2VzIExM\nQzEUMBIGA1UEAxMLR1RTIFJvb3QgUjEwHhcNMjMxMjEzMDkwMDAwWhcNMjkwMjIw\nMTQwMDAwWjA7MQswCQYDVQQGEwJVUzEeMBwGA1UEChMVR29vZ2xlIFRydXN0IFNl\ncnZpY2VzMQwwCgYDVQQDEwNXUjMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK\nAoIBAQCPNHWHr4RyFI0HEJFvA6zx1Ag1mhnymxiJNGyYj3rU3eoF6N4bfIxUErp5\nivsYDQ18nPO9OOSoXsYzy0aJb0ag6TdjjdzM1ZdOMq17HSMFufV7SUOY0LxXx1N4\nGLHtp1SyfIa+8FRFvIe6mVkd9LjbAPuBT0YrYl6xOqUqFyOsor7FjuVe\/XEefaS0\nI30EUrI00t+ZrIfGTFlf+OZPjnWSwrIwRpLQtg3H5Iln\/z9UlCdl4wHISiyEL2Vf\nza1c\/aatQVvcTD8XlpF9qdg8Uyoc0ObUd+ZDSsK3+Eiiza1jtSVrlnIdgUVvhmnE\n5OZ4TDHmoX+nAXMKh++HiXLM08WNAgMBAAGjgf4wgfswDgYDVR0PAQH\/BAQDAgGG\nMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjASBgNVHRMBAf8ECDAGAQH\/\nAgEAMB0GA1UdDgQWBBTHgfX9jojZADxNY6JQMSSgziP+IzAfBgNVHSMEGDAWgBTk\nrysmcRorSCeFL1JmLO\/wiRNxPjA0BggrBgEFBQcBAQQoMCYwJAYIKwYBBQUHMAKG\nGGh0dHA6Ly9pLnBraS5nb29nL3IxLmNydDArBgNVHR8EJDAiMCCgHqAchhpodHRw\nOi8vYy5wa2kuZ29vZy9yL3IxLmNybDATBgNVHSAEDDAKMAgGBmeBDAECATANBgkq\nhkiG9w0BAQsFAAOCAgEAnI1DlJQzSKcWbyXXrJSsgKMo6KG74TMqhsuTg67a0FX0\n2752+eiJb5YsOJc8DVOHalwpOvbuPdl5BuAEgIK4Va7l9j3J9M1\/EjeWjGTM3Ros\nzmBJGu82oz6EWi5q75xeF+onJmh2Hm98a\/yJAI\/mODXq5LofYcQ9AffKP9ZMZu+Y\nwW+\/qHqyX2JhaOntvl7i8S+l1Y8CcKEqM1NFK4s4EBYPRFjZDawOHX7fSchbSMVP\nn5Nu04lrU6xufuZqRosEQw2o0UAyzDoyA52NXzJTWr1G2FVg\/0A9hdrQ\/6fe9G31\n67zKxNqXErs6MpHttEouGbpm2ftzrmcvruYxTfxc4G2GwBi3LFLozNpy042gDfXB\nzDyn1staWsy7+QnzMlR59Fz6jBOk5R4LT+ma0+KjnfRhMh5T2ucm69HkvNQtDZlV\na1tLUlzs0zLEdQSehTCjZ6SYsGt2bMVK6dvtxzcyCP0QDUFnNXCwgw12+mGSkAuj\n4ORi8kMRpnL8UEjkNbdw9KL1eYbEC3D0GPue2Yk2AGhxkmcdm1BoOp05kYw\/Nnqg\nh7QV8DKyBTUHbjH0pXlLiOsSOY+CLh1eTM+Do6rSjqGnDQeUXylZmPCmuveaw38I\nVnBaa6Eiz6pngZ1u6OeO\/1UzfhmyTm0n0G+9JZ3KS2Mq08isNgXHLnhlHJaphpE=\n-----END CERTIFICATE-----\n",
+                "-----BEGIN CERTIFICATE-----\nMIIFYjCCBEqgAwIBAgIQd70NbNs2+RrqIQ\/E8FjTDTANBgkqhkiG9w0BAQsFADBX\nMQswCQYDVQQGEwJCRTEZMBcGA1UEChMQR2xvYmFsU2lnbiBudi1zYTEQMA4GA1UE\nCxMHUm9vdCBDQTEbMBkGA1UEAxMSR2xvYmFsU2lnbiBSb290IENBMB4XDTIwMDYx\nOTAwMDA0MloXDTI4MDEyODAwMDA0MlowRzELMAkGA1UEBhMCVVMxIjAgBgNVBAoT\nGUdvb2dsZSBUcnVzdCBTZXJ2aWNlcyBMTEMxFDASBgNVBAMTC0dUUyBSb290IFIx\nMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAthECix7joXebO9y\/lD63\nladAPKH9gvl9MgaCcfb2jH\/76Nu8ai6Xl6OMS\/kr9rH5zoQdsfnFl97vufKj6bwS\niV6nqlKr+CMny6SxnGPb15l+8Ape62im9MZaRw1NEDPjTrETo8gYbEvs\/AmQ351k\nKSUjB6G00j0uYODP0gmHu81I8E3CwnqIiru6z1kZ1q+PsAewnjHxgsHA3y6mbWwZ\nDrXYfiYaRQM9sHmklCitD38m5agI\/pboPGiUU+6DOogrFZYJsuB6jC511pzrp1Zk\nj5ZPaK49l8KEj8C8QMALXL32h7M1bKwYUH+E4EzNktMg6TO8UpmvMrUpsyUqtEj5\ncuHKZPfmghCN6J3Cioj6OGaK\/GP5Afl4\/Xtcd\/p2h\/rs37EOeZVXtL0m79YB0esW\nCruOC7XFxYpVq9Os6pFLKcwZpDIlTirxZUTQAs6qzkm06p98g7BAe+dDq6dso499\niYH6TKX\/1Y7DzkvgtdizjkXPdsDtQCv9Uw+wp9U7DbGKogPeMa3Md+pvez7W35Ei\nEua++tgy\/BBjFFFy3l3WFpO9KWgz7zpm7AeKJt8T11dleCfeXkkUAKIAf5qoIbap\nsZWwpbkNFhHax2xIPEDgfg1azVY80ZcFuctL7TlLnMQ\/0lUTbiSw1nH69MG6zO0b\n9f6BQdgAmD06yK56mDcYBZUCAwEAAaOCATgwggE0MA4GA1UdDwEB\/wQEAwIBhjAP\nBgNVHRMBAf8EBTADAQH\/MB0GA1UdDgQWBBTkrysmcRorSCeFL1JmLO\/wiRNxPjAf\nBgNVHSMEGDAWgBRge2YaRQ2XyolQL30EzTSo\/\/z9SzBgBggrBgEFBQcBAQRUMFIw\nJQYIKwYBBQUHMAGGGWh0dHA6Ly9vY3NwLnBraS5nb29nL2dzcjEwKQYIKwYBBQUH\nMAKGHWh0dHA6Ly9wa2kuZ29vZy9nc3IxL2dzcjEuY3J0MDIGA1UdHwQrMCkwJ6Al\noCOGIWh0dHA6Ly9jcmwucGtpLmdvb2cvZ3NyMS9nc3IxLmNybDA7BgNVHSAENDAy\nMAgGBmeBDAECATAIBgZngQwBAgIwDQYLKwYBBAHWeQIFAwIwDQYLKwYBBAHWeQIF\nAwMwDQYJKoZIhvcNAQELBQADggEBADSkHrEoo9C0dhemMXoh6dFSPsjbdBZBiLg9\nNR3t5P+T4Vxfq7vqfM\/b5A3Ri1fyJm9bvhdGaJQ3b2t6yMAYN\/olUazsaL+yyEn9\nWprKASOshIArAoyZl+tJaox118fessmXn1hIVw41oeQa1v1vg4Fv74zPl6\/AhSrw\n9U5pCZEt4Wi4wStz6dTZ\/CLANx8LZh1J7QJVj2fhMtfTJr9w4z30Z209fOU0iOMy\n+qduBmpvvYuR7hZL6Dupszfnw0Skfths18dG9ZKb59UhvmaSGZRVbNQpsg3BZlvi\nd0lIKO2d1xozclOzgjXPYovJJIultzkMu34qQb9Sz\/yilrbCgj8=\n-----END CERTIFICATE-----\n"
+              ],
+              "ip_addr": "35.190.80.1",
+              "server_port": "443",
+              "bytesOut": 0,
+              "request_id": "99999.99999.1",
+              "raw_id": "99999.99999.1",
+              "load_end": 0,
+              "ttfb_start": 71,
+              "ttfb_end": 0,
+              "download_start": 71,
+              "download_end": 0,
+              "download_ms": -71,
+              "all_start": 53,
+              "all_end": 0,
+              "all_ms": 16,
+              "index": 2,
+              "number": 3
+            }
+          ],
+          "requestsFull": 3,
+          "requestsDoc": 3,
+          "responses_200": 1,
+          "responses_404": 0,
+          "responses_other": 2,
+          "result": 403,
+          "testStartOffset": 0,
+          "cached": 0,
+          "optimization_checked": 1,
+          "main_frame": "07B2FF28C41BAB60A25887FF914770F7",
+          "loadEventStart": 193,
+          "loadEventEnd": 193,
+          "domContentLoadedEventStart": 81,
+          "domContentLoadedEventEnd": 81,
+          "URL": "http:\/\/smdserver.xyz",
+          "connections": 1,
+          "final_base_page_request": 1,
+          "final_base_page_request_id": "604611.2",
+          "final_url": "https:\/\/smdserver.xyz\/cdn-cgi\/styles\/cf.errors.css",
+          "domInteractive": 81,
+          "renderBlockingCSS": 1,
+          "renderBlockingJS": 0,
+          "TTFB": 72,
+          "score_cache": 0,
+          "score_cdn": 100,
+          "score_gzip": 100,
+          "score_cookies": -1,
+          "score_keep-alive": 100,
+          "score_minify": -1,
+          "score_combine": -1,
+          "score_compress": -1,
+          "score_etags": -1,
+          "score_progressive_jpeg": -1,
+          "gzip_total": 4792,
+          "gzip_savings": 0,
+          "minify_total": -1,
+          "minify_savings": -1,
+          "image_total": 0,
+          "image_savings": 0,
+          "base_page_cdn": "Cloudflare",
+          "cpuTimes": {
+            "PrePaint": 0,
+            "Paint": 0,
+            "Layerize": 0,
+            "FireAnimationFrame": 0,
+            "FunctionCall": 1,
+            "EventDispatch": 0,
+            "Idle": 192
+          },
+          "cpuTimesDoc": {
+            "PrePaint": 0,
+            "Paint": 0,
+            "Layerize": 0,
+            "FireAnimationFrame": 0,
+            "FunctionCall": 1,
+            "EventDispatch": 0,
+            "Idle": 192
+          },
+          "cpu.PrePaint": 0,
+          "cpu.Paint": 0,
+          "cpu.Layerize": 0,
+          "cpu.FireAnimationFrame": 0,
+          "cpu.FunctionCall": 1,
+          "cpu.EventDispatch": 0,
+          "cpu.Idle": 192,
+          "v8Stats": {
+            "main_thread": [],
+            "background": []
+          },
+          "start_epoch": 1760532548.8343828,
+          "osVersion": "Linux 6.8.0-1018-gcp",
+          "os_version": "Linux 6.8.0-1018-gcp",
+          "osPlatform": "x86_64 x86_64",
+          "date": 1760532550.7341859,
+          "browserVersion": "136.0.0.0",
+          "browser_version": "136.0.0.0",
+          "fullyLoadedCPUms": 219,
+          "fullyLoadedCPUpct": 28.947368421235286,
+          "audit_issues": [
+            {
+              "code": "QuirksModeIssue",
+              "details": {
+                "quirksModeIssueDetails": {
+                  "isLimitedQuirksMode": false,
+                  "documentNodeId": 2,
+                  "url": "http:\/\/127.0.0.1:8888\/orange.html",
+                  "frameId": "07B2FF28C41BAB60A25887FF914770F7",
+                  "loaderId": "9994984833FAF0DC92CE506ACAB74C2B"
+                }
+              }
+            },
+            {
+              "code": "DeprecationIssue",
+              "details": {
+                "deprecationIssueDetails": {
+                  "affectedFrame": {
+                    "frameId": "58DE7BA0E7F961C95A1CAD5B90350B04"
+                  },
+                  "sourceCodeLocation": {
+                    "scriptId": "12",
+                    "url": "https:\/\/smdserver.xyz\/cdn-cgi\/challenge-platform\/scripts\/jsd\/main.js",
+                    "lineNumber": 0,
+                    "columnNumber": 8675
+                  },
+                  "type": "PersistentQuotaType"
+                }
+              }
+            }
+          ],
+          "execution_contexts": [
+            {
+              "id": 2,
+              "origin": "https:\/\/smdserver.xyz",
+              "name": ""
+            },
+            {
+              "id": 1,
+              "origin": "https:\/\/smdserver.xyz",
+              "name": ""
+            }
+          ],
+          "origin_dns": {
+            "cname": [],
+            "ns": [],
+            "mx": [],
+            "txt": [],
+            "soa": [],
+            "https": [],
+            "svcb": []
+          },
+          "detected": {
+            "CDN": "Cloudflare"
+          },
+          "detected_apps": {
+            "Cloudflare": ""
+          },
+          "detected_technologies": {
+            "Cloudflare": {
+              "name": "Cloudflare",
+              "description": "Cloudflare is a web-infrastructure and website-security company, providing content-delivery-network services, DDoS mitigation, Internet security, and distributed domain-name-server services.",
+              "slug": "cloudflare",
+              "categories": [
+                {
+                  "id": 31,
+                  "slug": "cdn",
+                  "groups": [
+                    7
+                  ],
+                  "name": "CDN",
+                  "priority": 9
+                }
+              ],
+              "confidence": 100,
+              "version": "",
+              "icon": "CloudFlare.svg",
+              "website": "http:\/\/www.cloudflare.com",
+              "pricing": [],
+              "cpe": null
+            }
+          },
+          "detected_raw": [
+            {
+              "name": "Cloudflare",
+              "description": "Cloudflare is a web-infrastructure and website-security company, providing content-delivery-network services, DDoS mitigation, Internet security, and distributed domain-name-server services.",
+              "slug": "cloudflare",
+              "categories": [
+                {
+                  "id": 31,
+                  "slug": "cdn",
+                  "groups": [
+                    7
+                  ],
+                  "name": "CDN",
+                  "priority": 9
+                }
+              ],
+              "confidence": 100,
+              "version": "",
+              "icon": "CloudFlare.svg",
+              "website": "http:\/\/www.cloudflare.com",
+              "pricing": [],
+              "cpe": null
+            }
+          ],
+          "axe": {
+            "testEngine": "4.10.2",
+            "violations": [],
+            "passes": [
+              {
+                "id": "aria-hidden-body",
+                "impact": null,
+                "tags": [
+                  "cat.aria",
+                  "wcag2a",
+                  "wcag131",
+                  "wcag412",
+                  "EN-301-549",
+                  "EN-9.1.3.1",
+                  "EN-9.4.1.2"
+                ],
+                "description": "Ensure aria-hidden=\"true\" is not present on the document body.",
+                "help": "aria-hidden=\"true\" must not be present on the document body",
+                "helpUrl": "https:\/\/dequeuniversity.com\/rules\/axe\/4.10\/aria-hidden-body?application=axeAPI",
+                "nodes": [
+                  {
+                    "any": [
+                      {
+                        "id": "aria-hidden-body",
+                        "data": null,
+                        "relatedNodes": [],
+                        "impact": "critical",
+                        "message": "No aria-hidden attribute is present on document body"
+                      }
+                    ],
+                    "all": [],
+                    "none": [],
+                    "impact": null,
+                    "html": "<body>",
+                    "target": [
+                      "body"
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "button-name",
+                "impact": null,
+                "tags": [
+                  "cat.name-role-value",
+                  "wcag2a",
+                  "wcag412",
+                  "section508",
+                  "section508.22.a",
+                  "TTv5",
+                  "TT6.a",
+                  "EN-301-549",
+                  "EN-9.4.1.2",
+                  "ACT"
+                ],
+                "description": "Ensure buttons have discernible text",
+                "help": "Buttons must have discernible text",
+                "helpUrl": "https:\/\/dequeuniversity.com\/rules\/axe\/4.10\/button-name?application=axeAPI",
+                "nodes": [
+                  {
+                    "any": [
+                      {
+                        "id": "button-has-visible-text",
+                        "data": null,
+                        "relatedNodes": [],
+                        "impact": "critical",
+                        "message": "Element has inner text that is visible to screen readers"
+                      }
+                    ],
+                    "all": [],
+                    "none": [],
+                    "impact": null,
+                    "html": "<button type=\"button\" id=\"cf-footer-ip-reveal\" class=\"cf-footer-ip-reveal-btn\">Click to reveal<\/button>",
+                    "target": [
+                      "#cf-footer-ip-reveal"
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "bypass",
+                "impact": null,
+                "tags": [
+                  "cat.keyboard",
+                  "wcag2a",
+                  "wcag241",
+                  "section508",
+                  "section508.22.o",
+                  "TTv5",
+                  "TT9.a",
+                  "EN-301-549",
+                  "EN-9.2.4.1"
+                ],
+                "description": "Ensure each page has at least one mechanism for a user to bypass navigation and jump straight to the content",
+                "help": "Page must have means to bypass repeated blocks",
+                "helpUrl": "https:\/\/dequeuniversity.com\/rules\/axe\/4.10\/bypass?application=axeAPI",
+                "nodes": [
+                  {
+                    "any": [
+                      {
+                        "id": "header-present",
+                        "data": null,
+                        "relatedNodes": [
+                          {
+                            "html": "<h1 data-translate=\"block_headline\">Sorry, you have been blocked<\/h1>",
+                            "target": [
+                              "h1"
+                            ]
+                          },
+                          {
+                            "html": "<h2 class=\"cf-subheadline\"><span data-translate=\"unable_to_access\">You are unable to access<\/span> smdserver.xyz<\/h2>",
+                            "target": [
+                              ".cf-subheadline"
+                            ]
+                          },
+                          {
+                            "html": "<h2 data-translate=\"blocked_why_headline\">Why have I been blocked?<\/h2>",
+                            "target": [
+                              "h2[data-translate=\"blocked_why_headline\"]"
+                            ]
+                          },
+                          {
+                            "html": "<h2 data-translate=\"blocked_resolve_headline\">What can I do to resolve this?<\/h2>",
+                            "target": [
+                              "h2[data-translate=\"blocked_resolve_headline\"]"
+                            ]
+                          }
+                        ],
+                        "impact": "serious",
+                        "message": "Page has a heading"
+                      }
+                    ],
+                    "all": [],
+                    "none": [],
+                    "impact": null,
+                    "html": "<html class=\"no-js\" lang=\"en-US\">",
+                    "target": [
+                      "html"
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "color-contrast",
+                "impact": null,
+                "tags": [
+                  "cat.color",
+                  "wcag2aa",
+                  "wcag143",
+                  "TTv5",
+                  "TT13.c",
+                  "EN-301-549",
+                  "EN-9.1.4.3",
+                  "ACT"
+                ],
+                "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+                "help": "Elements must meet minimum color contrast ratio thresholds",
+                "helpUrl": "https:\/\/dequeuniversity.com\/rules\/axe\/4.10\/color-contrast?application=axeAPI",
+                "nodes": [
+                  {
+                    "any": [
+                      {
+                        "id": "color-contrast",
+                        "data": {
+                          "fgColor": "#404040",
+                          "bgColor": "#ffffff",
+                          "contrastRatio": 10.359999999999999,
+                          "fontSize": "45.0pt (60px)",
+                          "fontWeight": "normal",
+                          "expectedContrastRatio": "3:1"
+                        },
+                        "relatedNodes": [],
+                        "impact": "serious",
+                        "message": "Element has sufficient color contrast of 10.36"
+                      }
+                    ],
+                    "all": [],
+                    "none": [],
+                    "impact": null,
+                    "html": "<h1 data-translate=\"block_headline\">Sorry, you have been blocked<\/h1>",
+                    "target": [
+                      "h1"
+                    ]
+                  },
+                  {
+                    "any": [
+                      {
+                        "id": "color-contrast",
+                        "data": {
+                          "fgColor": "#595959",
+                          "bgColor": "#ffffff",
+                          "contrastRatio": 7,
+                          "fontSize": "22.5pt (30px)",
+                          "fontWeight": "normal",
+                          "expectedContrastRatio": "3:1"
+                        },
+                        "relatedNodes": [],
+                        "impact": "serious",
+                        "message": "Element has sufficient color contrast of 7"
+                      }
+                    ],
+                    "all": [],
+                    "none": [],
+                    "impact": null,
+                    "html": "<h2 class=\"cf-subheadline\"><span data-translate=\"unable_to_access\">You are unable to access<\/span> smdserver.xyz<\/h2>",
+                    "target": [
+                      ".cf-subheadline"
+                    ]
+                  },
+                  {
+                    "any": [
+                      {
+                        "id": "color-contrast",
+                        "data": {
+                          "fgColor": "#595959",
+                          "bgColor": "#ffffff",
+                          "contrastRatio": 7,
+                          "fontSize": "22.5pt (30px)",
+                          "fontWeight": "normal",
+                          "expectedContrastRatio": "3:1"
+                        },
+                        "relatedNodes": [],
+                        "impact": "serious",
+                        "message": "Element has sufficient color contrast of 7"
+                      }
+                    ],
+                    "all": [],
+                    "none": [],
+                    "impact": null,
+                    "html": "<span data-translate=\"unable_to_access\">You are unable to access<\/span>",
+                    "target": [
+                      "span[data-translate=\"unable_to_access\"]"
+                    ]
+                  },
+                  {
+                    "any": [
+                      {
+                        "id": "color-contrast",
+                        "data": {
+                          "fgColor": "#404040",
+                          "bgColor": "#ffffff",
+                          "contrastRatio": 10.359999999999999,
+                          "fontSize": "22.5pt (30px)",
+                          "fontWeight": "normal",
+                          "expectedContrastRatio": "3:1"
+                        },
+                        "relatedNodes": [],
+                        "impact": "serious",
+                        "message": "Element has sufficient color contrast of 10.36"
+                      }
+                    ],
+                    "all": [],
+                    "none": [],
+                    "impact": null,
+                    "html": "<h2 data-translate=\"blocked_why_headline\">Why have I been blocked?<\/h2>",
+                    "target": [
+                      "h2[data-translate=\"blocked_why_headline\"]"
+                    ]
+                  },
+                  {
+                    "any": [
+                      {
+                        "id": "color-contrast",
+                        "data": {
+                          "fgColor": "#404040",
+                          "bgColor": "#ffffff",
+                          "contrastRatio": 10.359999999999999,
+                          "fontSize": "11.3pt (15px)",
+                          "fontWeight": "normal",
+                          "expectedContrastRatio": "4.5:1"
+                        },
+                        "relatedNodes": [],
+                        "impact": "serious",
+                        "message": "Element has sufficient color contrast of 10.36"
+                      }
+                    ],
+                    "all": [],
+                    "none": [],
+                    "impact": null,
+                    "html": "<p data-translate=\"blocked_why_detail\">",
+                    "target": [
+                      "p[data-translate=\"blocked_why_detail\"]"
+                    ]
+                  },
+                  {
+                    "any": [
+                      {
+                        "id": "color-contrast",
+                        "data": {
+                          "fgColor": "#404040",
+                          "bgColor": "#ffffff",
+                          "contrastRatio": 10.359999999999999,
+                          "fontSize": "22.5pt (30px)",
+                          "fontWeight": "normal",
+                          "expectedContrastRatio": "3:1"
+                        },
+                        "relatedNodes": [],
+                        "impact": "serious",
+                        "message": "Element has sufficient color contrast of 10.36"
+                      }
+                    ],
+                    "all": [],
+                    "none": [],
+                    "impact": null,
+                    "html": "<h2 data-translate=\"blocked_resolve_headline\">What can I do to resolve this?<\/h2>",
+                    "target": [
+                      "h2[data-translate=\"blocked_resolve_headline\"]"
+                    ]
+                  },
+                  {
+                    "any": [
+                      {
+                        "id": "color-contrast",
+                        "data": {
+                          "fgColor": "#404040",
+                          "bgColor": "#ffffff",
+                          "contrastRatio": 10.359999999999999,
+                          "fontSize": "11.3pt (15px)",
+                          "fontWeight": "normal",
+                          "expectedContrastRatio": "4.5:1"
+                        },
+                        "relatedNodes": [],
+                        "impact": "serious",
+                        "message": "Element has sufficient color contrast of 10.36"
+                      }
+                    ],
+                    "all": [],
+                    "none": [],
+                    "impact": null,
+                    "html": "<p data-translate=\"blocked_resolve_detail\">You can email the site owner to let them know you were blocked. Please include what you were doing when this page came up and the Cloudflare Ray ID found at the bottom of this page.<\/p>",
+                    "target": [
+                      "p[data-translate=\"blocked_resolve_detail\"]"
+                    ]
+                  },
+                  {
+                    "any": [
+                      {
+                        "id": "color-contrast",
+                        "data": {
+                          "fgColor": "#404040",
+                          "bgColor": "#ffffff",
+                          "contrastRatio": 10.359999999999999,
+                          "fontSize": "9.8pt (13px)",
+                          "fontWeight": "normal",
+                          "expectedContrastRatio": "4.5:1"
+                        },
+                        "relatedNodes": [],
+                        "impact": "serious",
+                        "message": "Element has sufficient color contrast of 10.36"
+                      }
+                    ],
+                    "all": [],
+                    "none": [],
+                    "impact": null,
+                    "html": "<span class=\"cf-footer-item sm:block sm:mb-1\">Cloudflare Ray ID: <strong class=\"font-semibold\">98ef6f5ad8ecd67c<\/strong><\/span>",
+                    "target": [
+                      ".cf-footer-item.sm\\:block.sm\\:mb-1:nth-child(1)"
+                    ]
+                  },
+                  {
+                    "any": [
+                      {
+                        "id": "color-contrast",
+                        "data": {
+                          "fgColor": "#404040",
+                          "bgColor": "#ffffff",
+                          "contrastRatio": 10.359999999999999,
+                          "fontSize": "9.8pt (13px)",
+                          "fontWeight": "normal",
+                          "expectedContrastRatio": "4.5:1"
+                        },
+                        "relatedNodes": [],
+                        "impact": "serious",
+                        "message": "Element has sufficient color contrast of 10.36"
+                      }
+                    ],
+                    "all": [],
+                    "none": [],
+                    "impact": null,
+                    "html": "<strong class=\"font-semibold\">98ef6f5ad8ecd67c<\/strong>",
+                    "target": [
+                      "strong"
+                    ]
+                  },
+                  {
+                    "any": [
+                      {
+                        "id": "color-contrast",
+                        "data": {
+                          "fgColor": "#404040",
+                          "bgColor": "#ffffff",
+                          "contrastRatio": 10.359999999999999,
+                          "fontSize": "9.8pt (13px)",
+                          "fontWeight": "normal",
+                          "expectedContrastRatio": "4.5:1"
+                        },
+                        "relatedNodes": [],
+                        "impact": "serious",
+                        "message": "Element has sufficient color contrast of 10.36"
+                      }
+                    ],
+                    "all": [],
+                    "none": [],
+                    "impact": null,
+                    "html": "<span id=\"cf-footer-item-ip\" class=\"cf-footer-item sm:block sm:mb-1\">",
+                    "target": [
+                      "#cf-footer-item-ip"
+                    ]
+                  },
+                  {
+                    "any": [
+                      {
+                        "id": "color-contrast",
+                        "data": {
+                          "fgColor": "#0051c3",
+                          "bgColor": "#ffffff",
+                          "contrastRatio": 7.0800000000000001,
+                          "fontSize": "9.8pt (13px)",
+                          "fontWeight": "normal",
+                          "expectedContrastRatio": "4.5:1"
+                        },
+                        "relatedNodes": [],
+                        "impact": "serious",
+                        "message": "Element has sufficient color contrast of 7.08"
+                      }
+                    ],
+                    "all": [],
+                    "none": [],
+                    "impact": null,
+                    "html": "<button type=\"button\" id=\"cf-footer-ip-reveal\" class=\"cf-footer-ip-reveal-btn\">Click to reveal<\/button>",
+                    "target": [
+                      "#cf-footer-ip-reveal"
+                    ]
+                  },
+                  {
+                    "any": [
+                      {
+                        "id": "color-contrast",
+                        "data": {
+                          "fgColor": "#404040",
+                          "bgColor": "#ffffff",
+                          "contrastRatio": 10.359999999999999,
+                          "fontSize": "9.8pt (13px)",
+                          "fontWeight": "normal",
+                          "expectedContrastRatio": "4.5:1"
+                        },
+                        "relatedNodes": [],
+                        "impact": "serious",
+                        "message": "Element has sufficient color contrast of 10.36"
+                      }
+                    ],
+                    "all": [],
+                    "none": [],
+                    "impact": null,
+                    "html": "<span>Performance &amp; security by<\/span>",
+                    "target": [
+                      ".cf-footer-item.sm\\:block.sm\\:mb-1:nth-child(4) > span"
+                    ]
+                  },
+                  {
+                    "any": [
+                      {
+                        "id": "color-contrast",
+                        "data": {
+                          "fgColor": "#0051c3",
+                          "bgColor": "#ffffff",
+                          "contrastRatio": 7.0800000000000001,
+                          "fontSize": "9.8pt (13px)",
+                          "fontWeight": "normal",
+                          "expectedContrastRatio": "4.5:1"
+                        },
+                        "relatedNodes": [],
+                        "impact": "serious",
+                        "message": "Element has sufficient color contrast of 7.08"
+                      }
+                    ],
+                    "all": [],
+                    "none": [],
+                    "impact": null,
+                    "html": "<a rel=\"noopener noreferrer\" href=\"https:\/\/www.cloudflare.com\/5xx-error-landing\" id=\"brand_link\" target=\"_blank\">Cloudflare<\/a>",
+                    "target": [
+                      "#brand_link"
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "document-title",
+                "impact": null,
+                "tags": [
+                  "cat.text-alternatives",
+                  "wcag2a",
+                  "wcag242",
+                  "TTv5",
+                  "TT12.a",
+                  "EN-301-549",
+                  "EN-9.2.4.2",
+                  "ACT"
+                ],
+                "description": "Ensure each HTML document contains a non-empty <title> element",
+                "help": "Documents must have <title> element to aid in navigation",
+                "helpUrl": "https:\/\/dequeuniversity.com\/rules\/axe\/4.10\/document-title?application=axeAPI",
+                "nodes": [
+                  {
+                    "any": [
+                      {
+                        "id": "doc-has-title",
+                        "data": null,
+                        "relatedNodes": [],
+                        "impact": "serious",
+                        "message": "Document has a non-empty <title> element"
+                      }
+                    ],
+                    "all": [],
+                    "none": [],
+                    "impact": null,
+                    "html": "<html class=\"no-js\" lang=\"en-US\">",
+                    "target": [
+                      "html"
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "html-has-lang",
+                "impact": null,
+                "tags": [
+                  "cat.language",
+                  "wcag2a",
+                  "wcag311",
+                  "TTv5",
+                  "TT11.a",
+                  "EN-301-549",
+                  "EN-9.3.1.1",
+                  "ACT"
+                ],
+                "description": "Ensure every HTML document has a lang attribute",
+                "help": "<html> element must have a lang attribute",
+                "helpUrl": "https:\/\/dequeuniversity.com\/rules\/axe\/4.10\/html-has-lang?application=axeAPI",
+                "nodes": [
+                  {
+                    "any": [
+                      {
+                        "id": "has-lang",
+                        "data": null,
+                        "relatedNodes": [],
+                        "impact": "serious",
+                        "message": "The <html> element has a lang attribute"
+                      }
+                    ],
+                    "all": [],
+                    "none": [],
+                    "impact": null,
+                    "html": "<html class=\"no-js\" lang=\"en-US\">",
+                    "target": [
+                      "html"
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "html-lang-valid",
+                "impact": null,
+                "tags": [
+                  "cat.language",
+                  "wcag2a",
+                  "wcag311",
+                  "TTv5",
+                  "TT11.a",
+                  "EN-301-549",
+                  "EN-9.3.1.1",
+                  "ACT"
+                ],
+                "description": "Ensure the lang attribute of the <html> element has a valid value",
+                "help": "<html> element must have a valid value for the lang attribute",
+                "helpUrl": "https:\/\/dequeuniversity.com\/rules\/axe\/4.10\/html-lang-valid?application=axeAPI",
+                "nodes": [
+                  {
+                    "any": [],
+                    "all": [],
+                    "none": [
+                      {
+                        "id": "valid-lang",
+                        "data": null,
+                        "relatedNodes": [],
+                        "impact": "serious",
+                        "message": "Value of lang attribute is included in the list of valid languages"
+                      }
+                    ],
+                    "impact": null,
+                    "html": "<html class=\"no-js\" lang=\"en-US\">",
+                    "target": [
+                      "html"
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "link-name",
+                "impact": null,
+                "tags": [
+                  "cat.name-role-value",
+                  "wcag2a",
+                  "wcag244",
+                  "wcag412",
+                  "section508",
+                  "section508.22.a",
+                  "TTv5",
+                  "TT6.a",
+                  "EN-301-549",
+                  "EN-9.2.4.4",
+                  "EN-9.4.1.2",
+                  "ACT"
+                ],
+                "description": "Ensure links have discernible text",
+                "help": "Links must have discernible text",
+                "helpUrl": "https:\/\/dequeuniversity.com\/rules\/axe\/4.10\/link-name?application=axeAPI",
+                "nodes": [
+                  {
+                    "any": [
+                      {
+                        "id": "has-visible-text",
+                        "data": null,
+                        "relatedNodes": [],
+                        "impact": "serious",
+                        "message": "Element has text that is visible to screen readers"
+                      }
+                    ],
+                    "all": [],
+                    "none": [
+                      {
+                        "id": "focusable-no-name",
+                        "data": null,
+                        "relatedNodes": [],
+                        "impact": "serious",
+                        "message": "Element is not in tab order or has accessible text"
+                      }
+                    ],
+                    "impact": null,
+                    "html": "<a rel=\"noopener noreferrer\" href=\"https:\/\/www.cloudflare.com\/5xx-error-landing\" id=\"brand_link\" target=\"_blank\">Cloudflare<\/a>",
+                    "target": [
+                      "#brand_link"
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "meta-viewport",
+                "impact": null,
+                "tags": [
+                  "cat.sensory-and-visual-cues",
+                  "wcag2aa",
+                  "wcag144",
+                  "EN-301-549",
+                  "EN-9.1.4.4",
+                  "ACT"
+                ],
+                "description": "Ensure <meta name=\"viewport\"> does not disable text scaling and zooming",
+                "help": "Zooming and scaling must not be disabled",
+                "helpUrl": "https:\/\/dequeuniversity.com\/rules\/axe\/4.10\/meta-viewport?application=axeAPI",
+                "nodes": [
+                  {
+                    "any": [
+                      {
+                        "id": "meta-viewport",
+                        "data": null,
+                        "relatedNodes": [],
+                        "impact": "critical",
+                        "message": "<meta> tag does not disable zooming on mobile devices"
+                      }
+                    ],
+                    "all": [],
+                    "none": [],
+                    "impact": null,
+                    "html": "<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">",
+                    "target": [
+                      "meta[name=\"viewport\"]"
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "nested-interactive",
+                "impact": null,
+                "tags": [
+                  "cat.keyboard",
+                  "wcag2a",
+                  "wcag412",
+                  "TTv5",
+                  "TT6.a",
+                  "EN-301-549",
+                  "EN-9.4.1.2"
+                ],
+                "description": "Ensure interactive controls are not nested as they are not always announced by screen readers or can cause focus problems for assistive technologies",
+                "help": "Interactive controls must not be nested",
+                "helpUrl": "https:\/\/dequeuniversity.com\/rules\/axe\/4.10\/nested-interactive?application=axeAPI",
+                "nodes": [
+                  {
+                    "any": [
+                      {
+                        "id": "no-focusable-content",
+                        "data": null,
+                        "relatedNodes": [],
+                        "impact": "serious",
+                        "message": "Element does not have focusable descendants"
+                      }
+                    ],
+                    "all": [],
+                    "none": [],
+                    "impact": null,
+                    "html": "<button type=\"button\" id=\"cf-footer-ip-reveal\" class=\"cf-footer-ip-reveal-btn\">Click to reveal<\/button>",
+                    "target": [
+                      "#cf-footer-ip-reveal"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "incomplete": [
+              {
+                "id": "link-in-text-block",
+                "impact": "serious",
+                "tags": [
+                  "cat.color",
+                  "wcag2a",
+                  "wcag141",
+                  "TTv5",
+                  "TT13.a",
+                  "EN-301-549",
+                  "EN-9.1.4.1"
+                ],
+                "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
+                "help": "Links must be distinguishable without relying on color",
+                "helpUrl": "https:\/\/dequeuniversity.com\/rules\/axe\/4.10\/link-in-text-block?application=axeAPI",
+                "nodes": [
+                  {
+                    "any": [
+                      {
+                        "id": "link-in-text-block",
+                        "data": {
+                          "messageKey": "bgOverlap"
+                        },
+                        "relatedNodes": [
+                          {
+                            "html": "<span class=\"cf-footer-item sm:block sm:mb-1\"><span>Performance &amp; security by<\/span> <a rel=\"noopener noreferrer\" href=\"https:\/\/www.cloudflare.com\/5xx-error-landing\" id=\"brand_link\" target=\"_blank\">Cloudflare<\/a><\/span>",
+                            "target": [
+                              ".cf-footer-item.sm\\:block.sm\\:mb-1:nth-child(4)"
+                            ]
+                          }
+                        ],
+                        "impact": "serious",
+                        "message": "Element's contrast ratio could not be determined because of element overlap"
+                      }
+                    ],
+                    "all": [],
+                    "none": [],
+                    "impact": "serious",
+                    "html": "<a rel=\"noopener noreferrer\" href=\"https:\/\/www.cloudflare.com\/5xx-error-landing\" id=\"brand_link\" target=\"_blank\">Cloudflare<\/a>",
+                    "target": [
+                      "#brand_link"
+                    ],
+                    "failureSummary": "Fix any of the following:\n  Element's contrast ratio could not be determined because of element overlap"
+                  }
+                ]
+              }
+            ]
+          },
+          "base_page_ip_ptr": "",
+          "base_page_cname": "",
+          "base_page_dns_server": "",
+          "browser_name": "Chrome",
+          "eventName": "Step_1",
+          "test_run_time_ms": 1701,
+          "testUrl": "http:\/\/smdserver.xyz",
+          "custom": [
+            "CloudinaryImages",
+            "CloudinaryResolution",
+            "Colordepth",
+            "Dpi",
+            "Images",
+            "Resolution",
+            "fonts",
+            "generated-content-percent",
+            "generated-content-size",
+            "imgs-in-viewport",
+            "imgs-no-alt",
+            "imgs-out-viewport",
+            "jsLibsVulns",
+            "meta-viewport",
+            "possibly-render-blocking-reqs",
+            "rendered-html",
+            "securityHeaders"
+          ],
+          "CloudinaryImages": null,
+          "CloudinaryResolution": null,
+          "Colordepth": null,
+          "Dpi": null,
+          "Images": null,
+          "Resolution": null,
+          "fonts": null,
+          "generated-content-percent": null,
+          "generated-content-size": null,
+          "imgs-in-viewport": null,
+          "imgs-no-alt": null,
+          "imgs-out-viewport": null,
+          "jsLibsVulns": null,
+          "meta-viewport": null,
+          "possibly-render-blocking-reqs": null,
+          "rendered-html": null,
+          "securityHeaders": null,
+          "interactivePeriods": [
+            [
+              0,
+              130
+            ]
+          ],
+          "lastVisualChange": 0,
+          "visualComplete85": 0,
+          "visualComplete90": 0,
+          "visualComplete95": 0,
+          "visualComplete99": 0,
+          "visualComplete": 0,
+          "SpeedIndex": 0,
+          "chromeUserTiming": [
+            {
+              "name": "navigationStart",
+              "time": 49
+            },
+            {
+              "name": "redirectStart",
+              "time": 56
+            },
+            {
+              "name": "redirectEnd",
+              "time": 62
+            },
+            {
+              "name": "fetchStart",
+              "time": 62
+            },
+            {
+              "name": "navigationStart",
+              "time": 80
+            },
+            {
+              "name": "domLoading",
+              "time": 80
+            },
+            {
+              "name": "responseEnd",
+              "time": 80
+            },
+            {
+              "name": "domInteractive",
+              "time": 81
+            },
+            {
+              "name": "domContentLoadedEventStart",
+              "time": 81
+            },
+            {
+              "name": "domContentLoadedEventEnd",
+              "time": 81
+            },
+            {
+              "name": "domComplete",
+              "time": 81
+            },
+            {
+              "name": "unloadEventStart",
+              "time": 107
+            },
+            {
+              "name": "unloadEventEnd",
+              "time": 107
+            },
+            {
+              "name": "markAsMainFrame",
+              "time": 107
+            },
+            {
+              "name": "commitNavigationEnd",
+              "time": 108
+            },
+            {
+              "name": "domLoading",
+              "time": 108
+            },
+            {
+              "name": "TotalLayoutShift",
+              "value": 0
+            },
+            {
+              "name": "CumulativeLayoutShift",
+              "value": 0
+            }
+          ],
+          "chromeUserTiming.navigationStart": 80,
+          "chromeUserTiming.redirectStart": 57,
+          "chromeUserTiming.redirectEnd": 62,
+          "chromeUserTiming.fetchStart": 62,
+          "chromeUserTiming.domLoading": 109,
+          "chromeUserTiming.responseEnd": 81,
+          "chromeUserTiming.domInteractive": 81,
+          "chromeUserTiming.domContentLoadedEventStart": 81,
+          "chromeUserTiming.domContentLoadedEventEnd": 81,
+          "chromeUserTiming.domComplete": 81,
+          "chromeUserTiming.unloadEventStart": 107,
+          "chromeUserTiming.unloadEventEnd": 107,
+          "chromeUserTiming.markAsMainFrame": 107,
+          "chromeUserTiming.commitNavigationEnd": 108,
+          "chromeUserTiming.TotalLayoutShift": 0,
+          "chromeUserTiming.CumulativeLayoutShift": 0,
+          "blinkFeatureFirstUsed": {
+            "Features": {
+              "1075": {
+                "name": "V8SloppyMode",
+                "firstUsed": 129.84200000000001
+              },
+              "5285": {
+                "name": "V8Window_Location_AttributeSetter",
+                "firstUsed": 49.488999999999997
+              },
+              "5284": {
+                "name": "V8Window_Location_AttributeGetter",
+                "firstUsed": 49.493000000000002
+              },
+              "593": {
+                "name": "SetReferrerPolicy",
+                "firstUsed": 111.65900000000001
+              },
+              "1441": {
+                "name": "SecureContextCheckPassed",
+                "firstUsed": 111.676
+              },
+              "1753": {
+                "name": "ReferrerPolicyHeader",
+                "firstUsed": 111.679
+              },
+              "1910": {
+                "name": "CrossOriginMainFrameNulledNameAccessed",
+                "firstUsed": 111.681
+              },
+              "2627": {
+                "name": "PageLifeCycleFreeze",
+                "firstUsed": 112.217
+              },
+              "2188": {
+                "name": "PerformanceObserverForWindow",
+                "firstUsed": 122.776
+              },
+              "2927": {
+                "name": "LargestContentfulPaintExplicitlyRequested",
+                "firstUsed": 122.84
+              },
+              "3004": {
+                "name": "PerformanceObserverBufferedFlag",
+                "firstUsed": 122.84399999999999
+              },
+              "2782": {
+                "name": "LayoutShiftExplicitlyRequested",
+                "firstUsed": 122.857
+              },
+              "2203": {
+                "name": "HasIDClassTagAttribute",
+                "firstUsed": 128.92599999999999
+              },
+              "2204": {
+                "name": "HasBeforeOrAfterPseudoElement",
+                "firstUsed": 129.197
+              },
+              "973": {
+                "name": "CSSAtRuleMedia",
+                "firstUsed": 129.22999999999999
+              },
+              "2387": {
+                "name": "CSSSelectorPseudoFocus",
+                "firstUsed": 129.31999999999999
+              },
+              "3275": {
+                "name": "NavigatorCookieEnabled",
+                "firstUsed": 130.62299999999999
+              }
+            },
+            "CSSFeatures": {
+              "74": {
+                "name": "CSSPropertyContent",
+                "firstUsed": 129.44900000000001
+              },
+              "83": {
+                "name": "CSSPropertyLeft",
+                "firstUsed": 129.45599999999999
+              },
+              "81": {
+                "name": "CSSPropertyHeight",
+                "firstUsed": 129.46000000000001
+              },
+              "119": {
+                "name": "CSSPropertyPosition",
+                "firstUsed": 129.464
+              },
+              "128": {
+                "name": "CSSPropertyTextAlign",
+                "firstUsed": 129.46799999999999
+              },
+              "130": {
+                "name": "CSSPropertyTextIndent",
+                "firstUsed": 129.471
+              },
+              "149": {
+                "name": "CSSPropertyTop",
+                "firstUsed": 129.47399999999999
+              },
+              "161": {
+                "name": "CSSPropertyWidth",
+                "firstUsed": 129.477
+              },
+              "2": {
+                "name": "CSSPropertyColor",
+                "firstUsed": 129.601
+              },
+              "89": {
+                "name": "CSSPropertyMargin",
+                "firstUsed": 129.66399999999999
+              },
+              "109": {
+                "name": "CSSPropertyPadding",
+                "firstUsed": 129.66800000000001
+              }
+            },
+            "AnimatedCSSFeatures": []
+          },
+          "testID": "251015_ZiDc0E_7PQ",
+          "step": 1,
+          "effectiveBps": 53190,
+          "render": 0,
+          "domTime": 0,
+          "aft": 0,
+          "titleTime": 81,
+          "domLoading": 0,
+          "server_rtt": 0,
+          "firstPaint": 0,
+          "error": "403 Navigation error",
+          "edge-processed": true,
+          "longTasks": [],
+          "utilization": {
+            "cpu": {
+              "data": {
+                "0": 0,
+                "105": 50,
+                "205": 95
+              },
+              "max": 100,
+              "count": 3
+            },
+            "bw": {
+              "data": {
+                "0": 0,
+                "105": 45119,
+                "205": 2415307
+              },
+              "max": 2415307,
+              "count": 3
+            }
+          },
+          "effectiveBpsDoc": 53190,
+          "pages": {
+            "details": "https:\/\/www.webpagetest.org\/result\/251015_ZiDc0E_7PQ\/1\/details\/",
+            "checklist": "https:\/\/www.webpagetest.org\/result\/251015_ZiDc0E_7PQ\/1\/performance_optimization\/",
+            "breakdown": "https:\/\/www.webpagetest.org\/result\/251015_ZiDc0E_7PQ\/1\/breakdown\/",
+            "domains": "https:\/\/www.webpagetest.org\/result\/251015_ZiDc0E_7PQ\/1\/domains\/",
+            "screenShot": "https:\/\/www.webpagetest.org\/result\/251015_ZiDc0E_7PQ\/1\/screen_shot\/",
+            "opportunities": "https:\/\/www.webpagetest.org\/result\/251015_ZiDc0E_7PQ\/1\/experiments\/"
+          },
+          "thumbnails": {
+            "waterfall": "https:\/\/www.webpagetest.org\/result\/251015_ZiDc0E_7PQ\/1_waterfall_thumb.png",
+            "checklist": "https:\/\/www.webpagetest.org\/result\/251015_ZiDc0E_7PQ\/1_optimization_thumb.png",
+            "screenShot": "https:\/\/www.webpagetest.org\/result\/251015_ZiDc0E_7PQ\/1_screen_thumb.png"
+          },
+          "images": {
+            "waterfall": "https:\/\/www.webpagetest.org\/result\/25\/10\/15\/ZiDc0E\/7PQ\/1_waterfall.png",
+            "connectionView": "https:\/\/www.webpagetest.org\/result\/25\/10\/15\/ZiDc0E\/7PQ\/1_connection.png",
+            "checklist": "https:\/\/www.webpagetest.org\/result\/25\/10\/15\/ZiDc0E\/7PQ\/1_optimization.png",
+            "screenShot": "https:\/\/www.webpagetest.org\/getfile.php?test=251015_ZiDc0E_7PQ&file=1_screen.jpg"
+          },
+          "rawData": {
+            "headers": "https:\/\/www.webpagetest.org\/result\/25\/10\/15\/ZiDc0E\/7PQ\/1_report.txt",
+            "pageData": "https:\/\/www.webpagetest.org\/result\/25\/10\/15\/ZiDc0E\/7PQ\/1_IEWPG.txt",
+            "requestsData": "https:\/\/www.webpagetest.org\/result\/25\/10\/15\/ZiDc0E\/7PQ\/1_IEWTR.txt",
+            "utilization": "https:\/\/www.webpagetest.org\/result\/25\/10\/15\/ZiDc0E\/7PQ\/1_progress.csv",
+            "trace": "https:\/\/www.webpagetest.org\/getgzip.php?test=251015_ZiDc0E_7PQ&compressed=1&file=1_trace.json.gz"
+          },
+          "videoFrames": [
+            {
+              "time": 0,
+              "image": "https:\/\/www.webpagetest.org\/getfile.php?test=251015_ZiDc0E_7PQ&video=video_1&file=ms_000000.jpg",
+              "VisuallyComplete": 100
+            }
+          ],
+          "domains": {
+            "a.nel.cloudflare.com": {
+              "bytes": 0,
+              "requests": 1,
+              "connections": 1
+            },
+            "smdserver.xyz": {
+              "bytes": 6436,
+              "requests": 2,
+              "cdn_provider": "Cloudflare",
+              "connections": 1
+            }
+          },
+          "breakdown": {
+            "html": {
+              "color": [
+                130,
+                181,
+                252
+              ],
+              "bytes": 1882,
+              "bytesUncompressed": 5464,
+              "requests": 1
+            },
+            "js": {
+              "color": [
+                254,
+                197,
+                132
+              ],
+              "bytes": 0,
+              "bytesUncompressed": 0,
+              "requests": 0
+            },
+            "css": {
+              "color": [
+                178,
+                234,
+                148
+              ],
+              "bytes": 4554,
+              "bytesUncompressed": 24051,
+              "requests": 1
+            },
+            "image": {
+              "color": [
+                196,
+                154,
+                232
+              ],
+              "bytes": 0,
+              "bytesUncompressed": 0,
+              "requests": 0
+            },
+            "flash": {
+              "color": [
+                45,
+                183,
+                193
+              ],
+              "bytes": 0,
+              "bytesUncompressed": 0,
+              "requests": 0
+            },
+            "font": {
+              "color": [
+                255,
+                82,
+                62
+              ],
+              "bytes": 0,
+              "bytesUncompressed": 0,
+              "requests": 0
+            },
+            "video": {
+              "color": [
+                33,
+                194,
+                162
+              ],
+              "bytes": 0,
+              "bytesUncompressed": 0,
+              "requests": 0
+            },
+            "other": {
+              "color": [
+                196,
+                196,
+                196
+              ],
+              "bytes": 0,
+              "bytesUncompressed": 0,
+              "requests": 0
+            }
+          },
+          "consoleLog": [
+            {
+              "source": "network",
+              "level": "error",
+              "text": "Failed to load resource: the server responded with a status of 403 ()",
+              "timestamp": 1760532550870.605,
+              "url": "https:\/\/smdserver.xyz\/",
+              "networkRequestId": "B1D21CAE0B645C415B65E2066F6C4598"
+            },
+            {
+              "source": "network",
+              "level": "error",
+              "text": "Failed to load resource: the server responded with a status of 403 ()",
+              "timestamp": 1760532551277.9619,
+              "url": "https:\/\/smdserver.xyz\/favicon.ico",
+              "networkRequestId": "604611.8"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "statusCode": 200,
+  "statusText": "Test Complete",
+  "webPagetestVersion": "21.07"
+}

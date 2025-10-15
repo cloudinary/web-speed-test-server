@@ -15,10 +15,15 @@ const path = require('path');
 const parseTestResults = (testJson) => {
   let rollBarMsg = {testId: testJson.data.id, analyzedUrl: testJson.data.testUrl, thirdPartyErrorCode: "", file: path.basename((__filename))};
   try {
+    let failureDetails = "";
+
     // check if data is available
     if (Array.isArray(testJson.data.median) && testJson.data.median.length == 0) {
       logger.warn("Test results not ready yet", rollBarMsg);
       return {status: 'not_ready', message: 'data_not_ready'};
+    }
+    if (testJson?.data?.median?.firstView?.result >= 400 ) {
+      failureDetails = "result=" + testJson?.data?.median?.firstView?.result;
     }
 
     let browserName = _.get(testJson, 'data.location', 'somePlace:N/A').split(':')[1];
@@ -32,7 +37,7 @@ const parseTestResults = (testJson) => {
     }
     let requestsData = _.get(testJson, config.get('wtp.paths.rawData'), null);
     if (!origImageList || !requestsData) {
-      logger.error("WPT test data is missing information", rollBarMsg);
+      logger.error("WPT test data is missing information (" + failureDetails+ ")", rollBarMsg);
       return {status: 'error', message: 'wpt_failure'}
     }
     let imageList = _.uniqWith(origImageList, (arrVal, othVal) => {

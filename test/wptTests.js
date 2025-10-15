@@ -50,5 +50,11 @@ describe('Parse WPT result', () => {
     let results = wtpParser.parseTestResults(resultJson);
     assert.equal(results.status, 'not_ready', 'Data not ready is expected');
   })
+  it('Site denied', () => {
+    let resultJson = JSON.parse(fs.readFileSync('./test/resources/test3.json'));
+    let results = wtpParser.parseTestResults(resultJson);
+    assert.equal(results.status, 'error', 'Error status');
+    assert.equal(results.message, 'wpt_failure', 'Failure in the message');
+  })
 
 });
