@@ -54,7 +54,7 @@ const wtp = (app) => {
     const quality = req.query.quality;
     let rollBarMsg = {testId: testId, thirdPartyErrorCode: "", file: path.basename((__filename))};
     logger.info("Fetch WPT test results", rollBarMsg, req);
-    apiCaller.checkTestStatus(testId, quality, (error, result) => {
+    apiCaller.getTestResults(testId, quality, (error, result) => {
       routeCallback(error, result, res, rollBarMsg)
     });
   });

@@ -1,0 +1,35 @@
+{
+  "data": {
+    "average": {
+      "firstView": []
+    },
+    "bwDown": 0,
+    "bwUp": 0,
+    "completed": 1758191003,
+    "connectivity": "Native",
+    "fvonly": true,
+    "id": "250918_YiDc5V_5A0",
+    "latency": 0,
+    "location": "SLC_US_02:Chrome",
+    "median": [],
+    "mobile": 0,
+    "plr": "0",
+    "runs": {
+      "1": {
+        "firstView": []
+      }
+    },
+    "shaperLimit": 0,
+    "standardDeviation": {
+      "firstView": []
+    },
+    "successfulFVRuns": 0,
+    "summary": "https://www.webpagetest.org/results.php?test=250918_YiDc5V_5A0",
+    "testRuns": 1,
+    "testUrl": "https://s.codepen.io/maxro/debug/5b4dde20bc49345de60920ffd1ce8af1",
+    "url": "https://s.codepen.io/maxro/debug/5b4dde20bc49345de60920ffd1ce8af1"
+  },
+  "statusCode": 200,
+  "statusText": "Test Complete",
+  "webPagetestVersion": "21.07"
+}

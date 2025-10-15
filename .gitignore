@@ -16,3 +16,6 @@ npm-debug.log
 !.elasticbeanstalk/*.global.yml
 .env
 
+# mise
+mise.toml
+.mise.local.toml
