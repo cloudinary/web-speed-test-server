@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.7](https://github.com/cloudinary/web-speed-test-server/compare/v1.3.6...v1.3.7) (2025-10-15)
+
+
+### Bug Fixes
+
+* log 4xx/5xx errors returned by tested site ([#143](https://github.com/cloudinary/web-speed-test-server/issues/143)) ([e54479d](https://github.com/cloudinary/web-speed-test-server/commit/e54479ddb107fb3aff04a800521535f11d264db7))
+
 ## [1.3.6](https://github.com/cloudinary/web-speed-test-server/compare/v1.3.5...v1.3.6) (2025-10-15)
 
 
