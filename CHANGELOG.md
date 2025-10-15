@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.6](https://github.com/cloudinary/web-speed-test-server/compare/v1.3.5...v1.3.6) (2025-10-15)
+
+
+### Bug Fixes
+
+* WPT API calls optimizations (DELO-5576) ([#141](https://github.com/cloudinary/web-speed-test-server/issues/141)) ([6a021c2](https://github.com/cloudinary/web-speed-test-server/commit/6a021c2b64fc904ef8a4f97f98255bcdfb96d4b6))
+
 ## [1.3.5](https://github.com/cloudinary/web-speed-test-server/compare/v1.3.4...v1.3.5) (2025-06-10)
 
 
