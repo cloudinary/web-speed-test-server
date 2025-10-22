@@ -27,7 +27,7 @@
     "express": "^4.21.2",
     "got": "^14.4.6",
     "lodash": "^4.17.21",
-    "rollbar": "^2.26.4",
+    "rollbar": "^2.26.5",
     "winston": "^3.17.0",
     "winston-transport-rollbar-3": "^3.2.6"
   },
