@@ -1,0 +1,15 @@
+diff --git a/node_modules/cloudinary/lib/utils/index.js b/node_modules/cloudinary/lib/utils/index.js
+index e775a14..35f10a6 100644
+--- a/node_modules/cloudinary/lib/utils/index.js
++++ b/node_modules/cloudinary/lib/utils/index.js
+@@ -418,7 +418,9 @@ function build_upload_params(options) {
+     visual_search: utils.as_safe_bool(options.visual_search),
+     on_success: options.on_success,
+     auto_transcription: options.auto_transcription,
+-    auto_chaptering: utils.as_safe_bool(options.auto_chaptering)
++    auto_chaptering: utils.as_safe_bool(options.auto_chaptering),
++    /* for internal use only */
++    analyze: JSON.stringify(options.analyze)
+   };
+ 
+   return utils.updateable_resource_params(options, params);
