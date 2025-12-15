@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.9](https://github.com/cloudinary/web-speed-test-server/compare/v1.3.8...v1.3.9) (2025-12-15)
+
+
+### Bug Fixes
+
+* reduce vulnerabilities (DELO-5760) ([#154](https://github.com/cloudinary/web-speed-test-server/issues/154)) ([c1b965a](https://github.com/cloudinary/web-speed-test-server/commit/c1b965a04b4e9a13ae6d24d8199cd35359e49e85))
+
 ## [1.3.8](https://github.com/cloudinary/web-speed-test-server/compare/v1.3.7...v1.3.8) (2025-11-12)
 
 
