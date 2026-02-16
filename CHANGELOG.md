@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.10](https://github.com/cloudinary/web-speed-test-server/compare/v1.3.9...v1.3.10) (2026-02-16)
+
+
+### Bug Fixes
+
+* **deps:** bump qs from 6.14.1 to 6.14.2 ([#167](https://github.com/cloudinary/web-speed-test-server/issues/167)) ([519030a](https://github.com/cloudinary/web-speed-test-server/commit/519030ada11cf5d5364e25feb9534e7d03ce8ec0))
+
 ## [1.3.9](https://github.com/cloudinary/web-speed-test-server/compare/v1.3.8...v1.3.9) (2025-12-15)
 
 
