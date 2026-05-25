@@ -1,5 +1,5 @@
 const opentelemetry = require('@opentelemetry/sdk-node');
-const {Resource} = require('@opentelemetry/resources');
+const {resourceFromAttributes} = require('@opentelemetry/resources');
 const {registerInstrumentations} = require('@opentelemetry/instrumentation');
 const {HttpInstrumentation} = require('@opentelemetry/instrumentation-http');
 const {ExpressInstrumentation} = require('@opentelemetry/instrumentation-express');
@@ -11,7 +11,7 @@ const {
 } = require('@opentelemetry/semantic-conventions');
 
 const sdk = new opentelemetry.NodeSDK({
-    resource: new Resource({
+    resource: resourceFromAttributes({
         [ATTR_SERVICE_NAME]: 'web-speed-test-server',
         [ATTR_SERVICE_VERSION]: require('./package.json').version
     }),
