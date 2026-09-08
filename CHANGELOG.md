@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.14](https://github.com/cloudinary/web-speed-test-server/compare/v1.3.13...v1.3.14) (2026-09-08)
+
+
+### Bug Fixes
+
+* trigger patch release ([5757506](https://github.com/cloudinary/web-speed-test-server/commit/5757506dcc01a75f162dda54fd0f75c930223059))
+
 ## [1.3.13](https://github.com/cloudinary/web-speed-test-server/compare/v1.3.12...v1.3.13) (2026-09-08)
 
 
