@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.15](https://github.com/cloudinary/web-speed-test-server/compare/v1.3.14...v1.3.15) (2026-09-16)
+
+
+### Bug Fixes
+
+* [Snyk] Upgrade cloudinary from 2.9.0 to 2.10.1 ([#248](https://github.com/cloudinary/web-speed-test-server/issues/248)) ([2a8ece2](https://github.com/cloudinary/web-speed-test-server/commit/2a8ece2d6e004dbe5f89ca00d10374a6c3c7935e))
+* trigger patch release ([92f7b2e](https://github.com/cloudinary/web-speed-test-server/commit/92f7b2e1532aecdebed7605b49c28bd82b14f1ff))
+
 ## [1.3.14](https://github.com/cloudinary/web-speed-test-server/compare/v1.3.13...v1.3.14) (2026-09-08)
 
 
