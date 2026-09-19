@@ -784,10 +784,10 @@ cliui@^8.0.1:
     strip-ansi "^6.0.1"
     wrap-ansi "^7.0.0"
 
-cloudinary@2.10.1:
-  version "2.10.1"
-  resolved "https://registry.yarnpkg.com/cloudinary/-/cloudinary-2.10.1.tgz#804819042536b372cadb1ecddfd2b7ac9497d65c"
-  integrity sha512-0aqF/sGwm2dSM/Xse87EI5OpKcuX/hwoPPdUDTdUal6GMPKevtElcI3spcaeuzJJbcLkY3vJaF22q0u50VO5Lw==
+cloudinary@2.11.0:
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/cloudinary/-/cloudinary-2.11.0.tgz#232b65574eb5428313d33971c9aeb9895d535cd1"
+  integrity sha512-o2pAkDDqrzPFE/mn9GCfFjBIGQmPs++Ts6rtkFl4vY528DNHiMovKWjH16HBjeGa9iwI7eAad24aWN2emT0aww==
   dependencies:
     lodash "^4.17.23"
 
