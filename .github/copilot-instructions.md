@@ -1,0 +1,5 @@
+# GitHub Copilot instructions — web-speed-test-server
+
+This repo's agent guidance lives in [`AGENTS.md`](../AGENTS.md) at the repo root. Read it before generating or editing code.
+
+Quick facts: deployable Node.js/Express service (not an npm package), Node 20, Yarn 1 (not npm), default branch `master`. Tests run with `WTP_API_KEY=mock yarn run test`. See `AGENTS.md` for setup, env vars (including the misspelled `CLOUDINARY_SEACRET`), the HTTP API, and gotchas.
