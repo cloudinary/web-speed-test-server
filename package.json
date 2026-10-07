@@ -46,6 +46,7 @@
   "resolutions": {
     "protobufjs": "^7.6.5",
     "qs": "^6.16.0",
-    "proxy-addr": "^2.0.8"
+    "proxy-addr": "^2.0.8",
+    "@grpc/grpc-js": "^1.14.5"
   }
 }
