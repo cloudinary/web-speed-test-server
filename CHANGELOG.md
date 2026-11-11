@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.17](https://github.com/cloudinary/web-speed-test-server/compare/v1.3.16...v1.3.17) (2026-11-11)
+
+
+### Bug Fixes
+
+* dependency security vulnerabilities (DELO-6764, DELO-6786, DELO-6721, DELO-6638, DELO-6639) ([#261](https://github.com/cloudinary/web-speed-test-server/issues/261)) ([e6884cc](https://github.com/cloudinary/web-speed-test-server/commit/e6884cc9a932dca0879e23d457fb2cd025abdb9c))
+
 ## [1.3.16](https://github.com/cloudinary/web-speed-test-server/compare/v1.3.15...v1.3.16) (2026-10-07)
 
 
